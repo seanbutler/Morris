@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/AnotherLang.dir/src/Tokenizer.cpp.o CMakeFiles/AnotherLang.dir/src/Tokens.cpp.o CMakeFiles/AnotherLang.dir/src/Parser.cpp.o CMakeFiles/AnotherLang.dir/main.cpp.o  -o AnotherLang 

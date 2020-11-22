@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(AnotherLang)
+project(Morris)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -9,7 +9,7 @@ set(SOURCE_FILES
         ./src/Parser.cpp ./src/Parser.h
         main.cpp)
 
-add_executable(AnotherLang ${SOURCE_FILES})
+add_executable(Morris ${SOURCE_FILES})
 
-target_include_directories(AnotherLang PUBLIC ${UUID_INCLUDE_DIRS})
-target_link_libraries(AnotherLang ${UUID_LIBRARIES})
+target_include_directories(Morris PUBLIC ${UUID_INCLUDE_DIRS})
+target_link_libraries(Morris ${UUID_LIBRARIES})

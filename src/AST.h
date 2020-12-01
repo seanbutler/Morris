@@ -39,7 +39,6 @@ public:
     {
         return (std::string) "node" + std::to_string(id) + " ["
             + " uuid = \"" + boost::lexical_cast<std::string>(tag) + "\""
-//            + " label = \"" + value + "\""
                 + " label = \"" + type + " " + value + "\""
             + " ];\n"
             ;
@@ -69,6 +68,7 @@ public:
     std::string value;
     boost::uuids::uuid tag;
     std::vector<std::shared_ptr<ASTNode>>children;
+    std::vector<std::string>symbols;
 };
 
 // ----------------------------------------------------------------------

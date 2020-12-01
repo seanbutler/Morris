@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include "./src/Emitter.h"
+
 #include "./src/Tokenizer.h"
 #include "./src/AST.h"
 #include "./src/Parser.h"
@@ -21,12 +23,12 @@ int main(int argc, char**argv) {
 
     std::vector<Token> tokens = tokenizer.GetOutputTokens();
 
-    for(auto tok : tokens) {
-        std::cout << tok.file << "\t" << tok.line << "\t"
-                << (int)tok.kind  << "\t"
-                << tok.name << "\t"
-                << std::endl;
-    }
+//    for(auto tok : tokens) {
+//        std::cout << tok.file << "\t" << tok.line << "\t"
+//                << (int)tok.kind  << "\t"
+//                << tok.name << "\t"
+//                << std::endl;
+//    }
 
     Parser parser;
     parser.SetInput(tokens);
@@ -37,6 +39,19 @@ int main(int argc, char**argv) {
     ast->value = "";
 
     parser.Parse(ast);
+
+    Emitter emitter;
+    emitter.SetInput(ast);
+    emitter.Start();
+    emitter.DataSection();
+    emitter.CodeSection();
+    emitter.Exit();
+
+
+
+    std::ofstream assemblyFile("test.asm");
+    emitter.WriteOut(assemblyFile);
+    assemblyFile.close();
 
     return 0;
 }

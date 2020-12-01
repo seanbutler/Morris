@@ -3,7 +3,6 @@
 //
 
 #include "Tokenizer.h"
-
 #include "./Tokens.h"
 extern Token tokens[];
 
@@ -191,7 +190,6 @@ bool Tokenizer::ScanToken() {
             newTok.line = currentLine;
             outputTokens.push_back(newTok);
             return true;
-
         }
 
         case '>': {

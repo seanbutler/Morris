@@ -1,19 +1,19 @@
 
-decl a
-decl b
-decl c
-
-a = 1
-b = 1
-c = 1
-
-func f1(a, b){
-    return a + b
+proc myproc(a){
+    decl b
+    b = a + 1
 }
 
-func start(x) {
-    c = f1(a, b)
+func myfunc(a){
+    decl b
+    b = a + 1
+
+    {
+        decl x, b, a, d
+        a = a + 1
+        x = 100
+    }
+
+    ret b
 }
 
-
-start(1)

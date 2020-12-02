@@ -29,12 +29,21 @@ std::shared_ptr<ASTNode> Parser::ParseStatements() {
 
     std::shared_ptr<ASTNode> statementsNodeSP = nullptr;
     statementsNodeSP = std::make_shared<ASTNode>();
-    statementsNodeSP->type = "Statements";
+    statementsNodeSP->type = "Module";
     statementsNodeSP->value = "";
 
     while ( tokenItor->kind != TokenEnum::END_OF_FILE )
     {
         switch (tokenItor->kind) {
+
+            // BLOCK
+            case TokenEnum::SYM_LBRACES: {
+                tokenItor++;
+                std::cout << "Parser::Parse() TokenEnum::SYM_LBRACES" << std::endl;
+                statementsNodeSP->children.push_back(ParseBlock(false));
+                tokenItor++;
+                break;
+            }
 
             // DECLARATION
             case TokenEnum::KWD_DECL: {
@@ -77,6 +86,8 @@ std::shared_ptr<ASTNode> Parser::ParseStatements() {
                 statementsNodeSP->children.push_back(ParseFunction());
                 break;
             }
+
+
         }
     }
 
@@ -331,15 +342,29 @@ std::shared_ptr<ASTNode> Parser::ParseBlock(bool returnable) {
                 if ( returnable ){
                     std::cout << "Parser::ParseFunctionBlock() TokenEnum::KWD_RETURN" << std::endl;
                     statementsNodeSP->children.push_back(ParseReturn());
-// WORKING HERE
                     break;
-                }
-                else
-                {
-//                    syntax error
                 }
             }
 
+            // PROCEDURE
+            case TokenEnum::KWD_PROC: {
+                if ( !returnable ) {
+                    // NOT RETURNABLE THEREFORE TOPLEVEL?
+                    std::cout << "Parser::Parse() TokenEnum::KWD_PROC" << std::endl;
+                    statementsNodeSP->children.push_back(ParseProcedure());
+                    break;
+                }
+            }
+
+            // FUNCTION
+            case TokenEnum::KWD_FUNC:{
+                if ( !returnable ) {
+                    // NOT RETURNABLE THEREFORE TOPLEVEL?
+                    std::cout << "Parser::Parse() TokenEnum::KWD_FUNC" << std::endl;
+                    statementsNodeSP->children.push_back(ParseFunction());
+                    break;
+                }
+            }
         }
     }
 
@@ -560,7 +585,7 @@ std::shared_ptr<ASTNode> Parser::ParseReturn() {
     std::shared_ptr<ASTNode> statementNodeSP = nullptr;
 
     if ( tokenItor->kind == TokenEnum::KWD_RETURN) {
-        std::cout << "ParseDeclaration() TokenEnum::KWD_DECL" << std::endl;
+        std::cout << "ParseDeclaration() TokenEnum::KWD_RETURN" << std::endl;
         statementNodeSP = std::make_shared<ASTNode>();
         statementNodeSP->type = "RET";
         statementNodeSP->value = "";

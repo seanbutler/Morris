@@ -8,7 +8,7 @@ set(SOURCE_FILES
         ./src/Tokenizer.cpp ./src/Tokenizer.h
         ./src/Tokens.cpp ./src/Tokens.h
         ./src/Parser.cpp ./src/Parser.h
-        src/Emitter.cpp src/Emitter.h src/Generator.cpp src/Generator.h)
+        src/Emitter.cpp src/Emitter.h src/Generator.cpp src/Generator.h src/SymbolTable.cpp src/SymbolTable.h)
 
 add_executable(Morris ${SOURCE_FILES})
 

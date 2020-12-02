@@ -117,60 +117,7 @@ public:
 
 };
 
-// ----------------------------------------------------------------------------
 
-class Generator {
-public:
-    Generator(){
-    }
-
-    void SetInput(std::shared_ptr<ASTNode> A){
-        ast = A;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //
-    // THESE SHOULD BE ELSEWHERE, think about moving please
-    //
-
-    void Out(std::string addrlab, unsigned int len){
-        instructions.push_back(Instruction( "", "mov", regStr[RegsEnum::EAX], 0, "", "to stdout"));
-        instructions.push_back(Instruction( "", "mov", regStr[RegsEnum::EBX], 0, "", "to stdout"));
-        instructions.push_back(Instruction( "", "mov", regStr[RegsEnum::ECX], addrlab, "", "label"));
-        instructions.push_back(Instruction( "", "mov", regStr[RegsEnum::EDX], std::to_string(len), "", "length"));
-        instructions.push_back(Instruction( "", "syscall", "", "", "", "invoke operating system"));
-    }
-
-    void Exit(){
-        instructions.push_back(Instruction("", "mov", "rax",  "60",   "", "system call for exit"));
-        instructions.push_back(Instruction("", "xor", "rdi",  "rdi",  "", "exit code 0"));
-        instructions.push_back(Instruction("", "syscall",  "",    "",  "", "invoke operating system to exit"));
-    }
-
-
-    void WriteOut(std::ofstream & OST) {
-        for (auto I : instructions){
-            I.Write(OST);
-        }
-    }
-
-    std::shared_ptr<ASTNode> ast;
-    std::vector<Instruction> instructions;
-};
-
-
-// ----------------------------------------------------------------------------
 
 class NASM_X86_64 {
 public:
@@ -226,6 +173,63 @@ public:
 //    }
 
 };
+
+
+// ----------------------------------------------------------------------------
+
+class Emitter {
+public:
+    Emitter(){
+    }
+
+    void SetInput(std::shared_ptr<ASTNode> A){
+        ast = A;
+    }
+
+    void Start(){
+        instructions.push_back(NASM_X86_64::Start());
+        instructions.push_back(NASM_X86_64::StartFunction());
+    }
+
+    void DataSection(){
+        instructions.push_back(NASM_X86_64::DataSection());
+    }
+
+    void CodeSection(){
+        instructions.push_back(NASM_X86_64::CodeSection());
+    }
+
+    //
+    // THESE SHOULD BE ELSEWHERE, think about moving please
+    //
+
+    void Out(std::string addrlab, unsigned int len){
+        instructions.push_back(Instruction( "", "mov", regStr[RegsEnum::EAX], 0, "", "to stdout"));
+        instructions.push_back(Instruction( "", "mov", regStr[RegsEnum::EBX], 0, "", "to stdout"));
+        instructions.push_back(Instruction( "", "mov", regStr[RegsEnum::ECX], addrlab, "", "label"));
+        instructions.push_back(Instruction( "", "mov", regStr[RegsEnum::EDX], std::to_string(len), "", "length"));
+        instructions.push_back(Instruction( "", "syscall", "", "", "", "invoke operating system"));
+    }
+
+    void Exit(){
+        instructions.push_back(Instruction("", "mov", "rax",  "60",   "", "system call for exit"));
+        instructions.push_back(Instruction("", "xor", "rdi",  "rdi",  "", "exit code 0"));
+        instructions.push_back(Instruction("", "syscall",  "",    "",  "", "invoke operating system to exit"));
+    }
+
+
+    void WriteOut(std::ofstream & OST) {
+        for (auto I : instructions){
+            I.Write(OST);
+        }
+    }
+
+    std::shared_ptr<ASTNode> ast;
+    std::vector<Instruction> instructions;
+};
+
+
+// ----------------------------------------------------------------------------
 
 
 #endif //MORRIS_EMITTER_H

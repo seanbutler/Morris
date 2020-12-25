@@ -17,16 +17,18 @@
 #include <boost/uuid/uuid_io.hpp>
 #include <boost/lexical_cast.hpp>
 
+#include "SymbolTable.h"
+
 // ----------------------------------------------------------------------
 
-static unsigned int gid = 0;
+static unsigned int ASTGID = 0;
 
 class ASTNode {
 
 public:
     ASTNode()
     {
-        id = gid++;
+        id = ASTGID++;
         tag = boost::uuids::random_generator()();
         type = "notype";
         value = "novalue";
@@ -40,8 +42,7 @@ public:
         return (std::string) "node" + std::to_string(id) + " ["
             + " uuid = \"" + boost::lexical_cast<std::string>(tag) + "\""
                 + " label = \"" + type + " " + value + "\""
-            + " ];\n"
-            ;
+            + " ];\n";
     }
 
     void Diagram(std::ofstream & outStream)
@@ -49,10 +50,13 @@ public:
         if ( outStream )
         {
             outStream << "node" << std::to_string(id) << " ["
-                      << " uuid = \"" << boost::lexical_cast<std::string>(tag) << "\""
-                      << " label = \"" << type << " " << value + "\""
-                      << " ];"
-                      << std::endl;
+                    << " uuid = \"" << boost::lexical_cast<std::string>(tag) << "\""
+                    << " shape = \"record\""
+                    << " label = \"" << type << " " << value << std::endl;
+
+            symbolTable.Diagram(outStream);
+
+            outStream << "\"" << " ];" << std::endl;
 
             for(auto N : children) {
                 if (N != nullptr) {
@@ -68,7 +72,7 @@ public:
     std::string value;
     boost::uuids::uuid tag;
     std::vector<std::shared_ptr<ASTNode>>children;
-    std::vector<std::string>symbols;
+    SymbolTable symbolTable;
 };
 
 // ----------------------------------------------------------------------

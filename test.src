@@ -1,19 +1,12 @@
 
-proc myproc(a){
+func myfunc(a) {
     decl b
     b = a + 1
+    return b
 }
 
-func myfunc(a){
-    decl b
-    b = a + 1
+decl x, y, z
 
-    {
-        decl x, b, a, d
-        a = a + 1
-        x = 100
-    }
-
-    ret b
-}
-
+x = 1
+y = x + 1
+z = y + 1

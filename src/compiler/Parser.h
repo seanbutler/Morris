@@ -7,8 +7,10 @@
 #include <vector>
 #include <memory>
 #include "Tokens.h"
+#include "AST.h"
 
 class ASTNode;
+class SymbolTable;
 
 class Parser {
 
@@ -20,8 +22,8 @@ public:
     }
 
     void Parse(std::shared_ptr<ASTNode> & ast);
-    std::shared_ptr<ASTNode> ParseStatements();         // multiple statements in a row
-    std::shared_ptr<ASTNode> ParseDeclaration();        // decl var
+    std::shared_ptr<ASTNode> ParseModule();         // multiple statements in a row
+    std::shared_ptr<ASTNode> ParseDeclaration(SymbolTable & ST);        // decl var
     std::shared_ptr<ASTNode> ParseNumber();             // constant        3
     std::shared_ptr<ASTNode> ParseIdentifier();         // identifier      nFred
     std::shared_ptr<ASTNode> ParseOperator();           // + - * / etc
@@ -34,7 +36,7 @@ public:
 
     std::shared_ptr<ASTNode> ParseProcedure();
     std::shared_ptr<ASTNode> ParseFunction();
-    std::shared_ptr<ASTNode> ParseIdentList();
+    std::shared_ptr<ASTNode> ParseIdentList(SymbolTable & ST, SymbolTable::Scope S = SymbolTable::local);
     std::shared_ptr<ASTNode> ParseReturn();
 
 protected:

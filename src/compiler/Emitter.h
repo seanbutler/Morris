@@ -199,6 +199,14 @@ public:
         instructions.push_back(NASM_X86_64::CodeSection());
     }
 
+
+    void TreeWalk(){
+
+    }
+
+
+
+
     //
     // THESE SHOULD BE ELSEWHERE, think about moving please
     //
@@ -216,7 +224,6 @@ public:
         instructions.push_back(Instruction("", "xor", "rdi",  "rdi",  "", "exit code 0"));
         instructions.push_back(Instruction("", "syscall",  "",    "",  "", "invoke operating system to exit"));
     }
-
 
     void WriteOut(std::ofstream & OST) {
         for (auto I : instructions){

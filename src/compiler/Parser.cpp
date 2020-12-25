@@ -11,7 +11,7 @@ void Parser::Parse(std::shared_ptr<ASTNode> & ast) {
 
     tokenItor = tokens.begin();
 
-    ast = ParseStatements();
+    ast = ParseModule();
 
     std::ofstream diagramFile("test.gv");
     diagramFile << "digraph G {" <<  std::endl;
@@ -25,12 +25,15 @@ void Parser::Parse(std::shared_ptr<ASTNode> & ast) {
 
 // ----------------------------------------------------------------------
 
-std::shared_ptr<ASTNode> Parser::ParseStatements() {
+std::shared_ptr<ASTNode> Parser::ParseModule() {
 
     std::shared_ptr<ASTNode> statementsNodeSP = nullptr;
     statementsNodeSP = std::make_shared<ASTNode>();
     statementsNodeSP->type = "Module";
     statementsNodeSP->value = "";
+
+
+
 
     while ( tokenItor->kind != TokenEnum::END_OF_FILE )
     {
@@ -48,7 +51,7 @@ std::shared_ptr<ASTNode> Parser::ParseStatements() {
             // DECLARATION
             case TokenEnum::KWD_DECL: {
                 std::cout << "Parser::Parse() TokenEnum::KWD_DECL" << std::endl;
-                statementsNodeSP->children.push_back(ParseDeclaration());
+                statementsNodeSP->children.push_back(ParseDeclaration(statementsNodeSP->symbolTable));
                 break;
             }
 
@@ -87,7 +90,6 @@ std::shared_ptr<ASTNode> Parser::ParseStatements() {
                 break;
             }
 
-
         }
     }
 
@@ -97,7 +99,7 @@ std::shared_ptr<ASTNode> Parser::ParseStatements() {
 
 // ----------------------------------------------------------------------
 
-std::shared_ptr<ASTNode> Parser::ParseDeclaration() {
+std::shared_ptr<ASTNode> Parser::ParseDeclaration(SymbolTable & ST) {
     std::shared_ptr<ASTNode> declarationNodeSP = nullptr;
     std::shared_ptr<ASTNode> identifierNodeSP = nullptr;
 
@@ -109,7 +111,7 @@ std::shared_ptr<ASTNode> Parser::ParseDeclaration() {
 
         tokenItor++;
 
-        declarationNodeSP->children.push_back(ParseIdentList());
+        declarationNodeSP->children.push_back(ParseIdentList(ST));
         return declarationNodeSP;
 
     }
@@ -121,7 +123,7 @@ std::shared_ptr<ASTNode> Parser::ParseDeclaration() {
 
 // ----------------------------------------------------------------------
 
-std::shared_ptr<ASTNode> Parser::ParseIdentList() {
+std::shared_ptr<ASTNode> Parser::ParseIdentList(SymbolTable & ST, SymbolTable::Scope S) {
 
     std::shared_ptr<ASTNode> listNodeSP = nullptr;
     std::shared_ptr<ASTNode> identifierNodeSP = nullptr;
@@ -138,6 +140,8 @@ std::shared_ptr<ASTNode> Parser::ParseIdentList() {
         identifierNodeSP->value = tokenItor->name;
         listNodeSP->children.push_back(identifierNodeSP);
 
+        ST.Insert(tokenItor->name, SymbolTable::integer, S);
+
         tokenItor++;
 
         while ( tokenItor->kind == TokenEnum::SYM_COMMA ) {
@@ -151,6 +155,9 @@ std::shared_ptr<ASTNode> Parser::ParseIdentList() {
                 identifierNodeSP->type = "ID";
                 identifierNodeSP->value = tokenItor->name;
                 listNodeSP->children.push_back(identifierNodeSP);
+
+                ST.Insert(tokenItor->name, SymbolTable::integer, SymbolTable::local);
+
                 tokenItor++;
             }
         }
@@ -312,7 +319,7 @@ std::shared_ptr<ASTNode> Parser::ParseBlock(bool returnable) {
             // DECLARATION
             case TokenEnum::KWD_DECL: {
                 std::cout << "Parser::Parse() TokenEnum::KWD_DECL" << std::endl;
-                statementsNodeSP->children.push_back(ParseDeclaration());
+                statementsNodeSP->children.push_back(ParseDeclaration(statementsNodeSP->symbolTable));
                 break;
             }
 
@@ -499,7 +506,7 @@ std::shared_ptr<ASTNode> Parser::ParseProcedure() {
                 tokenItor++;
 
                 if (tokenItor->kind != TokenEnum::SYM_RPAREN) {
-                    varsListNodeSP = ParseIdentList();
+                    varsListNodeSP = ParseIdentList(statementNodeSP->symbolTable);
                     statementNodeSP->children.push_back(varsListNodeSP);
                 }
 
@@ -554,7 +561,7 @@ std::shared_ptr<ASTNode> Parser::ParseFunction() {
                 tokenItor++;
 
                 if (tokenItor->kind != TokenEnum::SYM_RPAREN) {
-                    varsListNodeSP = ParseIdentList();
+                    varsListNodeSP = ParseIdentList(statementNodeSP->symbolTable, SymbolTable::Scope::param);
                     statementNodeSP->children.push_back(varsListNodeSP);
                 }
 

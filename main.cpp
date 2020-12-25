@@ -1,16 +1,19 @@
 #include <iostream>
 
-#include "./src/Emitter.h"
+#include "src/compiler/Emitter.h"
 
-#include "./src/Tokenizer.h"
-#include "./src/AST.h"
-#include "./src/Parser.h"
+#include "src/compiler/Tokenizer.h"
+#include "src/compiler/AST.h"
+#include "src/compiler/Parser.h"
 
 #include <string>
 #include <fstream>
 #include <streambuf>
 
+#include "src/compiler/SymbolTable.h"
+
 int main(int argc, char**argv) {
+
     char filename[] = "test.src";
 
     std::ifstream t(filename);
@@ -23,13 +26,6 @@ int main(int argc, char**argv) {
 
     std::vector<Token> tokens = tokenizer.GetOutputTokens();
 
-//    for(auto tok : tokens) {
-//        std::cout << tok.file << "\t" << tok.line << "\t"
-//                << (int)tok.kind  << "\t"
-//                << tok.name << "\t"
-//                << std::endl;
-//    }
-
     Parser parser;
     parser.SetInput(tokens);
 
@@ -40,18 +36,19 @@ int main(int argc, char**argv) {
 
     parser.Parse(ast);
 
-    Emitter emitter;
-    emitter.SetInput(ast);
-    emitter.Start();
-    emitter.DataSection();
-    emitter.CodeSection();
-    emitter.Exit();
+//    Emitter emitter;
+//    emitter.SetInput(ast);
+//    emitter.Start();
+//    emitter.DataSection();
+//    emitter.CodeSection();
+//    emitter.TreeWalk();
 
+//    emitter.Exit();
 
+//    std::ofstream assemblyFile("test.asm");
+//    emitter.WriteOut(assemblyFile);
+//    assemblyFile.close();
 
-    std::ofstream assemblyFile("test.asm");
-    emitter.WriteOut(assemblyFile);
-    assemblyFile.close();
 
     return 0;
 }

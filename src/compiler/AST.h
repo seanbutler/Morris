@@ -23,6 +23,9 @@
 
 static unsigned int ASTGID = 0;
 
+
+
+
 class ASTNode {
 
 public:

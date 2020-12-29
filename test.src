@@ -1,12 +1,6 @@
 
-func myfunc(a) {
-    decl b
-    b = a + 1
-    return b
-}
 
-decl x, y, z
+decl x, y
 
 x = 1
 y = x + 1
-z = y + 1

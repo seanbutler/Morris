@@ -39,13 +39,15 @@ public:
     };
 
     enum Scope {
+        global,
         local,
         param
     };
 
-    const std::string ScopeStrs[2] = {
+    const std::string ScopeStrs[3] = {
+            "global",
             "local",
-            "param",
+            "param"
     };
 
     void Insert(std::string K,

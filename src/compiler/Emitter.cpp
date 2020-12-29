@@ -5,12 +5,13 @@
 #include "Emitter.h"
 
 std::string regStr[8] = {
-        "eax",
-        "ecx",
-        "ebx",
-        "edx",
-        "esi",
-        "edi",
-        "esp",
-        "ebp"
+        "rax",
+        "rcx",
+        "rbx",
+        "rdx",
+
+        "rsi",
+        "rdi",
+        "rsp",
+        "rbp"
 };

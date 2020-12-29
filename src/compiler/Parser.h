@@ -23,7 +23,7 @@ public:
 
     void Parse(std::shared_ptr<ASTNode> & ast);
     std::shared_ptr<ASTNode> ParseModule();         // multiple statements in a row
-    std::shared_ptr<ASTNode> ParseDeclaration(SymbolTable & ST);        // decl var
+    std::shared_ptr<ASTNode> ParseDeclaration(SymbolTable & ST, SymbolTable::Scope S = SymbolTable::local);        // decl var
     std::shared_ptr<ASTNode> ParseNumber();             // constant        3
     std::shared_ptr<ASTNode> ParseIdentifier();         // identifier      nFred
     std::shared_ptr<ASTNode> ParseOperator();           // + - * / etc

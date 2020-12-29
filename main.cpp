@@ -36,14 +36,13 @@ int main(int argc, char**argv) {
 
     parser.Parse(ast);
 
-//    Emitter emitter;
-//    emitter.SetInput(ast);
-//    emitter.Start();
-//    emitter.DataSection();
-//    emitter.CodeSection();
-//    emitter.TreeWalk();
+    Emitter emitter;
+    emitter.SetInput(ast);
+    emitter.Start();
+    emitter.DataSection();
+    emitter.CodeSection();
 
-//    emitter.Exit();
+    emitter.Exit();
 
 //    std::ofstream assemblyFile("test.asm");
 //    emitter.WriteOut(assemblyFile);

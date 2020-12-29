@@ -54,14 +54,14 @@ enum InsEnum : int {
 };
 
 enum RegsEnum : int {
-    EAX = 0,
-    ECX,
-    EBX,
-    EDX,
-    ESI,
-    EDI,
-    ESP,
-    EBP
+    RAX = 0,
+    RCX,
+    RBX,
+    RDX,
+    RSI,
+    RDI,
+    RSP,
+    RBP
 };
 
 extern std::string regStr[8];
@@ -126,6 +126,9 @@ public:
     static Instruction Push(std::string label)    { return(Instruction( "", "push", "["+label+"]")); }
     static Instruction Push(RegsEnum reg)         { return(Instruction( "", "push", regStr[reg])); }
 
+    static Instruction Move(RegsEnum reg1, RegsEnum reg2)         { return(Instruction( "", "mov", regStr[reg1], regStr[reg2])); }
+
+
     static Instruction Pop(std::string label)     { return(Instruction( "", "pop", "["+label+"]")); }
     static Instruction Pop(RegsEnum reg)          { return(Instruction( "", "pop", regStr[reg])); }
 
@@ -156,6 +159,7 @@ public:
     static Instruction DataSection(){ return(Instruction( "section", ".data")); }
     static Instruction CodeSection() { return (Instruction("section", ".text")); }
 
+    static Instruction FunctionHeader() { return (Instruction("section", ".text")); }
     // ----------
 
 //    void Exit(){
@@ -199,12 +203,15 @@ public:
         instructions.push_back(NASM_X86_64::CodeSection());
     }
 
-
-    void TreeWalk(){
-
+    void FunctionBegin(){
+        instructions.push_back(NASM_X86_64::Push(RegsEnum::RBP));
+        instructions.push_back(NASM_X86_64::Move(RegsEnum::RBP, RegsEnum::RSP));
     }
 
-
+    void FunctionEnd(){
+        instructions.push_back(NASM_X86_64::Pop(RegsEnum::RBP));
+        instructions.push_back(NASM_X86_64::Ret());
+    }
 
 
     //
@@ -212,10 +219,10 @@ public:
     //
 
     void Out(std::string addrlab, unsigned int len){
-        instructions.push_back(Instruction( "", "mov", regStr[RegsEnum::EAX], 0, "", "to stdout"));
-        instructions.push_back(Instruction( "", "mov", regStr[RegsEnum::EBX], 0, "", "to stdout"));
-        instructions.push_back(Instruction( "", "mov", regStr[RegsEnum::ECX], addrlab, "", "label"));
-        instructions.push_back(Instruction( "", "mov", regStr[RegsEnum::EDX], std::to_string(len), "", "length"));
+        instructions.push_back(Instruction( "", "mov", regStr[RegsEnum::RAX], 0, "", "to stdout"));
+        instructions.push_back(Instruction( "", "mov", regStr[RegsEnum::RBX], 0, "", "to stdout"));
+        instructions.push_back(Instruction( "", "mov", regStr[RegsEnum::RCX], addrlab, "", "label"));
+        instructions.push_back(Instruction( "", "mov", regStr[RegsEnum::RDX], std::to_string(len), "", "length"));
         instructions.push_back(Instruction( "", "syscall", "", "", "", "invoke operating system"));
     }
 

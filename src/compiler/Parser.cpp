@@ -32,8 +32,7 @@ std::shared_ptr<ASTNode> Parser::ParseModule() {
     statementsNodeSP->type = "Module";
     statementsNodeSP->value = "";
 
-
-
+    // in a module the declarations are globals
 
     while ( tokenItor->kind != TokenEnum::END_OF_FILE )
     {
@@ -51,7 +50,7 @@ std::shared_ptr<ASTNode> Parser::ParseModule() {
             // DECLARATION
             case TokenEnum::KWD_DECL: {
                 std::cout << "Parser::Parse() TokenEnum::KWD_DECL" << std::endl;
-                statementsNodeSP->children.push_back(ParseDeclaration(statementsNodeSP->symbolTable));
+                statementsNodeSP->children.push_back(ParseDeclaration(statementsNodeSP->symbolTable, SymbolTable::global));
                 break;
             }
 
@@ -99,7 +98,7 @@ std::shared_ptr<ASTNode> Parser::ParseModule() {
 
 // ----------------------------------------------------------------------
 
-std::shared_ptr<ASTNode> Parser::ParseDeclaration(SymbolTable & ST) {
+std::shared_ptr<ASTNode> Parser::ParseDeclaration(SymbolTable & ST, SymbolTable::Scope S) {
     std::shared_ptr<ASTNode> declarationNodeSP = nullptr;
     std::shared_ptr<ASTNode> identifierNodeSP = nullptr;
 
@@ -111,7 +110,7 @@ std::shared_ptr<ASTNode> Parser::ParseDeclaration(SymbolTable & ST) {
 
         tokenItor++;
 
-        declarationNodeSP->children.push_back(ParseIdentList(ST));
+        declarationNodeSP->children.push_back(ParseIdentList(ST, S));
         return declarationNodeSP;
 
     }
@@ -156,7 +155,7 @@ std::shared_ptr<ASTNode> Parser::ParseIdentList(SymbolTable & ST, SymbolTable::S
                 identifierNodeSP->value = tokenItor->name;
                 listNodeSP->children.push_back(identifierNodeSP);
 
-                ST.Insert(tokenItor->name, SymbolTable::integer, SymbolTable::local);
+                ST.Insert(tokenItor->name, SymbolTable::integer, S);
 
                 tokenItor++;
             }

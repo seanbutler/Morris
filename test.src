@@ -1,6 +1,14 @@
 
 
+
+func incr(a){
+    return a+1
+}
+
+
 decl x, y
 
 x = 1
 y = x + 1
+
+

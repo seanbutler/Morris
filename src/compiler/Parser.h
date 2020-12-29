@@ -21,23 +21,25 @@ public:
         tokens = T;
     }
 
-    void Parse(std::shared_ptr<ASTNode> & ast);
-    std::shared_ptr<ASTNode> ParseModule();         // multiple statements in a row
-    std::shared_ptr<ASTNode> ParseDeclaration(SymbolTable & ST, SymbolTable::Scope S = SymbolTable::local);        // decl var
-    std::shared_ptr<ASTNode> ParseNumber();             // constant        3
-    std::shared_ptr<ASTNode> ParseIdentifier();         // identifier      nFred
-    std::shared_ptr<ASTNode> ParseOperator();           // + - * / etc
+    ASTNode * Parse();
+    ModuleASTNode * ParseModule();
+    ASTNode * ParseDeclaration(SymbolTable & ST, SymbolTable::Scope S = SymbolTable::local);        // decl var
+    ASTNode * ParseIdentList(SymbolTable & ST, SymbolTable::Scope S = SymbolTable::local);
 
-    std::shared_ptr<ASTNode> ParseAssignment(bool returnable=false);         // identifier equals value
-    std::shared_ptr<ASTNode> ParseExpression(bool returnable=false);         // A + B etc
-    std::shared_ptr<ASTNode> ParseWhile(bool returnable=false);
-    std::shared_ptr<ASTNode> ParseIf(bool returnable=false);
-    std::shared_ptr<ASTNode> ParseBlock(bool returnable=false);
+    ASTNode * ParseWhile(bool returnable=false);
+    ASTNode * ParseIf(bool returnable=false);
+    ASTNode * ParseBlock(bool returnable=false);
 
-    std::shared_ptr<ASTNode> ParseProcedure();
-    std::shared_ptr<ASTNode> ParseFunction();
-    std::shared_ptr<ASTNode> ParseIdentList(SymbolTable & ST, SymbolTable::Scope S = SymbolTable::local);
-    std::shared_ptr<ASTNode> ParseReturn();
+    ASTNode * ParseAssignment(bool returnable=false);         // identifier equals value
+    ASTNode * ParseExpression(bool returnable=false);         // A + B etc
+
+    ASTNode * ParseNumber();                                    // constant        3
+    ASTNode * ParseIdentifier();                                // identifier      nFred
+    ASTNode * ParseOperator();                                  // + - * / etc
+
+    ASTNode * ParseProcedure();
+    ASTNode * ParseFunction();
+    ASTNode * ParseReturn();
 
 protected:
     std::vector<Token> tokens;

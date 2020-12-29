@@ -212,8 +212,7 @@ public:
         instructions.push_back(NASM_X86_64::Pop(RegsEnum::RBP));
         instructions.push_back(NASM_X86_64::Ret());
     }
-
-
+    
     //
     // THESE SHOULD BE ELSEWHERE, think about moving please
     //

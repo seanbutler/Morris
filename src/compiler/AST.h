@@ -23,30 +23,21 @@
 
 static unsigned int ASTGID = 0;
 
-
-
+// ----------------------------------------------------------------------
 
 class ASTNode {
 
 public:
-    ASTNode()
+    ASTNode(std::string T = "", std::string V = "")
+    : id(ASTGID++)
+    , type(T)
+    , value(V)
     {
-        id = ASTGID++;
         tag = boost::uuids::random_generator()();
-        type = "notype";
-        value = "novalue";
         std::cout << tag << " --- " << value << std::endl;
     }
 
     virtual ~ASTNode(){}
-
-    std::string Stringify()
-    {
-        return (std::string) "node" + std::to_string(id) + " ["
-            + " uuid = \"" + boost::lexical_cast<std::string>(tag) + "\""
-                + " label = \"" + type + " " + value + "\""
-            + " ];\n";
-    }
 
     void Diagram(std::ofstream & outStream)
     {
@@ -74,9 +65,28 @@ public:
     std::string type;
     std::string value;
     boost::uuids::uuid tag;
-    std::vector<std::shared_ptr<ASTNode>>children;
+
+    std::vector<ASTNode*>children;
     SymbolTable symbolTable;
 };
 
 // ----------------------------------------------------------------------
 
+class ModuleASTNode : public ASTNode {
+public:
+    ModuleASTNode()
+    :ASTNode("Module")
+    {
+
+    }
+};
+
+
+//class DeclarationASTNode : public ASTNode {
+//public:
+//    DeclarationASTNode()
+//            :ASTNode("Module")
+//    {
+//
+//    }
+//};

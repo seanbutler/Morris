@@ -28,21 +28,15 @@ int main(int argc, char**argv) {
 
     Parser parser;
     parser.SetInput(tokens);
+    ASTNode * ast = parser.Parse();
 
-    std::shared_ptr<ASTNode> ast;
-    ast = std::make_shared<ASTNode>();
-    ast->type = "Module";
-    ast->value = "";
+//    Emitter emitter;
+//    emitter.SetInput(ast);
+//    emitter.Start();
+//    emitter.DataSection();
+//    emitter.CodeSection();
 
-    parser.Parse(ast);
-
-    Emitter emitter;
-    emitter.SetInput(ast);
-    emitter.Start();
-    emitter.DataSection();
-    emitter.CodeSection();
-
-    emitter.Exit();
+//    emitter.Exit();
 
 //    std::ofstream assemblyFile("test.asm");
 //    emitter.WriteOut(assemblyFile);

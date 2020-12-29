@@ -27,7 +27,7 @@ ASTNode * Parser::Parse() {
 
 ModuleASTNode * Parser::ParseModule() {
 
-    ModuleASTNode * statementsNodePtr = new ModuleASTNode();
+    auto * statementsNodePtr = new ModuleASTNode();
 
     while ( tokenItor->kind != TokenEnum::END_OF_FILE )
     {
@@ -95,7 +95,7 @@ ModuleASTNode * Parser::ParseModule() {
 
 ASTNode * Parser::ParseDeclaration(SymbolTable & ST, SymbolTable::Scope S) {
     ASTNode * declarationNodeSP = nullptr;
-    ASTNode * identifierNodeSP = nullptr;
+//    ASTNode * identifierNodeSP = nullptr;
 
     if ( tokenItor->kind == TokenEnum::KWD_DECL) {
         std::cout << "ParseDeclaration() TokenEnum::KWD_DECL" << std::endl;
@@ -113,7 +113,7 @@ ASTNode * Parser::ParseDeclaration(SymbolTable & ST, SymbolTable::Scope S) {
 ASTNode * Parser::ParseIdentList(SymbolTable & ST, SymbolTable::Scope S) {
 
     ASTNode* listNodeSP = nullptr;
-    ASTNode* identifierNodeSP = nullptr;
+    ASTNode* identifierNodeSP;
 
     if ( tokenItor->kind == TokenEnum::IDENTIFIER) {
 
@@ -153,8 +153,8 @@ ASTNode * Parser::ParseIdentList(SymbolTable & ST, SymbolTable::Scope S) {
 ASTNode * Parser::ParseAssignment(bool returnable) {
 
     ASTNode * assignmentNodeSP = nullptr;
-    ASTNode * identifierNodeSP = nullptr;
-    ASTNode * rhsNodeSP = nullptr;
+    ASTNode * identifierNodeSP;
+    ASTNode * rhsNodeSP;
 
     if ( tokenItor->kind == TokenEnum::IDENTIFIER ) {
 
@@ -263,9 +263,7 @@ ASTNode * Parser::ParseWhile(bool returnable) {
 ASTNode * Parser::ParseBlock(bool returnable) {
 
     std::cout << "ParseBlock()" << std::endl;
-
     ASTNode * statementsNodeSP = nullptr;
-
     statementsNodeSP = new ASTNode("Block");
 
     while ( tokenItor->kind != TokenEnum::SYM_RBRACES )

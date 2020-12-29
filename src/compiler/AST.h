@@ -37,7 +37,13 @@ public:
         std::cout << tag << " --- " << value << std::endl;
     }
 
-    virtual ~ASTNode(){}
+    virtual ~ASTNode(){
+        for(auto C : children){
+            delete C;
+        }
+        children.clear();
+
+    }
 
     void Diagram(std::ofstream & outStream)
     {
@@ -81,12 +87,3 @@ public:
     }
 };
 
-
-//class DeclarationASTNode : public ASTNode {
-//public:
-//    DeclarationASTNode()
-//            :ASTNode("Module")
-//    {
-//
-//    }
-//};

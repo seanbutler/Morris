@@ -1,5 +1,9 @@
 
 
+proc myproc(a){
+    a = a + 1
+}
+
 
 func incr(a){
     return a+1

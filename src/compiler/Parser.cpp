@@ -93,13 +93,12 @@ ModuleASTNode * Parser::ParseModule() {
 
 // ----------------------------------------------------------------------
 
-ASTNode * Parser::ParseDeclaration(SymbolTable & ST, SymbolTable::Scope S) {
-    ASTNode * declarationNodeSP = nullptr;
-//    ASTNode * identifierNodeSP = nullptr;
+DeclarationASTNode * Parser::ParseDeclaration(SymbolTable & ST, SymbolTable::Scope S) {
+    DeclarationASTNode * declarationNodeSP = nullptr;
 
     if ( tokenItor->kind == TokenEnum::KWD_DECL) {
         std::cout << "ParseDeclaration() TokenEnum::KWD_DECL" << std::endl;
-        declarationNodeSP = new ASTNode("KWD", "decl");
+        declarationNodeSP = new DeclarationASTNode();
         tokenItor++;
         declarationNodeSP->children.push_back(ParseIdentList(ST));
     }
@@ -110,15 +109,14 @@ ASTNode * Parser::ParseDeclaration(SymbolTable & ST, SymbolTable::Scope S) {
 
 // ----------------------------------------------------------------------
 
-ASTNode * Parser::ParseIdentList(SymbolTable & ST, SymbolTable::Scope S) {
+IdentifierListASTNode * Parser::ParseIdentList(SymbolTable & ST, SymbolTable::Scope S) {
 
-    ASTNode* listNodeSP = nullptr;
+    IdentifierListASTNode* listNodeSP = nullptr;
     ASTNode* identifierNodeSP;
 
     if ( tokenItor->kind == TokenEnum::IDENTIFIER) {
 
-        listNodeSP = new ASTNode("IDL");
-
+        listNodeSP = new IdentifierListASTNode();
         std::cout << "ParseIdentList() TokenEnum::IDENTIFIER" << std::endl;
         identifierNodeSP = new ASTNode("ID", tokenItor->name);
         listNodeSP->children.push_back(identifierNodeSP);
@@ -150,9 +148,9 @@ ASTNode * Parser::ParseIdentList(SymbolTable & ST, SymbolTable::Scope S) {
 
 // ----------------------------------------------------------------------
 
-ASTNode * Parser::ParseAssignment(bool returnable) {
+AssignmentASTNode * Parser::ParseAssignment(bool returnable) {
 
-    ASTNode * assignmentNodeSP = nullptr;
+    AssignmentASTNode * assignmentNodeSP = nullptr;
     ASTNode * identifierNodeSP;
     ASTNode * rhsNodeSP;
 
@@ -167,7 +165,7 @@ ASTNode * Parser::ParseAssignment(bool returnable) {
         if ( tokenItor->kind == TokenEnum::SYM_ASSIGN ) {
 
             std::cout << "ParseAssignment() TokenEnum::SYM_ASSIGN" << std::endl;
-            assignmentNodeSP = new ASTNode( "ASGN", "=");
+            assignmentNodeSP = new AssignmentASTNode();
             tokenItor++;
 
             rhsNodeSP = ParseExpression();
@@ -182,15 +180,15 @@ ASTNode * Parser::ParseAssignment(bool returnable) {
 
 // ----------------------------------------------------------------------
 
-ASTNode * Parser::ParseIf(bool returnable) {
+IfASTNode * Parser::ParseIf(bool returnable) {
 
-    ASTNode * statementNodeSP = nullptr;
+    IfASTNode * statementNodeSP = nullptr;
     ASTNode * conditionNodeSP = nullptr;
     ASTNode * blockNodeSP = nullptr;
 
     if ( tokenItor->kind == TokenEnum::KWD_IF ) {
         std::cout << "ParseIf() TokenEnum::KWD_IF" << std::endl;
-        statementNodeSP = new ASTNode("KWD", "if");
+        statementNodeSP = new IfASTNode();
         tokenItor++;
 
         if ( tokenItor->kind == TokenEnum::SYM_LPAREN) {
@@ -221,15 +219,15 @@ ASTNode * Parser::ParseIf(bool returnable) {
 
 // ----------------------------------------------------------------------
 
-ASTNode * Parser::ParseWhile(bool returnable) {
+WhileASTNode * Parser::ParseWhile(bool returnable) {
 
-    ASTNode * statementNodeSP = nullptr;
+    WhileASTNode * statementNodeSP = nullptr;
     ASTNode * conditionNodeSP = nullptr;
     ASTNode * blockNodeSP = nullptr;
 
     if ( tokenItor->kind == TokenEnum::KWD_WHILE ) {
         std::cout << "ParseWhile() TokenEnum::KWD_WHILE" << std::endl;
-        statementNodeSP = new ASTNode( "KWD", "while");
+        statementNodeSP = new WhileASTNode( );
         tokenItor++;
 
         if ( tokenItor->kind == TokenEnum::SYM_LPAREN) {
@@ -260,11 +258,11 @@ ASTNode * Parser::ParseWhile(bool returnable) {
 
 // ----------------------------------------------------------------------
 
-ASTNode * Parser::ParseBlock(bool returnable) {
+BlockASTNode * Parser::ParseBlock(bool returnable) {
 
     std::cout << "ParseBlock()" << std::endl;
-    ASTNode * statementsNodeSP = nullptr;
-    statementsNodeSP = new ASTNode("Block");
+    BlockASTNode * statementsNodeSP = nullptr;
+    statementsNodeSP = new BlockASTNode();
 
     while ( tokenItor->kind != TokenEnum::SYM_RBRACES )
     {
@@ -381,24 +379,24 @@ ASTNode * Parser::ParseExpression(bool returnable) {
 
 // ----------------------------------------------------------------------
 
-ASTNode * Parser::ParseOperator() {
-    ASTNode * opNodeSP = nullptr;
+OperatorASTNode * Parser::ParseOperator() {
+    OperatorASTNode * opNodeSP = nullptr;
 
     if ( tokenItor->kind == TokenEnum::OP_ADD) {
         std::cout << "ParseValue() TokenEnum::OP_ADD" << std::endl;
-        opNodeSP = new ASTNode("OP", "+");
+        opNodeSP = new OperatorASTNode("+");
     }
     else if ( tokenItor->kind == TokenEnum::OP_SUB) {
         std::cout << "ParseValue() TokenEnum::OP_SUB" << std::endl;
-        opNodeSP = new ASTNode("OP", "-");
+        opNodeSP = new OperatorASTNode("-");
     }
     else if ( tokenItor->kind == TokenEnum::OP_MUL) {
         std::cout << "ParseValue() TokenEnum::OP_MUL" << std::endl;
-        opNodeSP = new ASTNode("OP", "*");
+        opNodeSP = new OperatorASTNode("*");
     }
     else if ( tokenItor->kind == TokenEnum::OP_DIV) {
         std::cout << "ParseValue() TokenEnum::OP_DIV" << std::endl;
-        opNodeSP = new ASTNode("OP", "/");
+        opNodeSP = new OperatorASTNode("/");
     }
 
     return opNodeSP;
@@ -406,23 +404,23 @@ ASTNode * Parser::ParseOperator() {
 
 // ----------------------------------------------------------------------
 
-ASTNode * Parser::ParseNumber() {
-    ASTNode * valueNodeSP = nullptr;
+NumberASTNode * Parser::ParseNumber() {
+    NumberASTNode * valueNodeSP = nullptr;
 
     if ( tokenItor->kind == TokenEnum::NUMBER) {
         std::cout << "ParseNumber() TokenEnum::NUMBER" << std::endl;
-        valueNodeSP = new ASTNode("N", tokenItor->name);
+        valueNodeSP = new NumberASTNode(tokenItor->name);
     }
 
     return valueNodeSP;
 }
 
-ASTNode * Parser::ParseIdentifier() {
-    ASTNode * nodeSP = nullptr;
+IdentifierASTNode * Parser::ParseIdentifier() {
+    IdentifierASTNode * nodeSP = nullptr;
 
     if ( tokenItor->kind == TokenEnum::IDENTIFIER) {
         std::cout << "ParseIdentifier() TokenEnum::IDENTIFIER" << std::endl;
-        nodeSP = new ASTNode("ID", tokenItor->name);
+        nodeSP = new IdentifierASTNode(tokenItor->name);
     }
 
     return nodeSP;
@@ -430,16 +428,16 @@ ASTNode * Parser::ParseIdentifier() {
 
 // ----------------------------------------------------------------------
 
-ASTNode * Parser::ParseProcedure() {
+ProcedureASTNode * Parser::ParseProcedure() {
 
-    ASTNode * statementNodeSP = nullptr;
+    ProcedureASTNode * statementNodeSP = nullptr;
     ASTNode * identifierNodeSP = nullptr;
     ASTNode * varsListNodeSP = nullptr;
     ASTNode * blockNodeSP = nullptr;
 
     if ( tokenItor->kind == TokenEnum::KWD_PROC ) {
         std::cout << "ParseProcedure() TokenEnum::KWD_PROC" << std::endl;
-        statementNodeSP = new ASTNode("KWD", "proc");
+        statementNodeSP = new ProcedureASTNode();
 
         tokenItor++;
 
@@ -481,16 +479,16 @@ ASTNode * Parser::ParseProcedure() {
 
 // ----------------------------------------------------------------------
 
-ASTNode * Parser::ParseFunction() {
+FunctionASTNode * Parser::ParseFunction() {
 
-    ASTNode * statementNodeSP = nullptr;
+    FunctionASTNode * statementNodeSP = nullptr;
     ASTNode * identifierNodeSP = nullptr;
     ASTNode * varsListNodeSP = nullptr;
     ASTNode * blockNodeSP = nullptr;
 
     if ( tokenItor->kind == TokenEnum::KWD_FUNC ) {
         std::cout << "ParseFunction() TokenEnum::KWD_FUNC" << std::endl;
-        statementNodeSP = new ASTNode("KWD", "func");
+        statementNodeSP = new FunctionASTNode();
         tokenItor++;
 
         if ( tokenItor->kind == TokenEnum::IDENTIFIER) {
@@ -531,17 +529,16 @@ ASTNode * Parser::ParseFunction() {
 
 // ----------------------------------------------------------------------
 
-ASTNode * Parser::ParseReturn() {
-    ASTNode * statementNodeSP = nullptr;
+ReturnASTNode * Parser::ParseReturn() {
+    ReturnASTNode * statementNodeSP = nullptr;
 
     if ( tokenItor->kind == TokenEnum::KWD_RETURN) {
         std::cout << "ParseDeclaration() TokenEnum::KWD_RETURN" << std::endl;
-        statementNodeSP = new ASTNode( "RET" );
+        statementNodeSP = new ReturnASTNode();
         tokenItor++;
 
         statementNodeSP->children.push_back(ParseExpression());
     }
 
     return statementNodeSP;
-
 }

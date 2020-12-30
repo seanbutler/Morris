@@ -34,7 +34,7 @@ public:
     , value(V)
     {
         tag = boost::uuids::random_generator()();
-        std::cout << tag << " --- " << value << std::endl;
+//        std::cout << tag << " --- " << value << std::endl;
     }
 
     virtual ~ASTNode(){
@@ -42,7 +42,6 @@ public:
             delete C;
         }
         children.clear();
-
     }
 
     void Diagram(std::ofstream & outStream)
@@ -81,9 +80,144 @@ public:
 class ModuleASTNode : public ASTNode {
 public:
     ModuleASTNode()
-    :ASTNode("Module")
+    : ASTNode("MDL")
     {
 
     }
 };
+
+// ----------------------------------------------------------------------
+
+class DeclarationASTNode : public ASTNode {
+public:
+    DeclarationASTNode()
+    : ASTNode("KWD", "decl")
+    {
+
+    }
+};
+
+// ----------------------------------------------------------------------
+
+class IdentifierListASTNode : public ASTNode {
+public:
+    IdentifierListASTNode()
+        : ASTNode("IDL")
+    {
+
+    }
+};
+
+// ----------------------------------------------------------------------
+
+class WhileASTNode : public ASTNode {
+public:
+    WhileASTNode()
+        : ASTNode("KWD", "while")
+    {
+
+    }
+};
+
+// ----------------------------------------------------------------------
+
+class IfASTNode : public ASTNode {
+public:
+    IfASTNode()
+        : ASTNode("KWD", "if")
+    {
+
+    }
+};
+
+// ----------------------------------------------------------------------
+
+
+class BlockASTNode : public ASTNode {
+public:
+    BlockASTNode()
+        : ASTNode("Block")
+    {
+
+    }
+};
+
+// ----------------------------------------------------------------------
+
+class AssignmentASTNode : public ASTNode {
+public:
+    AssignmentASTNode()
+        : ASTNode("ASGN", "=")
+    {
+
+    }
+};
+
+// ----------------------------------------------------------------------
+
+class NumberASTNode : public ASTNode {
+public:
+    NumberASTNode(std::string V)
+        : ASTNode("NUM", V)
+    {
+
+    }
+};
+
+// ----------------------------------------------------------------------
+
+class IdentifierASTNode : public ASTNode {
+public:
+    IdentifierASTNode(std::string V)
+        : ASTNode("ID", V)
+    {
+
+    }
+};
+
+// ----------------------------------------------------------------------
+
+class OperatorASTNode : public ASTNode {
+public:
+    OperatorASTNode(std::string V)
+            : ASTNode("OP", V)
+    {
+
+    }
+};
+
+// ----------------------------------------------------------------------
+
+class ReturnASTNode : public ASTNode {
+public:
+    ReturnASTNode()
+        : ASTNode("RET")
+    {
+
+    }
+};
+
+// ----------------------------------------------------------------------
+
+class FunctionASTNode : public ASTNode {
+public:
+    FunctionASTNode()
+        : ASTNode("KWD", "func")
+    {
+
+    }
+};
+
+// ----------------------------------------------------------------------
+
+class ProcedureASTNode : public ASTNode {
+public:
+    ProcedureASTNode()
+        : ASTNode("KWD", "proc")
+    {
+
+    }
+};
+
+// ----------------------------------------------------------------------
 

@@ -17,29 +17,27 @@ class Parser {
 public:
     Parser() = default;
 
-    void SetInput(const std::vector<Token> T) {
-        tokens = T;
-    }
+    void SetInput(const std::vector<Token> T) { tokens = T; }
 
     ASTNode * Parse();
     ModuleASTNode * ParseModule();
-    ASTNode * ParseDeclaration(SymbolTable & ST, SymbolTable::Scope S = SymbolTable::local);        // decl var
-    ASTNode * ParseIdentList(SymbolTable & ST, SymbolTable::Scope S = SymbolTable::local);
+    DeclarationASTNode * ParseDeclaration(SymbolTable & ST, SymbolTable::Scope S = SymbolTable::local);        // decl var
+    IdentifierListASTNode * ParseIdentList(SymbolTable & ST, SymbolTable::Scope S = SymbolTable::local);
 
-    ASTNode * ParseWhile(bool returnable=false);
-    ASTNode * ParseIf(bool returnable=false);
-    ASTNode * ParseBlock(bool returnable=false);
+    WhileASTNode * ParseWhile(bool returnable=false);
+    IfASTNode * ParseIf(bool returnable=false);
+    BlockASTNode * ParseBlock(bool returnable=false);
 
-    ASTNode * ParseAssignment(bool returnable=false);         // identifier equals value
-    ASTNode * ParseExpression(bool returnable=false);         // A + B etc
+    AssignmentASTNode * ParseAssignment(bool returnable=false);       // identifier equals value
+    ASTNode * ParseExpression(bool returnable=false);                 // A + B etc
 
-    ASTNode * ParseNumber();                                    // constant        3
-    ASTNode * ParseIdentifier();                                // identifier      nFred
-    ASTNode * ParseOperator();                                  // + - * / etc
+    NumberASTNode * ParseNumber();                                    // constant        3
+    IdentifierASTNode * ParseIdentifier();                            // identifier      nFred
+    OperatorASTNode * ParseOperator();                                // + - * / etc
 
-    ASTNode * ParseProcedure();
-    ASTNode * ParseFunction();
-    ASTNode * ParseReturn();
+    ProcedureASTNode * ParseProcedure();
+    FunctionASTNode * ParseFunction();
+    ReturnASTNode * ParseReturn();
 
 protected:
     std::vector<Token> tokens;

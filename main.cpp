@@ -11,6 +11,9 @@
 #include <streambuf>
 
 #include "src/compiler/SymbolTable.h"
+#include "src/compiler/Runtime.h"
+#include "src/compiler/Assembler.h"
+
 
 int main(int argc, char**argv) {
 
@@ -30,18 +33,43 @@ int main(int argc, char**argv) {
     parser.SetInput(tokens);
     ASTNode * ast = parser.Parse();
 
-//    Emitter emitter;
-//    emitter.SetInput(ast);
-//    emitter.Start();
-//    emitter.DataSection();
-//    emitter.CodeSection();
 
-//    emitter.Exit();
+//    Assembler assembler;
+//    assembler.Scan("PUSH 1\n PUSH 1\nADD\nOUTPUT\nHALT\n");
 
-//    std::ofstream assemblyFile("test.asm");
-//    emitter.WriteOut(assemblyFile);
-//    assemblyFile.close();
 
+
+//    VM vm(assembler.instructions);
+
+//    vm.
+
+
+//    double A = 1.0;
+//    double B = 2.0;
+
+//    vm.instructions.emplace_back(Location(INSTR::PUSH));
+//    vm.instructions.emplace_back(A);
+//    vm.instructions.emplace_back(INSTR::SAVE);
+//    vm.instructions.emplace_back(1UL);
+//    vm.instructions.emplace_back(INSTR::PUSH);
+//    vm.instructions.emplace_back(B);
+//    vm.instructions.emplace_back(INSTR::SAVE);
+//    vm.instructions.emplace_back(2UL);
+//    vm.instructions.emplace_back(INSTR::LOAD);
+//    vm.instructions.emplace_back(1UL);
+//    vm.instructions.emplace_back(INSTR::LOAD);
+//    vm.instructions.emplace_back(2UL);
+//    vm.instructions.emplace_back(INSTR::ADD);
+//    vm.instructions.emplace_back(INSTR::SAVE);
+//    vm.instructions.emplace_back(3UL);
+//    vm.instructions.emplace_back(INSTR::LOAD);
+//    vm.instructions.emplace_back(3UL);
+//    vm.instructions.emplace_back(INSTR::OUTPUT);
+//    vm.instructions.emplace_back(INSTR::JMP);
+//    vm.instructions.emplace_back(8UL);
+//    vm.instructions.emplace_back(INSTR::HALT);
+//    vm.state = VM::RUNNING;
+//    vm.Execute(13);
 
     return 0;
 }

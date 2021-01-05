@@ -60,7 +60,6 @@ public:
         return theTable[K];
     }
 
-
     void Dump() {
         for (auto const &foo : theTable) {
             std::cout << "ST: ";

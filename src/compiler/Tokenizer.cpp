@@ -64,7 +64,7 @@ bool Tokenizer::ScanToken() {
             }
         }
 
-        Token newTok(TokenEnum::IDENTIFIER, tokenString);
+        Token newTok(TokenEnum::TOK_IDENTIFIER, tokenString);
         newTok.file = currentFile;
         newTok.line = currentLine;
         outputTokens.push_back(newTok);
@@ -86,7 +86,7 @@ bool Tokenizer::ScanToken() {
         }
         --currentPosition;
 
-        Token newTok(TokenEnum::NUMBER, numberStr);
+        Token newTok(TokenEnum::TOK_NUMBER, numberStr);
         newTok.file = currentFile;
         newTok.line = currentLine;
 //        newTok.number = currentLine;
@@ -102,7 +102,7 @@ bool Tokenizer::ScanToken() {
     switch (currentChar) {
 
         case '\0': {
-            Token newTok(TokenEnum::END_OF_FILE, "eof");
+            Token newTok(TokenEnum::TOK_END_OF_FILE, "eof");
             newTok.file = currentFile;
             newTok.line = currentLine;
             outputTokens.push_back(newTok);
@@ -260,8 +260,8 @@ bool Tokenizer::ScanToken() {
 //                return Token::OP_AND;
 //            }
 //
-//            std::cerr << "TOKENIZER ERROR after \'&\' at Line " << currentLine << " Got " << currentChar << std::endl;
-//            return Token::ERROR;
+//            std::cerr << "TOKENIZER TOK_ERROR after \'&\' at Line " << currentLine << " Got " << currentChar << std::endl;
+//            return Token::TOK_ERROR;
 //        }
 //
 //        case '|': {
@@ -275,8 +275,8 @@ bool Tokenizer::ScanToken() {
 //                return Token::OP_OR;
 //            }
 //
-//            std::cerr << "TOKENIZER ERROR after \'|\' at Line " << currentLine << " Got " << currentChar << std::endl;
-//            return Token::ERROR;
+//            std::cerr << "TOKENIZER TOK_ERROR after \'|\' at Line " << currentLine << " Got " << currentChar << std::endl;
+//            return Token::TOK_ERROR;
 //        }
 //
 //        case '!': {
@@ -289,13 +289,13 @@ bool Tokenizer::ScanToken() {
 //                ++lexingPos;
 //                return Token::OP_NE;
 //            }
-//            std::cerr << "TOKENIZER ERROR after \'!\' at Line " << currentLine << " Got " << currentChar << std::endl;
-//            return Token::ERROR;
+//            std::cerr << "TOKENIZER TOK_ERROR after \'!\' at Line " << currentLine << " Got " << currentChar << std::endl;
+//            return Token::TOK_ERROR;
 //        }
 //
 //        default: {
 //            std::cerr << "TOKENIZER WARNING Line (" << currentLine << ") Possibly '" << currentChar << "'" << std::endl;
-//            return Token::ERROR;
+//            return Token::TOK_ERROR;
 //        }
 
     }

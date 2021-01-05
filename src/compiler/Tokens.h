@@ -54,11 +54,11 @@ enum TokenEnum : int {
     OP_OR,
 //    OP_NOT,
 
-    NUMBER,
-    IDENTIFIER,
+    TOK_NUMBER,
+    TOK_IDENTIFIER,
 
-    END_OF_FILE = 666,
-    ERROR = 667
+    TOK_END_OF_FILE = 666,
+    TOK_ERROR = 667
 };
 
 // ----------------------------------------------------------------------

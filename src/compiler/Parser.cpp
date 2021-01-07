@@ -13,12 +13,12 @@ ASTNode * Parser::Parse() {
 
     ASTNode * ast = ParseModule();
 
-    std::ofstream diagramFile("test.gv");
-    diagramFile << "digraph G {" <<  std::endl;
-    diagramFile << "node [shape = box];" << std::endl;
-    ast->Diagram(diagramFile);
-    diagramFile << "}" << std::endl;
-    diagramFile.close();
+//    std::ofstream diagramFile("test.gv");
+//    diagramFile << "digraph G {" <<  std::endl;
+//    diagramFile << "node [shape = box];" << std::endl;
+//    ast->Diagram(diagramFile);
+//    diagramFile << "}" << std::endl;
+//    diagramFile.close();
 
     return ast;
 }
@@ -45,7 +45,7 @@ ModuleASTNode * Parser::ParseModule() {
             // DECLARATION
             case TokenEnum::KWD_DECL: {
                 std::cout << "Parser::Parse() TokenEnum::KWD_DECL" << std::endl;
-                statementsNodePtr->children.push_back(ParseDeclaration(statementsNodePtr->symbolTable));
+                statementsNodePtr->children.push_back(ParseDeclaration(statementsNodePtr->symbolTable, SymbolTable::global));
                 break;
             }
 
@@ -100,7 +100,7 @@ DeclarationASTNode * Parser::ParseDeclaration(SymbolTable & ST, SymbolTable::Sco
         std::cout << "ParseDeclaration() TokenEnum::KWD_DECL" << std::endl;
         declarationNodeSP = new DeclarationASTNode();
         tokenItor++;
-        declarationNodeSP->children.push_back(ParseIdentList(ST));
+        declarationNodeSP->children.push_back(ParseIdentList(ST, S));
     }
 
     return declarationNodeSP;

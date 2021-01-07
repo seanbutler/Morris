@@ -1,19 +1,19 @@
 #include <iostream>
 
-#include "src/compiler/Emitter.h"
-
-#include "src/compiler/Tokenizer.h"
-#include "src/compiler/AST.h"
-#include "src/compiler/Parser.h"
-
 #include <string>
 #include <fstream>
 #include <streambuf>
 
+
+#include "src/compiler/Tokenizer.h"
+#include "src/compiler/AST.h"
+#include "src/compiler/Parser.h"
+#include "src/compiler/InstructionASTVisitor.h"
+
 #include "src/compiler/SymbolTable.h"
 #include "src/compiler/Runtime.h"
-#include "src/compiler/Assembler.h"
 
+// ---------------------------------------------------------------------------
 
 int main(int argc, char**argv) {
 
@@ -33,16 +33,12 @@ int main(int argc, char**argv) {
     parser.SetInput(tokens);
     ASTNode * ast = parser.Parse();
 
-
-//    Assembler assembler;
-//    assembler.Scan("PUSH 1\n PUSH 1\nADD\nOUTPUT\nHALT\n");
-
+    InstructionASTVisitor generator;
+    generator.Visit(ast);
 
 
-//    VM vm(assembler.instructions);
 
-//    vm.
-
+//    VM vm(generator.GetInstructions(), generator.GetData());
 
 //    double A = 1.0;
 //    double B = 2.0;
@@ -73,3 +69,5 @@ int main(int argc, char**argv) {
 
     return 0;
 }
+
+// ---------------------------------------------------------------------------

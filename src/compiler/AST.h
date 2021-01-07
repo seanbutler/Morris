@@ -18,6 +18,8 @@
 #include <boost/lexical_cast.hpp>
 
 #include "SymbolTable.h"
+#include "Location.h"
+#include "InstructionASTVisitor.h"
 
 // ----------------------------------------------------------------------
 
@@ -34,7 +36,6 @@ public:
     , value(V)
     {
         tag = boost::uuids::random_generator()();
-//        std::cout << tag << " --- " << value << std::endl;
     }
 
     virtual ~ASTNode(){
@@ -66,6 +67,15 @@ public:
         }
     }
 
+
+//    void Accept(InstructionASTVisitor* generator) {
+//        generator->Visit((ModuleASTNode*)this);
+//    }
+
+//    virtual void Accept(InstructionASTVisitor* generator) = 0;
+
+    virtual void Accept(InstructionASTVisitor* generator) {};
+
     unsigned int id;
     std::string type;
     std::string value;
@@ -82,8 +92,13 @@ public:
     ModuleASTNode()
     : ASTNode("MDL")
     {
-
     }
+
+
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((ModuleASTNode*)this);
+    }
+
 };
 
 // ----------------------------------------------------------------------
@@ -93,7 +108,10 @@ public:
     DeclarationASTNode()
     : ASTNode("KWD", "decl")
     {
+    }
 
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((DeclarationASTNode*)this);
     }
 };
 
@@ -104,7 +122,10 @@ public:
     IdentifierListASTNode()
         : ASTNode("IDL")
     {
+    }
 
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((IdentifierListASTNode*)this);
     }
 };
 
@@ -115,7 +136,10 @@ public:
     WhileASTNode()
         : ASTNode("KWD", "while")
     {
+    }
 
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((WhileASTNode*)this);
     }
 };
 
@@ -126,19 +150,23 @@ public:
     IfASTNode()
         : ASTNode("KWD", "if")
     {
-
+    }
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((IfASTNode*)this);
     }
 };
 
 // ----------------------------------------------------------------------
-
 
 class BlockASTNode : public ASTNode {
 public:
     BlockASTNode()
         : ASTNode("Block")
     {
+    }
 
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((BlockASTNode*)this);
     }
 };
 
@@ -149,7 +177,10 @@ public:
     AssignmentASTNode()
         : ASTNode("ASGN", "=")
     {
+    }
 
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((AssignmentASTNode*)this);
     }
 };
 
@@ -160,7 +191,10 @@ public:
     NumberASTNode(std::string V)
         : ASTNode("NUM", V)
     {
+    }
 
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((NumberASTNode*)this);
     }
 };
 
@@ -171,7 +205,6 @@ public:
     IdentifierASTNode(std::string V)
         : ASTNode("ID", V)
     {
-
     }
 };
 
@@ -182,7 +215,6 @@ public:
     OperatorASTNode(std::string V)
             : ASTNode("OP", V)
     {
-
     }
 };
 
@@ -193,7 +225,6 @@ public:
     ReturnASTNode()
         : ASTNode("RET")
     {
-
     }
 };
 
@@ -204,7 +235,6 @@ public:
     FunctionASTNode()
         : ASTNode("KWD", "func")
     {
-
     }
 };
 
@@ -215,7 +245,6 @@ public:
     ProcedureASTNode()
         : ASTNode("KWD", "proc")
     {
-
     }
 };
 

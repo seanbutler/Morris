@@ -8,10 +8,9 @@ set(SOURCE_FILES
         src/compiler/Tokenizer.cpp src/compiler/Tokenizer.h
         src/compiler/Tokens.cpp src/compiler/Tokens.h
         src/compiler/Parser.cpp src/compiler/Parser.h
-        src/compiler/Emitter.cpp src/compiler/Emitter.h
-        src/compiler/Generator.cpp src/compiler/Generator.h
+        src/compiler/InstructionASTVisitor.cpp src/compiler/InstructionASTVisitor.h
         src/compiler/SymbolTable.cpp src/compiler/SymbolTable.h
-        src/compiler/Runtime.cpp src/compiler/Runtime.h src/compiler/Assembler.cpp src/compiler/Assembler.h src/compiler/Instructions.h)
+        src/compiler/Runtime.cpp src/compiler/Runtime.h src/compiler/Instructions.h)
 
 add_executable(Morris ${SOURCE_FILES})
 

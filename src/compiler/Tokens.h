@@ -57,6 +57,8 @@ enum TokenEnum : int {
     TOK_NUMBER,
     TOK_IDENTIFIER,
 
+    KWD_OUTPUT,
+
     TOK_END_OF_FILE = 666,
     TOK_ERROR = 667
 };

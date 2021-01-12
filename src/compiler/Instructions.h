@@ -5,6 +5,7 @@
 #ifndef MORRIS_INSTRUCTIONS_H
 #define MORRIS_INSTRUCTIONS_H
 
+extern char* instructionNames[];
 
 enum INSTR {
     NOP = 0,
@@ -19,6 +20,7 @@ enum INSTR {
     JMP,
     BRT,
     BRF,
+    RET,
 
     ADD,
     SUB,

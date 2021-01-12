@@ -53,10 +53,11 @@ bool Tokenizer::ScanToken() {
         }
         --currentPosition;
 
-        for (unsigned int i = 0; i < 10; i++ ) {
+        // TODO CHANGE THIS INTO MODERN c++ with proper lookup
+        for (unsigned int i = 0; i < 11; i++ ) {
             if ( tokenString == tokens[i].name )
             {
-                Token newTok(tokens[i]);        // copy!
+                Token newTok(tokens[i]);                // copy!
                 newTok.file = currentFile;
                 newTok.line = currentLine;
                 outputTokens.push_back(newTok);

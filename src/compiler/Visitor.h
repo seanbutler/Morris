@@ -31,7 +31,6 @@ class ProcedureASTNode;
 class ASTNodeVisitor{
 
 public:
-    virtual void Visit(ASTNode * A)=0;
     virtual void Visit(ModuleASTNode * A)=0;
     virtual void Visit(DeclarationASTNode * A)=0;
     virtual void Visit(IdentifierListASTNode * A)=0;

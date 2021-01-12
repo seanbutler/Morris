@@ -4,7 +4,6 @@
 #include <fstream>
 #include <streambuf>
 
-
 #include "src/compiler/Tokenizer.h"
 #include "src/compiler/AST.h"
 #include "src/compiler/Parser.h"
@@ -12,6 +11,7 @@
 
 #include "src/compiler/SymbolTable.h"
 #include "src/compiler/Runtime.h"
+#include "src/compiler/Location.h"
 
 // ---------------------------------------------------------------------------
 
@@ -31,41 +31,20 @@ int main(int argc, char**argv) {
 
     Parser parser;
     parser.SetInput(tokens);
-    ASTNode * ast = parser.Parse();
+    ModuleASTNode * ast = parser.ParseModule();
+
+    std::ofstream diagramFile("test.gv");
+    diagramFile << "digraph G {" <<  std::endl;
+    diagramFile << "node [shape = circle];" << std::endl;
+    ast->Diagram(diagramFile);
+    diagramFile << "}" << std::endl;
+    diagramFile.close();
 
     InstructionASTVisitor generator;
     generator.Visit(ast);
-
-
-
-//    VM vm(generator.GetInstructions(), generator.GetData());
-
-//    double A = 1.0;
-//    double B = 2.0;
-
-//    vm.instructions.emplace_back(Location(INSTR::PUSH));
-//    vm.instructions.emplace_back(A);
-//    vm.instructions.emplace_back(INSTR::SAVE);
-//    vm.instructions.emplace_back(1UL);
-//    vm.instructions.emplace_back(INSTR::PUSH);
-//    vm.instructions.emplace_back(B);
-//    vm.instructions.emplace_back(INSTR::SAVE);
-//    vm.instructions.emplace_back(2UL);
-//    vm.instructions.emplace_back(INSTR::LOAD);
-//    vm.instructions.emplace_back(1UL);
-//    vm.instructions.emplace_back(INSTR::LOAD);
-//    vm.instructions.emplace_back(2UL);
-//    vm.instructions.emplace_back(INSTR::ADD);
-//    vm.instructions.emplace_back(INSTR::SAVE);
-//    vm.instructions.emplace_back(3UL);
-//    vm.instructions.emplace_back(INSTR::LOAD);
-//    vm.instructions.emplace_back(3UL);
-//    vm.instructions.emplace_back(INSTR::OUTPUT);
-//    vm.instructions.emplace_back(INSTR::JMP);
-//    vm.instructions.emplace_back(8UL);
-//    vm.instructions.emplace_back(INSTR::HALT);
-//    vm.state = VM::RUNNING;
-//    vm.Execute(13);
+    for(auto L : generator.instructions){
+        std::cout << L << std::endl;
+    }
 
     return 0;
 }

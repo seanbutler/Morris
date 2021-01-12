@@ -6,44 +6,6 @@
 #include "Location.h"
 
 
-char* instructionNames[] = {
-        "NOP",
-        "HALT",
-        "YIELD",
-        "PUSH",
-        "POP",
-
-        "SAVE",
-        "LOAD",
-
-        "JMP",
-        "BRT",
-        "BRF",
-
-        "ADD",
-        "SUB",
-        "MUL",
-        "DIV",
-        "MOD",
-
-        "EQU",
-        "NE",
-        "GT",
-        "GTE",
-        "LT",
-        "LTE",
-
-        "AND",
-        "OR",
-        "NOT",
-        "XOR",
-        "NAND",
-
-        "INPUT",
-        "OUTPUT",
-
-        "TOK_ERROR"
-};
 
 
 void VM::Execute(unsigned int S){
@@ -153,10 +115,7 @@ void VM::Execute(unsigned int S){
                     std::cout << "INPUT - not implemented" << std::endl;
                     break;
                 }
-
             }
-
-
 
             incrProgramCounter();
         }

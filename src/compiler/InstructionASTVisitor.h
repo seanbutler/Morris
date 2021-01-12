@@ -25,6 +25,7 @@ class NumberASTNode;
 class IdentifierASTNode;
 class OperatorASTNode;
 class ReturnASTNode;
+class OutputASTNode;
 class FunctionASTNode;
 class ProcedureASTNode;
 
@@ -35,7 +36,6 @@ class InstructionASTVisitor : public ASTNodeVisitor {
 public:
     InstructionASTVisitor() {}
 
-    void Visit(ASTNode * A);
     void Visit(ModuleASTNode * A);
     void Visit(DeclarationASTNode * A);
     void Visit(IdentifierListASTNode * A);
@@ -47,8 +47,10 @@ public:
     void Visit(IdentifierASTNode * A);
     void Visit(OperatorASTNode * A);
     void Visit(ReturnASTNode * A);
+    void Visit(OutputASTNode * A);
     void Visit(FunctionASTNode * A);
     void Visit(ProcedureASTNode * A);
+
 
     std::shared_ptr<ASTNode> ast;
     std::vector<Location> instructions;

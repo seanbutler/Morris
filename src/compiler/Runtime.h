@@ -55,12 +55,12 @@ public:
 
     void incrProgramCounter()                   { instructionPointer++; }
 
-    Location getCurrentLocation()             { return instructions[instructionPointer]; }
+    Location getCurrentLocation()               { return instructions[instructionPointer]; }
     INSTR getCurrentInstruction()               { return getCurrentLocation().instruction; }
     unsigned long int getCurrentAddress()       { return getCurrentLocation().address; }
     double getCurrentValue()                    { return getCurrentLocation().value; }
 
-    void InstructionsPush(Location V)         { instructions.emplace(instructions.end(), V); }
+    void InstructionsPush(Location V)           { instructions.emplace(instructions.end(), V); }
     void InstructionsPush(INSTR V)              { instructions.emplace(instructions.end(), Location(V)); }
     void InstructionsPush(unsigned long int V)  { instructions.emplace(instructions.end(), Location(V)); }
     void InstructionsPush(double V)             { instructions.push_back(V);}

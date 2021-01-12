@@ -17,27 +17,33 @@ class Parser {
 public:
     Parser() = default;
 
-    void SetInput(const std::vector<Token> T) { tokens = T; }
+    void SetInput(const std::vector<Token> T) {
+        tokens = T;
+        tokenItor = tokens.begin();
+    }
 
-    ASTNode * Parse();
+    ModuleASTNode * Parse();
     ModuleASTNode * ParseModule();
-    DeclarationASTNode * ParseDeclaration(SymbolTable & ST, SymbolTable::Scope S = SymbolTable::local);        // decl var
-    IdentifierListASTNode * ParseIdentList(SymbolTable & ST, SymbolTable::Scope S = SymbolTable::local);
+    DeclarationASTNode * ParseDeclaration(ASTNode *P, SymbolTable & ST, SymbolTable::Scope S = SymbolTable::local);        // decl var
+    IdentifierListASTNode * ParseIdentList(ASTNode *P, SymbolTable & ST, SymbolTable::Scope S = SymbolTable::local);
 
-    WhileASTNode * ParseWhile(bool returnable=false);
-    IfASTNode * ParseIf(bool returnable=false);
-    BlockASTNode * ParseBlock(bool returnable=false);
+    WhileASTNode * ParseWhile(ASTNode *P= nullptr, bool returnable=false);
+    IfASTNode * ParseIf(ASTNode *P= nullptr, bool returnable=false);
+    BlockASTNode * ParseBlock(ASTNode *P= nullptr, bool returnable=false);
 
-    AssignmentASTNode * ParseAssignment(bool returnable=false);       // identifier equals value
-    ASTNode * ParseExpression(bool returnable=false);                 // A + B etc
+    AssignmentASTNode * ParseAssignment(ASTNode *P= nullptr, bool returnable=false);       // identifier equals value
+    ASTNode * ParseExpression(ASTNode *P= nullptr, bool returnable=false);                 // A + B etc
 
-    NumberASTNode * ParseNumber();                                    // constant        3
-    IdentifierASTNode * ParseIdentifier();                            // identifier      nFred
-    OperatorASTNode * ParseOperator();                                // + - * / etc
+    NumberASTNode * ParseNumber(ASTNode *P= nullptr);                                    // constant        3
+    IdentifierASTNode * ParseIdentifier(ASTNode *P= nullptr);                            // identifier      nFred
+    OperatorASTNode * ParseOperator(ASTNode *P= nullptr);                                // + - * / etc
 
-    ProcedureASTNode * ParseProcedure();
-    FunctionASTNode * ParseFunction();
-    ReturnASTNode * ParseReturn();
+    ProcedureASTNode * ParseProcedure(ASTNode *P= nullptr);
+    FunctionASTNode * ParseFunction(ASTNode *P= nullptr);
+    ReturnASTNode * ParseReturn(ASTNode *P= nullptr);
+
+
+    OutputASTNode * ParseOutput(ASTNode *P= nullptr);
 
 protected:
     std::vector<Token> tokens;

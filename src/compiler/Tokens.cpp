@@ -18,8 +18,8 @@ Token tokens[] = {
         Token(KWD_RETURN,   "return"    ),
         Token(KWD_PROC,     "proc"      ),
         Token(KWD_THREAD,   "thread"    ),
-        Token(KWD_PROC,     "exit"      )
-
+        Token(KWD_PROC,     "exit"      ),
+        Token(KWD_OUTPUT,   "output"    )
 };
 
 Token symbols[] = {

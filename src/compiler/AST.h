@@ -30,10 +30,11 @@ static unsigned int ASTGID = 0;
 class ASTNode {
 
 public:
-    ASTNode(std::string T = "", std::string V = "")
+    ASTNode(std::string T = "", std::string V = "", ASTNode * P = nullptr)
     : id(ASTGID++)
     , type(T)
     , value(V)
+    , parent(P)
     {
         tag = boost::uuids::random_generator()();
     }
@@ -67,18 +68,24 @@ public:
         }
     }
 
-
-//    void Accept(InstructionASTVisitor* generator) {
-//        generator->Visit((ModuleASTNode*)this);
-//    }
-
-//    virtual void Accept(InstructionASTVisitor* generator) = 0;
-
     virtual void Accept(InstructionASTVisitor* generator) {};
+
+    bool IsValueLocal(std::string V) {
+        if ( symbolTable.Pos(V) >= 0 )
+            return true;
+        else
+            return false;
+    }
+
+    bool GetValuePosition(std::string V) {
+        return symbolTable.Pos(V);
+    }
 
     unsigned int id;
     std::string type;
     std::string value;
+    ASTNode * parent;
+
     boost::uuids::uuid tag;
 
     std::vector<ASTNode*>children;
@@ -94,8 +101,8 @@ public:
     {
     }
 
-
     void Accept(InstructionASTVisitor* generator) {
+        // NOW GENERATE CODE FOR ALL THE STATEMENTS
         generator->Visit((ModuleASTNode*)this);
     }
 
@@ -105,8 +112,8 @@ public:
 
 class DeclarationASTNode : public ASTNode {
 public:
-    DeclarationASTNode()
-    : ASTNode("KWD", "decl")
+    DeclarationASTNode(ASTNode * P=nullptr)
+    : ASTNode("KWD", "decl", P)
     {
     }
 
@@ -119,8 +126,8 @@ public:
 
 class IdentifierListASTNode : public ASTNode {
 public:
-    IdentifierListASTNode()
-        : ASTNode("IDL")
+    IdentifierListASTNode(ASTNode * P=nullptr)
+        : ASTNode("IDL", "", P)
     {
     }
 
@@ -133,8 +140,8 @@ public:
 
 class WhileASTNode : public ASTNode {
 public:
-    WhileASTNode()
-        : ASTNode("KWD", "while")
+    WhileASTNode(ASTNode * P=nullptr)
+        : ASTNode("KWD", "while", P)
     {
     }
 
@@ -147,8 +154,8 @@ public:
 
 class IfASTNode : public ASTNode {
 public:
-    IfASTNode()
-        : ASTNode("KWD", "if")
+    IfASTNode(ASTNode * P=nullptr)
+        : ASTNode("KWD", "if", P)
     {
     }
     void Accept(InstructionASTVisitor* generator) {
@@ -160,8 +167,8 @@ public:
 
 class BlockASTNode : public ASTNode {
 public:
-    BlockASTNode()
-        : ASTNode("Block")
+    BlockASTNode(ASTNode * P=nullptr)
+        : ASTNode("Block", "", P)
     {
     }
 
@@ -174,8 +181,8 @@ public:
 
 class AssignmentASTNode : public ASTNode {
 public:
-    AssignmentASTNode()
-        : ASTNode("ASGN", "=")
+    AssignmentASTNode(ASTNode * P=nullptr)
+        : ASTNode("ASGN", "=", P)
     {
     }
 
@@ -188,8 +195,8 @@ public:
 
 class NumberASTNode : public ASTNode {
 public:
-    NumberASTNode(std::string V)
-        : ASTNode("NUM", V)
+    NumberASTNode(std::string V, ASTNode * P=nullptr)
+        : ASTNode("NUM", V, P)
     {
     }
 
@@ -202,9 +209,13 @@ public:
 
 class IdentifierASTNode : public ASTNode {
 public:
-    IdentifierASTNode(std::string V)
-        : ASTNode("ID", V)
+    IdentifierASTNode(std::string V, ASTNode * P=nullptr)
+        : ASTNode("ID", V, P)
     {
+    }
+
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((IdentifierASTNode*)this);
     }
 };
 
@@ -212,9 +223,14 @@ public:
 
 class OperatorASTNode : public ASTNode {
 public:
-    OperatorASTNode(std::string V)
-            : ASTNode("OP", V)
+    OperatorASTNode(std::string V, ASTNode * P=nullptr)
+        : ASTNode("OP", V, P)
     {
+    }
+
+
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((OperatorASTNode*)this);
     }
 };
 
@@ -222,9 +238,29 @@ public:
 
 class ReturnASTNode : public ASTNode {
 public:
-    ReturnASTNode()
-        : ASTNode("RET")
+    ReturnASTNode(ASTNode * P=nullptr)
+        : ASTNode("RET", "", P)
     {
+    }
+
+
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((ReturnASTNode*)this);
+    }
+};
+
+// ----------------------------------------------------------------------
+
+class OutputASTNode : public ASTNode {
+public:
+    OutputASTNode(ASTNode * P=nullptr)
+        : ASTNode("KWD", "output", P)
+    {
+    }
+
+
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((OutputASTNode*)this);
     }
 };
 
@@ -232,9 +268,14 @@ public:
 
 class FunctionASTNode : public ASTNode {
 public:
-    FunctionASTNode()
-        : ASTNode("KWD", "func")
+    FunctionASTNode(ASTNode * P=nullptr)
+        : ASTNode("KWD", "func", P)
     {
+    }
+
+
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((FunctionASTNode*)this);
     }
 };
 
@@ -242,9 +283,14 @@ public:
 
 class ProcedureASTNode : public ASTNode {
 public:
-    ProcedureASTNode()
-        : ASTNode("KWD", "proc")
+    ProcedureASTNode(ASTNode * P=nullptr)
+        : ASTNode("KWD", "proc", P)
     {
+    }
+
+
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((ProcedureASTNode*)this);
     }
 };
 

@@ -56,7 +56,6 @@ public:
         theTable.emplace_back(std::make_tuple(K, T, S));
     }
 
-
     int Pos(std::string K) {
 
         int pos = 0;

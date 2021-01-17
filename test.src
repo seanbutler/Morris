@@ -8,3 +8,9 @@ b=5
 output a
 output b
 
+
+func myfunc(c){
+    decl d
+    return d+1
+}
+

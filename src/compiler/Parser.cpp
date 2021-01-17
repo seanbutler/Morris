@@ -37,7 +37,7 @@ ModuleASTNode * Parser::ParseModule() {
             // DECLARATION
             case TokenEnum::KWD_DECL: {
                 std::cout << "Parser::Parse() TokenEnum::KWD_DECL" << std::endl;
-                statementsNodePtr->children.push_back(ParseDeclaration(statementsNodePtr, statementsNodePtr->symbolTable, SymbolTable::global));
+                statementsNodePtr->children.push_back(ParseDeclaration(statementsNodePtr));
                 break;
             }
 
@@ -93,14 +93,14 @@ ModuleASTNode * Parser::ParseModule() {
 
 // ----------------------------------------------------------------------
 
-DeclarationASTNode * Parser::ParseDeclaration(ASTNode *P, SymbolTable & ST, SymbolTable::Scope S) {
+DeclarationASTNode * Parser::ParseDeclaration(ASTNode *P) {
     DeclarationASTNode * declarationNodeSP = nullptr;
 
     if ( tokenItor->kind == TokenEnum::KWD_DECL) {
         std::cout << "ParseDeclaration() TokenEnum::KWD_DECL" << std::endl;
         declarationNodeSP = new DeclarationASTNode(P);
         tokenItor++;
-        declarationNodeSP->children.push_back(ParseIdentList(declarationNodeSP, ST, S));
+        declarationNodeSP->children.push_back(ParseIdentList(declarationNodeSP));
     }
 
     return declarationNodeSP;
@@ -109,7 +109,7 @@ DeclarationASTNode * Parser::ParseDeclaration(ASTNode *P, SymbolTable & ST, Symb
 
 // ----------------------------------------------------------------------
 
-IdentifierListASTNode * Parser::ParseIdentList(ASTNode *P, SymbolTable & ST, SymbolTable::Scope S) {
+IdentifierListASTNode * Parser::ParseIdentList(ASTNode *P) {
 
     IdentifierListASTNode* listNodeSP = nullptr;
     ASTNode* identifierNodeSP;
@@ -121,7 +121,7 @@ IdentifierListASTNode * Parser::ParseIdentList(ASTNode *P, SymbolTable & ST, Sym
         identifierNodeSP = new ASTNode("ID", tokenItor->name);
         listNodeSP->children.push_back(identifierNodeSP);
 
-        ST.Insert(tokenItor->name, SymbolTable::integer, S);
+        symbolTable.Insert(tokenItor->name, SymbolTable::integer, SymbolTable::local);
 
         tokenItor++;
 
@@ -135,7 +135,7 @@ IdentifierListASTNode * Parser::ParseIdentList(ASTNode *P, SymbolTable & ST, Sym
                 identifierNodeSP = new ASTNode("ID", tokenItor->name);
                 listNodeSP->children.push_back(identifierNodeSP);
 
-                ST.Insert(tokenItor->name, SymbolTable::integer, SymbolTable::local);
+                symbolTable.Insert(tokenItor->name, SymbolTable::integer, SymbolTable::local);
 
                 tokenItor++;
             }
@@ -280,7 +280,7 @@ BlockASTNode * Parser::ParseBlock(ASTNode *P, bool returnable) {
             // DECLARATION
             case TokenEnum::KWD_DECL: {
                 std::cout << "Parser::Parse() TokenEnum::KWD_DECL" << std::endl;
-                statementsNodeSP->children.push_back(ParseDeclaration(P, statementsNodeSP->symbolTable));
+                statementsNodeSP->children.push_back(ParseDeclaration(P));
                 break;
             }
 
@@ -452,7 +452,7 @@ ProcedureASTNode * Parser::ParseProcedure(ASTNode *P) {
                 tokenItor++;
 
                 if (tokenItor->kind != TokenEnum::SYM_RPAREN) {
-                    varsListNodeSP = ParseIdentList(statementNodeSP, statementNodeSP->symbolTable);
+                    varsListNodeSP = ParseIdentList(statementNodeSP);
                     statementNodeSP->children.push_back(varsListNodeSP);
                 }
 
@@ -502,7 +502,7 @@ FunctionASTNode * Parser::ParseFunction(ASTNode *P) {
                 tokenItor++;
 
                 if (tokenItor->kind != TokenEnum::SYM_RPAREN) {
-                    varsListNodeSP = ParseIdentList(statementNodeSP, statementNodeSP->symbolTable, SymbolTable::Scope::param);
+                    varsListNodeSP = ParseIdentList(statementNodeSP);
                     statementNodeSP->children.push_back(varsListNodeSP);
                 }
 

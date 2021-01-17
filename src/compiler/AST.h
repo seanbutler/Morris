@@ -55,7 +55,7 @@ public:
                     << " shape = \"record\""
                     << " label = \"" << type << " " << value << std::endl;
 
-            symbolTable.Diagram(outStream);
+//            symbolTable.Diagram(outStream);
 
             outStream << "\"" << " ];" << std::endl;
 
@@ -70,16 +70,8 @@ public:
 
     virtual void Accept(InstructionASTVisitor* generator) {};
 
-    bool IsValueLocal(std::string V) {
-        if ( symbolTable.Pos(V) >= 0 )
-            return true;
-        else
-            return false;
-    }
 
-    bool GetValuePosition(std::string V) {
-        return symbolTable.Pos(V);
-    }
+
 
     unsigned int id;
     std::string type;

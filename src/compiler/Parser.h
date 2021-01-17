@@ -24,15 +24,15 @@ public:
 
     ModuleASTNode * Parse();
     ModuleASTNode * ParseModule();
-    DeclarationASTNode * ParseDeclaration(ASTNode *P, SymbolTable & ST, SymbolTable::Scope S = SymbolTable::local);        // decl var
-    IdentifierListASTNode * ParseIdentList(ASTNode *P, SymbolTable & ST, SymbolTable::Scope S = SymbolTable::local);
+    DeclarationASTNode *ParseDeclaration(ASTNode *P);        // decl var
+    IdentifierListASTNode *ParseIdentList(ASTNode *P);
 
     WhileASTNode * ParseWhile(ASTNode *P= nullptr, bool returnable=false);
     IfASTNode * ParseIf(ASTNode *P= nullptr, bool returnable=false);
     BlockASTNode * ParseBlock(ASTNode *P= nullptr, bool returnable=false);
 
-    AssignmentASTNode * ParseAssignment(ASTNode *P= nullptr, bool returnable=false);       // identifier equals value
-    ASTNode * ParseExpression(ASTNode *P= nullptr, bool returnable=false);                 // A + B etc
+    AssignmentASTNode * ParseAssignment(ASTNode *P= nullptr, bool returnable=false);     // identifier equals value
+    ASTNode * ParseExpression(ASTNode *P= nullptr, bool returnable=false);               // A + B etc
 
     NumberASTNode * ParseNumber(ASTNode *P= nullptr);                                    // constant        3
     IdentifierASTNode * ParseIdentifier(ASTNode *P= nullptr);                            // identifier      nFred
@@ -42,10 +42,11 @@ public:
     FunctionASTNode * ParseFunction(ASTNode *P= nullptr);
     ReturnASTNode * ParseReturn(ASTNode *P= nullptr);
 
-
     OutputASTNode * ParseOutput(ASTNode *P= nullptr);
 
-protected:
+
+    SymbolTable symbolTable;
+
     std::vector<Token> tokens;
     std::vector<Token>::iterator tokenItor;
     std::shared_ptr<ASTNode> abstractSyntaxTree;

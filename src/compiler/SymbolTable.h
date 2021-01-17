@@ -2,8 +2,7 @@
 // Created by sean on 02/12/2020.
 //
 
-#ifndef MORRIS_SYMBOLTABLE_H
-#define MORRIS_SYMBOLTABLE_H
+#pragma once
 
 #include <iostream>
 
@@ -18,13 +17,11 @@
 
 // ------------------------------------------------------------
 
-static unsigned int STGID;
-
 class SymbolTable {
 
 public:
-    SymbolTable(){id = STGID++;}
-    virtual ~SymbolTable(){}
+    SymbolTable() {}
+    virtual ~SymbolTable() {}
 
     enum BaseTypes {
         procedure,
@@ -80,8 +77,7 @@ public:
 
     void Dump() {
         for (auto const &foo : theTable) {
-            std::cout << "ST: ";
-            std::cout << std::get<0>(foo) << " " << BaseTypeStrs[std::get<1>(foo)] << " " << ScopeStrs[std::get<2>(foo)] << std::endl;
+            std::cout << "ST: " << std::get<0>(foo) << " " << BaseTypeStrs[std::get<1>(foo)] << " " << ScopeStrs[std::get<2>(foo)] << std::endl;
         }
     }
 
@@ -97,10 +93,7 @@ public:
         }
     }
 
-    unsigned int id;
     std::vector<std::tuple<std::string, BaseTypes, Scope>> theTable;
 };
 
 // ------------------------------------------------------------
-
-#endif //MORRIS_SYMBOLTABLE_H

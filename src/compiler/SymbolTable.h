@@ -30,9 +30,9 @@ public:
     };
 
     const std::string BaseTypeStrs[3] = {
-            "procedure",
-            "function",
-            "integer"
+        "procedure",
+        "function",
+        "integer"
     };
 
     enum Scope {
@@ -42,9 +42,9 @@ public:
     };
 
     const std::string ScopeStrs[3] = {
-            "global",
-            "local",
-            "param"
+        "global",
+        "local",
+        "param"
     };
 
     void Insert(std::string K,
@@ -53,47 +53,52 @@ public:
         theTable.emplace_back(std::make_tuple(K, T, S));
     }
 
-    int Pos(std::string K) {
-
-        int pos = 0;
-
-        for ( auto E : theTable) {
-            if (std::get<0>(E)==K)
-                return pos;
-
-            pos++;
+    void Dump() {
+        for (auto const &foo : theTable) {
+            std::cout << "ST: " << std::get<0>(foo) << " "
+                    << BaseTypeStrs[std::get<1>(foo)] << " "
+                    << ScopeStrs[std::get<2>(foo)] << std::endl;
         }
-
-        return -1;
     }
 
-    std::tuple<std::string, BaseTypes, Scope> Get(unsigned int pos) {
-        return theTable[pos];
+private:
+    std::vector<std::tuple<std::string, BaseTypes, Scope>> theTable;
+};
+
+// ------------------------------------------------------------
+
+class SymbolTableStack {
+
+public:
+    SymbolTableStack(){
+        tableStack.emplace_back(SymbolTable());
     }
 
-    unsigned int Size() {
-        return theTable.size();
+    ~SymbolTableStack(){
+        tableStack.emplace_back(SymbolTable());
+    }
+
+    void Insert(std::string K,
+                SymbolTable::BaseTypes T = SymbolTable::integer,
+                SymbolTable::Scope S = SymbolTable::local) {
+        tableStack[tableStack.size()-1].Insert(K, T, S);
+    }
+
+    void IncreaseNestLevel() {
+        tableStack.emplace_back(SymbolTable());
+    }
+
+    void DecreaseNestLevel() {
+        tableStack.pop_back();
     }
 
     void Dump() {
-        for (auto const &foo : theTable) {
-            std::cout << "ST: " << std::get<0>(foo) << " " << BaseTypeStrs[std::get<1>(foo)] << " " << ScopeStrs[std::get<2>(foo)] << std::endl;
-        }
+        tableStack[tableStack.size()-1].Dump();
     }
 
-    void Diagram(std::ofstream & outStream) {
+public:
+    std::vector<SymbolTable>tableStack;
 
-        if (theTable.size() )
-        {
-            outStream << "|";
-
-            for (auto const &foo : theTable) {
-                std::cout << std::get<0>(foo) << " " << BaseTypeStrs[std::get<1>(foo)] << " " << ScopeStrs[std::get<2>(foo)] << std::endl;
-            }
-        }
-    }
-
-    std::vector<std::tuple<std::string, BaseTypes, Scope>> theTable;
 };
 
 // ------------------------------------------------------------

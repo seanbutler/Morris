@@ -45,7 +45,8 @@ public:
     OutputASTNode * ParseOutput(ASTNode *P= nullptr);
 
 
-    SymbolTable symbolTable;
+//    SymbolTable symbolTable;
+    SymbolTableStack symbolTable;
 
     std::vector<Token> tokens;
     std::vector<Token>::iterator tokenItor;

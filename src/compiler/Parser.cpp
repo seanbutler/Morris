@@ -264,6 +264,8 @@ BlockASTNode * Parser::ParseBlock(ASTNode *P, bool returnable) {
     BlockASTNode * statementsNodeSP = nullptr;
     statementsNodeSP = new BlockASTNode(P);
 
+    symbolTable.IncreaseNestLevel();
+
     while ( tokenItor->kind != TokenEnum::SYM_RBRACES )
     {
         switch (tokenItor->kind) {
@@ -335,6 +337,8 @@ BlockASTNode * Parser::ParseBlock(ASTNode *P, bool returnable) {
             }
         }
     }
+
+    symbolTable.DecreaseNestLevel();
 
     return statementsNodeSP;
 }

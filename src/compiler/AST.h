@@ -70,9 +70,6 @@ public:
 
     virtual void Accept(InstructionASTVisitor* generator) {};
 
-
-
-
     unsigned int id;
     std::string type;
     std::string value;

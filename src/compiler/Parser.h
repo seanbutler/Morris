@@ -44,7 +44,6 @@ public:
 
     OutputASTNode * ParseOutput(ASTNode *P= nullptr);
 
-
 //    SymbolTable symbolTable;
     SymbolTableStack symbolTable;
 

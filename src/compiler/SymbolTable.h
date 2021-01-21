@@ -17,6 +17,10 @@
 
 // ------------------------------------------------------------
 
+class SymbolDescriptor {
+// TODO maybe refactor to a separate class?
+};
+
 class SymbolTable {
 
 public:
@@ -84,6 +88,10 @@ public:
         tableStack[tableStack.size()-1].Insert(K, T, S);
     }
 
+    std::tuple<std::string, SymbolTable::BaseTypes, SymbolTable::Scope> * Find(std::string K) {
+
+    }
+
     void IncreaseNestLevel() {
         tableStack.emplace_back(SymbolTable());
     }
@@ -93,12 +101,13 @@ public:
     }
 
     void Dump() {
-        tableStack[tableStack.size()-1].Dump();
+        for(auto T : tableStack) {
+            T.Dump();
+        }
     }
 
 public:
     std::vector<SymbolTable>tableStack;
-
 };
 
 // ------------------------------------------------------------

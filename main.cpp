@@ -40,9 +40,7 @@ int main(int argc, char**argv) {
     diagramFile << "}" << std::endl;
     diagramFile.close();
 
-
     parser.symbolTable.Dump();
-
 
     InstructionASTVisitor generator;
     generator.Visit(ast);

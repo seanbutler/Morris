@@ -9,8 +9,8 @@
 #include <stack>
 #include <iostream>
 
-#include "Instructions.h"
-#include "Location.h"
+#include "../common/Instructions.h"
+#include "../common/Location.h"
 
 // ---------------------------------------------------------------------------
 

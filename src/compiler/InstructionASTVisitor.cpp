@@ -8,18 +8,17 @@
 // --------------------------------------------------
 
 void InstructionASTVisitor::Visit(ModuleASTNode * A){
-    std::cout << "Visit ModuleASTNode" << std::endl;
+    std::cout << "InstructionASTVisitor ModuleASTNode" << std::endl;
 
     for(auto child : A->children) {
         child->Accept(this);
     }
+
     instructions.emplace_back(Location(INSTR::HALT));
 }
 
 void InstructionASTVisitor::Visit(DeclarationASTNode * A){
-    std::cout << "Visit DeclarationASTNode" << std::endl;
-
-    // TODO (later) set visibility of var in local symbol table to true
+    std::cout << "InstructionASTVisitor DeclarationASTNode" << std::endl;
 
     for(auto child : A->children) {
         child->Accept(this);
@@ -27,17 +26,16 @@ void InstructionASTVisitor::Visit(DeclarationASTNode * A){
 }
 
 void InstructionASTVisitor::Visit(IdentifierListASTNode * A){
-    std::cout << "Visit IdentifierListASTNode" << std::endl;
-
-    instructions.emplace_back(Location(INSTR::NOP));
+    std::cout << "InstructionASTVisitor IdentifierListASTNode " << A->value << " " << A->type << std::endl;
 
     for(auto child : A->children) {
-        child->Accept(this);
+        std::cout << " >>> DECLARE " << child->value << std::endl;
+        symbolTable.Insert(child->value, SymbolTable::integer, SymbolTable::local);
     }
 }
 
 void InstructionASTVisitor::Visit(WhileASTNode * A){
-    std::cout << "Visit WhileASTNode" << std::endl;
+    std::cout << "InstructionASTVisitor WhileASTNode" << std::endl;
 
     instructions.emplace_back(Location(INSTR::NOP));
 
@@ -49,7 +47,7 @@ void InstructionASTVisitor::Visit(WhileASTNode * A){
 }
 
 void InstructionASTVisitor::Visit(IfASTNode * A){
-    std::cout << "Visit IfASTNode" << std::endl;
+    std::cout << "InstructionASTVisitor IfASTNode" << std::endl;
 
     instructions.emplace_back(Location(INSTR::NOP));
 
@@ -59,18 +57,20 @@ void InstructionASTVisitor::Visit(IfASTNode * A){
 }
 
 void InstructionASTVisitor::Visit(BlockASTNode * A){
-    std::cout << "Visit BlockASTNode" << std::endl;
+    std::cout << "InstructionASTVisitor BlockASTNode" << std::endl;
 
-    // TODO - blocks can have their own local symbol table, which is nice
-//    instructions.emplace_back(Location(INSTR::NOP));
+    symbolTable.IncreaseNestLevel();
 
     for(auto child : A->children) {
         child->Accept(this);
     }
+
+    symbolTable.DecreaseNestLevel();
+
 }
 
 void InstructionASTVisitor::Visit(AssignmentASTNode * A){
-    std::cout << "Visit AssignmentASTNode" << std::endl;
+    std::cout << "InstructionASTVisitor AssignmentASTNode" << std::endl;
 
     for(auto child : A->children) {
         child->Accept(this);
@@ -82,7 +82,7 @@ void InstructionASTVisitor::Visit(AssignmentASTNode * A){
 }
 
 void InstructionASTVisitor::Visit(NumberASTNode * A){
-    std::cout << "Visit NumberASTNode" << std::endl;
+    std::cout << "InstructionASTVisitor NumberASTNode" << std::endl;
 
     instructions.emplace_back(Location(INSTR::PUSH));
     instructions.emplace_back(Location((unsigned long int) std::stoi(A->value)));
@@ -93,19 +93,23 @@ void InstructionASTVisitor::Visit(NumberASTNode * A){
 }
 
 void InstructionASTVisitor::Visit(IdentifierASTNode * A){
-    std::cout << "Visit IdentifierASTNode" << std::endl;
+    std::cout << "InstructionASTVisitor IdentifierASTNode" << std::endl;
 
     instructions.emplace_back(Location(INSTR::PUSH));
 
-    std::cout << " ---- " << A->value << std::endl;
+    //
+    // RESOLVE VARIABLE
+    //
+    std::cout << " <<< RESOLVE " << A->value << std::endl;
 
-    // RESOLVE A->value
+//    std::tuple<std::string, SymbolTable::BaseTypes, SymbolTable::Scope> * currentIdent;
+//    currentIdent = symbolTable.Get(A->value);
 
+    std::pair<int, int > stackTablePosition = symbolTable.Find(A->value);
+    std::cout << stackTablePosition.first << " " << stackTablePosition.second << std::endl;
 
-
-
-
-    instructions.emplace_back(Location( (unsigned long int) 0));        // TODO get this value from identifier/varname lookup
+    instructions.emplace_back(Location( (unsigned long int) 0));
+    // TODO get this value from identifier/varname lookup
 
     instructions.emplace_back(Location(INSTR::LOAD));
 
@@ -148,7 +152,6 @@ void InstructionASTVisitor::Visit(OperatorASTNode * A){
 
 void InstructionASTVisitor::Visit(ReturnASTNode * A){
     std::cout << "Visit ReturnASTNode" << std::endl;
-
 
     for(auto child : A->children) {
         child->Accept(this);

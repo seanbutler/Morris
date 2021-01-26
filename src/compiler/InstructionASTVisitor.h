@@ -2,14 +2,14 @@
 // Created by sean on 27/11/2020.
 //
 
-#ifndef MORRIS_INSTRUCTIONASTVISITOR_H
-#define MORRIS_INSTRUCTIONASTVISITOR_H
+#pragma once
 
 #include <iostream>
 #include <memory>
 
-#include "./Location.h"
+#include "../common/Location.h"
 #include "./Visitor.h"
+#include "./SymbolTable.h"
 
 // ---------------------------------------------------------------------------
 
@@ -51,12 +51,10 @@ public:
     void Visit(FunctionASTNode * A);
     void Visit(ProcedureASTNode * A);
 
-
+    SymbolTableStack symbolTable;
     std::shared_ptr<ASTNode> ast;
     std::vector<Location> instructions;
     std::vector<Location> data;
 };
 
 // ---------------------------------------------------------------------------
-
-#endif //MORRIS_INSTRUCTIONASTVISITOR_H

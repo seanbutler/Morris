@@ -7,17 +7,15 @@ b=5
 output a
 output b
 
-func myfunc(x) {
+func myfunc(x){
     decl y
-    y=10
-    return x*y
+    return x+y
 }
 
-func otherfunc(f) {
-    decl g
-    g=10
-    return f*g
-}
+decl c, d
+c=3
+output c
 
-
+a=a+1
+output a
 

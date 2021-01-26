@@ -18,7 +18,7 @@
 #include <boost/lexical_cast.hpp>
 
 #include "SymbolTable.h"
-#include "Location.h"
+#include "../common/Location.h"
 #include "InstructionASTVisitor.h"
 
 // ----------------------------------------------------------------------

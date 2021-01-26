@@ -10,8 +10,8 @@ set(SOURCE_FILES
         src/compiler/Parser.cpp src/compiler/Parser.h
         src/compiler/InstructionASTVisitor.cpp src/compiler/InstructionASTVisitor.h
         src/compiler/SymbolTable.cpp src/compiler/SymbolTable.h
-        src/compiler/Runtime.cpp src/compiler/Runtime.h
-        src/compiler/Instructions.cpp src/compiler/Instructions.h)
+        src/runtime/Runtime.cpp src/runtime/Runtime.h
+        src/common/Instructions.cpp src/common/Instructions.h)
 
 add_executable(Morris ${SOURCE_FILES})
 

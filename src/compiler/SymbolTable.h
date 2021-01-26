@@ -57,6 +57,30 @@ public:
         theTable.emplace_back(std::make_tuple(K, T, S));
     }
 
+    std::tuple<std::string, BaseTypes, Scope> * Get(std::string ident) {
+
+        for(auto I : theTable)
+        {
+            if ( std::get<0>(I) == ident ) {
+                return &I;
+            }
+
+            std::cout << std::get<0>(I) << std::get<1>(I) << std::get<2>(I);
+        }
+        return nullptr;
+    }
+
+    int Find(std::string ident) {
+
+        for(int i=0;i<theTable.size();i++)
+        {
+            if ( std::get<0>(theTable[i]) == ident ) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     void Dump() {
         for (auto const &foo : theTable) {
             std::cout << "ST: " << std::get<0>(foo) << " "
@@ -88,8 +112,31 @@ public:
         tableStack[tableStack.size()-1].Insert(K, T, S);
     }
 
-    std::tuple<std::string, SymbolTable::BaseTypes, SymbolTable::Scope> * Find(std::string K) {
+    std::pair<int, int> Find(std::string K) {
 
+        for(int i = tableStack.size() - 1; i >= 0; i--)
+        {
+            int j;
+            if ( ( j = tableStack[i].Find(K) ) != -1 )
+                return std::make_pair(i, j);
+        }
+
+        return std::make_pair(-1, -1);
+    }
+
+    std::tuple<std::string, SymbolTable::BaseTypes, SymbolTable::Scope> * Get(std::string K) {
+
+        for(int i = tableStack.size() - 1; i >= 0; i--)
+        {
+            std::tuple<std::string, SymbolTable::BaseTypes, SymbolTable::Scope> * tmpPtr;
+            tmpPtr = tableStack[i].Get(K);
+            if ( tmpPtr != nullptr)
+            {
+                return tmpPtr;
+            }
+        }
+
+        return nullptr;
     }
 
     void IncreaseNestLevel() {

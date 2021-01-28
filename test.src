@@ -1,21 +1,3 @@
-
-decl a, b
-
-a=3
-b=5
-
+decl a
+a = 1 + 2
 output a
-output b
-
-func myfunc(x){
-    decl y
-    return x+y
-}
-
-decl c, d
-c=3
-output c
-
-a=a+1
-output a
-

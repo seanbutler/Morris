@@ -118,7 +118,7 @@ IdentifierListASTNode * Parser::ParseIdentList(ASTNode *P) {
 
         listNodeSP = new IdentifierListASTNode();
         std::cout << "ParseIdentList() TokenEnum::TOK_IDENTIFIER" << std::endl;
-        identifierNodeSP = new ASTNode("ID", tokenItor->name);
+        identifierNodeSP = new ASTNode("ID-DECL", tokenItor->name);
         listNodeSP->children.push_back(identifierNodeSP);
 
         symbolTable.Insert(tokenItor->name, SymbolTable::integer, SymbolTable::local);
@@ -132,7 +132,7 @@ IdentifierListASTNode * Parser::ParseIdentList(ASTNode *P) {
 
             if (tokenItor->kind == TokenEnum::TOK_IDENTIFIER) {
                 std::cout << "ParseIdentList() TokenEnum::TOK_IDENTIFIER" << std::endl;
-                identifierNodeSP = new ASTNode("ID", tokenItor->name);
+                identifierNodeSP = new ASTNode("ID-DEC", tokenItor->name);
                 listNodeSP->children.push_back(identifierNodeSP);
 
                 symbolTable.Insert(tokenItor->name, SymbolTable::integer, SymbolTable::local);
@@ -157,9 +157,7 @@ AssignmentASTNode * Parser::ParseAssignment(ASTNode *P, bool returnable) {
     if ( tokenItor->kind == TokenEnum::TOK_IDENTIFIER ) {
 
         std::cout << "ParseAssignment() TokenEnum::TOK_IDENTIFIER" << std::endl;
-        identifierNodeSP = new ASTNode();
-        identifierNodeSP->type = "ID";
-        identifierNodeSP->value = tokenItor->name;
+        identifierNodeSP = new LHSIdentifierASTNode(tokenItor->name);
         tokenItor++;
 
         if ( tokenItor->kind == TokenEnum::SYM_ASSIGN ) {
@@ -419,12 +417,12 @@ NumberASTNode * Parser::ParseNumber(ASTNode *P) {
     return valueNodeSP;
 }
 
-IdentifierASTNode * Parser::ParseIdentifier(ASTNode *P) {
-    IdentifierASTNode * nodeSP = nullptr;
+RHSIdentifierASTNode * Parser::ParseIdentifier(ASTNode *P) {
+    RHSIdentifierASTNode * nodeSP = nullptr;
 
     if ( tokenItor->kind == TokenEnum::TOK_IDENTIFIER) {
         std::cout << "ParseIdentifier() TokenEnum::TOK_IDENTIFIER" << std::endl;
-        nodeSP = new IdentifierASTNode(tokenItor->name);
+        nodeSP = new RHSIdentifierASTNode(tokenItor->name);
     }
 
     return nodeSP;
@@ -447,7 +445,7 @@ ProcedureASTNode * Parser::ParseProcedure(ASTNode *P) {
 
         if ( tokenItor->kind == TokenEnum::TOK_IDENTIFIER) {
             std::cout << "ParseProcedure() TokenEnum::TOK_IDENTIFIER" << std::endl;
-            identifierNodeSP = new IdentifierASTNode(tokenItor->name, statementNodeSP);
+            identifierNodeSP = new RHSIdentifierASTNode(tokenItor->name, statementNodeSP);
             statementNodeSP->children.push_back(identifierNodeSP);
 
             tokenItor++;
@@ -497,7 +495,7 @@ FunctionASTNode * Parser::ParseFunction(ASTNode *P) {
 
         if ( tokenItor->kind == TokenEnum::TOK_IDENTIFIER) {
             std::cout << "ParseFunction() TokenEnum::TOK_IDENTIFIER" << std::endl;
-            identifierNodeSP = new IdentifierASTNode(tokenItor->name, statementNodeSP);
+            identifierNodeSP = new RHSIdentifierASTNode(tokenItor->name, statementNodeSP);
             statementNodeSP->children.push_back(identifierNodeSP);
 
             tokenItor++;

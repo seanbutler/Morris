@@ -5,9 +5,6 @@
 #include "Runtime.h"
 #include "../common/Location.h"
 
-
-
-
 void VM::Execute(unsigned int S){
     slice = S;
     if (state == RUNNING) {
@@ -43,17 +40,20 @@ void VM::Execute(unsigned int S){
                 }
 
                 case INSTR::LOAD: {
-                    incrProgramCounter();
-                    Location addr = getCurrentLocation();
+                    Location addr = stack.top();
+                    stack.pop();
                     stack.push(data[addr.address]);
                     break;
                 }
 
                 case INSTR::SAVE: {
+
+                    Location loc = stack.top();
+                    stack.pop();
+
                     Location val = stack.top();
                     stack.pop();
-                    incrProgramCounter();
-                    Location loc = getCurrentLocation();
+
                     data[loc.address] = val;
                     break;
                 }

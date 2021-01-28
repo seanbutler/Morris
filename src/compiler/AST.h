@@ -73,6 +73,7 @@ public:
     unsigned int id;
     std::string type;
     std::string value;
+//    std::string context;
     ASTNode * parent;
 
     boost::uuids::uuid tag;
@@ -116,7 +117,7 @@ public:
 class IdentifierListASTNode : public ASTNode {
 public:
     IdentifierListASTNode(ASTNode * P=nullptr)
-        : ASTNode("IDL", "", P)
+        : ASTNode("ID-LIST", "", P)
     {
     }
 
@@ -196,17 +197,32 @@ public:
 
 // ----------------------------------------------------------------------
 
-class IdentifierASTNode : public ASTNode {
+class RHSIdentifierASTNode : public ASTNode {
 public:
-    IdentifierASTNode(std::string V, ASTNode * P=nullptr)
-        : ASTNode("ID", V, P)
+    RHSIdentifierASTNode(std::string V, ASTNode * P=nullptr)
+        : ASTNode("ID-RHS", V, P)
     {
     }
 
     void Accept(InstructionASTVisitor* generator) {
-        generator->Visit((IdentifierASTNode*)this);
+        generator->Visit((RHSIdentifierASTNode*)this);
     }
 };
+
+// ----------------------------------------------------------------------
+
+class LHSIdentifierASTNode : public ASTNode {
+public:
+    LHSIdentifierASTNode(std::string V, ASTNode * P=nullptr)
+            : ASTNode("ID-LHS", V, P)
+    {
+    }
+
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((LHSIdentifierASTNode*)this);
+    }
+};
+
 
 // ----------------------------------------------------------------------
 
@@ -216,7 +232,6 @@ public:
         : ASTNode("OP", V, P)
     {
     }
-
 
     void Accept(InstructionASTVisitor* generator) {
         generator->Visit((OperatorASTNode*)this);
@@ -232,7 +247,6 @@ public:
     {
     }
 
-
     void Accept(InstructionASTVisitor* generator) {
         generator->Visit((ReturnASTNode*)this);
     }
@@ -246,7 +260,6 @@ public:
         : ASTNode("KWD", "output", P)
     {
     }
-
 
     void Accept(InstructionASTVisitor* generator) {
         generator->Visit((OutputASTNode*)this);
@@ -262,7 +275,6 @@ public:
     {
     }
 
-
     void Accept(InstructionASTVisitor* generator) {
         generator->Visit((FunctionASTNode*)this);
     }
@@ -276,7 +288,6 @@ public:
         : ASTNode("KWD", "proc", P)
     {
     }
-
 
     void Accept(InstructionASTVisitor* generator) {
         generator->Visit((ProcedureASTNode*)this);

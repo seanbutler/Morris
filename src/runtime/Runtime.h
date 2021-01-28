@@ -16,10 +16,12 @@
 
 class VM {
 public:
-    VM(std::vector<Location> I, std::vector<Location> D) {
+    VM(std::vector<Location> I, unsigned int D = 128) {
         instructions = I;
-        data = D;
-
+        data = std::vector<Location>();
+        for(int n=0;n<D;n++){
+            data.push_back(Location(0.0));
+        }
         state = PENDING;
         instructionPointer = 0LL;
         stackPointer = Location(0.0);

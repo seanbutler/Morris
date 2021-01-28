@@ -9,7 +9,6 @@
 #include "src/compiler/Parser.h"
 #include "src/compiler/InstructionASTVisitor.h"
 
-#include "src/compiler/SymbolTable.h"
 #include "src/runtime/Runtime.h"
 #include "src/common/Location.h"
 
@@ -33,18 +32,26 @@ int main(int argc, char**argv) {
     parser.SetInput(tokens);
     ModuleASTNode * ast = parser.ParseModule();
 
-//    std::ofstream diagramFile("test.gv");
-//    diagramFile << "digraph G {" <<  std::endl;
-//    diagramFile << "node [shape = circle];" << std::endl;
-//    ast->Diagram(diagramFile);
-//    diagramFile << "}" << std::endl;
-//    diagramFile.close();
+    std::ofstream diagramFile("test.gv");
+    diagramFile << "digraph G {" <<  std::endl;
+    diagramFile << "node [shape = circle];" << std::endl;
+    ast->Diagram(diagramFile);
+    diagramFile << "}" << std::endl;
+    diagramFile.close();
 
     InstructionASTVisitor generator;
     generator.Visit(ast);
     for(auto L : generator.instructions){
         std::cout << L << std::endl;
     }
+
+
+    VM runtime(generator.instructions);
+    runtime.state = VM::RUNNING;
+    runtime.Execute(10);
+
+
+
 
     return 0;
 }

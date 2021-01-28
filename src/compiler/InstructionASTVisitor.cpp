@@ -29,7 +29,7 @@ void InstructionASTVisitor::Visit(IdentifierListASTNode * A){
     std::cout << "InstructionASTVisitor IdentifierListASTNode " << A->value << " " << A->type << std::endl;
 
     for(auto child : A->children) {
-        std::cout << " >>> DECLARE " << child->value << std::endl;
+        std::cout << " >>> DECLARE SYMBOL " << child->value << std::endl;
         symbolTable.Insert(child->value, SymbolTable::integer, SymbolTable::local);
     }
 }
@@ -66,19 +66,20 @@ void InstructionASTVisitor::Visit(BlockASTNode * A){
     }
 
     symbolTable.DecreaseNestLevel();
-
 }
 
 void InstructionASTVisitor::Visit(AssignmentASTNode * A){
-    std::cout << "InstructionASTVisitor AssignmentASTNode" << std::endl;
+    std::cout << "InstructionASTVisitor AssignmentASTNode " << A->type << " " << A->value << std::endl;
 
-    for(auto child : A->children) {
-        child->Accept(this);
+    // VISIT THE RHS
+    for(auto rhs_child = A->children.begin() + 1; rhs_child != A->children.end(); rhs_child++) {
+        (*rhs_child)->Accept(this);
     }
 
-    instructions.emplace_back(Location(INSTR::PUSH));
-    instructions.emplace_back(Location( (unsigned long int) 666));        // TODO get this value from identifier/varname lookup
-    instructions.emplace_back(Location(INSTR::SAVE));
+    // VISIT THE LHS
+    LHSIdentifierASTNode * lhs_child = (LHSIdentifierASTNode*)(A->children[0]);
+    lhs_child->Accept(this);
+
 }
 
 void InstructionASTVisitor::Visit(NumberASTNode * A){
@@ -92,25 +93,43 @@ void InstructionASTVisitor::Visit(NumberASTNode * A){
     }
 }
 
-void InstructionASTVisitor::Visit(IdentifierASTNode * A){
-    std::cout << "InstructionASTVisitor IdentifierASTNode" << std::endl;
+void InstructionASTVisitor::Visit(LHSIdentifierASTNode * A){
+    std::cout << "InstructionASTVisitor LHSIdentifierASTNode" << std::endl;
 
     instructions.emplace_back(Location(INSTR::PUSH));
 
     //
     // RESOLVE VARIABLE
     //
-    std::cout << " <<< RESOLVE " << A->value << std::endl;
-
-//    std::tuple<std::string, SymbolTable::BaseTypes, SymbolTable::Scope> * currentIdent;
-//    currentIdent = symbolTable.Get(A->value);
-
+    std::cout << " <<< RESOLVE " << A->value << " ";
     std::pair<int, int > stackTablePosition = symbolTable.Find(A->value);
     std::cout << stackTablePosition.first << " " << stackTablePosition.second << std::endl;
 
-    instructions.emplace_back(Location( (unsigned long int) 0));
+//    instructions.emplace_back(Location( (unsigned long int) stackTablePosition.second));
     // TODO get this value from identifier/varname lookup
 
+    instructions.emplace_back(Location((double)stackTablePosition.second));
+    instructions.emplace_back(Location(INSTR::SAVE));
+
+    for(auto child : A->children) {
+        child->Accept(this);
+    }
+}
+
+
+void InstructionASTVisitor::Visit(RHSIdentifierASTNode * A){
+    std::cout << "InstructionASTVisitor RHSIdentifierASTNode" << std::endl;
+
+    instructions.emplace_back(Location(INSTR::PUSH));
+
+    //
+    // RESOLVE VARIABLE
+    //
+    std::cout << " <<< RESOLVE " << A->value << " ";
+    std::pair<int, int > stackTablePosition = symbolTable.Find(A->value);
+    std::cout << stackTablePosition.first << " " << stackTablePosition.second << std::endl;
+
+    instructions.emplace_back(Location( (unsigned long int) stackTablePosition.second));
     instructions.emplace_back(Location(INSTR::LOAD));
 
     for(auto child : A->children) {

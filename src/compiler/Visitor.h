@@ -20,7 +20,7 @@ class IfASTNode;
 class BlockASTNode;
 class AssignmentASTNode;
 class NumberASTNode;
-class IdentifierASTNode;
+class RHSIdentifierASTNode;
 class OperatorASTNode;
 class ReturnASTNode;
 class FunctionASTNode;
@@ -39,7 +39,7 @@ public:
     virtual void Visit(BlockASTNode * A)=0;
     virtual void Visit(AssignmentASTNode * A)=0;
     virtual void Visit(NumberASTNode * A)=0;
-    virtual void Visit(IdentifierASTNode * A)=0;
+    virtual void Visit(RHSIdentifierASTNode * A)=0;
     virtual void Visit(OperatorASTNode * A)=0;
     virtual void Visit(ReturnASTNode * A)=0;
     virtual void Visit(FunctionASTNode * A)=0;

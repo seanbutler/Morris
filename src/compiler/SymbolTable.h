@@ -30,13 +30,13 @@ public:
     enum BaseTypes {
         procedure,
         function,
-        integer
+        number
     };
 
     const std::string BaseTypeStrs[3] = {
         "procedure",
         "function",
-        "integer"
+        "number"
     };
 
     enum Scope {
@@ -52,7 +52,7 @@ public:
     };
 
     void Insert(std::string K,
-                BaseTypes T = integer,
+                BaseTypes T = number,
                 Scope S = local) {
         theTable.emplace_back(std::make_tuple(K, T, S));
     }
@@ -107,7 +107,7 @@ public:
     }
 
     void Insert(std::string K,
-                SymbolTable::BaseTypes T = SymbolTable::integer,
+                SymbolTable::BaseTypes T = SymbolTable::number,
                 SymbolTable::Scope S = SymbolTable::local) {
         tableStack[tableStack.size()-1].Insert(K, T, S);
     }

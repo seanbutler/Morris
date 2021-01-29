@@ -121,7 +121,7 @@ IdentifierListASTNode * Parser::ParseIdentList(ASTNode *P) {
         identifierNodeSP = new ASTNode("ID-DECL", tokenItor->name);
         listNodeSP->children.push_back(identifierNodeSP);
 
-        symbolTable.Insert(tokenItor->name, SymbolTable::integer, SymbolTable::local);
+        symbolTable.Insert(tokenItor->name, SymbolTable::number, SymbolTable::local);
 
         tokenItor++;
 
@@ -135,7 +135,7 @@ IdentifierListASTNode * Parser::ParseIdentList(ASTNode *P) {
                 identifierNodeSP = new ASTNode("ID-DEC", tokenItor->name);
                 listNodeSP->children.push_back(identifierNodeSP);
 
-                symbolTable.Insert(tokenItor->name, SymbolTable::integer, SymbolTable::local);
+                symbolTable.Insert(tokenItor->name, SymbolTable::number, SymbolTable::local);
 
                 tokenItor++;
             }

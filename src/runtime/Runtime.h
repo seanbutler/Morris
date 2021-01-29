@@ -16,7 +16,7 @@
 
 class VM {
 public:
-    VM(std::vector<Location> I, unsigned int D = 128) {
+    VM(std::vector<Location> I, unsigned int D = 16) {
         instructions = I;
         data = std::vector<Location>();
         for(int n=0;n<D;n++){
@@ -24,8 +24,8 @@ public:
         }
         state = PENDING;
         instructionPointer = 0LL;
-        stackPointer = Location(0.0);
-        stackFrame = Location(0.0);
+//        stackPointer = Location(0.0);
+//        stackFrame = Location(0.0);
     }
 
     ~VM(){
@@ -39,17 +39,45 @@ public:
         ERROR
     };
 
+    void DumpRegs() {
+        std::cout << "REGS " ;
+        std::cout << "state " << state << " ";
+        std::cout << "slice " << slice << " ";
+        std::cout << "IP " << instructionPointer << " ";
+//        std::cout << "SP " << stackPointer << " ";
+//        std::cout << "FP " << stackFrame << " ";
+        std::cout << std::endl;
+    }
+
     void DumpInstructions() {
+        std::cout << "INSTR " ;
+
         for (auto V : this->instructions) {
-            std::cout << V.instruction << std::endl;
+            std::cout << V <<  " " ;
+        }
+        std::cout << std::endl;
+    }
+
+
+    void DumpStack() {
+
+        std::cout << "STACK " ;
+        if (this->stack.size() != 0) {
+            for (auto V : this->stack) {
+                std::cout << V << " ";
+            }
+            std::cout << std::endl;
         }
     }
 
     void DumpData() {
+
+        std::cout << "VM.data " ;
         if (this->data.size() != 0) {
             for (auto V : this->data) {
-                std::cout << V.value << std::endl;
+                std::cout << V.value << " ";
             }
+            std::cout << std::endl;
         }
     }
 
@@ -71,10 +99,8 @@ public:
     unsigned int slice;
 
     unsigned long int instructionPointer;
-    Location stackPointer;
-    Location stackFrame;
     std::vector<Location> instructions;
-    std::stack<Location> stack;
+    std::vector<Location> stack;
     std::vector<Location> data;
 };
 

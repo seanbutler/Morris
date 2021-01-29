@@ -30,7 +30,7 @@ void InstructionASTVisitor::Visit(IdentifierListASTNode * A){
 
     for(auto child : A->children) {
         std::cout << " >>> DECLARE SYMBOL " << child->value << std::endl;
-        symbolTable.Insert(child->value, SymbolTable::integer, SymbolTable::local);
+        symbolTable.Insert(child->value, SymbolTable::number, SymbolTable::local);
     }
 }
 
@@ -86,7 +86,7 @@ void InstructionASTVisitor::Visit(NumberASTNode * A){
     std::cout << "InstructionASTVisitor NumberASTNode" << std::endl;
 
     instructions.emplace_back(Location(INSTR::PUSH));
-    instructions.emplace_back(Location((unsigned long int) std::stoi(A->value)));
+    instructions.emplace_back(Location((double) std::stoi(A->value)));
 
     for(auto child : A->children) {
         child->Accept(this);
@@ -176,7 +176,7 @@ void InstructionASTVisitor::Visit(ReturnASTNode * A){
         child->Accept(this);
     }
 
-//    instructions.emplace_back(Location(INSTR::RET));
+    instructions.emplace_back(Location(INSTR::RET));
 }
 
 void InstructionASTVisitor::Visit(OutputASTNode * A){
@@ -193,8 +193,6 @@ void InstructionASTVisitor::Visit(OutputASTNode * A){
 void InstructionASTVisitor::Visit(FunctionASTNode * A){
     std::cout << "Visit FunctionASTNode" << std::endl;
 
-//    instructions.emplace_back(Location(INSTR::NOP));
-
     for(auto child : A->children) {
         child->Accept(this);
     }
@@ -202,8 +200,6 @@ void InstructionASTVisitor::Visit(FunctionASTNode * A){
 
 void InstructionASTVisitor::Visit(ProcedureASTNode * A){
     std::cout << "Visit ProcedureASTNode" << std::endl;
-
-//    instructions.emplace_back(Location(INSTR::NOP));
 
     for(auto child : A->children) {
         child->Accept(this);

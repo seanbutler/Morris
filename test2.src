@@ -1,7 +1,7 @@
 decl a
 decl b
 a=0
-b=2
+b=1
 
 a = a + b
 output a

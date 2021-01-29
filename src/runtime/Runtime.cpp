@@ -4,8 +4,16 @@
 
 #include "Runtime.h"
 #include "../common/Location.h"
+//#define VM_DEBUG_DUMP
+
 
 void VM::Execute(unsigned int S){
+
+#ifdef VM_DEBUG_DUMP
+    DumpInstructions();
+#endif
+
+
     slice = S;
     if (state == RUNNING) {
         while (slice > 0) {
@@ -13,48 +21,57 @@ void VM::Execute(unsigned int S){
 
 //            std::cout << instructionNames[getCurrentInstruction()] << std::endl;
 
+
+#ifdef VM_DEBUG_DUMP
+    DumpRegs();
+    DumpStack();
+    DumpData();
+#endif
+
             switch (getCurrentInstruction()) {
 
-                case INSTR::NOP :
+                case INSTR::NOP: {
                     // Do Nothing
                     break;
+                }
 
-                case INSTR::HALT:
+                case INSTR::HALT: {
                     state = VM::HALTED;
                     slice = 0;
                     break;
+                }
 
-                case INSTR::YIELD:
+                case INSTR::YIELD: {
                     state = VM::PAUSED;
                     break;
+                }
 
                 case INSTR::PUSH : {
                     incrProgramCounter();
-                    stack.push(getCurrentLocation());
+                    stack.push_back(getCurrentLocation());
                     break;
                 }
 
                 case INSTR::POP : {
-                    stack.pop();
+                    stack.pop_back();
                     break;
                 }
 
                 case INSTR::LOAD: {
-                    Location addr = stack.top();
-                    stack.pop();
-                    stack.push(data[addr.address]);
+                    Location addr = stack[stack.size()-1];
+                    stack.pop_back();
+                    stack.push_back(data[addr.address]);
                     break;
                 }
 
                 case INSTR::SAVE: {
+                    Location addr = stack[stack.size()-1];
+                    stack.pop_back();
 
-                    Location loc = stack.top();
-                    stack.pop();
+                    Location val = stack[stack.size()-1];
+                    stack.pop_back();
 
-                    Location val = stack.top();
-                    stack.pop();
-
-                    data[loc.address] = val;
+                    data[addr.value] = val;
                     break;
                 }
 
@@ -66,8 +83,8 @@ void VM::Execute(unsigned int S){
                 }
 
                 case INSTR::BRT: {
-                    Location a = stack.top();
-                    this->stack.pop();
+                    Location a = stack[stack.size()-1];
+                    stack.pop_back();
 
                     incrProgramCounter();
                     Location loc = getCurrentLocation();
@@ -79,8 +96,8 @@ void VM::Execute(unsigned int S){
                 }
 
                 case INSTR::BRF: {
-                    Location a = stack.top();
-                    stack.pop();
+                    Location a = stack[stack.size()-1];
+                    stack.pop_back();
 
                     incrProgramCounter();
                     Location loc = getCurrentLocation();
@@ -92,22 +109,27 @@ void VM::Execute(unsigned int S){
                 }
 
                 case INSTR::ADD : {
-                    Location a = stack.top();
-                    stack.pop();
+                    Location a = stack[stack.size()-1];
+                    stack.pop_back();
 
-                    Location b = stack.top();
-                    stack.pop();
+                    Location b = stack[stack.size()-1];
+                    stack.pop_back();
 
-                    Location c;
-                    c.type = Location::VAL;
-                    c.value = a.value + b.value;
-                    stack.push(c);
+                    Location c(a.value + b.value);
+                    stack.push_back(c);
                     break;
                 }
 
                 case INSTR::OUTPUT : {
-                    std::cout << "output value... " << stack.top().value << std::endl;
-                    stack.pop();
+
+                    Location a = stack[stack.size()-1];
+                    stack.pop_back();
+
+                    std::cout << "output value: " << a.value << " ";
+//                    std::cout << "type: " << a.type << " ";
+//                    std::cout << "instr: " << a.instruction << " ";
+//                    std::cout << "addr: " << a.address
+                    std::cout << std::endl;
                     break;
                 }
 

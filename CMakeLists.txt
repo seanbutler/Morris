@@ -11,9 +11,12 @@ set(SOURCE_FILES
         src/compiler/InstructionASTVisitor.cpp src/compiler/InstructionASTVisitor.h
         src/compiler/SymbolTable.cpp src/compiler/SymbolTable.h
         src/runtime/Runtime.cpp src/runtime/Runtime.h
-        src/common/Instructions.cpp src/common/Instructions.h)
+        src/common/Instructions.cpp src/common/Instructions.h src/runtime/Scheduler.cpp src/runtime/Scheduler.h src/compiler/compiler.cpp src/compiler/compiler.h)
 
 add_executable(Morris ${SOURCE_FILES})
 
 target_include_directories(Morris PUBLIC ${UUID_INCLUDE_DIRS})
 target_link_libraries(Morris ${UUID_LIBRARIES})
+
+
+

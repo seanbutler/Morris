@@ -29,7 +29,7 @@ void InstructionASTVisitor::Visit(IdentifierListASTNode * A){
     std::cout << "InstructionASTVisitor IdentifierListASTNode " << A->value << " " << A->type << std::endl;
 
     for(auto child : A->children) {
-        std::cout << " >>> DECLARE SYMBOL " << child->value << std::endl;
+//        std::cout << " >>> DECLARE SYMBOL " << child->value << std::endl;
         symbolTable.Insert(child->value, SymbolTable::number, SymbolTable::local);
     }
 }
@@ -119,7 +119,7 @@ void InstructionASTVisitor::Visit(LHSIdentifierASTNode * A){
     //
     // RESOLVE VARIABLE
     //
-    std::cout << " <<< RESOLVE " << A->value << " ";
+//    std::cout << " <<< RESOLVE " << A->value << " ";
     std::pair<int, int > stackTablePosition = symbolTable.Find(A->value);
     std::cout << stackTablePosition.first << " " << stackTablePosition.second << std::endl;
 
@@ -143,7 +143,7 @@ void InstructionASTVisitor::Visit(RHSIdentifierASTNode * A){
     //
     // RESOLVE VARIABLE
     //
-    std::cout << " <<< RESOLVE " << A->value << " ";
+//    std::cout << " <<< RESOLVE " << A->value << " ";
     std::pair<int, int > stackTablePosition = symbolTable.Find(A->value);
     std::cout << stackTablePosition.first << " " << stackTablePosition.second << std::endl;
 

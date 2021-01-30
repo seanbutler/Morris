@@ -10,10 +10,33 @@ set(SOURCE_FILES
         src/compiler/Parser.cpp src/compiler/Parser.h
         src/compiler/InstructionASTVisitor.cpp src/compiler/InstructionASTVisitor.h
         src/compiler/SymbolTable.cpp src/compiler/SymbolTable.h
-        src/runtime/Runtime.cpp src/runtime/Runtime.h
-        src/common/Instructions.cpp src/common/Instructions.h src/runtime/Scheduler.cpp src/runtime/Scheduler.h src/compiler/compiler.cpp src/compiler/compiler.h)
+        src/runtime/VirtualMachine.cpp src/runtime/VirtualMachine.h
+        src/common/Instructions.cpp src/common/Instructions.h
+        src/runtime/Scheduler.cpp src/runtime/Scheduler.h
+        src/compiler/compiler.cpp src/compiler/compiler.h
+        src/engine/MainLoop.cpp src/engine/MainLoop.h
+        src/engine/Entity.h
+        src/engine/Input.h
+        src/engine/Scheduler.h
+        )
 
 add_executable(Morris ${SOURCE_FILES})
+
+
+
+
+find_package(SFML REQUIRED COMPONENTS system graphics window network audio)
+
+set(SFML_LIBRARIES "-lsfml-graphics -lsfml-window -lsfml-system")
+
+#TARGET_LINK_LIBRARIES(Glynth pthread)
+
+if(SFML_FOUND)
+    include_directories(${SFML_INCLUDE_DIR})
+    target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES})
+endif()
+
+
 
 target_include_directories(Morris PUBLIC ${UUID_INCLUDE_DIRS})
 target_link_libraries(Morris ${UUID_LIBRARIES})

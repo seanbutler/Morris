@@ -8,30 +8,35 @@
 // ----------------------------------------------------------------------
 
 #include <vector>
-#include "Runtime.h"
+#include "VirtualMachine.h"
 
 // ----------------------------------------------------------------------
 
-class Scheduler {
+namespace Runtime {
 
-public:
-    Scheduler() {}
 
-    virtual ~Scheduler() {}
+    class Scheduler {
 
-    void Add(VM* M) {
-        virtualMachineList.push_back(M);
-    }
+    public:
+        Scheduler() {}
 
-    void Update(unsigned int S = 16) {
-        for (auto M : virtualMachineList)
-            M->Execute(S);
-    }
+        virtual ~Scheduler() {}
 
-protected:
-    std::vector<VM*> virtualMachineList;
+        void Add(VM *M) {
+            virtualMachineList.push_back(M);
+        }
 
-};
+        void Update(unsigned int S = 16) {
+            for (auto M : virtualMachineList)
+                M->Execute(S);
+        }
 
+    protected:
+        std::vector<VM *> virtualMachineList;
+
+    };
+
+
+}
 // ----------------------------------------------------------------------
 

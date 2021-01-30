@@ -1,7 +1,6 @@
 # Morris Programming Language
 
-Morris is a programming language hand crafted for making games quickly and easily. 
-Morris has a focus on ease of gameplay programming.
+Morris is a programming language hand crafted for making games quickly and easily. Morris has a focus on ease of gameplay programming.
 
 The infrastructure parts of the game: graphics, physics, window, input, sound, fonts, networking, etc. are all integrated and ready to go because of the wonderful SFML.
 
@@ -9,6 +8,11 @@ Morris programs look very familiar to anyone who has used c js c++ rust or swift
 
 ~~~
 func myfunc(){
+    f = f + 1
+    return f  
+}
+
+pure func myfunc(){
     decl f
     f = 11
     return f  
@@ -28,20 +32,22 @@ if ( x == 17 ) {
 ## Design Goals
 
 ### Easy
- - [x] Familiar Syntax C like block structured syntax
- - [x] No semicolons. This is especially useful for learners.
+- [x] Easy for beginners to learn
+- [x] Familiar Syntax C like block structured syntax
+- [x] No semicolons
 
 ### Parallel
- - [ ] Parallel execution is trivial and straightforward.
- - [ ] Threads are lightweight and first class object
+- [ ] Parallel execution is trivial and straightforward
+- [ ] Threads are lightweight and first class object
 
 ### Safe
- - [x] Stack Based Locals, Heap Based Globals
- - [x] No pointers because no dynamic heap allocation
- - [x] No shared memory between Actors
- - [ ] Broadcast and Narrow cast Messages between Actors
- - [ ] When a Thread exits all the memory associated is released.
- - [ ] Pure Functions, No Side Effects
+- [x] Stack Based Locals, Heap Based Globals
+- [x] No pointers because no dynamic heap allocation
+- [x] No shared memory between Threads ([erlang](https://en.wikipedia.org/wiki/Erlang_(programming_language)))
+- [ ] Broadcast and Narrow cast Messages between Threads ([erlang](https://en.wikipedia.org/wiki/Erlang_(programming_language)))
+- [ ] When a Thread exits all the memory associated is released ([erlang](https://en.wikipedia.org/wiki/Erlang_(programming_language)))
+- [ ] Pure Functions, No Side Effects (https://en.wikipedia.org/wiki/Pure_function)
+- [ ] File system access constrained to reading and writing local sub dirs only 
 
 ### Finite State Machines
  - [ ] Many Complex Algorithms are easily described as FSMs

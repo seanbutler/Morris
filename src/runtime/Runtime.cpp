@@ -83,27 +83,27 @@ void VM::Execute(unsigned int S){
                 }
 
                 case INSTR::BRT: {
+                    Location loc = stack[stack.size()-1];
+                    stack.pop_back();
+
                     Location a = stack[stack.size()-1];
                     stack.pop_back();
 
-                    incrProgramCounter();
-                    Location loc = getCurrentLocation();
-
-                    if (a.value != 0) {
-                        instructionPointer = loc.address - 1;
+                    if (a.value) {
+                        instructionPointer = loc.address;
                     }
                     break;
                 }
 
                 case INSTR::BRF: {
+                    Location loc = stack[stack.size()-1];
+                    stack.pop_back();
+
                     Location a = stack[stack.size()-1];
                     stack.pop_back();
 
-                    incrProgramCounter();
-                    Location loc = getCurrentLocation();
-
-                    if (a.value == 0) {
-                        instructionPointer = loc.address - 1;
+                    if (!(a.value) ) {
+                        instructionPointer = loc.address;
                     }
                     break;
                 }

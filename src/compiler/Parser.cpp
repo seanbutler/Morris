@@ -7,6 +7,8 @@
 
 #include <iostream>
 
+// ----------------------------------------------------------------------
+
 ModuleASTNode * Parser::Parse() {
 
     tokenItor = tokens.begin();
@@ -82,8 +84,6 @@ ModuleASTNode * Parser::ParseModule() {
                 statementsNodePtr->children.push_back(ParseOutput(statementsNodePtr));
                 break;
             }
-
-
         }
     }
 
@@ -122,7 +122,6 @@ IdentifierListASTNode * Parser::ParseIdentList(ASTNode *P) {
         listNodeSP->children.push_back(identifierNodeSP);
 
         symbolTable.Insert(tokenItor->name, SymbolTable::number, SymbolTable::local);
-
         tokenItor++;
 
         while ( tokenItor->kind == TokenEnum::SYM_COMMA ) {
@@ -143,7 +142,6 @@ IdentifierListASTNode * Parser::ParseIdentList(ASTNode *P) {
     }
 
     return listNodeSP;
-
 }
 
 // ----------------------------------------------------------------------
@@ -173,7 +171,6 @@ AssignmentASTNode * Parser::ParseAssignment(ASTNode *P, bool returnable) {
     }
 
     return assignmentNodeSP;
-
 }
 
 // ----------------------------------------------------------------------
@@ -377,7 +374,6 @@ ASTNode * Parser::ParseExpression(ASTNode *P, bool returnable) {
     tokenItor++;
     return lhsNodeSP;
 }
-
 
 // ----------------------------------------------------------------------
 

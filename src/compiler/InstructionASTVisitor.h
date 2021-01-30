@@ -21,6 +21,7 @@ class WhileASTNode;
 class IfASTNode;
 class BlockASTNode;
 class AssignmentASTNode;
+class ExpressionASTNode;
 class NumberASTNode;
 class LHSIdentifierASTNode;
 class RHSIdentifierASTNode;
@@ -44,6 +45,7 @@ public:
     void Visit(IfASTNode * A);
     void Visit(BlockASTNode * A);
     void Visit(AssignmentASTNode * A);
+    void Visit(ExpressionASTNode * A);
     void Visit(NumberASTNode * A);
     void Visit(LHSIdentifierASTNode * A);
     void Visit(RHSIdentifierASTNode * A);

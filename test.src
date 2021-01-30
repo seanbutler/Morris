@@ -1,26 +1,14 @@
 decl a
-decl b
 a=0
-b=2
-
-a = a + b
-output a
-a = a + b
-output a
-a = a + b
-output a
-a = a + b
-output a
-a = a + b
-output a
-a = a + b
-output a
-a = a + b
-output a
-a = a + b
-output a
-a = a + b
-output a
 
 
+if ( 1 ) {
+    a = 100
+}
 
+if ( 0 ) {
+    a = 200
+}
+
+
+output a

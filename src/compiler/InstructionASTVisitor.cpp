@@ -49,11 +49,17 @@ void InstructionASTVisitor::Visit(WhileASTNode * A){
 void InstructionASTVisitor::Visit(IfASTNode * A){
     std::cout << "InstructionASTVisitor IfASTNode" << std::endl;
 
-    instructions.emplace_back(Location(INSTR::NOP));
 
-    for(auto child : A->children) {
-        child->Accept(this);
-    }
+    // GENERATE CODE FOR THE FIRST CHILD, THE EXPRESSION
+    A->children[0]->Accept(this);
+
+    instructions.emplace_back(Location(INSTR::PUSH));
+    instructions.emplace_back(Location((unsigned long int)0));
+    unsigned long int jumpStartAddr = instructions.size()-1;
+    instructions.emplace_back(Location(INSTR::BRF));
+
+    A->children[1]->Accept(this);
+    instructions[jumpStartAddr] = Location((unsigned long int) instructions.size()-1);
 }
 
 void InstructionASTVisitor::Visit(BlockASTNode * A){
@@ -81,6 +87,18 @@ void InstructionASTVisitor::Visit(AssignmentASTNode * A){
     lhs_child->Accept(this);
 
 }
+
+void InstructionASTVisitor::Visit(ExpressionASTNode * A){
+    std::cout << "ExpressionASTNode NumberASTNode" << std::endl;
+
+    instructions.emplace_back(Location(INSTR::PUSH));
+    instructions.emplace_back(Location((double) std::stoi(A->value)));
+
+    for(auto child : A->children) {
+        child->Accept(this);
+    }
+}
+
 
 void InstructionASTVisitor::Visit(NumberASTNode * A){
     std::cout << "InstructionASTVisitor NumberASTNode" << std::endl;

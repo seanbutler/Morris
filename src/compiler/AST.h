@@ -147,7 +147,9 @@ public:
     IfASTNode(ASTNode * P=nullptr)
         : ASTNode("KWD", "if", P)
     {
+
     }
+
     void Accept(InstructionASTVisitor* generator) {
         generator->Visit((IfASTNode*)this);
     }
@@ -180,6 +182,21 @@ public:
         generator->Visit((AssignmentASTNode*)this);
     }
 };
+
+// ----------------------------------------------------------------------
+
+class ExpressionASTNode : public ASTNode {
+public:
+    ExpressionASTNode(ASTNode * P=nullptr)
+            : ASTNode("EXPR", "=", P)
+    {
+    }
+
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((ExpressionASTNode*)this);
+    }
+};
+
 
 // ----------------------------------------------------------------------
 
@@ -222,7 +239,6 @@ public:
         generator->Visit((LHSIdentifierASTNode*)this);
     }
 };
-
 
 // ----------------------------------------------------------------------
 

@@ -35,7 +35,7 @@ public:
     ASTNode * ParseExpression(ASTNode *P= nullptr, bool returnable=false);               // A + B etc
 
     NumberASTNode * ParseNumber(ASTNode *P= nullptr);                                    // constant        3
-    RHSIdentifierASTNode * ParseIdentifier(ASTNode *P= nullptr);                            // identifier      nFred
+    RHSIdentifierASTNode * ParseIdentifier(ASTNode *P= nullptr);                         // identifier      nFred
     OperatorASTNode * ParseOperator(ASTNode *P= nullptr);                                // + - * / etc
 
     ProcedureASTNode * ParseProcedure(ASTNode *P= nullptr);

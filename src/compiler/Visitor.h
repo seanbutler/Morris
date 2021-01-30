@@ -8,7 +8,6 @@
 #include <iostream>
 #include <memory>
 
-
 // ---------------------------------------------------------------------------
 
 class ASTNode;
@@ -19,6 +18,7 @@ class WhileASTNode;
 class IfASTNode;
 class BlockASTNode;
 class AssignmentASTNode;
+class ExpressionASTNode;
 class NumberASTNode;
 class RHSIdentifierASTNode;
 class OperatorASTNode;
@@ -38,6 +38,7 @@ public:
     virtual void Visit(IfASTNode * A)=0;
     virtual void Visit(BlockASTNode * A)=0;
     virtual void Visit(AssignmentASTNode * A)=0;
+    virtual void Visit(ExpressionASTNode * A)=0;
     virtual void Visit(NumberASTNode * A)=0;
     virtual void Visit(RHSIdentifierASTNode * A)=0;
     virtual void Visit(OperatorASTNode * A)=0;

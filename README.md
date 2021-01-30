@@ -28,29 +28,29 @@ if ( x == 17 ) {
 ## Design Goals
 
 ### Easy
- -[x] Familiar Syntax C like block structured syntax
- -[x] No semicolons. This is especially useful for learners.
+ - [x] Familiar Syntax C like block structured syntax
+ - [x] No semicolons. This is especially useful for learners.
 
 ### Parallel
- -[ ] Parallel execution is trivial and straightforward.
- -[ ] Threads are lightweight and first class object
+ - [ ] Parallel execution is trivial and straightforward.
+ - [ ] Threads are lightweight and first class object
 
 ### Safe
- -[x] Stack Based Locals, Heap Based Globals
- -[x] No pointers because no dynamic heap allocation
- -[x] No shared memory between Actors
- -[ ] Broadcast and Narrow cast Messages between Actors
- -[ ] When a Thread exits all the memory associated is released.
- -[ ] Pure Functions, No Side Effects
+ - [x] Stack Based Locals, Heap Based Globals
+ - [x] No pointers because no dynamic heap allocation
+ - [x] No shared memory between Actors
+ - [ ] Broadcast and Narrow cast Messages between Actors
+ - [ ] When a Thread exits all the memory associated is released.
+ - [ ] Pure Functions, No Side Effects
 
 ### Finite State Machines
- -[ ] Many Complex Algorithms are easily described as FSMs
- -[ ] Machines and States are first class objects
+ - [ ] Many Complex Algorithms are easily described as FSMs
+ - [ ] Machines and States are first class objects
 
 ### With Bells On (via SFML)
- -[ ] Integrated Physics and Collision Lib
- -[ ] Integrated Graphics and Multimedia IO Library
- -[ ] Integrated High and Low Level Networking Library
+ - [ ] Integrated Physics and Collision Lib
+ - [ ] Integrated Graphics and Multimedia IO Library
+ - [ ] Integrated High and Low Level Networking Library
 
 
 ## Why?

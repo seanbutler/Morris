@@ -2,19 +2,19 @@
 // Created by sean on 01/01/2021.
 //
 
+#include <math.h>
+
 #include "VirtualMachine.h"
 #include "../common/Location.h"
 //#define VM_DEBUG_DUMP
 
 namespace Runtime {
 
-
     void VM::Execute(unsigned int S) {
 
 #ifdef VM_DEBUG_DUMP
         DumpInstructions();
 #endif
-
 
         slice = S;
         if (state == RUNNING) {
@@ -117,7 +117,81 @@ namespace Runtime {
                         Location b = stack[stack.size() - 1];
                         stack.pop_back();
 
-                        Location c(a.value + b.value);
+                        Location c(b.value + a.value);
+                        stack.push_back(c);
+                        break;
+                    }
+
+                    case INSTR::SUB : {
+                        Location a = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location b = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location c(b.value - a.value);
+                        stack.push_back(c);
+                        break;
+                    }
+
+                    case INSTR::MUL : {
+                        Location a = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location b = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location c(b.value * a.value);
+                        stack.push_back(c);
+                        break;
+                    }
+
+                    case INSTR::DIV : {
+                        Location a = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location b = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location c(b.value / a.value);
+                        stack.push_back(c);
+                        break;
+                    }
+
+                    case INSTR::MOD : {
+                        Location a = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location b = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        std::cout << a << " " << b << std::endl;
+
+                        Location c((double)((int)b.value % (int)a.value));
+                        stack.push_back(c);
+                        break;
+                    }
+
+                    case INSTR::EQU : {
+                        Location a = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location b = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location c((double)(a.value == b.value));
+                        stack.push_back(c);
+                        break;
+                    }
+
+                    case INSTR::NE : {
+                        Location a = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location b = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location c((double)(a.value != b.value));
                         stack.push_back(c);
                         break;
                     }
@@ -128,9 +202,9 @@ namespace Runtime {
                         stack.pop_back();
 
                         std::cout << "output value: " << a.value << " ";
-//                    std::cout << "type: " << a.type << " ";
-//                    std::cout << "instr: " << a.instruction << " ";
-//                    std::cout << "addr: " << a.address
+//                        std::cout << "type: " << a.type << " ";
+//                        std::cout << "instr: " << a.instruction << " ";
+//                        std::cout << "addr: " << a.address << " ";
                         std::cout << std::endl;
                         break;
                     }

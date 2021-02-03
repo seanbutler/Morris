@@ -147,7 +147,6 @@ public:
     IfASTNode(ASTNode * P=nullptr)
         : ASTNode("KWD", "if", P)
     {
-
     }
 
     void Accept(InstructionASTVisitor* generator) {

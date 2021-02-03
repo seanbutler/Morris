@@ -359,7 +359,10 @@ ASTNode * Parser::ParseExpression(ASTNode *P, bool returnable) {
     if ( ( (tokenItor+1)->kind == TokenEnum::OP_ADD )
             || ( (tokenItor+1)->kind == TokenEnum::OP_SUB )
             || ( (tokenItor+1)->kind == TokenEnum::OP_MUL )
-            || ( (tokenItor+1)->kind == TokenEnum::OP_DIV ) ) {
+            || ( (tokenItor+1)->kind == TokenEnum::OP_DIV )
+            || ( (tokenItor+1)->kind == TokenEnum::OP_MOD )
+            || ( (tokenItor+1)->kind == TokenEnum::OP_EQ )
+            || ( (tokenItor+1)->kind == TokenEnum::OP_NE )) {
 
         std::cout << "ParseAssignment() TokenEnum::SYM_ASSIGN" << std::endl;
 
@@ -396,7 +399,22 @@ OperatorASTNode * Parser::ParseOperator(ASTNode *P) {
         std::cout << "ParseValue() TokenEnum::OP_DIV" << std::endl;
         opNodeSP = new OperatorASTNode("/");
     }
-
+    else if ( tokenItor->kind == TokenEnum::OP_MOD) {
+        std::cout << "ParseValue() TokenEnum::OP_MOD" << std::endl;
+        opNodeSP = new OperatorASTNode("%");
+    }
+    else if ( tokenItor->kind == TokenEnum::OP_EQ) {
+        std::cout << "ParseValue() TokenEnum::OP_EQ" << std::endl;
+        opNodeSP = new OperatorASTNode("==");
+    }
+    else if ( tokenItor->kind == TokenEnum::OP_NE) {
+        std::cout << "ParseValue() TokenEnum::OP_NE" << std::endl;
+        opNodeSP = new OperatorASTNode("!=");
+    }
+    else if ( tokenItor->kind == TokenEnum::OP_POW) {
+        std::cout << "ParseValue() TokenEnum::OP_POW" << std::endl;
+        opNodeSP = new OperatorASTNode("^");
+    }
     return opNodeSP;
 }
 

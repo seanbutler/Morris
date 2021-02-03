@@ -2,8 +2,12 @@
 // Created by sean on 11/06/2020.
 //
 
+// ----------------------------------------------------------------------
+
 #include "MainLoop.h"
 #include <iostream>
+
+// ----------------------------------------------------------------------
 
 namespace Engine {
 
@@ -13,7 +17,7 @@ namespace Engine {
             ,   pixel_scale(PS)
             ,   scale(SC)
             ,   window(sf::VideoMode(w, h),
-                       "GLYNTH",
+                       "...",
                        sf::Style::Titlebar | sf::Style::Close)
     {
         window.setSize(sf::Vector2u(w*pixel_scale,h*pixel_scale));
@@ -36,7 +40,7 @@ namespace Engine {
 
             entityScheduler.Update(deltaTime);
 
-            window.clear(sf::Color(255, 255, 255, 255));
+            window.clear(sf::Color(255, 128, 0, 255));
             entityScheduler.Render(&window);
             window.display();
         }
@@ -48,3 +52,5 @@ namespace Engine {
 
 
 };
+
+// ----------------------------------------------------------------------

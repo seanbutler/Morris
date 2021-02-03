@@ -49,6 +49,8 @@ enum TokenEnum : int {
     OP_SUB,
     OP_MUL,
     OP_DIV,
+    OP_MOD,
+    OP_POW,
 
     OP_AND,
     OP_OR,

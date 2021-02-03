@@ -4,7 +4,8 @@ Morris is a programming language hand crafted for making games quickly and easil
 
 The infrastructure parts of the game: graphics, physics, window, input, sound, fonts, networking, etc. are all integrated and ready to go because of the wonderful SFML.
 
-Morris programs look very familiar to anyone who has used c js c++ rust or swift. Right now, Morris programs look like this...
+Morris is influenced by [erlang](https://en.wikipedia.org/wiki/Erlang_(programming_language))
+but Morris programs look very familiar to anyone who has used c js c++ rust or swift. Right now, Morris programs look like this...
 
 ~~~
 func myfunc(){

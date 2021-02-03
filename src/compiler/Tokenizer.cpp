@@ -241,6 +241,23 @@ bool Tokenizer::ScanToken() {
             return true;
         }
 
+        case '%': {
+            Token newTok(TokenEnum::OP_MOD, "%");
+            newTok.file = currentFile;
+            newTok.line = currentLine;
+            outputTokens.push_back(newTok);
+            return true;
+        }
+
+        case '^': {
+            Token newTok(TokenEnum::OP_POW, "^");
+            newTok.file = currentFile;
+            newTok.line = currentLine;
+            outputTokens.push_back(newTok);
+            return true;
+        }
+
+
         case ',': {
             Token newTok(TokenEnum::SYM_COMMA, ",");
             newTok.file = currentFile;
@@ -250,54 +267,22 @@ bool Tokenizer::ScanToken() {
         }
 
 
-//        case '&': {
-//            char nextChar = lexingStr[lexingPos];
-//
-//            if (nextChar == '&') {
-//                tokens.push_back(std::make_pair(Token::OP_AND, "&&"));
-//                tokensWithLine.push_back(std::make_tuple(Token::OP_AND, "&&", currentLine));
-//
-//                ++lexingPos;
-//                return Token::OP_AND;
-//            }
-//
-//            std::cerr << "TOKENIZER TOK_ERROR after \'&\' at Line " << currentLine << " Got " << currentChar << std::endl;
-//            return Token::TOK_ERROR;
-//        }
-//
-//        case '|': {
-//            char nextChar = lexingStr[lexingPos];
-//
-//            if (nextChar == '|') {
-//                tokens.push_back(std::make_pair(Token::OP_OR, "||"));
-//                tokensWithLine.push_back(std::make_tuple(Token::OP_OR, "||", currentLine));
-//
-//                ++lexingPos;
-//                return Token::OP_OR;
-//            }
-//
-//            std::cerr << "TOKENIZER TOK_ERROR after \'|\' at Line " << currentLine << " Got " << currentChar << std::endl;
-//            return Token::TOK_ERROR;
-//        }
-//
-//        case '!': {
-//            char nextChar = lexingStr[lexingPos];
-//
-//            if (nextChar == '=') {
-//                tokens.push_back(std::make_pair(Token::OP_NE, "!="));
-//                tokensWithLine.push_back(std::make_tuple(Token::OP_NE, "!=", currentLine));
-//
-//                ++lexingPos;
-//                return Token::OP_NE;
-//            }
-//            std::cerr << "TOKENIZER TOK_ERROR after \'!\' at Line " << currentLine << " Got " << currentChar << std::endl;
-//            return Token::TOK_ERROR;
-//        }
-//
-//        default: {
-//            std::cerr << "TOKENIZER WARNING Line (" << currentLine << ") Possibly '" << currentChar << "'" << std::endl;
-//            return Token::TOK_ERROR;
-//        }
+        case '!': {
+            char nextChar = inputString[currentPosition];
+
+            if (nextChar == '=') {
+                Token newTok(TokenEnum::OP_NE, "!=");
+                newTok.file = currentFile;
+                newTok.line = currentLine;
+                outputTokens.push_back(newTok);
+                ++currentPosition;
+                return true;
+            }
+
+            return false;
+        }
+
+
 
     }
     return false;

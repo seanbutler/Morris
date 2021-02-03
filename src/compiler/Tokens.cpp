@@ -43,17 +43,16 @@ Token symbols[] = {
         Token(OP_GT,        ">"         ),
         Token(OP_GTE,       ">="        ),
 
-        Token(OP_EQ,        "="        ),
+        Token(OP_EQ,        "=="        ),
 
         Token(OP_ADD,        "+"     ),
         Token(OP_SUB,        "-"     ),
         Token(OP_MUL,        "*"     ),
         Token(OP_DIV,        "/"     ),
+        Token(OP_MOD,        "%"     ),
+        Token(OP_POW,        "^"     ),
 
         Token(OP_AND,       "and"     ),
         Token(OP_OR,        "or"     ),
-        Token(OP_NE,       "!="     ),
-
-//        Token(OP_MOD,        "%"     ),
-
+        Token(OP_NE,       "!="     )
 };

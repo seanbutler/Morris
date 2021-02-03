@@ -2,8 +2,10 @@
 // Created by sean on 11/06/2020.
 //
 
-#ifndef SYNTH_ENGINE_H
-#define SYNTH_ENGINE_H
+#pragma once
+
+// ----------------------------------------------------------------------
+
 
 #include <memory>
 #include <vector>
@@ -13,11 +15,17 @@
 
 #include "Scheduler.h"
 
+// ----------------------------------------------------------------------
+
+
 namespace Engine {
 
     class MainLoop {
     public:
-        MainLoop(unsigned int W = 32, unsigned int H = 32, unsigned int PS = 24, unsigned int SC = 16, unsigned int FR=16);
+        MainLoop(unsigned int W = 32, unsigned int H = 32,
+                 unsigned int PS = 24, unsigned int SC = 16,
+                 unsigned int FR=16);
+
         virtual ~MainLoop();
 
         unsigned int w, h, pixel_scale, scale;
@@ -34,4 +42,6 @@ namespace Engine {
 
 };
 
-#endif //SYNTH_ENGINE_H
+// ----------------------------------------------------------------------
+
+

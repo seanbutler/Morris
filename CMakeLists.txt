@@ -36,8 +36,6 @@ if(SFML_FOUND)
     target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES})
 endif()
 
-
-
 target_include_directories(Morris PUBLIC ${UUID_INCLUDE_DIRS})
 target_link_libraries(Morris ${UUID_LIBRARIES})
 

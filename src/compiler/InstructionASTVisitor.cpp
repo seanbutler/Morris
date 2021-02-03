@@ -37,18 +37,30 @@ void InstructionASTVisitor::Visit(IdentifierListASTNode * A){
 void InstructionASTVisitor::Visit(WhileASTNode * A){
     std::cout << "InstructionASTVisitor WhileASTNode" << std::endl;
 
-    instructions.emplace_back(Location(INSTR::NOP));
+    // STORE THE ADDRESS BEFORE THE EXPRESSION, SO WE CAN DO IT AGAIN
+    unsigned long int beforeConditionAddr = instructions.size()-1;
 
-    for(auto child : A->children) {
-        child->Accept(this);
-    }
+    // GENERATE CODE FOR THE FIRST CHILD, THE EXPRESSION
+    A->children[0]->Accept(this);
 
-    instructions.emplace_back(Location(INSTR::NOP));
+    // GENERATE CODE FOR THE CONDITIONAL/BRANCH
+    instructions.emplace_back(Location(INSTR::PUSH));
+    unsigned long int jumpStartAddr = instructions.size()-1;
+    instructions.emplace_back(Location((unsigned long int)0));
+    instructions.emplace_back(Location(INSTR::BRF));
+
+    // GENERATE CODE FOR THE SECOND CHILD, THE BLOCK
+    A->children[1]->Accept(this);
+
+    instructions.emplace_back(Location(INSTR::PUSH));
+    instructions.emplace_back(Location((unsigned long int)beforeConditionAddr));
+    instructions.emplace_back(Location(INSTR::JMP));
+
+    instructions[jumpStartAddr] = Location((unsigned long int) instructions.size()-1);
 }
 
 void InstructionASTVisitor::Visit(IfASTNode * A){
     std::cout << "InstructionASTVisitor IfASTNode" << std::endl;
-
 
     // GENERATE CODE FOR THE FIRST CHILD, THE EXPRESSION
     A->children[0]->Accept(this);
@@ -185,6 +197,12 @@ void InstructionASTVisitor::Visit(OperatorASTNode * A){
         instructions.emplace_back(Location(INSTR::MOD));
         return;
     }
+
+    if ( A->value == "^" ) {
+        instructions.emplace_back(Location(INSTR::POW));
+        return;
+    }
+
 }
 
 void InstructionASTVisitor::Visit(ReturnASTNode * A){

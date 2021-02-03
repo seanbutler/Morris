@@ -19,6 +19,7 @@ char* instructionNames[] = {
         "MUL",
         "DIV",
         "MOD",
+        "POW",
 
         "EQU",
         "NE",

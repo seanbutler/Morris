@@ -1,14 +1,14 @@
 decl a
-a=0
+decl loop
+loop=1
 
 
-if ( 1 ) {
-    a = 100
-}
+    a=10
+    a = a * 3
+    output a
 
-if ( 0 ) {
-    a = 200
-}
+    a = a / 4
+    output a
 
-
-output a
+    a = a % 4
+    output a

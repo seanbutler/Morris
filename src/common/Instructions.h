@@ -27,6 +27,7 @@ enum INSTR {
     MUL,
     DIV,
     MOD,
+    POW,
 
     EQU,
     NE,

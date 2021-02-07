@@ -40,6 +40,7 @@ if ( x == 17 ) {
 ### Parallel
 - [ ] Parallel execution is trivial and straightforward
 - [ ] Threads are lightweight and first class object
+- [ ] Independant Control of Cores Used
 
 ### Safe
 - [x] Stack Based Locals, Heap Based Globals
@@ -51,26 +52,23 @@ if ( x == 17 ) {
 - [ ] File system access constrained to reading and writing local sub dirs only 
 
 ### Finite State Machines
- - [ ] Many Complex Algorithms are easily described as FSMs
- - [ ] Machines and States are first class objects
+- [ ] Many Complex Algorithms are easily described as FSMs
+- [ ] Machines and States are first class objects
 
 ### With Bells On (via SFML)
- - [ ] Integrated Physics and Collision Lib
- - [ ] Integrated Graphics and Multimedia IO Library
- - [ ] Integrated High and Low Level Networking Library
-
+- [ ] Integrated Physics and Collision Lib
+- [ ] Integrated Graphics and Multimedia IO Library
+- [ ] Integrated High and Low Level Networking Library
 
 ## Why?
 
 There was a time when if you wanted to make a game Borland Turbo Pascal was a good way to do it. The language was high level enough that you could focus on the goals. The graphics and so on were integrated with a BGI and/or the VGA was well understood enough to be a stable target. 
 
-
 ![Turbo Pascal Image](https://upload.wikimedia.org/wikipedia/commons/d/df/Turbo_Pascal_7.0_Scrren.png)
 
 Image By Lưu Nguyễn Thiện Hậu - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=75160140
 
-
-Later Blitz basic and similar high level game Basics were fast and funky especially for writing games on Amigas. Which all the cool kids had.
+Later Blitz basic and similar compiled game Basics were fast and funky especially for writing games on Amigas. Which all the cool kids had.
 
 ![Blitz BASIC Logo](https://upload.wikimedia.org/wikipedia/en/6/65/BlitzBasicLogo.gif)
 
@@ -78,6 +76,7 @@ Image By <span title="must have been published or publicly displayed outside Wik
 
 Importantly with these kinds of systems the bells and whistles were included. Borland had an integrated editor, and libraries. Similarly Blitz BASIC.
 
+Morris isnt trying to be a general purpose programming language, its trying to be a programming language to write gameplay in.
 
 
 ## Installation Instructions

@@ -2,9 +2,17 @@
 // Created by sean on 24/09/2020.
 //
 
+//----------------------------------------------------------------------
+
+#include <iostream>
+
+//----------------------------------------------------------------------
+
 #include "Tokenizer.h"
 #include "./Tokens.h"
 extern Token tokens[];
+
+//----------------------------------------------------------------------
 
 bool Tokenizer::ScanToken() {
     char currentChar = inputString[currentPosition++];
@@ -194,6 +202,17 @@ bool Tokenizer::ScanToken() {
         }
 
         case '>': {
+            char nextChar = inputString[currentPosition];
+
+            if (nextChar == '=') {
+                Token newTok(TokenEnum::OP_GTE, ">=");
+                newTok.file = currentFile;
+                newTok.line = currentLine;
+                outputTokens.push_back(newTok);
+                ++currentPosition;
+                return true;
+            }
+
             Token newTok(TokenEnum::OP_GT, ">");
             newTok.file = currentFile;
             newTok.line = currentLine;
@@ -202,6 +221,17 @@ bool Tokenizer::ScanToken() {
         }
 
         case '<': {
+            char nextChar = inputString[currentPosition];
+
+            if (nextChar == '=') {
+                Token newTok(TokenEnum::OP_LTE, "<=");
+                newTok.file = currentFile;
+                newTok.line = currentLine;
+                outputTokens.push_back(newTok);
+                ++currentPosition;
+                return true;
+            }
+
             Token newTok(TokenEnum::OP_LT, "<");
             newTok.file = currentFile;
             newTok.line = currentLine;
@@ -257,7 +287,6 @@ bool Tokenizer::ScanToken() {
             return true;
         }
 
-
         case ',': {
             Token newTok(TokenEnum::SYM_COMMA, ",");
             newTok.file = currentFile;
@@ -265,7 +294,6 @@ bool Tokenizer::ScanToken() {
             outputTokens.push_back(newTok);
             return true;
         }
-
 
         case '!': {
             char nextChar = inputString[currentPosition];
@@ -279,14 +307,16 @@ bool Tokenizer::ScanToken() {
                 return true;
             }
 
+            std::cout << "ERROR : Unknown Token Expected !=" << std::endl;
             return false;
         }
-
-
-
     }
+
+    std::cout << "ERROR : Unknown Token " << std::endl;
     return false;
 }
+
+//----------------------------------------------------------------------
 
 void Tokenizer::Scan() {
     bool result;
@@ -295,4 +325,4 @@ void Tokenizer::Scan() {
     } while (result);
 }
 
-
+//----------------------------------------------------------------------

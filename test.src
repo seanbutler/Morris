@@ -1,14 +1,26 @@
 decl a
-decl loop
-loop=1
+a=0
 
+if (a<1)
+{
+    output a
+    a = a + 1
+}
 
-    a=10
-    a = a * 3
+if (a>=1)
+{
+    output a
+    a = a + 1
+}
+
+if (a==2)
+{
     output a
 
-    a = a / 4
-    output a
+}
 
-    a = a % 4
-    output a
+decl b
+b=99
+output b
+
+

@@ -16,7 +16,6 @@
 
 namespace Runtime {
 
-
     class VM {
     public:
         VM(std::vector<Location> I, unsigned int D = 16) {

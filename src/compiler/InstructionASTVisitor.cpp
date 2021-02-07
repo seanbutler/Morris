@@ -203,6 +203,36 @@ void InstructionASTVisitor::Visit(OperatorASTNode * A){
         return;
     }
 
+    if ( A->value == "==" ) {
+        instructions.emplace_back(Location(INSTR::EQU));
+        return;
+    }
+
+    if ( A->value == "!=" ) {
+        instructions.emplace_back(Location(INSTR::NE));
+        return;
+    }
+
+    if ( A->value == ">" ) {
+        instructions.emplace_back(Location(INSTR::GT));
+        return;
+    }
+
+    if ( A->value == ">=" ) {
+        instructions.emplace_back(Location(INSTR::GTE));
+        return;
+    }
+
+    if ( A->value == "<" ) {
+        instructions.emplace_back(Location(INSTR::LT));
+        return;
+    }
+
+    if ( A->value == "<=" ) {
+        instructions.emplace_back(Location(INSTR::LTE));
+        return;
+    }
+
 }
 
 void InstructionASTVisitor::Visit(ReturnASTNode * A){

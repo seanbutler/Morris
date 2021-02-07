@@ -23,7 +23,6 @@ namespace Runtime {
 
 //            std::cout << instructionNames[getCurrentInstruction()] << std::endl;
 
-
 #ifdef VM_DEBUG_DUMP
                 DumpRegs();
                 DumpStack();
@@ -196,8 +195,55 @@ namespace Runtime {
                         break;
                     }
 
-                    case INSTR::OUTPUT : {
+                    case INSTR::GT : {
+                        Location a = stack[stack.size() - 1];
+                        stack.pop_back();
 
+                        Location b = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location c((double)(b.value > a.value));
+                        stack.push_back(c);
+                        break;
+                    }
+
+                    case INSTR::GTE : {
+                        Location a = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location b = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location c((double)(b.value >= a.value));
+                        stack.push_back(c);
+                        break;
+                    }
+
+                    case INSTR::LT : {
+                        Location a = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location b = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location c((double)(b.value < a.value));
+                        stack.push_back(c);
+                        break;
+                    }
+
+                    case INSTR::LTE : {
+                        Location a = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location b = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location c((double)(b.value <= a.value));
+                        stack.push_back(c);
+                        break;
+                    }
+
+                    case INSTR::OUTPUT : {
                         Location a = stack[stack.size() - 1];
                         stack.pop_back();
 

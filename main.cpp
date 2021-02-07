@@ -1,3 +1,17 @@
+/*
+
+ ## TODO
+
+ - [x] tokenizer generates error message when bad token
+ - [ ] parser generates readable error messages
+ - [ ] spawn command
+ - [ ] thread hierarchy
+
+ - [ ] while loop code generation
+ - [ ] function code generation
+ - [ ] procedure code generation
+
+*/
 
 #include <string>
 

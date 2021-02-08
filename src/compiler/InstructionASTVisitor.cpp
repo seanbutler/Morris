@@ -38,15 +38,16 @@ void InstructionASTVisitor::Visit(WhileASTNode * A){
     std::cout << "InstructionASTVisitor WhileASTNode" << std::endl;
 
     // STORE THE ADDRESS BEFORE THE EXPRESSION, SO WE CAN DO IT AGAIN
-    unsigned long int beforeConditionAddr = instructions.size()-1;
+    unsigned long int beforeConditionAddr = instructions.size();
+//    unsigned long int beforeConditionAddr = instructions.size()-1;
 
     // GENERATE CODE FOR THE FIRST CHILD, THE EXPRESSION
     A->children[0]->Accept(this);
 
     // GENERATE CODE FOR THE CONDITIONAL/BRANCH
     instructions.emplace_back(Location(INSTR::PUSH));
-    unsigned long int jumpStartAddr = instructions.size()-1;
     instructions.emplace_back(Location((unsigned long int)0));
+    unsigned long int jumpStartAddr = instructions.size()-1;
     instructions.emplace_back(Location(INSTR::BRF));
 
     // GENERATE CODE FOR THE SECOND CHILD, THE BLOCK
@@ -56,7 +57,7 @@ void InstructionASTVisitor::Visit(WhileASTNode * A){
     instructions.emplace_back(Location((unsigned long int)beforeConditionAddr));
     instructions.emplace_back(Location(INSTR::JMP));
 
-    instructions[jumpStartAddr] = Location((unsigned long int) instructions.size()-1);
+    instructions[jumpStartAddr] = Location((unsigned long int) (instructions.size()-1));
 }
 
 void InstructionASTVisitor::Visit(IfASTNode * A){
@@ -232,7 +233,6 @@ void InstructionASTVisitor::Visit(OperatorASTNode * A){
         instructions.emplace_back(Location(INSTR::LTE));
         return;
     }
-
 }
 
 void InstructionASTVisitor::Visit(ReturnASTNode * A){

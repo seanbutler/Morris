@@ -1,26 +1,12 @@
 decl a
-a=0
+a=10
 
-if (a<1)
+while ( a < 100 )
 {
-    output a
     a = a + 1
 }
 
-if (a>=1)
-{
-    output a
-    a = a + 1
-}
+output a
 
-if (a==2)
-{
-    output a
-
-}
-
-decl b
-b=99
-output b
 
 

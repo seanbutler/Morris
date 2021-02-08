@@ -6,7 +6,7 @@
 
 #include "VirtualMachine.h"
 #include "../common/Location.h"
-//#define VM_DEBUG_DUMP
+#define VM_DEBUG_DUMP
 
 namespace Runtime {
 
@@ -77,9 +77,10 @@ namespace Runtime {
                     }
 
                     case INSTR::JMP: {
-                        incrProgramCounter();
-                        Location loc = getCurrentLocation();
-                        instructionPointer = loc.address - 1;
+                        Location loc = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        instructionPointer = loc.address;
                         break;
                     }
 
@@ -103,6 +104,8 @@ namespace Runtime {
                         Location a = stack[stack.size() - 1];
                         stack.pop_back();
 
+//                        std::cout << "BRF a= " << a << " loc= " << loc << std::endl;
+
                         if (!(a.value)) {
                             instructionPointer = loc.address;
                         }
@@ -116,7 +119,7 @@ namespace Runtime {
                         Location b = stack[stack.size() - 1];
                         stack.pop_back();
 
-                        Location c(b.value + a.value);
+                        Location c((double)(b.value + a.value));
                         stack.push_back(c);
                         break;
                     }
@@ -128,7 +131,7 @@ namespace Runtime {
                         Location b = stack[stack.size() - 1];
                         stack.pop_back();
 
-                        Location c(b.value - a.value);
+                        Location c((double)(b.value - a.value));
                         stack.push_back(c);
                         break;
                     }
@@ -140,7 +143,7 @@ namespace Runtime {
                         Location b = stack[stack.size() - 1];
                         stack.pop_back();
 
-                        Location c(b.value * a.value);
+                        Location c((double)(b.value * a.value));
                         stack.push_back(c);
                         break;
                     }
@@ -152,7 +155,7 @@ namespace Runtime {
                         Location b = stack[stack.size() - 1];
                         stack.pop_back();
 
-                        Location c(b.value / a.value);
+                        Location c((double)(b.value / a.value));
                         stack.push_back(c);
                         break;
                     }
@@ -163,8 +166,6 @@ namespace Runtime {
 
                         Location b = stack[stack.size() - 1];
                         stack.pop_back();
-
-                        std::cout << a << " " << b << std::endl;
 
                         Location c((double)((int)b.value % (int)a.value));
                         stack.push_back(c);
@@ -225,6 +226,9 @@ namespace Runtime {
 
                         Location b = stack[stack.size() - 1];
                         stack.pop_back();
+
+
+//                        std::cout << a << " LT " << b << std::endl;
 
                         Location c((double)(b.value < a.value));
                         stack.push_back(c);

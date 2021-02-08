@@ -3,11 +3,13 @@
  ## TODO
 
  - [x] tokenizer generates error message when bad token
+ - [x] if code generation
+ - [ ] while  code generation
+
  - [ ] parser generates readable error messages
  - [ ] spawn command
  - [ ] thread hierarchy
 
- - [ ] while loop code generation
  - [ ] function code generation
  - [ ] procedure code generation
 
@@ -33,10 +35,13 @@ int main(int argc, char**argv) {
     Runtime::VM * machine;
 
     machine = new Runtime::VM(Compiler::compile("test.src"));
+
+    machine->DumpInstructions();
+
     machine->state = Runtime::VM::RUNNING;
     scheduler.Add(machine);
 
-    scheduler.Update(128);
+    scheduler.Update(2048);
 
     return 0;
 }

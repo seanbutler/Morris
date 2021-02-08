@@ -42,7 +42,6 @@ int main(int argc, char**argv) {
     scheduler.Add(machine);
 
     scheduler.Update(2048);
-
     return 0;
 }
 

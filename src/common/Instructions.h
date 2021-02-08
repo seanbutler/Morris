@@ -49,7 +49,8 @@ enum INSTR {
     LABEL,
 
     ERROR,
-    END_OF_FILE
+    END_OF_FILE,
+    MAX
 };
 
 

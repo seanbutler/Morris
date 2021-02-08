@@ -62,12 +62,10 @@ namespace Runtime {
 
         void DumpStack() {
 
-            std::cout << "STACK [ ";
-            if (this->stack.size() > 0) {
-                for (auto V : this->stack) {
-                    std::cout << V << " ";
-                }
-            }
+            std::cout << "STACK " << this->stack.size() << " [ ";
+//            for (auto V : this->stack) {
+//                std::cout << V << " ";
+//            }
             std::cout << "]" << std::endl;
         }
 

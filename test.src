@@ -1,12 +1,20 @@
 decl a
-a=10
+a=0
 
-while ( a < 100 )
-{
-    a = a + 1
+decl b
+b=0
+
+while ( b <= 5 ) {
+
+    while ( a <= 50 ) {
+        a = a + 1
+        output a
+    }
+
+    while ( a > 0 ) {
+        a = a - 1
+        output a
+    }
+
+    b = b + 1
 }
-
-output a
-
-
-

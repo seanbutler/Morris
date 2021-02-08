@@ -19,11 +19,11 @@
 class Location {
 
 public:
-    enum Type {NONE, INS, ADDR, VAL, UINT, INT64};
+    enum Type {NONE, INS, ADDR, VAL};
 
-    Location(INSTR V = INSTR::NOP) : type(INS), instruction(V)          {text = instructionNames[(int)instruction];}
-    Location(unsigned long int V) : type(ADDR), address(V)              {text = "ADDR";}
-    Location(double V) : type(VAL), value(V)                            {text = "VAL";}
+    Location(INSTR V = INSTR::NOP) : type(INS), instruction(V)  { text = instructionNames[(unsigned int)instruction]; }
+    Location(unsigned long int V) : type(ADDR), address(V)      { text = "ADDR"; }
+    Location(double V) : type(VAL), value(V)                    { text = "VAL"; }
 
     ~Location() {}
 
@@ -43,14 +43,22 @@ public:
                 os << instructionNames[obj.instruction];
                 break;
             }
+
             case Location::Type::ADDR: {
                 os << obj.address;
                 break;
             }
+
             case Location::Type::VAL: {
                 os << obj.value;
                 break;
             }
+
+            default: {
+                os << "unknown";
+                break;
+            }
+
         }
         return os;
     }

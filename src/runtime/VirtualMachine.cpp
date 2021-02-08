@@ -2,11 +2,15 @@
 // Created by sean on 01/01/2021.
 //
 
+#define NDEBUG
+#include <assert.h>     /* assert */
+
 #include <math.h>
 
 #include "VirtualMachine.h"
 #include "../common/Location.h"
-#define VM_DEBUG_DUMP
+
+//#define VM_DEBUG_DUMP
 
 namespace Runtime {
 
@@ -20,8 +24,6 @@ namespace Runtime {
         if (state == RUNNING) {
             while (slice > 0) {
                 slice--;
-
-//            std::cout << instructionNames[getCurrentInstruction()] << std::endl;
 
 #ifdef VM_DEBUG_DUMP
                 DumpRegs();
@@ -226,9 +228,6 @@ namespace Runtime {
 
                         Location b = stack[stack.size() - 1];
                         stack.pop_back();
-
-
-//                        std::cout << a << " LT " << b << std::endl;
 
                         Location c((double)(b.value < a.value));
                         stack.push_back(c);

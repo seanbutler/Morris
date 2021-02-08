@@ -38,8 +38,8 @@ void InstructionASTVisitor::Visit(WhileASTNode * A){
     std::cout << "InstructionASTVisitor WhileASTNode" << std::endl;
 
     // STORE THE ADDRESS BEFORE THE EXPRESSION, SO WE CAN DO IT AGAIN
-    unsigned long int beforeConditionAddr = instructions.size();
-//    unsigned long int beforeConditionAddr = instructions.size()-1;
+//    unsigned long int beforeConditionAddr = instructions.size();
+    unsigned long int beforeConditionAddr = instructions.size()-1;
 
     // GENERATE CODE FOR THE FIRST CHILD, THE EXPRESSION
     A->children[0]->Accept(this);

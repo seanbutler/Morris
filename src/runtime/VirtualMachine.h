@@ -24,7 +24,7 @@ namespace Runtime {
             for (int n = 0; n < D; n++) {
                 data.push_back(Location(0.0));
             }
-            state = PENDING;
+            state = RUNNING;
             instructionPointer = 0LL;
             //        stackPointer = Location(0.0);
             //        stackFrame = Location(0.0);

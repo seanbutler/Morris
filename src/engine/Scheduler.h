@@ -33,7 +33,7 @@ namespace Engine {
             }
         }
 
-        // TODO - this should be a map so we can id and retrieve specific entities
+        // TODO - this should be a map (or tree) so we can id and retrieve specific entities
         std::vector<Entity*> entities;
     };
 

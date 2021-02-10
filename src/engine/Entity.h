@@ -2,8 +2,7 @@
 // Created by sean on 11/06/2020.
 //
 
-#ifndef SYNTH_ENTITY_H
-#define SYNTH_ENTITY_H
+#pragma once
 
 #include <SFML/Graphics.hpp>
 
@@ -19,5 +18,3 @@ namespace Engine {
 
 };
 
-
-#endif //SYNTH_ENTITY_H

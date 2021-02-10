@@ -17,11 +17,12 @@ namespace Engine {
             ,   pixel_scale(PS)
             ,   scale(SC)
             ,   window(sf::VideoMode(w, h),
-                       "...",
+                       "Game Window",
                        sf::Style::Titlebar | sf::Style::Close)
     {
         window.setSize(sf::Vector2u(w*pixel_scale,h*pixel_scale));
         window.setFramerateLimit(FR);
+
     }
 
     void MainLoop::Update()

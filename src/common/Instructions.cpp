@@ -37,6 +37,9 @@ char* instructionNames[] = {
         "INPUT",
         "OUTPUT",
 
+        "ASET",
+        "AGET",
+
         "TOK_ERROR",
         "END_OF_FILE",
         "MAX"

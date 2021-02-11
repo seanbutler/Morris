@@ -262,6 +262,20 @@ namespace Runtime {
                         std::cout << "INPUT - not implemented" << std::endl;
                         break;
                     }
+
+                    case INSTR::ASET : {
+                        std::cout << "ASET - alient set, the interface set to the context" << std::endl;
+
+                        Location a = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location b = stack[stack.size() - 1];
+                        stack.pop_back();
+
+//                        owner->setPosition(b, a);
+                        break;
+                    }
+
                 }
 
                 incrProgramCounter();

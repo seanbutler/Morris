@@ -5,7 +5,6 @@
 // ----------------------------------------------------------------------
 
 #include "MainLoop.h"
-#include <iostream>
 
 // ----------------------------------------------------------------------
 
@@ -17,12 +16,11 @@ namespace Engine {
             ,   pixel_scale(PS)
             ,   scale(SC)
             ,   window(sf::VideoMode(w, h),
-                       "Game Window",
+                       " -~={ [ Game Window ]}=~- ",
                        sf::Style::Titlebar | sf::Style::Close)
     {
         window.setSize(sf::Vector2u(w*pixel_scale,h*pixel_scale));
         window.setFramerateLimit(FR);
-
     }
 
     void MainLoop::Update()
@@ -41,8 +39,10 @@ namespace Engine {
 
             entityScheduler.Update(deltaTime);
 
-            window.clear(sf::Color(255, 128, 0, 255));
+            window.clear(sf::Color::White);
+
             entityScheduler.Render(&window);
+
             window.display();
         }
     }
@@ -50,7 +50,6 @@ namespace Engine {
     MainLoop::~MainLoop()
     {
     }
-
 
 };
 

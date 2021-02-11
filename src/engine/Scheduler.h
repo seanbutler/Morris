@@ -25,6 +25,7 @@ namespace Engine {
             }
         }
 
+        // TODO - this should be a part of a component not the entity
         virtual void Render(sf::RenderWindow *W)
         {
             for (auto entity : entities)

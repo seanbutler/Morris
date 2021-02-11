@@ -6,7 +6,6 @@
 
 // ----------------------------------------------------------------------
 
-
 #include <memory>
 #include <vector>
 #include <algorithm>
@@ -17,14 +16,13 @@
 
 // ----------------------------------------------------------------------
 
-
 namespace Engine {
 
     class MainLoop {
     public:
         MainLoop(unsigned int W = 32, unsigned int H = 32,
                  unsigned int PS = 24, unsigned int SC = 16,
-                 unsigned int FR=16);
+                 unsigned int FR = 60);
 
         virtual ~MainLoop();
 

@@ -48,6 +48,9 @@ enum INSTR {
     NUMBER,
     LABEL,
 
+    ASET,
+    AGET,
+
     ERROR,
     END_OF_FILE,
     MAX

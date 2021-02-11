@@ -40,7 +40,7 @@ if ( x == 17 ) {
 ### Parallel
 - [ ] Parallel execution is trivial and straightforward
 - [ ] Threads are lightweight and first class object
-- [ ] Independant Control of Cores Used
+- [ ] Independent Control of Cores and CPUs
 
 ### Safe
 - [x] Stack Based Locals, Heap Based Globals
@@ -51,14 +51,15 @@ if ( x == 17 ) {
 - [ ] Pure Functions, No Side Effects (https://en.wikipedia.org/wiki/Pure_function)
 - [ ] File system access constrained to reading and writing local sub dirs only 
 
+### With Bells On (via SFML)
+- [ ] Integrated Graphics and Multimedia IO Library
+- [ ] Integrated Physics and Collision Lib
+- [ ] Integrated High and Low Level Networking Library
+
 ### Finite State Machines
-- [ ] Many Complex Algorithms are easily described as FSMs
+- [ ] Syntactic Sugar Makes State and FSMs 
 - [ ] Machines and States are first class objects
 
-### With Bells On (via SFML)
-- [ ] Integrated Physics and Collision Lib
-- [ ] Integrated Graphics and Multimedia IO Library
-- [ ] Integrated High and Low Level Networking Library
 
 ## Why?
 

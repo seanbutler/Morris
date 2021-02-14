@@ -2,20 +2,17 @@
 
 Morris is a programming language hand crafted for making games quickly and easily. Morris has a focus on ease of gameplay programming.
 
-The infrastructure parts of the game: graphics, physics, window, input, sound, fonts, networking, etc. are all integrated and ready to go because of the wonderful SFML.
+This distribution of Morris is closely integrated with SFML so the common parts of games: graphics, physics, window, input, sound, fonts, networking, etc. are all integrated, cross platform and ready to go because of that wonderful library.
+
+Like with the above SFML integration, Morris is a system "with bells on" that is, we intend to include several widely used as closely coupled features from other common libraries e.g. zip archive and local only filesystem, integrated spreadsheet data import for table input. 
 
 Morris is influenced by [erlang](https://en.wikipedia.org/wiki/Erlang_(programming_language))
 but Morris programs look very familiar to anyone who has used c js c++ rust or swift. Right now, Morris programs look like this...
 
 ~~~
+
 func myfunc(){
     f = f + 1
-    return f  
-}
-
-pure func myfunc(){
-    decl f
-    f = 11
     return f  
 }
 
@@ -60,8 +57,9 @@ if ( x == 17 ) {
 - [ ] Syntactic Sugar Makes State and FSMs 
 - [ ] Machines and States are first class objects
 
-
 ## Why?
+
+Sometimes you just want to program a game and not worry about the associated technology. No CMake, windowing or opengl configuration and linking woes.
 
 There was a time when if you wanted to make a game Borland Turbo Pascal was a good way to do it. The language was high level enough that you could focus on the goals. The graphics and so on were integrated with a BGI and/or the VGA was well understood enough to be a stable target. 
 

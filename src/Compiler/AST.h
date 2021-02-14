@@ -311,3 +311,17 @@ public:
 
 // ----------------------------------------------------------------------
 
+class SetposASTNode : public ASTNode {
+public:
+    SetposASTNode(ASTNode * P=nullptr)
+            : ASTNode("KWD", "setpos", P)
+    {
+    }
+
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((SetposASTNode*)this);
+    }
+};
+
+// ----------------------------------------------------------------------
+

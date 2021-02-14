@@ -1,12 +1,15 @@
 decl a
-a=100000
+a=0
 
 decl b
 b=0
 
-while ( b != 1 ) {
+while ( b <= 5 ) {
 
-    a=100000
+    while ( a <= 10 ) {
+        a = a + 1
+        output a
+    }
 
     while ( a > 0 ) {
         a = a - 1

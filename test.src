@@ -1,12 +1,12 @@
 decl a
 a=0
 
-decl b
-b=0
+decl looping
+looping = 1
 
-while ( b <= 5 ) {
+while ( looping != 0 ) {
 
-    while ( a <= 50 ) {
+    while ( a <= 10 ) {
         a = a + 1
         output a
     }
@@ -16,7 +16,5 @@ while ( b <= 5 ) {
         output a
     }
 
-
-    b = b + 1
 }
 

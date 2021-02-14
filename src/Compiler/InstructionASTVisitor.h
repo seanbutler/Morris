@@ -28,6 +28,7 @@ class RHSIdentifierASTNode;
 class OperatorASTNode;
 class ReturnASTNode;
 class OutputASTNode;
+class SetposASTNode;
 class FunctionASTNode;
 class ProcedureASTNode;
 
@@ -52,6 +53,7 @@ public:
     void Visit(OperatorASTNode * A);
     void Visit(ReturnASTNode * A);
     void Visit(OutputASTNode * A);
+    void Visit(SetposASTNode * A);
     void Visit(FunctionASTNode * A);
     void Visit(ProcedureASTNode * A);
 

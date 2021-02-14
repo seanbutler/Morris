@@ -61,6 +61,8 @@ enum TokenEnum : int {
 
     KWD_OUTPUT,
 
+    KWD_SETPOS,
+
     TOK_END_OF_FILE = 666,
     TOK_ERROR = 667
 };

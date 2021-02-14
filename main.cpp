@@ -6,11 +6,12 @@
  - [x] if code generation
  - [x] while  code generation
 
- - [ ] basic integration with the graphics system
- - [ ] parser generates readable error messages
+ - [~] basic integration with the graphics system
+ - [~] parser generates readable error messages
+ - [ ] function code generation
+
  - [ ] spawn command
  - [ ] thread hierarchy
- - [ ] function code generation
  - [ ] procedure code generation
 
 */
@@ -29,6 +30,10 @@ int main(int argc, char**argv) {
 
     Engine::MainLoop loop;
     loop.entityScheduler.entities.push_back(new Agent("test.src"));
+
+//    loop.entityScheduler.entities.push_back(new Agent("test2.src"));
+//    loop.entityScheduler.entities.push_back(new Agent("test2.src"));
+
     loop.Update();
 
     return 0;

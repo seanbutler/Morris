@@ -19,7 +19,18 @@ Token tokens[] = {
         Token(KWD_PROC,     "proc"      ),
         Token(KWD_THREAD,   "thread"    ),
         Token(KWD_PROC,     "exit"      ),
-        Token(KWD_OUTPUT,   "output"    )
+        Token(KWD_OUTPUT,   "output"    ),
+
+//        Token(KWD_START ,   "start"    ),
+//        Token(KWD_UPDATE ,   "update"    ),
+//        Token(KWD_RENDER ,   "render"    )
+
+        Token(KWD_SETPOS ,   "setpos"    ),
+
+//        Token(KWD_MOVE ,   "move"    ),
+//        Token(KWD_MOVEX ,   "movex"    ),
+//        Token(KWD_MOVEY ,   "movey"    )
+
 };
 
 Token symbols[] = {

@@ -263,18 +263,29 @@ namespace Runtime {
                         break;
                     }
 
-                    case INSTR::ASET : {
-                        std::cout << "ASET - alient set, the interface set to the context" << std::endl;
-
-                        Location a = stack[stack.size() - 1];
-                        stack.pop_back();
-
-                        Location b = stack[stack.size() - 1];
-                        stack.pop_back();
-
-//                        owner->setPosition(b, a);
-                        break;
-                    }
+//                    case INSTR::ASET : {
+//                        std::cout << "ASET - alien set, an interface to the engine" << std::endl;
+//
+//                        Location a = stack[stack.size() - 1];
+//                        stack.pop_back();
+//
+//                        Location b = stack[stack.size() - 1];
+//                        stack.pop_back();
+//
+//                        break;
+//                    }
+//
+//                    case INSTR::ACALL : {
+//                        std::cout << "ACALL - alien call, an interface to the engine" << std::endl;
+//
+//                        Location a = stack[stack.size() - 1];
+//                        stack.pop_back();
+//
+//                        Location b = stack[stack.size() - 1];
+//                        stack.pop_back();
+//
+//                        break;
+//                    }
 
                 }
 

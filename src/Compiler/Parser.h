@@ -43,6 +43,7 @@ public:
     ReturnASTNode * ParseReturn(ASTNode *P= nullptr);
 
     OutputASTNode * ParseOutput(ASTNode *P= nullptr);
+    SetposASTNode * ParseSetpos(ASTNode *P= nullptr);
 
     SymbolTableStack symbolTable;
 

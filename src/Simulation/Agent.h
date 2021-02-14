@@ -10,6 +10,8 @@
 #include "../runtime/VirtualMachine.h"
 #include "../engine/Entity.h"
 
+#include "XForm.h"
+
 // ----------------------------------------------------------------------
 
 class Agent : public Engine::Entity {
@@ -20,32 +22,34 @@ public:
     ,   position(8.0, 8.0)
     ,   virtualMachine(Runtime::VM(Compiler::compile(F)))
     {
-        rectangle.setSize(size);
-        rectangle.setFillColor(sf::Color::Black);
-        rectangle.setPosition(position);
+        sprite.setSize(size);
+        sprite.setFillColor(sf::Color::Black);
+        sprite.setPosition(position);
     }
 
     virtual void Update(float deltaTime) {
-        virtualMachine.Execute(64);
+        virtualMachine.Execute(32);
     }
 
     virtual void Render(sf::RenderWindow *W) {
-        W->draw(rectangle);
+        W->draw(sprite);
     }
 
-    void SetPosition(float X = 1.0, float Y = 1.0)  { rectangle.setPosition(sf::Vector2f(X, Y)); }
-    void SetSize(float X = 1.0, float Y = 1.0)      { rectangle.setSize(sf::Vector2f(X, Y)); }
+    void SetPosition(float X = 1.0, float Y = 1.0)  { sprite.setPosition(sf::Vector2f(X, Y)); }
+    void SetSize(float X = 1.0, float Y = 1.0)      { sprite.setSize(sf::Vector2f(X, Y));    }
+    void Move(float X = 1.0, float Y = 1.0)         { sprite.move(sf::Vector2f(X, Y));     }
+    void MoveX(float X = 1.0)                       { sprite.move(sf::Vector2f(X, 0.0)); }
+    void MoveY(float Y = 1.0)                       { sprite.move(sf::Vector2f(0.0, Y)); }
 
     void SetColour(float R = 128, float G = 128, float B = 128, float A=255)  {
-        rectangle.setFillColor(sf::Color(R, G, B, A));
+        sprite.setFillColor(sf::Color(R, G, B, A));
     }
 
-
 protected:
-    Runtime::VM virtualMachine;
-    sf::RectangleShape rectangle;
-    sf::Vector2f size;
-    sf::Vector2f position;
+    Runtime::VM         virtualMachine;
+    sf::RectangleShape  sprite;
+    sf::Vector2f        size;
+    sf::Vector2f        position;
 };
 
 // ----------------------------------------------------------------------

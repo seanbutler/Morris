@@ -53,9 +53,16 @@ public:
             outStream << "node" << std::to_string(id) << " ["
                     << " uuid = \"" << boost::lexical_cast<std::string>(tag) << "\""
                     << " shape = \"record\""
-                    << " label = \"" << type << " " << value << std::endl;
+                    << " label = \"" << type << " ";
 
-//            symbolTable.Diagram(outStream);
+            std::string escapedValue;
+
+            if (value == ">"){ escapedValue = "\\>"; }
+            if (value == "<"){ escapedValue = "\\<"; }
+            if (value == ">="){ escapedValue = "\\>="; }
+            if (value == "<="){ escapedValue = "\\<="; }
+
+            outStream << escapedValue;
 
             outStream << "\"" << " ];" << std::endl;
 

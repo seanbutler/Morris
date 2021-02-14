@@ -16,5 +16,7 @@ while ( b <= 5 ) {
         output a
     }
 
+    setpos( a, 4 )
+
 }
 

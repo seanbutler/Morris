@@ -10,13 +10,12 @@
 
 namespace Engine {
 
-    MainLoop::MainLoop(unsigned int W, unsigned int H, unsigned int PS, unsigned int SC, unsigned int FR)
+    MainLoop::MainLoop(unsigned int W, unsigned int H, unsigned int PS, unsigned int FR)
             :   w(W)
             ,   h(H)
             ,   pixel_scale(PS)
-            ,   scale(SC)
             ,   window(sf::VideoMode(w, h),
-                       " -~={ [ Game Window ]}=~- ",
+                       "Game Window",
                        sf::Style::Titlebar | sf::Style::Close)
     {
         window.setSize(sf::Vector2u(w*pixel_scale,h*pixel_scale));
@@ -39,7 +38,7 @@ namespace Engine {
 
             entityScheduler.Update(deltaTime);
 
-            window.clear(sf::Color::White);
+            window.clear(sf::Color::Black);
 
             entityScheduler.Render(&window);
 

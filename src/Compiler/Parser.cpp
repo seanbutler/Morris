@@ -85,6 +85,14 @@ ModuleASTNode * Parser::ParseModule() {
                 break;
             }
 
+
+            // SETPOS
+            case TokenEnum::KWD_SETPOS: {
+                std::cout << "Parser::Parse() TokenEnum::KWD_FUNC" << std::endl;
+                statementsNodePtr->children.push_back(ParseSetpos(statementsNodePtr));
+                break;
+            }
+
 //            default: {
 //                std::cout << "ERROR - Unknown Parse Error" << std::endl;
 //            }
@@ -654,6 +662,8 @@ SetposASTNode * Parser::ParseSetpos(ASTNode *P) {
 
     if ( tokenItor->kind == TokenEnum::KWD_SETPOS ) {
         statementNodeSP = new SetposASTNode();
+
+        tokenItor++;
 
         if ( tokenItor->kind == TokenEnum::SYM_LPAREN ) {
             tokenItor++;

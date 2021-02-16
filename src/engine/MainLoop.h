@@ -20,13 +20,12 @@ namespace Engine {
 
     class MainLoop {
     public:
-        MainLoop(unsigned int W = 32, unsigned int H = 32,
-                 unsigned int PS = 24, unsigned int SC = 16,
-                 unsigned int FR = 60);
+        MainLoop(unsigned int W = 32, unsigned int H = 24,
+                 unsigned int PS = 32, unsigned int FR = 60);
 
         virtual ~MainLoop();
 
-        unsigned int w, h, pixel_scale, scale;
+        unsigned int w, h, pixel_scale;
 
         sf::RenderWindow window;
 

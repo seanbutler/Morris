@@ -9,14 +9,21 @@
 #include <stack>
 #include <iostream>
 
+//#include "../Simulation/Agent.h"
+
+
 #include "../common/Instructions.h"
 #include "../common/Location.h"
 
+
+
 // ---------------------------------------------------------------------------
+class Agent;
 
 namespace Runtime {
 
     class VM {
+
     public:
         VM(std::vector<Location> I, unsigned int D = 16) {
             instructions = I;
@@ -28,6 +35,7 @@ namespace Runtime {
             instructionPointer = 0LL;
             //        stackPointer = Location(0.0);
             //        stackFrame = Location(0.0);
+            owner = 0l;
         }
 
         ~VM() {
@@ -83,21 +91,13 @@ namespace Runtime {
         void Execute(unsigned int slice = 10);
 
         void incrProgramCounter() { instructionPointer++; }
-
         Location getCurrentLocation() { return instructions[instructionPointer]; }
-
         INSTR getCurrentInstruction() { return getCurrentLocation().instruction; }
-
         unsigned long int getCurrentAddress() { return getCurrentLocation().address; }
-
         double getCurrentValue() { return getCurrentLocation().value; }
-
         void InstructionsPush(Location V) { instructions.emplace(instructions.end(), V); }
-
         void InstructionsPush(INSTR V) { instructions.emplace(instructions.end(), Location(V)); }
-
         void InstructionsPush(unsigned long int V) { instructions.emplace(instructions.end(), Location(V)); }
-
         void InstructionsPush(double V) { instructions.push_back(V); }
 
         State state;
@@ -108,7 +108,7 @@ namespace Runtime {
         std::vector<Location> stack;
         std::vector<Location> data;
 
-
+        Agent * owner;           // NO! some kind of flexible interface or sublcassing
 
     };
 

@@ -45,8 +45,8 @@ enum INSTR {
     INPUT,
     OUTPUT,
 
-    NUMBER,
-    LABEL,
+//    NUMBER,
+//    LABEL,
 
     ASET,
     AGET,

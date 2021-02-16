@@ -55,14 +55,11 @@ public:
                     << " shape = \"record\""
                     << " label = \"" << type << " ";
 
-            std::string escapedValue;
-
-            if (value == ">"){ escapedValue = "\\>"; }
-            if (value == "<"){ escapedValue = "\\<"; }
-            if (value == ">="){ escapedValue = "\\>="; }
-            if (value == "<="){ escapedValue = "\\<="; }
-
-            outStream << escapedValue;
+            if (value == ">")  { outStream << "\\>"; }
+            else if (value == "<")  { outStream << "\\<"; }
+            else if (value == ">=") { outStream << "\\>="; }
+            else if (value == "<=") { outStream << "\\<="; }
+            else { outStream << value; }
 
             outStream << "\"" << " ];" << std::endl;
 

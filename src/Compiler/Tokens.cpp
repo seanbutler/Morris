@@ -26,6 +26,7 @@ Token tokens[] = {
 //        Token(KWD_RENDER ,   "render"    )
 
         Token(KWD_SETPOS ,   "setpos"    ),
+        Token(KWD_SETPOS ,   "setcol"    ),
 
 //        Token(KWD_MOVE ,   "move"    ),
 //        Token(KWD_MOVEX ,   "movex"    ),

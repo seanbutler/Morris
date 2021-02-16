@@ -283,16 +283,9 @@ enum AVARS {
 void InstructionASTVisitor::Visit(SetposASTNode * A){
     std::cout << "Visit SetposASTNode" << std::endl;
 
-    // GENERATE CODE FOR THE FIRST CHILD, THE EXPRESSION
     A->children[0]->Accept(this);
-
-    instructions.emplace_back(Location( INSTR::PUSH));
-    instructions.emplace_back(Location( (unsigned long int) AVARS::XPOS));
-    instructions.emplace_back(Location(INSTR::ASET));
 
     A->children[1]->Accept(this);
 
-    instructions.emplace_back(Location( INSTR::PUSH));
-    instructions.emplace_back(Location( (unsigned long int) AVARS::YPOS));
     instructions.emplace_back(Location(INSTR::ASET));
 }

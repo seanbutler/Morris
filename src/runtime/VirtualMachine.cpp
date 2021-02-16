@@ -10,6 +10,9 @@
 #include "VirtualMachine.h"
 #include "../common/Location.h"
 
+#include "../Simulation/Agent.h"
+
+
 //#define VM_DEBUG_DUMP
 
 namespace Runtime {
@@ -263,18 +266,23 @@ namespace Runtime {
                         break;
                     }
 
-//                    case INSTR::ASET : {
+                    case INSTR::ASET : {
 //                        std::cout << "ASET - alien set, an interface to the engine" << std::endl;
-//
-//                        Location a = stack[stack.size() - 1];
-//                        stack.pop_back();
-//
-//                        Location b = stack[stack.size() - 1];
-//                        stack.pop_back();
-//
-//                        break;
-//                    }
-//
+
+                        Location a = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location b = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        if ( owner ) {
+                            owner->SetPosition(b.value, a.value);
+                        }
+
+                        break;
+                    }
+
+
 //                    case INSTR::ACALL : {
 //                        std::cout << "ACALL - alien call, an interface to the engine" << std::endl;
 //

@@ -45,11 +45,15 @@ enum INSTR {
     INPUT,
     OUTPUT,
 
-//    NUMBER,
-//    LABEL,
+    ASETPOS,
+    ASETVEL,
+    ASETCOL,
 
-    ASET,
+
+    SPAWN,
+
     AGET,
+    STRING,
 
     ERROR,
     END_OF_FILE,

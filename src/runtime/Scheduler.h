@@ -14,7 +14,6 @@
 
 namespace Runtime {
 
-
     class Scheduler {
 
     public:

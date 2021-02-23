@@ -20,6 +20,7 @@ bool Tokenizer::ScanToken() {
 
     LABEL_STARTSCAN:
 
+
     //
     // skip whitespace
     //
@@ -29,6 +30,7 @@ bool Tokenizer::ScanToken() {
         }
         currentChar = inputString[currentPosition++];
     }
+
 
     //
     // skip comments
@@ -41,6 +43,7 @@ bool Tokenizer::ScanToken() {
         currentChar = inputString[currentPosition++];
         goto LABEL_STARTSCAN;
     }
+
 
     //
     // token, probably keyword
@@ -62,7 +65,7 @@ bool Tokenizer::ScanToken() {
         --currentPosition;
 
         // TODO CHANGE THIS INTO MODERN c++ with proper lookup
-        for (unsigned int i = 0; i < 12; i++ ) {
+        for (unsigned int i = 0; i < 15; i++ ) {
             if ( tokenString == tokens[i].name )
             {
                 Token newTok(tokens[i]);                // copy!
@@ -77,6 +80,31 @@ bool Tokenizer::ScanToken() {
         newTok.file = currentFile;
         newTok.line = currentLine;
         outputTokens.push_back(newTok);
+        return true;
+    }
+
+    //
+    // parse and store strings in a table
+    //
+    if ( (currentChar == '\"') || (currentChar == '\'') ){
+        // starting a new token ... probably a string
+        std::string stringString;
+
+        // advance to the next character skipping quote
+        currentChar = inputString[currentPosition++];
+
+        do{
+            stringString += currentChar;
+            currentChar = inputString[currentPosition++];
+        } while ( ( currentChar != '\n') && (currentChar != '\"') && (currentChar != '\'') );
+
+        std::cerr << "STRING DEBUG " <<  stringString << std::endl;
+
+        Token newTok(TokenEnum::TOK_STRING, stringString);
+        newTok.file = currentFile;
+        newTok.line = currentLine;
+        outputTokens.push_back(newTok);
+
         return true;
     }
 
@@ -98,7 +126,6 @@ bool Tokenizer::ScanToken() {
         Token newTok(TokenEnum::TOK_NUMBER, numberStr);
         newTok.file = currentFile;
         newTok.line = currentLine;
-//        newTok.number = currentLine;
         outputTokens.push_back(newTok);
 
         return true;

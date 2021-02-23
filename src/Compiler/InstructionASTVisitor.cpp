@@ -124,6 +124,17 @@ void InstructionASTVisitor::Visit(NumberASTNode * A){
     }
 }
 
+void InstructionASTVisitor::Visit(StringASTNode * A){
+    std::cout << "InstructionASTVisitor StringASTNode" << std::endl;
+
+    instructions.emplace_back(Location(INSTR::STRING));
+    instructions.emplace_back(Location((double) 0));
+
+    for(auto child : A->children) {
+        child->Accept(this);
+    }
+}
+
 void InstructionASTVisitor::Visit(LHSIdentifierASTNode * A){
     std::cout << "InstructionASTVisitor LHSIdentifierASTNode" << std::endl;
 
@@ -237,28 +248,22 @@ void InstructionASTVisitor::Visit(OperatorASTNode * A){
 
 void InstructionASTVisitor::Visit(ReturnASTNode * A){
     std::cout << "Visit ReturnASTNode" << std::endl;
-
     for(auto child : A->children) {
         child->Accept(this);
     }
-
     instructions.emplace_back(Location(INSTR::RET));
 }
 
 void InstructionASTVisitor::Visit(OutputASTNode * A){
     std::cout << "Visit OutputASTNode" << std::endl;
-
     for(auto child : A->children) {
         child->Accept(this);
     }
-
     instructions.emplace_back(Location(INSTR::OUTPUT));
 }
 
-
 void InstructionASTVisitor::Visit(FunctionASTNode * A){
     std::cout << "Visit FunctionASTNode" << std::endl;
-
     for(auto child : A->children) {
         child->Accept(this);
     }
@@ -266,7 +271,6 @@ void InstructionASTVisitor::Visit(FunctionASTNode * A){
 
 void InstructionASTVisitor::Visit(ProcedureASTNode * A){
     std::cout << "Visit ProcedureASTNode" << std::endl;
-
     for(auto child : A->children) {
         child->Accept(this);
     }
@@ -274,18 +278,24 @@ void InstructionASTVisitor::Visit(ProcedureASTNode * A){
 
 // --------------------------------------------------
 
-enum AVARS {
-    XPOS = 0, YPOS = 1,
-};
-
-
-
 void InstructionASTVisitor::Visit(SetposASTNode * A){
     std::cout << "Visit SetposASTNode" << std::endl;
-
     A->children[0]->Accept(this);
-
     A->children[1]->Accept(this);
+    instructions.emplace_back(Location(INSTR::ASETPOS));
+}
 
-    instructions.emplace_back(Location(INSTR::ASET));
+void InstructionASTVisitor::Visit(SetvelASTNode * A){
+    std::cout << "Visit SetvelASTNode" << std::endl;
+    A->children[0]->Accept(this);
+    A->children[1]->Accept(this);
+    instructions.emplace_back(Location(INSTR::ASETVEL));
+}
+
+void InstructionASTVisitor::Visit(SetcolASTNode * A){
+    std::cout << "Visit SetcolASTNode" << std::endl;
+    A->children[0]->Accept(this);
+    A->children[1]->Accept(this);
+    A->children[2]->Accept(this);
+    instructions.emplace_back(Location(INSTR::ASETCOL));
 }

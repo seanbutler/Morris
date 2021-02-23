@@ -8,7 +8,6 @@ Token tokens[] = {
 
         Token(KWD_DECL,     "decl"      ),
         Token(KWD_CONST,    "const"     ),
-//        Token(KWD_MUTABLE,  "mut"       ),
 
         Token(KWD_IF,       "if"        ),
         Token(KWD_ELSE,     "else"      ),
@@ -21,16 +20,11 @@ Token tokens[] = {
         Token(KWD_PROC,     "exit"      ),
         Token(KWD_OUTPUT,   "output"    ),
 
-//        Token(KWD_START ,   "start"    ),
-//        Token(KWD_UPDATE ,   "update"    ),
-//        Token(KWD_RENDER ,   "render"    )
-
         Token(KWD_SETPOS ,   "setpos"    ),
-        Token(KWD_SETPOS ,   "setcol"    ),
+        Token(KWD_SETVEL ,   "setvel"    ),
+        Token(KWD_SETCOL ,   "setcol"    ),
 
-//        Token(KWD_MOVE ,   "move"    ),
-//        Token(KWD_MOVEX ,   "movex"    ),
-//        Token(KWD_MOVEY ,   "movey"    )
+        Token(KWD_SPAWN ,   "spawn"    ),
 
 };
 
@@ -49,6 +43,7 @@ Token symbols[] = {
         Token(SYM_COLON,        ":"     ),
 
         Token(SYM_ASSIGN,       "="    ),
+        Token(SYM_QUOTES,       "\""    ),
 
         Token(OP_LT,        "<"         ),
         Token(OP_LTE,       "<="        ),

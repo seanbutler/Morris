@@ -38,7 +38,7 @@ namespace Engine {
 
             entityScheduler.Update(deltaTime);
 
-            window.clear(sf::Color::Black);
+            window.clear(sf::Color::White);
 
             entityScheduler.Render(&window);
 

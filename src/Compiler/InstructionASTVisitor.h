@@ -23,12 +23,15 @@ class BlockASTNode;
 class AssignmentASTNode;
 class ExpressionASTNode;
 class NumberASTNode;
+class StringASTNode;
 class LHSIdentifierASTNode;
 class RHSIdentifierASTNode;
 class OperatorASTNode;
 class ReturnASTNode;
 class OutputASTNode;
 class SetposASTNode;
+class SetvelASTNode;
+class SetcolASTNode;
 class FunctionASTNode;
 class ProcedureASTNode;
 
@@ -48,12 +51,15 @@ public:
     void Visit(AssignmentASTNode * A);
     void Visit(ExpressionASTNode * A);
     void Visit(NumberASTNode * A);
+    void Visit(StringASTNode * A);
     void Visit(LHSIdentifierASTNode * A);
     void Visit(RHSIdentifierASTNode * A);
     void Visit(OperatorASTNode * A);
     void Visit(ReturnASTNode * A);
     void Visit(OutputASTNode * A);
     void Visit(SetposASTNode * A);
+    void Visit(SetvelASTNode * A);
+    void Visit(SetcolASTNode * A);
     void Visit(FunctionASTNode * A);
     void Visit(ProcedureASTNode * A);
 
@@ -61,6 +67,7 @@ public:
     std::shared_ptr<ASTNode> ast;
     std::vector<Location> instructions;
     std::vector<Location> data;
+    std::vector<std::string> strings;
 };
 
 // ---------------------------------------------------------------------------

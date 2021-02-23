@@ -329,3 +329,59 @@ public:
 
 // ----------------------------------------------------------------------
 
+class SetvelASTNode : public ASTNode {
+public:
+    SetvelASTNode(ASTNode * P=nullptr)
+            : ASTNode("KWD", "setvel", P)
+    {
+    }
+
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((SetvelASTNode*)this);
+    }
+};
+
+// ----------------------------------------------------------------------
+
+class SetcolASTNode : public ASTNode {
+public:
+    SetcolASTNode(ASTNode * P=nullptr)
+            : ASTNode("KWD", "setcol", P)
+    {
+    }
+
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((SetcolASTNode*)this);
+    }
+};
+
+// ----------------------------------------------------------------------
+
+class StringASTNode : public ASTNode {
+public:
+    StringASTNode(std::string V, ASTNode * P=nullptr)
+            : ASTNode("STR", V, P)
+    {
+    }
+
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((StringASTNode*)this);
+    }
+};
+
+// ----------------------------------------------------------------------
+
+
+class SpawnASTNode : public ASTNode {
+public:
+    SpawnASTNode(ASTNode * P = nullptr)
+            : ASTNode("KWD", "spawn", P)
+    {
+    }
+
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((StringASTNode*)this);
+    }
+};
+
+// ----------------------------------------------------------------------

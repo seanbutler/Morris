@@ -36,7 +36,7 @@ if ( x == 17 ) {
 
 ### Parallel
 - [ ] Parallel execution is trivial and straightforward
-- [ ] Threads are lightweight and first class object
+- [ ] Threads are lightweight userspace objects and also first class object
 - [ ] Independent Control of Cores and CPUs
 
 ### Safe
@@ -47,6 +47,8 @@ if ( x == 17 ) {
 - [ ] When a Thread exits all the memory associated is released ([erlang](https://en.wikipedia.org/wiki/Erlang_(programming_language)))
 - [ ] Pure Functions, No Side Effects (https://en.wikipedia.org/wiki/Pure_function)
 - [ ] File system access constrained to reading and writing local sub dirs only 
+
+
 
 ### With Bells On (via SFML)
 - [ ] Integrated Graphics and Multimedia IO Library
@@ -68,6 +70,11 @@ There was a time when if you wanted to make a game Borland Turbo Pascal was a go
 Image By Lưu Nguyễn Thiện Hậu - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=75160140
 
 Later Blitz basic and similar compiled game Basics were fast and funky especially for writing games on Amigas. Which all the cool kids had.
+
+
+![AMOS/STOS](https://upload.wikimedia.org/wikipedia/en/4/49/AMOS_Professional_Screenshot.png)
+
+By Source, Fair use, https://en.wikipedia.org/w/index.php?curid=45485838
 
 ![Blitz BASIC Logo](https://upload.wikimedia.org/wikipedia/en/6/65/BlitzBasicLogo.gif)
 

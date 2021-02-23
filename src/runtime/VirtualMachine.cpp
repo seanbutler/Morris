@@ -266,8 +266,9 @@ namespace Runtime {
                         break;
                     }
 
-                    case INSTR::ASET : {
-//                        std::cout << "ASET - alien set, an interface to the engine" << std::endl;
+
+                    case INSTR::ASETPOS : {
+//                        std::cout << "ASETPOS - 2 params, sets position of a sprite in the agen" << std::endl;
 
                         Location a = stack[stack.size() - 1];
                         stack.pop_back();
@@ -282,15 +283,66 @@ namespace Runtime {
                         break;
                     }
 
+                    case INSTR::ASETVEL : {
+//                        std::cout << "ASETPOS - 2 params, sets position of a sprite in the agen" << std::endl;
+
+                        Location a = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location b = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        if ( owner ) {
+                            owner->SetVelocity(b.value, a.value);
+                        }
+
+                        break;
+                    }
+
+
+                    case INSTR::ASETCOL : {
+//                        std::cout << "ASETCOL - 2 params, sets position of a sprite in the agen" << std::endl;
+
+                        Location a = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location b = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location c = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        if ( owner ) {
+                            owner->SetColour(c.value, b.value, a.value);
+                        }
+
+                        break;
+                    }
+
+                    case INSTR::SPAWN : {
+                        std::cout << "SPAWN - spawn " << std::endl;
+
+
+                        break;
+                    }
 
 //                    case INSTR::ACALL : {
 //                        std::cout << "ACALL - alien call, an interface to the engine" << std::endl;
 //
-//                        Location a = stack[stack.size() - 1];
+//                        Location lib = stack[stack.size() - 1];
 //                        stack.pop_back();
 //
-//                        Location b = stack[stack.size() - 1];
+//                        Location func = stack[stack.size() - 1];
 //                        stack.pop_back();
+//
+//                        Location numparams = stack[stack.size() - 1];
+//                        stack.pop_back();
+//
+//                        std::vector<Location> params;
+//                        for (int n=0;n<(int)numparams.value; n++){
+//                            params.push_back( stack[stack.size() - 1] );
+//                            stack.pop_back();
+//                        }
 //
 //                        break;
 //                    }

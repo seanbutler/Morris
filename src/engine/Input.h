@@ -2,18 +2,21 @@
 // Created by sean on 26/06/2020.
 //
 
-#ifndef SYNTH_INPUT_H
-#define SYNTH_INPUT_H
+#pragma once
 
 #include <SFML/Window.hpp>
+
 namespace Engine {
 
     class Input {
+
     public:
-        static bool buttons(int dir) {
+
+        static bool btn(unsigned int dir) {
+
             dir = dir % 3;
-            sf::Keyboard::Key key = sf::Keyboard::LShift;
-            sf::Keyboard::Key altKey = sf::Keyboard::Z;
+            sf::Keyboard::Key key;
+            sf::Keyboard::Key altKey;
 
             switch (dir) {
                 case 0: {
@@ -41,21 +44,11 @@ namespace Engine {
             return (sf::Keyboard::isKeyPressed(key) || sf::Keyboard::isKeyPressed(altKey));
         }
 
-        static bool stick() {
-            return ( sf::Keyboard::isKeyPressed(sf::Keyboard::Up)
-                     || sf::Keyboard::isKeyPressed(sf::Keyboard::Right)
-                     || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)
-                     || sf::Keyboard::isKeyPressed(sf::Keyboard::Left)
-                     || sf::Keyboard::isKeyPressed(sf::Keyboard::W)
-                     || sf::Keyboard::isKeyPressed(sf::Keyboard::D)
-                     || sf::Keyboard::isKeyPressed(sf::Keyboard::S)
-                     || sf::Keyboard::isKeyPressed(sf::Keyboard::A) );
-        }
-
         static bool dir(int dir) {
+
             dir = dir % 3;
-            sf::Keyboard::Key key = sf::Keyboard::Up;
-            sf::Keyboard::Key altkey = sf::Keyboard::W;
+            sf::Keyboard::Key key;
+            sf::Keyboard::Key altkey;
 
             switch (dir) {
                 case 0: {
@@ -80,16 +73,11 @@ namespace Engine {
                 }
             }
 
-            return (sf::Keyboard::isKeyPressed(key) || sf::Keyboard::isKeyPressed(altkey));
+            return ( sf::Keyboard::isKeyPressed(key)  || sf::Keyboard::isKeyPressed(altkey) );
         }
 
     private:
         Input(){}
-
     };
-
-
 };
 
-
-#endif //SYNTH_INPUT_H

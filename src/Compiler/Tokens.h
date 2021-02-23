@@ -38,6 +38,8 @@ enum TokenEnum : int {
     SYM_SEMICOLON,
     SYM_HASH,
     SYM_COMMA,
+    SYM_QUOTES,
+
 
     OP_GT,
     OP_GTE,
@@ -58,10 +60,15 @@ enum TokenEnum : int {
 
     TOK_NUMBER,
     TOK_IDENTIFIER,
+    TOK_STRING,
 
     KWD_OUTPUT,
 
     KWD_SETPOS,
+    KWD_SETVEL,
+    KWD_SETCOL,
+
+    KWD_SPAWN,
 
     TOK_END_OF_FILE = 666,
     TOK_ERROR = 667
@@ -97,6 +104,7 @@ public:
     TokenEnum         kind;
     std::string       name;
     std::string       comment;
+
     unsigned int      line;
     std::string       file;
 };

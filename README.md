@@ -22,7 +22,7 @@ decl y = 10
 x = x + 1
 
 if ( x == 17 ) {
-    // do something
+    # dont do something
 }
 
 ~~~
@@ -35,28 +35,29 @@ if ( x == 17 ) {
 - [x] No semicolons
 
 ### Parallel
-- [ ] Parallel execution is trivial and straightforward
-- [ ] Threads are lightweight userspace objects and also first class object
-- [ ] Independent Control of Cores and CPUs
+- [x] Parallel execution is trivial and straightforward
+- [ ] Threads are lightweight userspace objects 
+- [ ] Threads are also first class objects
+- [ ] Maybe Direct/Independent Control of Cores and CPUs
 
 ### Safe
 - [x] Stack Based Locals, Heap Based Globals
 - [x] No pointers because no dynamic heap allocation
 - [x] No shared memory between Threads ([erlang](https://en.wikipedia.org/wiki/Erlang_(programming_language)))
+- [x] When a Thread exits all the memory associated is released ([erlang](https://en.wikipedia.org/wiki/Erlang_(programming_language)))
 - [ ] Broadcast and Narrow cast Messages between Threads ([erlang](https://en.wikipedia.org/wiki/Erlang_(programming_language)))
-- [ ] When a Thread exits all the memory associated is released ([erlang](https://en.wikipedia.org/wiki/Erlang_(programming_language)))
 - [ ] Pure Functions, No Side Effects (https://en.wikipedia.org/wiki/Pure_function)
-- [ ] File system access constrained to reading and writing local sub dirs only 
-
+- [ ] Safe File system access constrained to reading and writing local sub dirs only, this is good for indie game distro
 
 
 ### With Bells On (via SFML)
-- [ ] Integrated Graphics and Multimedia IO Library
+- [ ] Integrated Windows, Sprites, Colors, Coords, etc
+- [ ] Integrated IO Library
 - [ ] Integrated Physics and Collision Lib
 - [ ] Integrated High and Low Level Networking Library
 
 ### Finite State Machines
-- [ ] Syntactic Sugar Makes State and FSMs 
+- [ ] Syntactic Sugar Makes State and FSMs Easier
 - [ ] Machines and States are first class objects
 
 ## Why?

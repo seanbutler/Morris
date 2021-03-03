@@ -21,7 +21,7 @@
 
 class Compiler {
 public:
-    static std::vector<Location> compile(std::string filename){
+    static std::pair<std::vector<Location>, std::vector<std::string>> compile(std::string filename){
 
         std::ifstream t(filename);
         std::string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
@@ -50,7 +50,8 @@ public:
             std::cout << L << std::endl;
         }
 
-        return generator.instructions;
+        return std::make_pair(generator.instructions, generator.strings);
+
     }
 };
 

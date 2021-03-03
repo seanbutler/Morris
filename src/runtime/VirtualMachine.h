@@ -11,11 +11,8 @@
 
 //#include "../Simulation/Agent.h"
 
-
 #include "../common/Instructions.h"
 #include "../common/Location.h"
-
-
 
 // ---------------------------------------------------------------------------
 class Agent;
@@ -25,9 +22,10 @@ namespace Runtime {
     class VM {
 
     public:
-        VM(std::vector<Location> I, unsigned int D = 16)
-        : owner(nullptr)
-        , instructions(I)
+        VM(std::pair<std::vector<Location>, std::vector<std::string>> P, unsigned int D = 16)
+        :   owner(nullptr)
+        ,   instructions(P.first)
+        ,   stringTable(P.second)
         {
             data = std::vector<Location>();
             for (int n = 0; n < D; n++) {
@@ -51,7 +49,6 @@ namespace Runtime {
             ERROR
         };
 
-
         void DumpRegs() {
             std::cout << "REGS ";
             std::cout << "state " << state << " ";
@@ -63,12 +60,21 @@ namespace Runtime {
         }
 
         void DumpInstructions() {
-            std::cout << "INSTR ";
+            std::cout << "INSTR [ ";
 
             for (auto V : this->instructions) {
                 std::cout << V << " ";
             }
-            std::cout << std::endl;
+            std::cout << "]" << std::endl;
+        }
+
+        void DumpStrings() {
+            std::cout << "STRINGS [ ";
+
+            for (auto V : this->stringTable) {
+                std::cout << V << " ";
+            }
+            std::cout << "]" << std::endl;
         }
 
         void DumpStack() {
@@ -112,6 +118,7 @@ namespace Runtime {
         std::vector<Location> instructions;
         std::vector<Location> stack;
         std::vector<Location> data;
+        std::vector<std::string> stringTable;
 
         Agent* owner;              // NO! some kind of flexible interface or sublcassing
 

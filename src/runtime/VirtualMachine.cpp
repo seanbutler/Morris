@@ -21,6 +21,7 @@ namespace Runtime {
 
 #ifdef VM_DEBUG_DUMP
         DumpInstructions();
+        DumpStrings();
 #endif
 
         slice = S;
@@ -321,13 +322,13 @@ namespace Runtime {
                     case INSTR::SPAWN : {
                         std::cout << "SPAWN - spawn " << std::endl;
 
-//                        Location strIndex = stack[stack.size() - 1];
-//                        stack.pop_back();
+                        Location strIndex = stack[stack.size() - 1];
+                        stack.pop_back();
 
-//                        engine.getInstance()->entityScheduler.entities.push_back(new Agent("test.src"));
+                        std::cerr << strIndex << " " << stringTable[strIndex.address] << std::endl;
 
                         if ( owner ) {
-                            owner->Spawn("test.src");
+                            owner->Spawn(stringTable[strIndex.address]);
                         }
 
                         break;

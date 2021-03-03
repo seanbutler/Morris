@@ -73,7 +73,7 @@ public:
     std::shared_ptr<ASTNode> ast;
     std::vector<Location> instructions;
     std::vector<Location> data;
-    std::map<unsigned int, std::string> strings;
+    std::vector<std::string> strings;
 };
 
 // ---------------------------------------------------------------------------

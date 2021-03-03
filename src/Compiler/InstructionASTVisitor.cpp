@@ -129,27 +129,26 @@ void InstructionASTVisitor::Visit(NumberASTNode * A){
 void InstructionASTVisitor::Visit(StringASTNode * A){
     std::cout << "InstructionASTVisitor StringASTNode" << std::endl;
 
-//    instructions.emplace_back(Location(INSTR::PUSH));
-//    instructions.emplace_back(Location((double) 0));
+    // add the string to the table
+    strings.emplace_back(A->value);
+
+    // generate instruction to get table position from the stack
+    instructions.emplace_back(Location(INSTR::PUSH));
+    instructions.emplace_back(Location((unsigned long int) strings.size()-1));
 
     for(auto child : A->children) {
         child->Accept(this);
     }
 }
 
-
 void InstructionASTVisitor::Visit(SpawnASTNode * A){
     std::cout << "InstructionASTVisitor SpawnASTNode" << std::endl;
-
-    // SPAWN TAKES A NUMBER FROM THE TOP OF THE STACK AND
-//    instructions.emplace_back(Location(INSTR::POP));
-//    instructions.emplace_back(Location(strings.find(A->value)));
-
-    instructions.emplace_back(Location(INSTR::SPAWN));
 
     for(auto child : A->children) {
         child->Accept(this);
     }
+
+    instructions.emplace_back(Location(INSTR::SPAWN));
 }
 
 // ----------------------------------------------------------------------

@@ -40,9 +40,7 @@ Engine::MainLoop loop;
 int main(int argc, char**argv) {
 
     loop.entityScheduler.Spawn(new Agent("main.src"));
-
     loop.Update();
-
     return 0;
 }
 

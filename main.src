@@ -1,6 +1,7 @@
 
-setcol(1, 2, 3)
-setpos(16, 16)
+setcol(3, 0, 0)
 
-spawn("test1.src")
+spawn("square.src")
+
+spawn("test.src")
 

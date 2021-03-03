@@ -95,10 +95,15 @@ public:
     {
     }
 
+    virtual ~ModuleASTNode(){
+    }
+
+
     void Accept(InstructionASTVisitor* generator) {
         // NOW GENERATE CODE FOR ALL THE STATEMENTS
         generator->Visit((ModuleASTNode*)this);
     }
+
 
 };
 

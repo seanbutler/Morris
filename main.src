@@ -5,3 +5,4 @@ spawn("square.src")
 
 spawn("test.src")
 
+spawn("test1.src")

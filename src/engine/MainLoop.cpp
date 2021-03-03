@@ -10,13 +10,13 @@
 
 namespace Engine {
 
-    MainLoop::MainLoop(unsigned int W, unsigned int H, unsigned int PS, unsigned int FR)
+    MainLoop::MainLoop(unsigned int W, unsigned int H, unsigned int PS, unsigned int FR, std::string windowTitle)
             :   w(W)
             ,   h(H)
             ,   pixel_scale(PS)
             ,   window(sf::VideoMode(w, h),
-                       "Game Window",
-                       sf::Style::Titlebar | sf::Style::Close)
+                       windowTitle.c_str(),
+                       sf::Style::Titlebar | sf::Style::Close )
     {
         window.setSize(sf::Vector2u(w*pixel_scale,h*pixel_scale));
         window.setFramerateLimit(FR);
@@ -45,6 +45,7 @@ namespace Engine {
 
     MainLoop::~MainLoop()
     {
+        window.close();
     }
 
 };

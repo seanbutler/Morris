@@ -6,16 +6,15 @@ b=0
 
 while ( b <= 5 ) {
 
-    while ( a <= 10 ) {
+    while ( a <= 30 ) {
         a = a + 1
-        output a
+        setpos( a, a )
     }
 
     while ( a > 0 ) {
         a = a - 1
-        output a
+        setpos( a, a )
     }
 
-    setpos( a, 4 )
 }
 

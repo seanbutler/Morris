@@ -13,13 +13,18 @@
 
 #include "Entity.h"
 
+
 namespace Engine {
 
     class Scheduler {
 
     public:
         Scheduler() {}
-        virtual ~Scheduler() {}
+        virtual ~Scheduler() {
+            for(auto E : entities) {
+                delete E;
+            }
+        }
 
         virtual void Spawn(Engine::Entity * E) {
             // TODO - this is super inefficient

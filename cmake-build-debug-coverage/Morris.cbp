@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Morris"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/sean/Work/Morris/cmake-build-debug-coverage"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/sean/Work/Morris/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/sean/Work/Morris/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/sean/Work/Morris/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/sean/Work/Morris/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/sean/Work/Morris/cmake-build-debug-coverage"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/sean/Work/Morris/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/sean/Work/Morris/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/sean/Work/Morris/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/sean/Work/Morris/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/sean/Work/Morris/cmake-build-debug-coverage"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/sean/Work/Morris/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/sean/Work/Morris/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/sean/Work/Morris/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/sean/Work/Morris/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Morris">
+				<Option output="/home/sean/Work/Morris/cmake-build-debug-coverage/Morris" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/sean/Work/Morris/cmake-build-debug-coverage"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/sean/Work/Morris/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 Morris"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/sean/Work/Morris/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/sean/Work/Morris/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/sean/Work/Morris/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Morris/fast">
+				<Option output="/home/sean/Work/Morris/cmake-build-debug-coverage/Morris" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/sean/Work/Morris/cmake-build-debug-coverage"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/sean/Work/Morris/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 Morris/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/sean/Work/Morris/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/sean/Work/Morris/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/sean/Work/Morris/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/sean/Work/Morris/main.cpp">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/Compiler/InstructionASTVisitor.cpp">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/Compiler/InstructionASTVisitor.h">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/Compiler/Parser.cpp">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/Compiler/Parser.h">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/Compiler/SymbolTable.cpp">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/Compiler/SymbolTable.h">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/Compiler/Tokenizer.cpp">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/Compiler/Tokenizer.h">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/Compiler/Tokens.cpp">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/Compiler/Tokens.h">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/Compiler/compiler.cpp">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/Compiler/compiler.h">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/Simulation/Agent.cpp">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/Simulation/Agent.h">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/Simulation/XForm.cpp">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/Simulation/XForm.h">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/common/Instructions.cpp">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/common/Instructions.h">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/engine/Entity.h">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/engine/Input.h">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/engine/MainLoop.cpp">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/engine/MainLoop.h">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/engine/Scheduler.h">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/runtime/VirtualMachine.cpp">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/runtime/VirtualMachine.h">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigDependencies.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets-none.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

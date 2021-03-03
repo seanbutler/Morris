@@ -22,7 +22,7 @@ MOVE_LEFT = 2
 decl MOVE_UP
 MOVE_UP = 3
 
-setcol(0, 0, 3)
+setcol(2, 0, 3)
 
 while ( state != 99 ) {
 

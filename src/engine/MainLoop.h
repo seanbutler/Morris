@@ -21,7 +21,8 @@ namespace Engine {
     class MainLoop {
     public:
         MainLoop(unsigned int W = 32, unsigned int H = 24,
-                 unsigned int PS = 32, unsigned int FR = 60);
+                 unsigned int PS = 32, unsigned int FR = 30,
+                 std::string windowTitle = "Morris");
 
         virtual ~MainLoop();
 
@@ -36,6 +37,8 @@ namespace Engine {
         virtual void Update();
         Scheduler entityScheduler;
     };
+
+
 
 };
 

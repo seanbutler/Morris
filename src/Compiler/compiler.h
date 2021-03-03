@@ -31,6 +31,8 @@ public:
         tokenizer.SetFilename(filename);
         tokenizer.Scan();
 
+        t.close();
+
         std::vector<Token> tokens = tokenizer.GetOutputTokens();
 
         Parser parser;
@@ -49,6 +51,8 @@ public:
         for(auto L : generator.instructions){
             std::cout << L << std::endl;
         }
+
+        delete ast;
 
         return std::make_pair(generator.instructions, generator.strings);
 

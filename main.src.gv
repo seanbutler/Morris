@@ -1,0 +1,22 @@
+digraph G {
+node [shape = circle];
+node0 [ uuid = "ae835785-10f3-4a9e-9277-4719065b0f55" shape = "record" label = "MDL " ];
+node1 [ uuid = "0bb0b6f9-185b-48f6-9fc0-3050e4670fb3" shape = "record" label = "KWD setcol" ];
+node2 [ uuid = "efe0b23b-6660-491e-93c7-b1644a32cd06" shape = "record" label = "NUM 1" ];
+node1 -> node2;
+node3 [ uuid = "d8e66608-66d5-4791-bb8f-424b639feb38" shape = "record" label = "NUM 2" ];
+node1 -> node3;
+node4 [ uuid = "db8ce197-68da-480e-90d9-843aea8d40bd" shape = "record" label = "NUM 3" ];
+node1 -> node4;
+node0 -> node1;
+node5 [ uuid = "1a26a479-a0b6-4514-99f1-6fa5240cdaab" shape = "record" label = "KWD setpos" ];
+node6 [ uuid = "efb8a05c-4a99-4bce-85b6-3dce17a5a450" shape = "record" label = "NUM 16" ];
+node5 -> node6;
+node7 [ uuid = "ee40c5af-79f8-40ef-b979-646ecb1cad0e" shape = "record" label = "NUM 16" ];
+node5 -> node7;
+node0 -> node5;
+node8 [ uuid = "683a1e01-03c6-4771-a4a0-a4faf870b7b2" shape = "record" label = "KWD spawn" ];
+node9 [ uuid = "42e57fd5-e3dc-4951-8715-67d46c475d8d" shape = "record" label = "STR test1.src" ];
+node8 -> node9;
+node0 -> node8;
+}

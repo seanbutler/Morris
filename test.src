@@ -1,3 +1,20 @@
 
-spawn ( "code\test3.src" )
+decl counter
+counter = 99
+
+decl looping
+looping = 1
+
+setcol(3, 1, 1)
+
+while (looping != 0 ) {
+    counter = 32
+    while ( counter != 2 ) {
+        setpos ( counter, 8 )
+        counter = counter - 1
+    }
+}
+
+
+
 

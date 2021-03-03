@@ -101,6 +101,7 @@ void InstructionASTVisitor::Visit(AssignmentASTNode * A){
 
 }
 
+
 void InstructionASTVisitor::Visit(ExpressionASTNode * A){
     std::cout << "ExpressionASTNode NumberASTNode" << std::endl;
 
@@ -124,16 +125,34 @@ void InstructionASTVisitor::Visit(NumberASTNode * A){
     }
 }
 
+
 void InstructionASTVisitor::Visit(StringASTNode * A){
     std::cout << "InstructionASTVisitor StringASTNode" << std::endl;
 
-    instructions.emplace_back(Location(INSTR::STRING));
-    instructions.emplace_back(Location((double) 0));
+//    instructions.emplace_back(Location(INSTR::PUSH));
+//    instructions.emplace_back(Location((double) 0));
 
     for(auto child : A->children) {
         child->Accept(this);
     }
 }
+
+
+void InstructionASTVisitor::Visit(SpawnASTNode * A){
+    std::cout << "InstructionASTVisitor SpawnASTNode" << std::endl;
+
+    // SPAWN TAKES A NUMBER FROM THE TOP OF THE STACK AND
+//    instructions.emplace_back(Location(INSTR::POP));
+//    instructions.emplace_back(Location(strings.find(A->value)));
+
+    instructions.emplace_back(Location(INSTR::SPAWN));
+
+    for(auto child : A->children) {
+        child->Accept(this);
+    }
+}
+
+// ----------------------------------------------------------------------
 
 void InstructionASTVisitor::Visit(LHSIdentifierASTNode * A){
     std::cout << "InstructionASTVisitor LHSIdentifierASTNode" << std::endl;
@@ -164,9 +183,6 @@ void InstructionASTVisitor::Visit(RHSIdentifierASTNode * A){
 
     instructions.emplace_back(Location(INSTR::PUSH));
 
-    //
-    // RESOLVE VARIABLE
-    //
 //    std::cout << " <<< RESOLVE " << A->value << " ";
     std::pair<int, int > stackTablePosition = symbolTable.Find(A->value);
     std::cout << stackTablePosition.first << " " << stackTablePosition.second << std::endl;
@@ -178,6 +194,7 @@ void InstructionASTVisitor::Visit(RHSIdentifierASTNode * A){
         child->Accept(this);
     }
 }
+
 
 void InstructionASTVisitor::Visit(OperatorASTNode * A){
     std::cout << "Visit OperatorASTNode" << std::endl;
@@ -246,6 +263,8 @@ void InstructionASTVisitor::Visit(OperatorASTNode * A){
     }
 }
 
+// ----------------------------------------------------------------------
+
 void InstructionASTVisitor::Visit(ReturnASTNode * A){
     std::cout << "Visit ReturnASTNode" << std::endl;
     for(auto child : A->children) {
@@ -254,13 +273,6 @@ void InstructionASTVisitor::Visit(ReturnASTNode * A){
     instructions.emplace_back(Location(INSTR::RET));
 }
 
-void InstructionASTVisitor::Visit(OutputASTNode * A){
-    std::cout << "Visit OutputASTNode" << std::endl;
-    for(auto child : A->children) {
-        child->Accept(this);
-    }
-    instructions.emplace_back(Location(INSTR::OUTPUT));
-}
 
 void InstructionASTVisitor::Visit(FunctionASTNode * A){
     std::cout << "Visit FunctionASTNode" << std::endl;
@@ -274,6 +286,16 @@ void InstructionASTVisitor::Visit(ProcedureASTNode * A){
     for(auto child : A->children) {
         child->Accept(this);
     }
+}
+
+// --------------------------------------------------
+
+void InstructionASTVisitor::Visit(OutputASTNode * A){
+    std::cout << "Visit OutputASTNode" << std::endl;
+    for(auto child : A->children) {
+        child->Accept(this);
+    }
+    instructions.emplace_back(Location(INSTR::OUTPUT));
 }
 
 // --------------------------------------------------
@@ -299,3 +321,5 @@ void InstructionASTVisitor::Visit(SetcolASTNode * A){
     A->children[2]->Accept(this);
     instructions.emplace_back(Location(INSTR::ASETCOL));
 }
+
+// --------------------------------------------------

@@ -6,15 +6,20 @@
 
 #include <SFML/Graphics.hpp>
 
+
 namespace Engine {
+
+    class Scheduler;
 
     class Entity {
     public:
-        Entity() {}
-        virtual ~Entity() {};
+        Entity() : scheduler(nullptr) {}
+        virtual ~Entity() {}
+
         virtual void Update(float deltaTime) = 0;
         virtual void Render(sf::RenderWindow *W) = 0;
-    };
 
+        Scheduler * scheduler;
+    };
 };
 

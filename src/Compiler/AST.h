@@ -371,7 +371,6 @@ public:
 
 // ----------------------------------------------------------------------
 
-
 class SpawnASTNode : public ASTNode {
 public:
     SpawnASTNode(ASTNode * P = nullptr)
@@ -380,8 +379,9 @@ public:
     }
 
     void Accept(InstructionASTVisitor* generator) {
-        generator->Visit((StringASTNode*)this);
+        generator->Visit((SpawnASTNode*)this);
     }
 };
 
 // ----------------------------------------------------------------------
+

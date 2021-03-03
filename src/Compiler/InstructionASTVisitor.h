@@ -4,12 +4,16 @@
 
 #pragma once
 
-#include <iostream>
-#include <memory>
-
 #include "../common/Location.h"
 #include "./Visitor.h"
 #include "./SymbolTable.h"
+
+
+#include <iostream>
+#include <memory>
+#include <map>
+#include <vector>
+
 
 // ---------------------------------------------------------------------------
 
@@ -24,6 +28,7 @@ class AssignmentASTNode;
 class ExpressionASTNode;
 class NumberASTNode;
 class StringASTNode;
+class SpawnASTNode;
 class LHSIdentifierASTNode;
 class RHSIdentifierASTNode;
 class OperatorASTNode;
@@ -52,6 +57,7 @@ public:
     void Visit(ExpressionASTNode * A);
     void Visit(NumberASTNode * A);
     void Visit(StringASTNode * A);
+    void Visit(SpawnASTNode * A);
     void Visit(LHSIdentifierASTNode * A);
     void Visit(RHSIdentifierASTNode * A);
     void Visit(OperatorASTNode * A);
@@ -67,7 +73,7 @@ public:
     std::shared_ptr<ASTNode> ast;
     std::vector<Location> instructions;
     std::vector<Location> data;
-    std::vector<std::string> strings;
+    std::map<unsigned int, std::string> strings;
 };
 
 // ---------------------------------------------------------------------------

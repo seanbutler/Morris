@@ -25,8 +25,10 @@ namespace Runtime {
     class VM {
 
     public:
-        VM(std::vector<Location> I, unsigned int D = 16) {
-            instructions = I;
+        VM(std::vector<Location> I, unsigned int D = 16)
+        : owner(nullptr)
+        , instructions(I)
+        {
             data = std::vector<Location>();
             for (int n = 0; n < D; n++) {
                 data.push_back(Location(0.0));
@@ -48,6 +50,7 @@ namespace Runtime {
             HALTED,
             ERROR
         };
+
 
         void DumpRegs() {
             std::cout << "REGS ";
@@ -88,6 +91,8 @@ namespace Runtime {
             }
         }
 
+        void SetOwner(Agent* O) {owner = O;}
+
         void Execute(unsigned int slice = 10);
 
         void incrProgramCounter() { instructionPointer++; }
@@ -108,7 +113,7 @@ namespace Runtime {
         std::vector<Location> stack;
         std::vector<Location> data;
 
-        Agent * owner;           // NO! some kind of flexible interface or sublcassing
+        Agent* owner;              // NO! some kind of flexible interface or sublcassing
 
     };
 

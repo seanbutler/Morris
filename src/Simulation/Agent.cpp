@@ -3,3 +3,15 @@
 //
 
 #include "Agent.h"
+#include "../engine/Scheduler.h"
+
+// ----------------------------------------------------------------------
+
+void Agent::Spawn(std::string FN)
+{
+    if ( scheduler ) {
+        scheduler->Spawn(new Agent(FN));
+    }
+}
+
+// ----------------------------------------------------------------------

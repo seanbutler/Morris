@@ -104,7 +104,6 @@ ModuleASTNode * Parser::ParseModule() {
                 break;
             }
 
-
             // SPAWN
             case TokenEnum::KWD_SPAWN: {
                 std::cout << "Parser::Parse() TokenEnum::KWD_SPAWN" << std::endl;
@@ -414,8 +413,6 @@ BlockASTNode * Parser::ParseBlock(ASTNode *P, bool returnable) {
                 statementsNodeSP->children.push_back(ParseSetcol(statementsNodeSP));
                 break;
             }
-
-
         }
     }
 
@@ -505,7 +502,6 @@ OperatorASTNode * Parser::ParseOperator(ASTNode *P) {
         std::cout << "ParseValue() TokenEnum::OP_POW" << std::endl;
         opNodeSP = new OperatorASTNode("^");
     }
-
     else if ( tokenItor->kind == TokenEnum::OP_GT) {
         std::cout << "ParseValue() TokenEnum::OP_GT" << std::endl;
         opNodeSP = new OperatorASTNode(">");
@@ -538,7 +534,6 @@ NumberASTNode * Parser::ParseNumber(ASTNode *P) {
 
     return valueNodeSP;
 }
-
 
 
 StringASTNode * Parser::ParseString(ASTNode *P) {

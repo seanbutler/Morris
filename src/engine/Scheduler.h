@@ -4,8 +4,12 @@
 
 #pragma once
 
+// ----------------------------------------------------------------------
+
 #include <vector>
 #include <memory>
+
+// ----------------------------------------------------------------------
 
 #include "Entity.h"
 
@@ -16,6 +20,12 @@ namespace Engine {
     public:
         Scheduler() {}
         virtual ~Scheduler() {}
+
+        virtual void Spawn(Engine::Entity * E) {
+            // TODO - this is super inefficient
+            E->scheduler = this;
+            entities.insert(entities.begin(), E);
+        }
 
         virtual void Update(float deltaTime)
         {
@@ -35,8 +45,9 @@ namespace Engine {
         }
 
         // TODO - this should be a map (or tree) so we can id and retrieve specific entities
-        std::vector<Entity*> entities;
+        std::vector<Engine::Entity*> entities;
     };
 
 };
 
+// ----------------------------------------------------------------------

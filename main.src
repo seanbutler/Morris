@@ -1,0 +1,6 @@
+
+setcol(1, 2, 3)
+setpos(16, 16)
+
+spawn("test1.src")
+

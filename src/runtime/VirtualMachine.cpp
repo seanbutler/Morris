@@ -315,13 +315,20 @@ namespace Runtime {
                         if ( owner ) {
                             owner->SetColour(c.value, b.value, a.value);
                         }
-
                         break;
                     }
 
                     case INSTR::SPAWN : {
                         std::cout << "SPAWN - spawn " << std::endl;
 
+//                        Location strIndex = stack[stack.size() - 1];
+//                        stack.pop_back();
+
+//                        engine.getInstance()->entityScheduler.entities.push_back(new Agent("test.src"));
+
+                        if ( owner ) {
+                            owner->Spawn("test.src");
+                        }
 
                         break;
                     }

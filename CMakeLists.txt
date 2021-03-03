@@ -12,7 +12,6 @@ set(SOURCE_FILES
         src/Compiler/SymbolTable.cpp src/Compiler/SymbolTable.h
         src/runtime/VirtualMachine.cpp src/runtime/VirtualMachine.h
         src/common/Instructions.cpp src/common/Instructions.h
-        src/runtime/Scheduler.cpp src/runtime/Scheduler.h
         src/Compiler/compiler.cpp src/Compiler/compiler.h
         src/engine/MainLoop.cpp src/engine/MainLoop.h
         src/engine/Entity.h

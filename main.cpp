@@ -33,10 +33,13 @@
 
 // ---------------------------------------------------------------------------
 
+Engine::MainLoop loop;
+
+// ---------------------------------------------------------------------------
+
 int main(int argc, char**argv) {
 
-    Engine::MainLoop loop;
-    loop.entityScheduler.entities.push_back(new Agent("test.src"));
+    loop.entityScheduler.Spawn(new Agent("main.src"));
 
     loop.Update();
 

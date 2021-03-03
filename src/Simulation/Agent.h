@@ -9,31 +9,33 @@
 #include "../Compiler/compiler.cpp"
 #include "../runtime/VirtualMachine.h"
 #include "../engine/Entity.h"
+#include "../engine/Scheduler.h"
 
 #include "XForm.h"
 
 // ----------------------------------------------------------------------
 
 class Agent : public Engine::Entity {
+
 public:
     Agent(std::string F)
-    :   Entity()
+    :   virtualMachine(Runtime::VM(Compiler::compile(F)))
     ,   size(1.0, 1.0)
     ,   position(1.0, 1.0)
-    ,   virtualMachine(Runtime::VM(Compiler::compile(F)))
     ,   slice(32)
     {
         sprite.setSize(size);
         SetColour(0, 0, 0);
         sprite.setPosition(position);
-        virtualMachine.owner = this;
+        virtualMachine.SetOwner(this);
     }
 
-    virtual void Update(float deltaTime)        { virtualMachine.Execute(slice); }
-    virtual void Render(sf::RenderWindow *W)    { W->draw(sprite); }
+    virtual void Update(float deltaTime)                { virtualMachine.Execute(slice); }
+    virtual void Render(sf::RenderWindow *W)            { W->draw(sprite); }
+    virtual void Spawn(std::string FN = "dummy.src");
 
     //
-    // TODO - move these into a separate library of sorts
+    // TODO - move these into a separate library of sorts maybe
     //
     void SetPosition(float X = 1.0, float Y = 1.0)  { sprite.setPosition(sf::Vector2f(X, Y)); }
     void SetVelocity(float X = 1.0, float Y = 1.0)  { velocity = sf::Vector2f(X, Y); }

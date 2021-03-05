@@ -67,6 +67,7 @@ enum TokenEnum : int {
     KWD_SETPOS,
     KWD_SETVEL,
     KWD_SETCOL,
+    KWD_SETSPRITE,
 
     KWD_SPAWN,
 

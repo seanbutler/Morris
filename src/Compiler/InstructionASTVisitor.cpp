@@ -53,6 +53,10 @@ void InstructionASTVisitor::Visit(WhileASTNode * A){
     // GENERATE CODE FOR THE SECOND CHILD, THE BLOCK
     A->children[1]->Accept(this);
 
+
+    instructions.emplace_back(Location(INSTR::YIELD));
+
+
     instructions.emplace_back(Location(INSTR::PUSH));
     instructions.emplace_back(Location((unsigned long int)beforeConditionAddr));
     instructions.emplace_back(Location(INSTR::JMP));
@@ -319,6 +323,13 @@ void InstructionASTVisitor::Visit(SetcolASTNode * A){
     A->children[1]->Accept(this);
     A->children[2]->Accept(this);
     instructions.emplace_back(Location(INSTR::ASETCOL));
+}
+
+void InstructionASTVisitor::Visit(SetspriteASTNode * A){
+    std::cout << "Visit SetspriteASTNode" << std::endl;
+    A->children[0]->Accept(this);
+    A->children[1]->Accept(this);
+    instructions.emplace_back(Location(INSTR::ASETSPRITE));
 }
 
 // --------------------------------------------------

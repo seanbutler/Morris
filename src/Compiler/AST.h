@@ -362,6 +362,21 @@ public:
 
 // ----------------------------------------------------------------------
 
+class SetspriteASTNode : public ASTNode {
+public:
+    SetspriteASTNode(ASTNode * P=nullptr)
+            : ASTNode("KWD", "setsprite", P)
+    {
+    }
+
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((SetspriteASTNode*)this);
+    }
+};
+
+// ----------------------------------------------------------------------
+
+
 class StringASTNode : public ASTNode {
 public:
     StringASTNode(std::string V, ASTNode * P=nullptr)

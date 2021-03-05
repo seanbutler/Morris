@@ -4,7 +4,9 @@ Morris is a programming language hand crafted for making games quickly and easil
 
 This distribution of Morris is closely integrated with SFML so the common parts of games: graphics, physics, window, input, sound, fonts, networking, etc. are all integrated, cross platform and ready to go because of that wonderful library.
 
-Like with the above SFML integration, Morris is a system "with bells on" that is, we intend to include several widely used as closely coupled features from other common libraries e.g. zip archive and local only filesystem, integrated spreadsheet data import for table input. 
+![gif anim of some sprites moving](./screenshots/anim.gif)
+
+Like with the above SFML integration, Morris is a system "with bells on" that is, we intend to include several widely used as closely coupled features from other common libraries e.g. zip archive and local only filesystem, integrated spreadsheet data import for table input.
 
 Morris is influenced by [erlang](https://en.wikipedia.org/wiki/Erlang_(programming_language))
 but Morris programs look very familiar to anyone who has used c js c++ rust or swift. Right now, Morris programs look like this...
@@ -33,12 +35,13 @@ if ( x == 17 ) {
 - [x] Easy for beginners to learn
 - [x] Familiar Syntax C like block structured syntax
 - [x] No semicolons
+- [x] Integrated with SFML or similar giving Windows, Sprites, Colors, Coords, IO and Networking Library
 
 ### Parallel
-- [x] Parallel execution is trivial and straightforward
-- [ ] Threads are lightweight userspace objects 
-- [ ] Threads are also first class objects
-- [ ] Maybe Direct/Independent Control of Cores and CPUs
+- [x] Parallel execution is trivial and straightforward (via VM)
+- [x] Threads are lightweight userspace objects 
+- [ ] ? Threads are also first class objects
+- [ ] ? Maybe Direct/Independent Control of Cores and CPUs
 
 ### Safe
 - [x] Stack Based Locals, Heap Based Globals
@@ -50,11 +53,11 @@ if ( x == 17 ) {
 - [ ] Safe File system access constrained to reading and writing local sub dirs only, this is good for indie game distro
 
 
-### With Bells On (via SFML)
-- [ ] Integrated Windows, Sprites, Colors, Coords, etc
-- [ ] Integrated IO Library
-- [ ] Integrated Physics and Collision Lib
-- [ ] Integrated High and Low Level Networking Library
+### With Bells On (currently via SFML)
+- [X] Integrated with SFML or similar giving Windows, Sprites, Colors, Coords, IO and Networking Library
+- [ ] Integrated Physics and Collision Libs
+
+Note: this may change to another lib in future depending 
 
 ### Finite State Machines
 - [ ] Syntactic Sugar Makes State and FSMs Easier
@@ -110,7 +113,7 @@ git clone https://github.com/seanbutler/Morris.git
 - err, wanna help? 
 - i guess its pretty similar on mac being BSD, but windows i dunno really. please help.
 
-
+---
 
 ## About The Name
 

@@ -20,7 +20,7 @@ namespace Engine {
 
     public:
         Textures() {
-            if (!texture.loadFromFile("./assets/textures/monochrome.png"))
+            if (!texture.loadFromFile("./assets/textures/monochrome_packed.png"))
             {
                 std::cout << "Texture Load Error" << std::endl;
             }
@@ -31,7 +31,7 @@ namespace Engine {
 
         virtual void SetSprite(unsigned int x, unsigned int y, sf::Sprite & sprite) {
             unsigned int size = 16;
-            unsigned int gap = 1;
+            unsigned int gap = 0;
             sprite.setTexture(texture);
             sprite.setTextureRect(sf::IntRect(x*(size+gap), y*(size+gap), size, size));
         }

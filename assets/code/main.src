@@ -1,9 +1,7 @@
 
-setcol(3, 3, 3)
-setpos(31, 23)
+setcol(2, 2, 0)
+setpos(48, 32)
+setsprite(3, 6)
 
 spawn("./assets/code/square.src")
-
-spawn("./assets/code/test.src")
-
 spawn("./assets/code/test1.src")

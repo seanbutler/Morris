@@ -46,6 +46,7 @@ public:
     SetposASTNode * ParseSetpos(ASTNode *P= nullptr);
     SetvelASTNode * ParseSetvel(ASTNode *P= nullptr);
     SetcolASTNode * ParseSetcol(ASTNode *P= nullptr);
+    SetspriteASTNode * ParseSetsprite(ASTNode *P= nullptr);
 
     StringASTNode * ParseString(ASTNode *P= nullptr);
     SpawnASTNode * ParseSpawn(ASTNode *P=nullptr);

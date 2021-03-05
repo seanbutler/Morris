@@ -10,19 +10,20 @@ state = 0
 decl counter
 counter = 0
 
-decl MOVE_RIGHT
-MOVE_RIGHT = 0
+decl MOVE_LEFT
+MOVE_LEFT = 0
 
 decl MOVE_DOWN
 MOVE_DOWN = 1
 
-decl MOVE_LEFT
-MOVE_LEFT = 2
+decl MOVE_RIGHT
+MOVE_RIGHT = 2
 
 decl MOVE_UP
 MOVE_UP = 3
 
 setcol(2, 0, 3)
+setsprite(24, 2)
 
 while ( state != 99 ) {
 
@@ -48,7 +49,7 @@ while ( state != 99 ) {
 
     if ( counter <= 0 )
     {
-        counter = 16
+        counter = 64
         state = state + 1
         if ( state >= 4 )
         {

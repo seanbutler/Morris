@@ -4,18 +4,22 @@ a=0
 decl b
 b=0
 
+setsprite(14, 20)
+
 setcol(3, 2, 1)
 
 while ( b <= 5 ) {
 
-    while ( a <= 30 ) {
+    while ( a <= 60 ) {
         a = a + 1
         setpos( a, a )
+        setcol( a % 3, 1, 1)
     }
 
     while ( a > 0 ) {
         a = a - 1
         setpos( a, a )
+        setcol( 1, a % 3, 1)
     }
 }
 

@@ -33,8 +33,6 @@ namespace Runtime {
             }
             state = RUNNING;
             instructionPointer = 0LL;
-            //        stackPointer = Location(0.0);
-            //        stackFrame = Location(0.0);
             owner = 0l;
         }
 
@@ -99,7 +97,7 @@ namespace Runtime {
 
         void SetOwner(Agent* O) {owner = O;}
 
-        void Execute(unsigned int slice = 10);
+        void Execute();
 
         void incrProgramCounter() { instructionPointer++; }
         Location getCurrentLocation() { return instructions[instructionPointer]; }

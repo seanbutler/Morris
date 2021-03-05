@@ -23,6 +23,7 @@ Token tokens[] = {
         Token(KWD_SETPOS ,   "setpos"    ),
         Token(KWD_SETVEL ,   "setvel"    ),
         Token(KWD_SETCOL ,   "setcol"    ),
+        Token(KWD_SETSPRITE ,   "setsprite"    ),
 
         Token(KWD_SPAWN ,   "spawn"    ),
 

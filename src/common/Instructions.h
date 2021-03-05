@@ -48,7 +48,7 @@ enum INSTR {
     ASETPOS,
     ASETVEL,
     ASETCOL,
-
+    ASETSPRITE,
 
     SPAWN,
 

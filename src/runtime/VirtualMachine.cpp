@@ -17,14 +17,14 @@
 
 namespace Runtime {
 
-    void VM::Execute(unsigned int S) {
+    void VM::Execute() {
 
 #ifdef VM_DEBUG_DUMP
         DumpInstructions();
         DumpStrings();
 #endif
 
-        slice = S;
+        slice = 256;
         if (state == RUNNING) {
             while (slice > 0) {
                 slice--;
@@ -49,7 +49,8 @@ namespace Runtime {
                     }
 
                     case INSTR::YIELD: {
-                        state = VM::PAUSED;
+//                        state = VM::PAUSED;
+                        slice = 0;
                         break;
                     }
 
@@ -318,6 +319,23 @@ namespace Runtime {
                         }
                         break;
                     }
+
+                    case INSTR::ASETSPRITE : {
+//                        std::cout << "ASETSPRITE - 2 params, sets position of the quad to copy from the atlas" << std::endl;
+
+                        Location y = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location x = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        if ( owner ) {
+                            owner->SetSprite(x.value, y.value);
+                        }
+
+                        break;
+                    }
+
 
                     case INSTR::SPAWN : {
                         std::cout << "SPAWN - spawn " << std::endl;

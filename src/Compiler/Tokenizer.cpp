@@ -65,7 +65,7 @@ bool Tokenizer::ScanToken() {
         --currentPosition;
 
         // TODO CHANGE THIS INTO MODERN c++ with proper lookup
-        for (unsigned int i = 0; i < 15; i++ ) {
+        for (unsigned int i = 0; i < 16; i++ ) {
             if ( tokenString == tokens[i].name )
             {
                 Token newTok(tokens[i]);                // copy!

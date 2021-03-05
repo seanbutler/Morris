@@ -6,11 +6,11 @@
  - [x] if code generation
  - [x] while  code generation
 
- - [~] basic integration with the graphics system
+ - [x] basic integration with the graphics system
  - [~] parser generates readable error messages
 
- - [ ] spawn command
-    - [ ] filenames/strings for spawn
+ - [x] spawn command
+    - [x] filenames/strings for spawn
     - [ ] set positions
     - [ ] inherit position
     - [ ] access child (via return handle? or other method)
@@ -34,7 +34,7 @@
 
 // ---------------------------------------------------------------------------
 
-Engine::MainLoop loop(192, 128, 4, 32, "Hello");
+Engine::MainLoop loop(128, 96, 4, 60, "Hello");
 Engine::Textures textures;
 
 // ---------------------------------------------------------------------------
@@ -46,6 +46,5 @@ int main(int argc, char**argv) {
 
     return 0;
 }
-
 
 // ---------------------------------------------------------------------------

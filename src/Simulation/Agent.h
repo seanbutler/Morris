@@ -27,7 +27,6 @@ public:
     :   virtualMachine(Runtime::VM(Compiler::compile(F)))
     ,   size(1.0, 1.0)
     ,   position(1.0, 1.0)
-    ,   slice(32)
     {
 //        sprite.setSize(size);
         SetColour(3, 0, 0);
@@ -36,7 +35,7 @@ public:
         virtualMachine.SetOwner(this);
     }
 
-    virtual void Update(float deltaTime)                { virtualMachine.Execute(slice); }
+    virtual void Update(float deltaTime)                { virtualMachine.Execute(); }
     virtual void Render(sf::RenderWindow *W)            { W->draw(sprite); }
     virtual void Spawn(std::string FN = "dummy.src");
 
@@ -60,14 +59,10 @@ public:
 
 protected:
     Runtime::VM         virtualMachine;
-
-//    sf::RectangleShape  sprite;
-    sf::Sprite  sprite;
+    sf::Sprite          sprite;
     sf::Vector2f        size;
     sf::Vector2f        position;
     sf::Vector2f        velocity;
-
-    unsigned int        slice;
 };
 
 // ----------------------------------------------------------------------

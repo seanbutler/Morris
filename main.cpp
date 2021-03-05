@@ -28,16 +28,20 @@
 // ---------------------------------------------------------------------------
 
 #include "src/engine/MainLoop.h"
+#include "src/engine/Textures.h"
 #include "src/runtime/VirtualMachine.h"
 #include "src/Simulation/Agent.h"
 
 // ---------------------------------------------------------------------------
 
+Engine::MainLoop loop(192, 128, 4, 32, "Hello");
+Engine::Textures textures;
+
+// ---------------------------------------------------------------------------
+
 int main(int argc, char**argv) {
 
-    Engine::MainLoop loop(32, 24, 32, 32, "Hello");
-
-    loop.entityScheduler.Spawn(new Agent("main.src"));
+    loop.entityScheduler.Spawn(new Agent("./assets/code/main.src"));
     loop.Update();
 
     return 0;

@@ -10,8 +10,13 @@
 #include "../runtime/VirtualMachine.h"
 #include "../engine/Entity.h"
 #include "../engine/Scheduler.h"
+#include "../engine/Textures.h"
 
 #include "XForm.h"
+
+// ----------------------------------------------------------------------
+
+extern Engine::Textures textures;
 
 // ----------------------------------------------------------------------
 
@@ -24,9 +29,10 @@ public:
     ,   position(1.0, 1.0)
     ,   slice(32)
     {
-        sprite.setSize(size);
-        SetColour(0, 0, 0);
+//        sprite.setSize(size);
+        SetColour(3, 0, 0);
         sprite.setPosition(position);
+        textures.SetSprite(24, 0, sprite);
         virtualMachine.SetOwner(this);
     }
 
@@ -45,13 +51,18 @@ public:
         G = (G * 85);
         B = (B * 85);
         A = (A * 85);
-        sprite.setFillColor(sf::Color((R<<24)|(G<<16)|(B<<8)|A));
+        sprite.setColor(sf::Color((R<<24)|(G<<16)|(B<<8)|A));
+    }
+
+    void SetSprite(unsigned int X, unsigned char Y ) {
+        textures.SetSprite(X, Y, sprite);
     }
 
 protected:
     Runtime::VM         virtualMachine;
 
-    sf::RectangleShape  sprite;
+//    sf::RectangleShape  sprite;
+    sf::Sprite  sprite;
     sf::Vector2f        size;
     sf::Vector2f        position;
     sf::Vector2f        velocity;

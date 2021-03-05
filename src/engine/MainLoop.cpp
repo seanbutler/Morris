@@ -10,7 +10,9 @@
 
 namespace Engine {
 
-    MainLoop::MainLoop(unsigned int W, unsigned int H, unsigned int PS, unsigned int FR, std::string windowTitle)
+    MainLoop::MainLoop(unsigned int W, unsigned int H,
+                       unsigned int PS, unsigned int FR,
+                       std::string windowTitle)
             :   w(W)
             ,   h(H)
             ,   pixel_scale(PS)
@@ -37,7 +39,7 @@ namespace Engine {
             }
 
             entityScheduler.Update(deltaTime);
-            window.clear(sf::Color::White);
+            window.clear(clearColour);
             entityScheduler.Render(&window);
             window.display();
         }

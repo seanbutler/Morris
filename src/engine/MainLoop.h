@@ -10,8 +10,9 @@
 #include <vector>
 #include <algorithm>
 
-#include <SFML/Graphics.hpp>
+// ----------------------------------------------------------------------
 
+#include <SFML/Graphics.hpp>
 #include "Scheduler.h"
 
 // ----------------------------------------------------------------------
@@ -36,9 +37,9 @@ namespace Engine {
 
         virtual void Update();
         Scheduler entityScheduler;
+
+        sf::Color clearColour = sf::Color::Black;
     };
-
-
 
 };
 

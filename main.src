@@ -1,8 +1,0 @@
-
-setcol(3, 0, 0)
-
-spawn("square.src")
-
-spawn("test.src")
-
-spawn("test1.src")

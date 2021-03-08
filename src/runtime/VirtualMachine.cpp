@@ -344,15 +344,16 @@ namespace Runtime {
                         stack.pop_back();
 
                         Location res;
-
                         if ( owner ) {
                             res.value = owner->GetInput(v.value);
                         }
-
+                        else
+                        {
+                            res.value = 0;
+                        }
+                        stack.push_back(res);
                         break;
                     }
-
-
 
                     case INSTR::SPAWN : {
                         std::cout << "SPAWN - spawn " << std::endl;

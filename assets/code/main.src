@@ -1,12 +1,10 @@
-decl button
-# button = getinput(1)
 
 setsprite(3, 6)
 setpos(8, 24)
 setcol(2, 2, 2)
 
 spawn("./assets/code/square.src")
-# spawn("./assets/code/test.src")
-# spawn("./assets/code/test1.src")
-# spawn("./assets/code/test2.src")
+spawn("./assets/code/test.src")
+spawn("./assets/code/test1.src")
+spawn("./assets/code/test2.src")
 

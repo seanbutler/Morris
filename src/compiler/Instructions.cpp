@@ -40,8 +40,12 @@ char* instructionNames[] = {
         "ASETPOS",      // this one is a special hack while we work it out
         "ASETVEL",      // this one is a special hack while we work it out
         "ASETCOL",      // this one is a special hack while we work it out ( TODO - make them an AFUNC or similar )
+        "ASETSPRITE",
+
+        "AGETINPUT",
 
         "SPAWN",
+
         "AGET",
         "STRING",
 

@@ -29,7 +29,9 @@
 
 #include "src/engine/MainLoop.h"
 #include "src/engine/Textures.h"
-#include "src/runtime/VirtualMachine.h"
+#include "src/engine/Input.h"
+
+//#include "src/runtime/VirtualMachine.h"
 #include "src/Simulation/Agent.h"
 
 // ---------------------------------------------------------------------------

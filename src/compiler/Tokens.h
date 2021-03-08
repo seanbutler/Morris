@@ -69,6 +69,9 @@ enum TokenEnum : int {
     KWD_SETCOL,
     KWD_SETSPRITE,
 
+    KWD_GETINPUT,
+
+
     KWD_SPAWN,
 
     TOK_END_OF_FILE = 666,

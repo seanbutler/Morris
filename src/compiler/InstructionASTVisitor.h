@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "../common/Location.h"
+#include "Location.h"
 #include "./Visitor.h"
 #include "./SymbolTable.h"
 
@@ -36,8 +36,9 @@ class ReturnASTNode;
 class OutputASTNode;
 class SetposASTNode;
 class SetvelASTNode;
-class SetspriteASTNode;
 class SetcolASTNode;
+class SetspriteASTNode;
+class GetInputASTNode;
 class FunctionASTNode;
 class ProcedureASTNode;
 
@@ -66,8 +67,10 @@ public:
     void Visit(OutputASTNode * A);
     void Visit(SetposASTNode * A);
     void Visit(SetvelASTNode * A);
-    void Visit(SetspriteASTNode * A);
     void Visit(SetcolASTNode * A);
+    void Visit(SetspriteASTNode * A);
+    void Visit(GetInputASTNode * A);
+
     void Visit(FunctionASTNode * A);
     void Visit(ProcedureASTNode * A);
 

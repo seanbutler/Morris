@@ -48,6 +48,8 @@ public:
     SetcolASTNode * ParseSetcol(ASTNode *P= nullptr);
     SetspriteASTNode * ParseSetsprite(ASTNode *P= nullptr);
 
+    GetInputASTNode * ParseGetInput(ASTNode *P= nullptr);
+
     StringASTNode * ParseString(ASTNode *P= nullptr);
     SpawnASTNode * ParseSpawn(ASTNode *P=nullptr);
 

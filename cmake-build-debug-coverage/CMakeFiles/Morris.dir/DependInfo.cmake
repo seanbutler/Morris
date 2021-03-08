@@ -5,15 +5,15 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/sean/Work/Morris/main.cpp" "/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles/Morris.dir/main.cpp.o"
-  "/home/sean/Work/Morris/src/Compiler/InstructionASTVisitor.cpp" "/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles/Morris.dir/src/Compiler/InstructionASTVisitor.cpp.o"
-  "/home/sean/Work/Morris/src/Compiler/Parser.cpp" "/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles/Morris.dir/src/Compiler/Parser.cpp.o"
-  "/home/sean/Work/Morris/src/Compiler/SymbolTable.cpp" "/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles/Morris.dir/src/Compiler/SymbolTable.cpp.o"
-  "/home/sean/Work/Morris/src/Compiler/Tokenizer.cpp" "/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles/Morris.dir/src/Compiler/Tokenizer.cpp.o"
-  "/home/sean/Work/Morris/src/Compiler/Tokens.cpp" "/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles/Morris.dir/src/Compiler/Tokens.cpp.o"
-  "/home/sean/Work/Morris/src/Compiler/compiler.cpp" "/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles/Morris.dir/src/Compiler/compiler.cpp.o"
   "/home/sean/Work/Morris/src/Simulation/Agent.cpp" "/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles/Morris.dir/src/Simulation/Agent.cpp.o"
   "/home/sean/Work/Morris/src/Simulation/XForm.cpp" "/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles/Morris.dir/src/Simulation/XForm.cpp.o"
-  "/home/sean/Work/Morris/src/common/Instructions.cpp" "/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles/Morris.dir/src/common/Instructions.cpp.o"
+  "/home/sean/Work/Morris/src/compiler/InstructionASTVisitor.cpp" "/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles/Morris.dir/src/compiler/InstructionASTVisitor.cpp.o"
+  "/home/sean/Work/Morris/src/compiler/Instructions.cpp" "/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles/Morris.dir/src/compiler/Instructions.cpp.o"
+  "/home/sean/Work/Morris/src/compiler/Parser.cpp" "/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles/Morris.dir/src/compiler/Parser.cpp.o"
+  "/home/sean/Work/Morris/src/compiler/SymbolTable.cpp" "/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles/Morris.dir/src/compiler/SymbolTable.cpp.o"
+  "/home/sean/Work/Morris/src/compiler/Tokenizer.cpp" "/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles/Morris.dir/src/compiler/Tokenizer.cpp.o"
+  "/home/sean/Work/Morris/src/compiler/Tokens.cpp" "/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles/Morris.dir/src/compiler/Tokens.cpp.o"
+  "/home/sean/Work/Morris/src/compiler/compiler.cpp" "/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles/Morris.dir/src/compiler/compiler.cpp.o"
   "/home/sean/Work/Morris/src/engine/MainLoop.cpp" "/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles/Morris.dir/src/engine/MainLoop.cpp.o"
   "/home/sean/Work/Morris/src/runtime/VirtualMachine.cpp" "/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles/Morris.dir/src/runtime/VirtualMachine.cpp.o"
   )

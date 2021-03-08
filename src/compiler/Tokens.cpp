@@ -20,10 +20,12 @@ Token tokens[] = {
         Token(KWD_PROC,     "exit"      ),
         Token(KWD_OUTPUT,   "output"    ),
 
-        Token(KWD_SETPOS ,   "setpos"    ),
-        Token(KWD_SETVEL ,   "setvel"    ),
-        Token(KWD_SETCOL ,   "setcol"    ),
-        Token(KWD_SETSPRITE ,   "setsprite"    ),
+        Token(KWD_SETPOS ,      "setpos"            ),
+        Token(KWD_SETVEL ,      "setvel"            ),
+        Token(KWD_SETCOL ,      "setcol"            ),
+        Token(KWD_SETSPRITE ,   "setsprite"         ),
+
+        Token(KWD_GETINPUT,   "getinput"      ),
 
         Token(KWD_SPAWN ,   "spawn"    ),
 

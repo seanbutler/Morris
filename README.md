@@ -1,5 +1,7 @@
 # Morris Programming Language
 
+Everything you need in one binary. Compiler and runtime integrated together. Forget dependencies. Distribute sources or packed compiled bytecode, both executable.
+
 Morris is a programming language hand crafted for making games quickly and easily. Morris has a focus on ease of gameplay programming.
 
 This distribution of Morris is closely integrated with SFML so the common parts of games: graphics, physics, window, input, sound, fonts, networking, etc. are all integrated, cross platform and ready to go because of that wonderful library.

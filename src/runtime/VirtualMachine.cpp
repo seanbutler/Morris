@@ -8,7 +8,7 @@
 #include <math.h>
 
 #include "VirtualMachine.h"
-#include "../common/Location.h"
+#include "../compiler/Location.h"
 
 #include "../Simulation/Agent.h"
 
@@ -335,6 +335,23 @@ namespace Runtime {
 
                         break;
                     }
+
+
+                    case INSTR::AGETINPUT : {
+//                        std::cout << "AGETINPUT - 1 params, gets status of keyboard button or direction" << std::endl;
+
+                        Location v = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location res;
+
+                        if ( owner ) {
+                            res.value = owner->GetInput(v.value);
+                        }
+
+                        break;
+                    }
+
 
 
                     case INSTR::SPAWN : {

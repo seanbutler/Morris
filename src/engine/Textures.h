@@ -20,7 +20,8 @@ namespace Engine {
 
     public:
         Textures() {
-            if (!texture.loadFromFile("./assets/textures/monochrome_packed.png"))
+//            if (!texture.loadFromFile("./assets/textures/small/colored_tilemap_packed.png"))
+            if (!texture.loadFromFile("./assets/textures/large/colored_transparent_packed.png"))
             {
                 std::cout << "Texture Load Error" << std::endl;
             }

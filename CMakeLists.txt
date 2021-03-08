@@ -5,14 +5,14 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(SOURCE_FILES
         main.cpp
-        src/Compiler/Tokenizer.cpp src/Compiler/Tokenizer.h
-        src/Compiler/Tokens.cpp src/Compiler/Tokens.h
-        src/Compiler/Parser.cpp src/Compiler/Parser.h
-        src/Compiler/InstructionASTVisitor.cpp src/Compiler/InstructionASTVisitor.h
-        src/Compiler/SymbolTable.cpp src/Compiler/SymbolTable.h
+        src/compiler/Tokenizer.cpp src/compiler/Tokenizer.h
+        src/compiler/Tokens.cpp src/compiler/Tokens.h
+        src/compiler/Parser.cpp src/compiler/Parser.h
+        src/compiler/InstructionASTVisitor.cpp src/compiler/InstructionASTVisitor.h
+        src/compiler/SymbolTable.cpp src/compiler/SymbolTable.h
         src/runtime/VirtualMachine.cpp src/runtime/VirtualMachine.h
-        src/common/Instructions.cpp src/common/Instructions.h
-        src/Compiler/compiler.cpp src/Compiler/compiler.h
+        src/compiler/Instructions.cpp src/compiler/Instructions.h
+        src/compiler/compiler.cpp src/compiler/compiler.h
         src/engine/MainLoop.cpp src/engine/MainLoop.h
         src/engine/Entity.h
         src/engine/Input.h

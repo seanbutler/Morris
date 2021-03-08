@@ -18,7 +18,7 @@
 #include <boost/lexical_cast.hpp>
 
 #include "SymbolTable.h"
-#include "../common/Location.h"
+#include "Location.h"
 #include "InstructionASTVisitor.h"
 
 // ----------------------------------------------------------------------
@@ -373,6 +373,21 @@ public:
         generator->Visit((SetspriteASTNode*)this);
     }
 };
+
+// ----------------------------------------------------------------------
+
+class GetInputASTNode : public ASTNode {
+public:
+    GetInputASTNode(ASTNode * P=nullptr)
+            : ASTNode("KWD", "getinput", P)
+    {
+    }
+
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((GetInputASTNode*)this);
+    }
+};
+
 
 // ----------------------------------------------------------------------
 

@@ -85,42 +85,6 @@
 		<Unit filename="/home/sean/Work/Morris/main.cpp">
 			<Option target="Morris"/>
 		</Unit>
-		<Unit filename="/home/sean/Work/Morris/src/Compiler/InstructionASTVisitor.cpp">
-			<Option target="Morris"/>
-		</Unit>
-		<Unit filename="/home/sean/Work/Morris/src/Compiler/InstructionASTVisitor.h">
-			<Option target="Morris"/>
-		</Unit>
-		<Unit filename="/home/sean/Work/Morris/src/Compiler/Parser.cpp">
-			<Option target="Morris"/>
-		</Unit>
-		<Unit filename="/home/sean/Work/Morris/src/Compiler/Parser.h">
-			<Option target="Morris"/>
-		</Unit>
-		<Unit filename="/home/sean/Work/Morris/src/Compiler/SymbolTable.cpp">
-			<Option target="Morris"/>
-		</Unit>
-		<Unit filename="/home/sean/Work/Morris/src/Compiler/SymbolTable.h">
-			<Option target="Morris"/>
-		</Unit>
-		<Unit filename="/home/sean/Work/Morris/src/Compiler/Tokenizer.cpp">
-			<Option target="Morris"/>
-		</Unit>
-		<Unit filename="/home/sean/Work/Morris/src/Compiler/Tokenizer.h">
-			<Option target="Morris"/>
-		</Unit>
-		<Unit filename="/home/sean/Work/Morris/src/Compiler/Tokens.cpp">
-			<Option target="Morris"/>
-		</Unit>
-		<Unit filename="/home/sean/Work/Morris/src/Compiler/Tokens.h">
-			<Option target="Morris"/>
-		</Unit>
-		<Unit filename="/home/sean/Work/Morris/src/Compiler/compiler.cpp">
-			<Option target="Morris"/>
-		</Unit>
-		<Unit filename="/home/sean/Work/Morris/src/Compiler/compiler.h">
-			<Option target="Morris"/>
-		</Unit>
 		<Unit filename="/home/sean/Work/Morris/src/Simulation/Agent.cpp">
 			<Option target="Morris"/>
 		</Unit>
@@ -133,10 +97,46 @@
 		<Unit filename="/home/sean/Work/Morris/src/Simulation/XForm.h">
 			<Option target="Morris"/>
 		</Unit>
-		<Unit filename="/home/sean/Work/Morris/src/common/Instructions.cpp">
+		<Unit filename="/home/sean/Work/Morris/src/compiler/InstructionASTVisitor.cpp">
 			<Option target="Morris"/>
 		</Unit>
-		<Unit filename="/home/sean/Work/Morris/src/common/Instructions.h">
+		<Unit filename="/home/sean/Work/Morris/src/compiler/InstructionASTVisitor.h">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/compiler/Instructions.cpp">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/compiler/Instructions.h">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/compiler/Parser.cpp">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/compiler/Parser.h">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/compiler/SymbolTable.cpp">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/compiler/SymbolTable.h">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/compiler/Tokenizer.cpp">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/compiler/Tokenizer.h">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/compiler/Tokens.cpp">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/compiler/Tokens.h">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/compiler/compiler.cpp">
+			<Option target="Morris"/>
+		</Unit>
+		<Unit filename="/home/sean/Work/Morris/src/compiler/compiler.h">
 			<Option target="Morris"/>
 		</Unit>
 		<Unit filename="/home/sean/Work/Morris/src/engine/Entity.h">

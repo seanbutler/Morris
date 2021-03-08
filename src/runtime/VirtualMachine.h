@@ -11,8 +11,8 @@
 
 //#include "../Simulation/Agent.h"
 
-#include "../common/Instructions.h"
-#include "../common/Location.h"
+#include "../compiler/Instructions.h"
+#include "../compiler/Location.h"
 
 // ---------------------------------------------------------------------------
 class Agent;

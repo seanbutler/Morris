@@ -332,4 +332,10 @@ void InstructionASTVisitor::Visit(SetspriteASTNode * A){
     instructions.emplace_back(Location(INSTR::ASETSPRITE));
 }
 
+void InstructionASTVisitor::Visit(GetInputASTNode * A){
+    std::cout << "Visit GetInputASTNode" << std::endl;
+    A->children[0]->Accept(this);
+    instructions.emplace_back(Location(INSTR::AGETINPUT));
+}
+
 // --------------------------------------------------

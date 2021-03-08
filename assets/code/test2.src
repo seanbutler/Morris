@@ -1,17 +1,25 @@
-decl a
-a=100000
+decl loop
+loop = 1
 
-decl b
-b=0
+decl x
+x = 16
 
-while ( b != 1 ) {
+decl y
+y = 16
 
-    a=100000
+decl button
+button = 0
 
-    while ( a > 0 ) {
-        a = a - 1
-        output a
-    }
+setsprite(29, 8)
+setcol(0, 2, 0)
 
+while ( loop <= 999 ) {
+
+#    button = getinput(1)
+#    if ( button ) {
+#        x = x - 1
+#    }
+
+    setpos( x, y )
 }
 

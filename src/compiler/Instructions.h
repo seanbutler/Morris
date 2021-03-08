@@ -50,6 +50,8 @@ enum INSTR {
     ASETCOL,
     ASETSPRITE,
 
+    AGETINPUT,
+
     SPAWN,
 
     AGET,

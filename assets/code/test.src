@@ -5,7 +5,8 @@ counter = 99
 decl looping
 looping = 1
 
-setcol(0, 3, 0)
+setsprite(5, 1)
+setcol(3, 3, 0)
 
 while (looping != 0 ) {
     counter = 32
@@ -14,7 +15,3 @@ while (looping != 0 ) {
         counter = counter - 1
     }
 }
-
-
-
-

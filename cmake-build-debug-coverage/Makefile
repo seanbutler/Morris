@@ -170,168 +170,6 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-src/Compiler/InstructionASTVisitor.o: src/Compiler/InstructionASTVisitor.cpp.o
-
-.PHONY : src/Compiler/InstructionASTVisitor.o
-
-# target to build an object file
-src/Compiler/InstructionASTVisitor.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/Compiler/InstructionASTVisitor.cpp.o
-.PHONY : src/Compiler/InstructionASTVisitor.cpp.o
-
-src/Compiler/InstructionASTVisitor.i: src/Compiler/InstructionASTVisitor.cpp.i
-
-.PHONY : src/Compiler/InstructionASTVisitor.i
-
-# target to preprocess a source file
-src/Compiler/InstructionASTVisitor.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/Compiler/InstructionASTVisitor.cpp.i
-.PHONY : src/Compiler/InstructionASTVisitor.cpp.i
-
-src/Compiler/InstructionASTVisitor.s: src/Compiler/InstructionASTVisitor.cpp.s
-
-.PHONY : src/Compiler/InstructionASTVisitor.s
-
-# target to generate assembly for a file
-src/Compiler/InstructionASTVisitor.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/Compiler/InstructionASTVisitor.cpp.s
-.PHONY : src/Compiler/InstructionASTVisitor.cpp.s
-
-src/Compiler/Parser.o: src/Compiler/Parser.cpp.o
-
-.PHONY : src/Compiler/Parser.o
-
-# target to build an object file
-src/Compiler/Parser.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/Compiler/Parser.cpp.o
-.PHONY : src/Compiler/Parser.cpp.o
-
-src/Compiler/Parser.i: src/Compiler/Parser.cpp.i
-
-.PHONY : src/Compiler/Parser.i
-
-# target to preprocess a source file
-src/Compiler/Parser.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/Compiler/Parser.cpp.i
-.PHONY : src/Compiler/Parser.cpp.i
-
-src/Compiler/Parser.s: src/Compiler/Parser.cpp.s
-
-.PHONY : src/Compiler/Parser.s
-
-# target to generate assembly for a file
-src/Compiler/Parser.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/Compiler/Parser.cpp.s
-.PHONY : src/Compiler/Parser.cpp.s
-
-src/Compiler/SymbolTable.o: src/Compiler/SymbolTable.cpp.o
-
-.PHONY : src/Compiler/SymbolTable.o
-
-# target to build an object file
-src/Compiler/SymbolTable.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/Compiler/SymbolTable.cpp.o
-.PHONY : src/Compiler/SymbolTable.cpp.o
-
-src/Compiler/SymbolTable.i: src/Compiler/SymbolTable.cpp.i
-
-.PHONY : src/Compiler/SymbolTable.i
-
-# target to preprocess a source file
-src/Compiler/SymbolTable.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/Compiler/SymbolTable.cpp.i
-.PHONY : src/Compiler/SymbolTable.cpp.i
-
-src/Compiler/SymbolTable.s: src/Compiler/SymbolTable.cpp.s
-
-.PHONY : src/Compiler/SymbolTable.s
-
-# target to generate assembly for a file
-src/Compiler/SymbolTable.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/Compiler/SymbolTable.cpp.s
-.PHONY : src/Compiler/SymbolTable.cpp.s
-
-src/Compiler/Tokenizer.o: src/Compiler/Tokenizer.cpp.o
-
-.PHONY : src/Compiler/Tokenizer.o
-
-# target to build an object file
-src/Compiler/Tokenizer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/Compiler/Tokenizer.cpp.o
-.PHONY : src/Compiler/Tokenizer.cpp.o
-
-src/Compiler/Tokenizer.i: src/Compiler/Tokenizer.cpp.i
-
-.PHONY : src/Compiler/Tokenizer.i
-
-# target to preprocess a source file
-src/Compiler/Tokenizer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/Compiler/Tokenizer.cpp.i
-.PHONY : src/Compiler/Tokenizer.cpp.i
-
-src/Compiler/Tokenizer.s: src/Compiler/Tokenizer.cpp.s
-
-.PHONY : src/Compiler/Tokenizer.s
-
-# target to generate assembly for a file
-src/Compiler/Tokenizer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/Compiler/Tokenizer.cpp.s
-.PHONY : src/Compiler/Tokenizer.cpp.s
-
-src/Compiler/Tokens.o: src/Compiler/Tokens.cpp.o
-
-.PHONY : src/Compiler/Tokens.o
-
-# target to build an object file
-src/Compiler/Tokens.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/Compiler/Tokens.cpp.o
-.PHONY : src/Compiler/Tokens.cpp.o
-
-src/Compiler/Tokens.i: src/Compiler/Tokens.cpp.i
-
-.PHONY : src/Compiler/Tokens.i
-
-# target to preprocess a source file
-src/Compiler/Tokens.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/Compiler/Tokens.cpp.i
-.PHONY : src/Compiler/Tokens.cpp.i
-
-src/Compiler/Tokens.s: src/Compiler/Tokens.cpp.s
-
-.PHONY : src/Compiler/Tokens.s
-
-# target to generate assembly for a file
-src/Compiler/Tokens.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/Compiler/Tokens.cpp.s
-.PHONY : src/Compiler/Tokens.cpp.s
-
-src/Compiler/compiler.o: src/Compiler/compiler.cpp.o
-
-.PHONY : src/Compiler/compiler.o
-
-# target to build an object file
-src/Compiler/compiler.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/Compiler/compiler.cpp.o
-.PHONY : src/Compiler/compiler.cpp.o
-
-src/Compiler/compiler.i: src/Compiler/compiler.cpp.i
-
-.PHONY : src/Compiler/compiler.i
-
-# target to preprocess a source file
-src/Compiler/compiler.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/Compiler/compiler.cpp.i
-.PHONY : src/Compiler/compiler.cpp.i
-
-src/Compiler/compiler.s: src/Compiler/compiler.cpp.s
-
-.PHONY : src/Compiler/compiler.s
-
-# target to generate assembly for a file
-src/Compiler/compiler.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/Compiler/compiler.cpp.s
-.PHONY : src/Compiler/compiler.cpp.s
-
 src/Simulation/Agent.o: src/Simulation/Agent.cpp.o
 
 .PHONY : src/Simulation/Agent.o
@@ -386,32 +224,194 @@ src/Simulation/XForm.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/Simulation/XForm.cpp.s
 .PHONY : src/Simulation/XForm.cpp.s
 
-src/common/Instructions.o: src/common/Instructions.cpp.o
+src/compiler/InstructionASTVisitor.o: src/compiler/InstructionASTVisitor.cpp.o
 
-.PHONY : src/common/Instructions.o
+.PHONY : src/compiler/InstructionASTVisitor.o
 
 # target to build an object file
-src/common/Instructions.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/common/Instructions.cpp.o
-.PHONY : src/common/Instructions.cpp.o
+src/compiler/InstructionASTVisitor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/compiler/InstructionASTVisitor.cpp.o
+.PHONY : src/compiler/InstructionASTVisitor.cpp.o
 
-src/common/Instructions.i: src/common/Instructions.cpp.i
+src/compiler/InstructionASTVisitor.i: src/compiler/InstructionASTVisitor.cpp.i
 
-.PHONY : src/common/Instructions.i
+.PHONY : src/compiler/InstructionASTVisitor.i
 
 # target to preprocess a source file
-src/common/Instructions.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/common/Instructions.cpp.i
-.PHONY : src/common/Instructions.cpp.i
+src/compiler/InstructionASTVisitor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/compiler/InstructionASTVisitor.cpp.i
+.PHONY : src/compiler/InstructionASTVisitor.cpp.i
 
-src/common/Instructions.s: src/common/Instructions.cpp.s
+src/compiler/InstructionASTVisitor.s: src/compiler/InstructionASTVisitor.cpp.s
 
-.PHONY : src/common/Instructions.s
+.PHONY : src/compiler/InstructionASTVisitor.s
 
 # target to generate assembly for a file
-src/common/Instructions.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/common/Instructions.cpp.s
-.PHONY : src/common/Instructions.cpp.s
+src/compiler/InstructionASTVisitor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/compiler/InstructionASTVisitor.cpp.s
+.PHONY : src/compiler/InstructionASTVisitor.cpp.s
+
+src/compiler/Instructions.o: src/compiler/Instructions.cpp.o
+
+.PHONY : src/compiler/Instructions.o
+
+# target to build an object file
+src/compiler/Instructions.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/compiler/Instructions.cpp.o
+.PHONY : src/compiler/Instructions.cpp.o
+
+src/compiler/Instructions.i: src/compiler/Instructions.cpp.i
+
+.PHONY : src/compiler/Instructions.i
+
+# target to preprocess a source file
+src/compiler/Instructions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/compiler/Instructions.cpp.i
+.PHONY : src/compiler/Instructions.cpp.i
+
+src/compiler/Instructions.s: src/compiler/Instructions.cpp.s
+
+.PHONY : src/compiler/Instructions.s
+
+# target to generate assembly for a file
+src/compiler/Instructions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/compiler/Instructions.cpp.s
+.PHONY : src/compiler/Instructions.cpp.s
+
+src/compiler/Parser.o: src/compiler/Parser.cpp.o
+
+.PHONY : src/compiler/Parser.o
+
+# target to build an object file
+src/compiler/Parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/compiler/Parser.cpp.o
+.PHONY : src/compiler/Parser.cpp.o
+
+src/compiler/Parser.i: src/compiler/Parser.cpp.i
+
+.PHONY : src/compiler/Parser.i
+
+# target to preprocess a source file
+src/compiler/Parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/compiler/Parser.cpp.i
+.PHONY : src/compiler/Parser.cpp.i
+
+src/compiler/Parser.s: src/compiler/Parser.cpp.s
+
+.PHONY : src/compiler/Parser.s
+
+# target to generate assembly for a file
+src/compiler/Parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/compiler/Parser.cpp.s
+.PHONY : src/compiler/Parser.cpp.s
+
+src/compiler/SymbolTable.o: src/compiler/SymbolTable.cpp.o
+
+.PHONY : src/compiler/SymbolTable.o
+
+# target to build an object file
+src/compiler/SymbolTable.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/compiler/SymbolTable.cpp.o
+.PHONY : src/compiler/SymbolTable.cpp.o
+
+src/compiler/SymbolTable.i: src/compiler/SymbolTable.cpp.i
+
+.PHONY : src/compiler/SymbolTable.i
+
+# target to preprocess a source file
+src/compiler/SymbolTable.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/compiler/SymbolTable.cpp.i
+.PHONY : src/compiler/SymbolTable.cpp.i
+
+src/compiler/SymbolTable.s: src/compiler/SymbolTable.cpp.s
+
+.PHONY : src/compiler/SymbolTable.s
+
+# target to generate assembly for a file
+src/compiler/SymbolTable.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/compiler/SymbolTable.cpp.s
+.PHONY : src/compiler/SymbolTable.cpp.s
+
+src/compiler/Tokenizer.o: src/compiler/Tokenizer.cpp.o
+
+.PHONY : src/compiler/Tokenizer.o
+
+# target to build an object file
+src/compiler/Tokenizer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/compiler/Tokenizer.cpp.o
+.PHONY : src/compiler/Tokenizer.cpp.o
+
+src/compiler/Tokenizer.i: src/compiler/Tokenizer.cpp.i
+
+.PHONY : src/compiler/Tokenizer.i
+
+# target to preprocess a source file
+src/compiler/Tokenizer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/compiler/Tokenizer.cpp.i
+.PHONY : src/compiler/Tokenizer.cpp.i
+
+src/compiler/Tokenizer.s: src/compiler/Tokenizer.cpp.s
+
+.PHONY : src/compiler/Tokenizer.s
+
+# target to generate assembly for a file
+src/compiler/Tokenizer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/compiler/Tokenizer.cpp.s
+.PHONY : src/compiler/Tokenizer.cpp.s
+
+src/compiler/Tokens.o: src/compiler/Tokens.cpp.o
+
+.PHONY : src/compiler/Tokens.o
+
+# target to build an object file
+src/compiler/Tokens.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/compiler/Tokens.cpp.o
+.PHONY : src/compiler/Tokens.cpp.o
+
+src/compiler/Tokens.i: src/compiler/Tokens.cpp.i
+
+.PHONY : src/compiler/Tokens.i
+
+# target to preprocess a source file
+src/compiler/Tokens.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/compiler/Tokens.cpp.i
+.PHONY : src/compiler/Tokens.cpp.i
+
+src/compiler/Tokens.s: src/compiler/Tokens.cpp.s
+
+.PHONY : src/compiler/Tokens.s
+
+# target to generate assembly for a file
+src/compiler/Tokens.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/compiler/Tokens.cpp.s
+.PHONY : src/compiler/Tokens.cpp.s
+
+src/compiler/compiler.o: src/compiler/compiler.cpp.o
+
+.PHONY : src/compiler/compiler.o
+
+# target to build an object file
+src/compiler/compiler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/compiler/compiler.cpp.o
+.PHONY : src/compiler/compiler.cpp.o
+
+src/compiler/compiler.i: src/compiler/compiler.cpp.i
+
+.PHONY : src/compiler/compiler.i
+
+# target to preprocess a source file
+src/compiler/compiler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/compiler/compiler.cpp.i
+.PHONY : src/compiler/compiler.cpp.i
+
+src/compiler/compiler.s: src/compiler/compiler.cpp.s
+
+.PHONY : src/compiler/compiler.s
+
+# target to generate assembly for a file
+src/compiler/compiler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Morris.dir/build.make CMakeFiles/Morris.dir/src/compiler/compiler.cpp.s
+.PHONY : src/compiler/compiler.cpp.s
 
 src/engine/MainLoop.o: src/engine/MainLoop.cpp.o
 
@@ -479,33 +479,33 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... src/Compiler/InstructionASTVisitor.o"
-	@echo "... src/Compiler/InstructionASTVisitor.i"
-	@echo "... src/Compiler/InstructionASTVisitor.s"
-	@echo "... src/Compiler/Parser.o"
-	@echo "... src/Compiler/Parser.i"
-	@echo "... src/Compiler/Parser.s"
-	@echo "... src/Compiler/SymbolTable.o"
-	@echo "... src/Compiler/SymbolTable.i"
-	@echo "... src/Compiler/SymbolTable.s"
-	@echo "... src/Compiler/Tokenizer.o"
-	@echo "... src/Compiler/Tokenizer.i"
-	@echo "... src/Compiler/Tokenizer.s"
-	@echo "... src/Compiler/Tokens.o"
-	@echo "... src/Compiler/Tokens.i"
-	@echo "... src/Compiler/Tokens.s"
-	@echo "... src/Compiler/compiler.o"
-	@echo "... src/Compiler/compiler.i"
-	@echo "... src/Compiler/compiler.s"
 	@echo "... src/Simulation/Agent.o"
 	@echo "... src/Simulation/Agent.i"
 	@echo "... src/Simulation/Agent.s"
 	@echo "... src/Simulation/XForm.o"
 	@echo "... src/Simulation/XForm.i"
 	@echo "... src/Simulation/XForm.s"
-	@echo "... src/common/Instructions.o"
-	@echo "... src/common/Instructions.i"
-	@echo "... src/common/Instructions.s"
+	@echo "... src/compiler/InstructionASTVisitor.o"
+	@echo "... src/compiler/InstructionASTVisitor.i"
+	@echo "... src/compiler/InstructionASTVisitor.s"
+	@echo "... src/compiler/Instructions.o"
+	@echo "... src/compiler/Instructions.i"
+	@echo "... src/compiler/Instructions.s"
+	@echo "... src/compiler/Parser.o"
+	@echo "... src/compiler/Parser.i"
+	@echo "... src/compiler/Parser.s"
+	@echo "... src/compiler/SymbolTable.o"
+	@echo "... src/compiler/SymbolTable.i"
+	@echo "... src/compiler/SymbolTable.s"
+	@echo "... src/compiler/Tokenizer.o"
+	@echo "... src/compiler/Tokenizer.i"
+	@echo "... src/compiler/Tokenizer.s"
+	@echo "... src/compiler/Tokens.o"
+	@echo "... src/compiler/Tokens.i"
+	@echo "... src/compiler/Tokens.s"
+	@echo "... src/compiler/compiler.o"
+	@echo "... src/compiler/compiler.i"
+	@echo "... src/compiler/compiler.s"
 	@echo "... src/engine/MainLoop.o"
 	@echo "... src/engine/MainLoop.i"
 	@echo "... src/engine/MainLoop.s"

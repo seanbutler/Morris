@@ -90,70 +90,70 @@ CMakeFiles/Morris.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Morris.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sean/Work/Morris/main.cpp -o CMakeFiles/Morris.dir/main.cpp.s
 
-CMakeFiles/Morris.dir/src/Compiler/Tokenizer.cpp.o: CMakeFiles/Morris.dir/flags.make
-CMakeFiles/Morris.dir/src/Compiler/Tokenizer.cpp.o: ../src/Compiler/Tokenizer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Morris.dir/src/Compiler/Tokenizer.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Morris.dir/src/Compiler/Tokenizer.cpp.o -c /home/sean/Work/Morris/src/Compiler/Tokenizer.cpp
+CMakeFiles/Morris.dir/src/compiler/Tokenizer.cpp.o: CMakeFiles/Morris.dir/flags.make
+CMakeFiles/Morris.dir/src/compiler/Tokenizer.cpp.o: ../src/compiler/Tokenizer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Morris.dir/src/compiler/Tokenizer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Morris.dir/src/compiler/Tokenizer.cpp.o -c /home/sean/Work/Morris/src/compiler/Tokenizer.cpp
 
-CMakeFiles/Morris.dir/src/Compiler/Tokenizer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Morris.dir/src/Compiler/Tokenizer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sean/Work/Morris/src/Compiler/Tokenizer.cpp > CMakeFiles/Morris.dir/src/Compiler/Tokenizer.cpp.i
+CMakeFiles/Morris.dir/src/compiler/Tokenizer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Morris.dir/src/compiler/Tokenizer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sean/Work/Morris/src/compiler/Tokenizer.cpp > CMakeFiles/Morris.dir/src/compiler/Tokenizer.cpp.i
 
-CMakeFiles/Morris.dir/src/Compiler/Tokenizer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Morris.dir/src/Compiler/Tokenizer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sean/Work/Morris/src/Compiler/Tokenizer.cpp -o CMakeFiles/Morris.dir/src/Compiler/Tokenizer.cpp.s
+CMakeFiles/Morris.dir/src/compiler/Tokenizer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Morris.dir/src/compiler/Tokenizer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sean/Work/Morris/src/compiler/Tokenizer.cpp -o CMakeFiles/Morris.dir/src/compiler/Tokenizer.cpp.s
 
-CMakeFiles/Morris.dir/src/Compiler/Tokens.cpp.o: CMakeFiles/Morris.dir/flags.make
-CMakeFiles/Morris.dir/src/Compiler/Tokens.cpp.o: ../src/Compiler/Tokens.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Morris.dir/src/Compiler/Tokens.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Morris.dir/src/Compiler/Tokens.cpp.o -c /home/sean/Work/Morris/src/Compiler/Tokens.cpp
+CMakeFiles/Morris.dir/src/compiler/Tokens.cpp.o: CMakeFiles/Morris.dir/flags.make
+CMakeFiles/Morris.dir/src/compiler/Tokens.cpp.o: ../src/compiler/Tokens.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Morris.dir/src/compiler/Tokens.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Morris.dir/src/compiler/Tokens.cpp.o -c /home/sean/Work/Morris/src/compiler/Tokens.cpp
 
-CMakeFiles/Morris.dir/src/Compiler/Tokens.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Morris.dir/src/Compiler/Tokens.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sean/Work/Morris/src/Compiler/Tokens.cpp > CMakeFiles/Morris.dir/src/Compiler/Tokens.cpp.i
+CMakeFiles/Morris.dir/src/compiler/Tokens.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Morris.dir/src/compiler/Tokens.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sean/Work/Morris/src/compiler/Tokens.cpp > CMakeFiles/Morris.dir/src/compiler/Tokens.cpp.i
 
-CMakeFiles/Morris.dir/src/Compiler/Tokens.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Morris.dir/src/Compiler/Tokens.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sean/Work/Morris/src/Compiler/Tokens.cpp -o CMakeFiles/Morris.dir/src/Compiler/Tokens.cpp.s
+CMakeFiles/Morris.dir/src/compiler/Tokens.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Morris.dir/src/compiler/Tokens.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sean/Work/Morris/src/compiler/Tokens.cpp -o CMakeFiles/Morris.dir/src/compiler/Tokens.cpp.s
 
-CMakeFiles/Morris.dir/src/Compiler/Parser.cpp.o: CMakeFiles/Morris.dir/flags.make
-CMakeFiles/Morris.dir/src/Compiler/Parser.cpp.o: ../src/Compiler/Parser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Morris.dir/src/Compiler/Parser.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Morris.dir/src/Compiler/Parser.cpp.o -c /home/sean/Work/Morris/src/Compiler/Parser.cpp
+CMakeFiles/Morris.dir/src/compiler/Parser.cpp.o: CMakeFiles/Morris.dir/flags.make
+CMakeFiles/Morris.dir/src/compiler/Parser.cpp.o: ../src/compiler/Parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Morris.dir/src/compiler/Parser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Morris.dir/src/compiler/Parser.cpp.o -c /home/sean/Work/Morris/src/compiler/Parser.cpp
 
-CMakeFiles/Morris.dir/src/Compiler/Parser.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Morris.dir/src/Compiler/Parser.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sean/Work/Morris/src/Compiler/Parser.cpp > CMakeFiles/Morris.dir/src/Compiler/Parser.cpp.i
+CMakeFiles/Morris.dir/src/compiler/Parser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Morris.dir/src/compiler/Parser.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sean/Work/Morris/src/compiler/Parser.cpp > CMakeFiles/Morris.dir/src/compiler/Parser.cpp.i
 
-CMakeFiles/Morris.dir/src/Compiler/Parser.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Morris.dir/src/Compiler/Parser.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sean/Work/Morris/src/Compiler/Parser.cpp -o CMakeFiles/Morris.dir/src/Compiler/Parser.cpp.s
+CMakeFiles/Morris.dir/src/compiler/Parser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Morris.dir/src/compiler/Parser.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sean/Work/Morris/src/compiler/Parser.cpp -o CMakeFiles/Morris.dir/src/compiler/Parser.cpp.s
 
-CMakeFiles/Morris.dir/src/Compiler/InstructionASTVisitor.cpp.o: CMakeFiles/Morris.dir/flags.make
-CMakeFiles/Morris.dir/src/Compiler/InstructionASTVisitor.cpp.o: ../src/Compiler/InstructionASTVisitor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Morris.dir/src/Compiler/InstructionASTVisitor.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Morris.dir/src/Compiler/InstructionASTVisitor.cpp.o -c /home/sean/Work/Morris/src/Compiler/InstructionASTVisitor.cpp
+CMakeFiles/Morris.dir/src/compiler/InstructionASTVisitor.cpp.o: CMakeFiles/Morris.dir/flags.make
+CMakeFiles/Morris.dir/src/compiler/InstructionASTVisitor.cpp.o: ../src/compiler/InstructionASTVisitor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Morris.dir/src/compiler/InstructionASTVisitor.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Morris.dir/src/compiler/InstructionASTVisitor.cpp.o -c /home/sean/Work/Morris/src/compiler/InstructionASTVisitor.cpp
 
-CMakeFiles/Morris.dir/src/Compiler/InstructionASTVisitor.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Morris.dir/src/Compiler/InstructionASTVisitor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sean/Work/Morris/src/Compiler/InstructionASTVisitor.cpp > CMakeFiles/Morris.dir/src/Compiler/InstructionASTVisitor.cpp.i
+CMakeFiles/Morris.dir/src/compiler/InstructionASTVisitor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Morris.dir/src/compiler/InstructionASTVisitor.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sean/Work/Morris/src/compiler/InstructionASTVisitor.cpp > CMakeFiles/Morris.dir/src/compiler/InstructionASTVisitor.cpp.i
 
-CMakeFiles/Morris.dir/src/Compiler/InstructionASTVisitor.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Morris.dir/src/Compiler/InstructionASTVisitor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sean/Work/Morris/src/Compiler/InstructionASTVisitor.cpp -o CMakeFiles/Morris.dir/src/Compiler/InstructionASTVisitor.cpp.s
+CMakeFiles/Morris.dir/src/compiler/InstructionASTVisitor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Morris.dir/src/compiler/InstructionASTVisitor.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sean/Work/Morris/src/compiler/InstructionASTVisitor.cpp -o CMakeFiles/Morris.dir/src/compiler/InstructionASTVisitor.cpp.s
 
-CMakeFiles/Morris.dir/src/Compiler/SymbolTable.cpp.o: CMakeFiles/Morris.dir/flags.make
-CMakeFiles/Morris.dir/src/Compiler/SymbolTable.cpp.o: ../src/Compiler/SymbolTable.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Morris.dir/src/Compiler/SymbolTable.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Morris.dir/src/Compiler/SymbolTable.cpp.o -c /home/sean/Work/Morris/src/Compiler/SymbolTable.cpp
+CMakeFiles/Morris.dir/src/compiler/SymbolTable.cpp.o: CMakeFiles/Morris.dir/flags.make
+CMakeFiles/Morris.dir/src/compiler/SymbolTable.cpp.o: ../src/compiler/SymbolTable.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Morris.dir/src/compiler/SymbolTable.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Morris.dir/src/compiler/SymbolTable.cpp.o -c /home/sean/Work/Morris/src/compiler/SymbolTable.cpp
 
-CMakeFiles/Morris.dir/src/Compiler/SymbolTable.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Morris.dir/src/Compiler/SymbolTable.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sean/Work/Morris/src/Compiler/SymbolTable.cpp > CMakeFiles/Morris.dir/src/Compiler/SymbolTable.cpp.i
+CMakeFiles/Morris.dir/src/compiler/SymbolTable.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Morris.dir/src/compiler/SymbolTable.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sean/Work/Morris/src/compiler/SymbolTable.cpp > CMakeFiles/Morris.dir/src/compiler/SymbolTable.cpp.i
 
-CMakeFiles/Morris.dir/src/Compiler/SymbolTable.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Morris.dir/src/Compiler/SymbolTable.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sean/Work/Morris/src/Compiler/SymbolTable.cpp -o CMakeFiles/Morris.dir/src/Compiler/SymbolTable.cpp.s
+CMakeFiles/Morris.dir/src/compiler/SymbolTable.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Morris.dir/src/compiler/SymbolTable.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sean/Work/Morris/src/compiler/SymbolTable.cpp -o CMakeFiles/Morris.dir/src/compiler/SymbolTable.cpp.s
 
 CMakeFiles/Morris.dir/src/runtime/VirtualMachine.cpp.o: CMakeFiles/Morris.dir/flags.make
 CMakeFiles/Morris.dir/src/runtime/VirtualMachine.cpp.o: ../src/runtime/VirtualMachine.cpp
@@ -168,31 +168,31 @@ CMakeFiles/Morris.dir/src/runtime/VirtualMachine.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Morris.dir/src/runtime/VirtualMachine.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sean/Work/Morris/src/runtime/VirtualMachine.cpp -o CMakeFiles/Morris.dir/src/runtime/VirtualMachine.cpp.s
 
-CMakeFiles/Morris.dir/src/common/Instructions.cpp.o: CMakeFiles/Morris.dir/flags.make
-CMakeFiles/Morris.dir/src/common/Instructions.cpp.o: ../src/common/Instructions.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Morris.dir/src/common/Instructions.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Morris.dir/src/common/Instructions.cpp.o -c /home/sean/Work/Morris/src/common/Instructions.cpp
+CMakeFiles/Morris.dir/src/compiler/Instructions.cpp.o: CMakeFiles/Morris.dir/flags.make
+CMakeFiles/Morris.dir/src/compiler/Instructions.cpp.o: ../src/compiler/Instructions.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Morris.dir/src/compiler/Instructions.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Morris.dir/src/compiler/Instructions.cpp.o -c /home/sean/Work/Morris/src/compiler/Instructions.cpp
 
-CMakeFiles/Morris.dir/src/common/Instructions.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Morris.dir/src/common/Instructions.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sean/Work/Morris/src/common/Instructions.cpp > CMakeFiles/Morris.dir/src/common/Instructions.cpp.i
+CMakeFiles/Morris.dir/src/compiler/Instructions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Morris.dir/src/compiler/Instructions.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sean/Work/Morris/src/compiler/Instructions.cpp > CMakeFiles/Morris.dir/src/compiler/Instructions.cpp.i
 
-CMakeFiles/Morris.dir/src/common/Instructions.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Morris.dir/src/common/Instructions.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sean/Work/Morris/src/common/Instructions.cpp -o CMakeFiles/Morris.dir/src/common/Instructions.cpp.s
+CMakeFiles/Morris.dir/src/compiler/Instructions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Morris.dir/src/compiler/Instructions.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sean/Work/Morris/src/compiler/Instructions.cpp -o CMakeFiles/Morris.dir/src/compiler/Instructions.cpp.s
 
-CMakeFiles/Morris.dir/src/Compiler/compiler.cpp.o: CMakeFiles/Morris.dir/flags.make
-CMakeFiles/Morris.dir/src/Compiler/compiler.cpp.o: ../src/Compiler/compiler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Morris.dir/src/Compiler/compiler.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Morris.dir/src/Compiler/compiler.cpp.o -c /home/sean/Work/Morris/src/Compiler/compiler.cpp
+CMakeFiles/Morris.dir/src/compiler/compiler.cpp.o: CMakeFiles/Morris.dir/flags.make
+CMakeFiles/Morris.dir/src/compiler/compiler.cpp.o: ../src/compiler/compiler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sean/Work/Morris/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Morris.dir/src/compiler/compiler.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Morris.dir/src/compiler/compiler.cpp.o -c /home/sean/Work/Morris/src/compiler/compiler.cpp
 
-CMakeFiles/Morris.dir/src/Compiler/compiler.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Morris.dir/src/Compiler/compiler.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sean/Work/Morris/src/Compiler/compiler.cpp > CMakeFiles/Morris.dir/src/Compiler/compiler.cpp.i
+CMakeFiles/Morris.dir/src/compiler/compiler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Morris.dir/src/compiler/compiler.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sean/Work/Morris/src/compiler/compiler.cpp > CMakeFiles/Morris.dir/src/compiler/compiler.cpp.i
 
-CMakeFiles/Morris.dir/src/Compiler/compiler.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Morris.dir/src/Compiler/compiler.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sean/Work/Morris/src/Compiler/compiler.cpp -o CMakeFiles/Morris.dir/src/Compiler/compiler.cpp.s
+CMakeFiles/Morris.dir/src/compiler/compiler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Morris.dir/src/compiler/compiler.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sean/Work/Morris/src/compiler/compiler.cpp -o CMakeFiles/Morris.dir/src/compiler/compiler.cpp.s
 
 CMakeFiles/Morris.dir/src/engine/MainLoop.cpp.o: CMakeFiles/Morris.dir/flags.make
 CMakeFiles/Morris.dir/src/engine/MainLoop.cpp.o: ../src/engine/MainLoop.cpp
@@ -236,14 +236,14 @@ CMakeFiles/Morris.dir/src/Simulation/XForm.cpp.s: cmake_force
 # Object files for target Morris
 Morris_OBJECTS = \
 "CMakeFiles/Morris.dir/main.cpp.o" \
-"CMakeFiles/Morris.dir/src/Compiler/Tokenizer.cpp.o" \
-"CMakeFiles/Morris.dir/src/Compiler/Tokens.cpp.o" \
-"CMakeFiles/Morris.dir/src/Compiler/Parser.cpp.o" \
-"CMakeFiles/Morris.dir/src/Compiler/InstructionASTVisitor.cpp.o" \
-"CMakeFiles/Morris.dir/src/Compiler/SymbolTable.cpp.o" \
+"CMakeFiles/Morris.dir/src/compiler/Tokenizer.cpp.o" \
+"CMakeFiles/Morris.dir/src/compiler/Tokens.cpp.o" \
+"CMakeFiles/Morris.dir/src/compiler/Parser.cpp.o" \
+"CMakeFiles/Morris.dir/src/compiler/InstructionASTVisitor.cpp.o" \
+"CMakeFiles/Morris.dir/src/compiler/SymbolTable.cpp.o" \
 "CMakeFiles/Morris.dir/src/runtime/VirtualMachine.cpp.o" \
-"CMakeFiles/Morris.dir/src/common/Instructions.cpp.o" \
-"CMakeFiles/Morris.dir/src/Compiler/compiler.cpp.o" \
+"CMakeFiles/Morris.dir/src/compiler/Instructions.cpp.o" \
+"CMakeFiles/Morris.dir/src/compiler/compiler.cpp.o" \
 "CMakeFiles/Morris.dir/src/engine/MainLoop.cpp.o" \
 "CMakeFiles/Morris.dir/src/Simulation/Agent.cpp.o" \
 "CMakeFiles/Morris.dir/src/Simulation/XForm.cpp.o"
@@ -252,14 +252,14 @@ Morris_OBJECTS = \
 Morris_EXTERNAL_OBJECTS =
 
 Morris: CMakeFiles/Morris.dir/main.cpp.o
-Morris: CMakeFiles/Morris.dir/src/Compiler/Tokenizer.cpp.o
-Morris: CMakeFiles/Morris.dir/src/Compiler/Tokens.cpp.o
-Morris: CMakeFiles/Morris.dir/src/Compiler/Parser.cpp.o
-Morris: CMakeFiles/Morris.dir/src/Compiler/InstructionASTVisitor.cpp.o
-Morris: CMakeFiles/Morris.dir/src/Compiler/SymbolTable.cpp.o
+Morris: CMakeFiles/Morris.dir/src/compiler/Tokenizer.cpp.o
+Morris: CMakeFiles/Morris.dir/src/compiler/Tokens.cpp.o
+Morris: CMakeFiles/Morris.dir/src/compiler/Parser.cpp.o
+Morris: CMakeFiles/Morris.dir/src/compiler/InstructionASTVisitor.cpp.o
+Morris: CMakeFiles/Morris.dir/src/compiler/SymbolTable.cpp.o
 Morris: CMakeFiles/Morris.dir/src/runtime/VirtualMachine.cpp.o
-Morris: CMakeFiles/Morris.dir/src/common/Instructions.cpp.o
-Morris: CMakeFiles/Morris.dir/src/Compiler/compiler.cpp.o
+Morris: CMakeFiles/Morris.dir/src/compiler/Instructions.cpp.o
+Morris: CMakeFiles/Morris.dir/src/compiler/compiler.cpp.o
 Morris: CMakeFiles/Morris.dir/src/engine/MainLoop.cpp.o
 Morris: CMakeFiles/Morris.dir/src/Simulation/Agent.cpp.o
 Morris: CMakeFiles/Morris.dir/src/Simulation/XForm.cpp.o

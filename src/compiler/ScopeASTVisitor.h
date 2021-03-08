@@ -7,7 +7,7 @@
 #include <iostream>
 #include <memory>
 
-#include "../common/Location.h"
+#include "Location.h"
 #include "./Visitor.h"
 
 // ---------------------------------------------------------------------------

@@ -15,19 +15,35 @@ but Morris programs look very familiar to anyone who has used c js c++ rust or s
 
 ~~~
 
-func myfunc(){
-    f = f + 1
-    return f  
+
+setsprite(29, 8)
+setcol(0, 2, 0)
+
+while ( loop <= 999 ) {
+
+    button = getinput(1)
+    if ( button ) {
+        y = y - 1
+    }
+
+    button = getinput(2)
+    if ( button ) {
+        x = x + 1
+    }
+
+    button = getinput(3)
+    if ( button ) {
+        y = y + 1
+    }
+
+    button = getinput(4)
+    if ( button ) {
+        x = x - 1
+    }
+
+    setpos( x, y )
 }
 
-decl x = 10
-decl y = 10
-
-x = x + 1
-
-if ( x == 17 ) {
-    # dont do something
-}
 
 ~~~
 
@@ -56,8 +72,14 @@ if ( x == 17 ) {
 
 
 ### With Bells On (currently via SFML)
-- [X] Integrated with SFML or similar giving Windows, Sprites, Colors, Coords, IO and Networking Library
-- [ ] Integrated Physics and Collision Libs
+- [X] Window or Fullscreen (SFML) 
+- [X] Sprites, Colors, Coords etc (SFML) 
+- [X] Keyboard IO (SFML)
+- [ ] Integrated Physics and Collision Libs 
+- [ ] Networking Library (SFML)
+- [ ] Sound (SFML)
+- [ ] Filesystem Limited to Zip Internals   (PhysicsFS)
+- [ ] Text Tables Database for Languages (CSV?)
 
 Note: this may change to another lib in future depending 
 

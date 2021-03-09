@@ -1,6 +1,6 @@
 
-setsprite(3, 6)
-setpos(8, 24)
+setsprite(0, 0)
+setpos(24, 24)
 setcol(2, 2, 2)
 
 spawn("./assets/code/square.src")

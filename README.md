@@ -55,13 +55,19 @@ while ( loop <= 999 ) {
 - [x] No semicolons
 - [x] Integrated with SFML or similar giving Windows, Sprites, Colors, Coords, IO and Networking Library
 
-### Parallel
-- [x] Parallel execution is trivial and straightforward (via VM)
-- [x] Threads are lightweight userspace objects 
-- [ ] ? Threads are also first class objects
-- [ ] ? Maybe Direct/Independent Control of Cores and CPUs
 
-### Safe
+### With Bells On (currently via SFML)
+- [X] Window or Fullscreen (SFML)
+- [X] Sprites, Colors, Coords etc (SFML)
+- [X] Keyboard IO (SFML)
+- [ ] Integrated Physics and Collision Libs
+- [ ] Networking Library (SFML)
+- [ ] Sound (SFML)
+- [ ] Filesystem Limited to Zip Internals   (PhysicsFS)
+- [ ] Text Tables Database for Languages (CSV?)
+
+
+### Safe(er)
 - [x] Stack Based Locals, Heap Based Globals
 - [x] No pointers because no dynamic heap allocation
 - [x] No shared memory between Threads ([erlang](https://en.wikipedia.org/wiki/Erlang_(programming_language)))
@@ -71,15 +77,16 @@ while ( loop <= 999 ) {
 - [ ] Safe File system access constrained to reading and writing local sub dirs only, this is good for indie game distro
 
 
-### With Bells On (currently via SFML)
-- [X] Window or Fullscreen (SFML) 
-- [X] Sprites, Colors, Coords etc (SFML) 
-- [X] Keyboard IO (SFML)
-- [ ] Integrated Physics and Collision Libs 
-- [ ] Networking Library (SFML)
-- [ ] Sound (SFML)
-- [ ] Filesystem Limited to Zip Internals   (PhysicsFS)
-- [ ] Text Tables Database for Languages (CSV?)
+
+### Parallel First
+- [x] Parallel execution is trivial and straightforward (via VM)
+- [x] Threads are lightweight userspace objects 
+- [x] No Shared Memory, Eliminates Race Conditions and Other Problems
+- [ ] Message Passing and Broadcast Between Threads
+- [ ] ? Threads are also first class objects
+- [ ] ? Maybe Direct/Independent Control of Cores and CPUs
+
+
 
 Note: this may change to another lib in future depending 
 

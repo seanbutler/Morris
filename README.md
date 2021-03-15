@@ -1,5 +1,7 @@
 # Morris Programming Language
 
+Moris is a work in progress, very eary on. Expect things to break and change (for the better).
+
 Everything you need in one binary. Compiler and runtime integrated together. Forget dependencies. Distribute sources or packed compiled bytecode, both executable.
 
 Morris is a programming language hand crafted for making games quickly and easily. Morris has a focus on ease of gameplay programming.

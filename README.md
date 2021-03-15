@@ -14,8 +14,6 @@ Morris is influenced by [erlang](https://en.wikipedia.org/wiki/Erlang_(programmi
 but Morris programs look very familiar to anyone who has used c js c++ rust or swift. Right now, Morris programs look like this...
 
 ~~~
-
-
 setsprite(29, 8)
 setcol(0, 2, 0)
 
@@ -43,18 +41,15 @@ while ( loop <= 999 ) {
 
     setpos( x, y )
 }
-
-
 ~~~
 
-## Design Goals
+## Major Design Goals
 
 ### Easy
 - [x] Easy for beginners to learn
 - [x] Familiar Syntax C like block structured syntax
 - [x] No semicolons
 - [x] Integrated with SFML or similar giving Windows, Sprites, Colors, Coords, IO and Networking Library
-
 
 ### With Bells On (currently via SFML)
 - [X] Window or Fullscreen (SFML)
@@ -66,7 +61,6 @@ while ( loop <= 999 ) {
 - [ ] Filesystem Limited to Zip Internals   (PhysicsFS)
 - [ ] Text Tables Database for Languages (CSV?)
 
-
 ### Safe(er)
 - [x] Stack Based Locals, Heap Based Globals
 - [x] No pointers because no dynamic heap allocation
@@ -76,8 +70,6 @@ while ( loop <= 999 ) {
 - [ ] Pure Functions, No Side Effects (https://en.wikipedia.org/wiki/Pure_function)
 - [ ] Safe File system access constrained to reading and writing local sub dirs only, this is good for indie game distro
 
-
-
 ### Parallel First
 - [x] Parallel execution is trivial and straightforward (via VM)
 - [x] Threads are lightweight userspace objects 
@@ -86,13 +78,34 @@ while ( loop <= 999 ) {
 - [ ] ? Threads are also first class objects
 - [ ] ? Maybe Direct/Independent Control of Cores and CPUs
 
-
-
 Note: this may change to another lib in future depending 
 
 ### Finite State Machines
 - [ ] Syntactic Sugar Makes State and FSMs Easier
 - [ ] Machines and States are first class objects
+
+## Other Minor Dev Todos
+
+### spawn command
+  - [x] filenames/strings for spawn
+  - [ ] inherit position
+  - [ ] set positions
+
+### thread hierarchy
+  - [ ] access child (via return handle? or other method)
+  - [ ] access parent
+  - [ ] dependencies
+
+### sprites and topology controls in language
+  - [ ] expose window controls to language
+  - [ ] separate window and scheduler loop
+  - [ ] set movement sprite_size
+  - [ ] expose spritesheet and dimensions
+
+- [ ] separate graphics loop and logic loops to run independantly
+
+- [ ] function code generation
+- [ ] procedure code generation
 
 ## Why?
 
@@ -105,7 +118,6 @@ There was a time when if you wanted to make a game Borland Turbo Pascal was a go
 Image By Lưu Nguyễn Thiện Hậu - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=75160140
 
 Later Blitz basic and similar compiled game Basics were fast and funky especially for writing games on Amigas. Which all the cool kids had.
-
 
 ![AMOS/STOS](https://upload.wikimedia.org/wikipedia/en/4/49/AMOS_Professional_Screenshot.png)
 
@@ -164,3 +176,6 @@ https://en.wikipedia.org/wiki/William_Morris
 "Morris dancing is a form of English folk dance usually accompanied by music. It is based on rhythmic stepping and the execution of choreographed figures by a group of dancers, usually wearing bell pads on their shins."
 
 https://en.wikipedia.org/wiki/Morris_dance
+
+
+

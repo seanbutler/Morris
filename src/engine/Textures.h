@@ -19,26 +19,54 @@ namespace Engine {
     class Textures {
 
     public:
-        Textures() {
-//            if (!texture.loadFromFile("./assets/textures/small/colored_tilemap_packed.png"))
-            if (!texture.loadFromFile("./assets/textures/large/colored_transparent_packed.png"))
+        Textures()
+        : texture()
+        , sprite_size(16)
+        , dimx(0)
+        , dimy(0)
+        {
+        }
+
+        virtual ~Textures()
+        {
+        }
+
+        virtual void LoadAtlas(std::string FN, unsigned int S=16) {
+            sprite_size=S;
+            if (texture.loadFromFile(FN)) {
+                dimx = texture.getSize().x / sprite_size;
+                dimy = texture.getSize().y / sprite_size;
+                maxcap = dimx * dimy;
+            }
+            else
             {
                 std::cout << "Texture Load Error" << std::endl;
             }
         }
 
-        virtual ~Textures() {
-        }
+//        virtual void SetSprite(unsigned int x, unsigned int y, sf::Sprite & sprite) {
+//            sprite.setTexture(texture);
+//            sprite.setTextureRect(sf::IntRect(x * sprite_size, y * sprite_size, sprite_size, sprite_size));
+//        }
 
-        virtual void SetSprite(unsigned int x, unsigned int y, sf::Sprite & sprite) {
-            unsigned int size = 16;
-            unsigned int gap = 0;
+        virtual void SetSprite(unsigned int n, sf::Sprite & sprite) {
             sprite.setTexture(texture);
-            sprite.setTextureRect(sf::IntRect(x*(size+gap), y*(size+gap), size, size));
+
+            unsigned int a = n / dimx;
+            unsigned int b = n % dimx;
+
+            unsigned int x = n % dimx;
+            unsigned int y = n / dimx;
+
+            std::cout << "sprite xy = " << x << " " << y << std::endl;
+
+            sprite.setTextureRect(sf::IntRect(x * sprite_size, y * sprite_size, sprite_size, sprite_size));
         }
 
     private:
         sf::Texture texture;
+        unsigned int sprite_size;
+        unsigned int dimx, dimy, maxcap;
     };
 
 };

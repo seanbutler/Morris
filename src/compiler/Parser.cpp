@@ -111,11 +111,18 @@ ModuleASTNode * Parser::ParseModule() {
             }
 
             // GETINPUT
-            case TokenEnum::KWD_GETINPUT:{
-                std::cout << "Parser::Parse() TokenEnum::KWD_GETINPUT" << std::endl;
-                statementsNodePtr->children.push_back(ParseSetsprite(statementsNodePtr));
-                break;
-            }
+//            case TokenEnum::KWD_GETINPUT:{
+//                std::cout << "Parser::Parse() TokenEnum::KWD_GETINPUT" << std::endl;
+//                statementsNodePtr->children.push_back(ParseSetsprite(statementsNodePtr));
+//                break;
+//            }
+
+            // SETATLAS
+//            case TokenEnum::KWD_GETINPUT:{
+//                std::cout << "Parser::Parse() TokenEnum::KWD_SETATLAS" << std::endl;
+//                statementsNodePtr->children.push_back(ParseSetAtlas(statementsNodePtr));
+//                break;
+//            }
 
             // SPAWN
             case TokenEnum::KWD_SPAWN: {
@@ -936,6 +943,52 @@ GetInputASTNode * Parser::ParseGetInput(ASTNode *P) {
 
     return statementNodeSP;
 }
+
+
+// --------------------------------------------------------------------------------
+//
+//SetspriteASTNode * Parser::ParseSetAtlas(ASTNode *P) {
+//    SetspriteASTNode * statementNodeSP = nullptr;
+//    ASTNode * xExprNodeSP;
+//    ASTNode * yExprNodeSP;
+//
+//    if ( tokenItor->kind == TokenEnum::KWD_SETSPRITE ) {
+//        statementNodeSP = new SetspriteASTNode();
+//
+//        tokenItor++;
+//
+//        if ( tokenItor->kind == TokenEnum::SYM_LPAREN ) {
+//            tokenItor++;
+//            xExprNodeSP = ParseExpression();
+//            statementNodeSP->children.push_back(xExprNodeSP);
+//
+//            if (tokenItor->kind == TokenEnum::SYM_COMMA) {
+//
+//                tokenItor++;
+//                yExprNodeSP = ParseExpression();
+//                statementNodeSP->children.push_back(yExprNodeSP);
+//
+//                if (tokenItor->kind == TokenEnum::SYM_RPAREN) {
+//                    tokenItor++;
+//                }
+//                else
+//                {
+//                    std::cerr << "Parse Error : Setsprite Expected ) Right Parenthesis" << std::endl;
+//                }
+//            }
+//            else
+//            {
+//                std::cerr << "Parse Error : Setsprite Expected , Comma" << std::endl;
+//            }
+//        }
+//        else
+//        {
+//            std::cerr << "Parse Error : Setsprite Expected ( Left Parenthesis" << std::endl;
+//        }
+//    }
+//
+//    return statementNodeSP;
+//}
 
 
 

@@ -1,0 +1,51 @@
+decl alive
+alive=1
+
+decl x
+x = 32
+
+decl y
+y = 32
+
+decl dx
+dx = 2 / 3
+
+decl dy
+dy = 4 / 3
+
+setsprite(381, 1)
+setcol(3, 0, 0)
+
+while ( alive > 0 ) {
+
+    if ( x < 1 )
+    {
+        x = 1
+        dx = 1
+    }
+
+    if ( x > 64 )
+    {
+        x = 64
+        dx = 0 - 1
+    }
+
+    if ( y < 1 )
+    {
+        y = 1
+        dy = 1
+    }
+
+    if ( y > 64 )
+    {
+        y = 64
+        dy = 0 - 1
+    }
+
+
+    x = x + dx
+    y = y + dy
+
+    setpos( x, y )
+}
+

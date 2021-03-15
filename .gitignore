@@ -1,2 +1,3 @@
 cmake-build-debug
 doxygen
+cmake-build-debug-coverage

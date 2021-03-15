@@ -70,7 +70,7 @@ enum TokenEnum : int {
     KWD_SETSPRITE,
 
     KWD_GETINPUT,
-
+    KWD_SETATLAS,
 
     KWD_SPAWN,
 

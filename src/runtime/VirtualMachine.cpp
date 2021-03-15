@@ -268,7 +268,6 @@ namespace Runtime {
                         break;
                     }
 
-
                     case INSTR::ASETPOS : {
 //                        std::cout << "ASETPOS - 2 params, sets position of a sprite in the agen" << std::endl;
 
@@ -281,12 +280,11 @@ namespace Runtime {
                         if ( owner ) {
                             owner->SetPosition(b.value, a.value);
                         }
-
                         break;
                     }
 
                     case INSTR::ASETVEL : {
-//                        std::cout << "ASETPOS - 2 params, sets position of a sprite in the agen" << std::endl;
+//                        std::cout << "ASETVEL - 2 params, sets position of a sprite in the agen" << std::endl;
 
                         Location a = stack[stack.size() - 1];
                         stack.pop_back();
@@ -295,15 +293,13 @@ namespace Runtime {
                         stack.pop_back();
 
                         if ( owner ) {
-                            owner->SetVelocity(b.value, a.value);
+//                            owner->SetVelocity(b.value, a.value);
                         }
-
                         break;
                     }
 
-
                     case INSTR::ASETCOL : {
-//                        std::cout << "ASETCOL - 2 params, sets position of a sprite in the agen" << std::endl;
+//                      std::cout << "ASETCOL - 2 params, sets position of a sprite in the agen" << std::endl;
 
                         Location a = stack[stack.size() - 1];
                         stack.pop_back();
@@ -321,7 +317,7 @@ namespace Runtime {
                     }
 
                     case INSTR::ASETSPRITE : {
-//                        std::cout << "ASETSPRITE - 2 params, sets position of the quad to copy from the atlas" << std::endl;
+//                      std::cout << "ASETSPRITE - 2 params, sets position of the quad to copy from the atlas" << std::endl;
 
                         Location y = stack[stack.size() - 1];
                         stack.pop_back();
@@ -330,15 +326,14 @@ namespace Runtime {
                         stack.pop_back();
 
                         if ( owner ) {
-                            owner->SetSprite(x.value, y.value);
+//                            owner->SetSprite(x.value, y.value);
+                            owner->SetSprite(x.value);
                         }
-
                         break;
                     }
 
-
                     case INSTR::AGETINPUT : {
-//                        std::cout << "AGETINPUT - 1 params, gets status of keyboard button or direction" << std::endl;
+//                      std::cout << "AGETINPUT - 1 params, gets status of keyboard button or direction" << std::endl;
 
                         Location v = stack[stack.size() - 1];
                         stack.pop_back();
@@ -366,7 +361,6 @@ namespace Runtime {
                         if ( owner ) {
                             owner->Spawn(stringTable[strIndex.address]);
                         }
-
                         break;
                     }
 

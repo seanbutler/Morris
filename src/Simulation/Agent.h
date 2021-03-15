@@ -26,42 +26,54 @@ class Agent : public Engine::Entity {
 public:
     Agent(std::string F)
     :   virtualMachine(Runtime::VM(Compiler::compile(F)))
-    ,   size(1.0, 1.0)
-    ,   position(1.0, 1.0)
     {
-//        sprite.setSize(size);
-//        SetColour(3, 0, 0);
-        sprite.setPosition(position);
-        textures.SetSprite(24, 0, sprite);
         virtualMachine.SetOwner(this);
     }
 
     virtual void Update(float deltaTime)                { virtualMachine.Execute(); }
-    virtual void Render(sf::RenderWindow *W)            { W->draw(sprite); }
     virtual void Spawn(std::string FN = "dummy.src");
 
-    //
-    // TODO - move these into a separate library of sorts maybe
-    //
-    void SetPosition(float X = 1.0, float Y = 1.0)      { sprite.setPosition(sf::Vector2f(X, Y)); }
-    void SetVelocity(float X = 1.0, float Y = 1.0)      { velocity = sf::Vector2f(X, Y);       }
-    void SetSprite(unsigned int X, unsigned char Y )    { textures.SetSprite(X, Y, sprite);  }
-    unsigned long int GetInput(unsigned int B)          { return Engine::Input::GetButton(B);  }
+    virtual void Render(sf::RenderWindow *W) {
+        for (auto S : sprites) {
+            W->draw(S);
+        }
+    }
+
+    void SetPosition(float X = 1.0, float Y = 1.0, unsigned int index = 0)
+    {
+        sprites.back().setPosition( sf::Vector2f(X, Y));
+    }
+
+//    void SetSprite(unsigned int X, unsigned char Y, unsigned int index = 0)
+//    {
+//        sf::Sprite tmpSprite;
+//        textures.SetSprite(X, Y, tmpSprite);
+//        sprites.push_back(tmpSprite);
+//    }
+
+    void SetSprite(unsigned int N)
+    {
+        sf::Sprite tmpSprite;
+        textures.SetSprite(N, tmpSprite);
+        sprites.push_back(tmpSprite);
+    }
+
+
+    unsigned long int GetInput(unsigned int B) {
+        return Engine::Input::GetButton(B);
+    }
 
     void SetColour(unsigned char R, unsigned char G, unsigned char B, unsigned char A=3) {
         R = (R * 85);
         G = (G * 85);
         B = (B * 85);
         A = (A * 85);
-        sprite.setColor(sf::Color((R<<24)|(G<<16)|(B<<8)|A));
+        sprites.back().setColor(sf::Color((R<<24)|(G<<16)|(B<<8)|A));
     }
 
 protected:
-    Runtime::VM         virtualMachine;
-    sf::Sprite          sprite;
-    sf::Vector2f        position;
-    sf::Vector2f        size;
-    sf::Vector2f        velocity;
+    Runtime::VM                         virtualMachine;
+    std::vector<sf::Sprite>             sprites;
 };
 
 // ----------------------------------------------------------------------

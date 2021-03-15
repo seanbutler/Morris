@@ -1,10 +1,7 @@
 
-setsprite(0, 0)
-setpos(24, 24)
-setcol(2, 2, 2)
 
-spawn("./assets/code/square.src")
-spawn("./assets/code/test.src")
-spawn("./assets/code/test1.src")
-spawn("./assets/code/test2.src")
+spawn("assets/code/tilemap.src")
 
+spawn("assets/code/player.src")
+spawn("assets/code/flyer.src")
+spawn("assets/code/chicken.src")

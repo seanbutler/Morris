@@ -1,0 +1,52 @@
+
+decl x
+decl y
+
+x = 32
+y = 32
+
+setsprite(115, 115)
+setpos(x, y)
+setcol(2, 1, 0)
+
+setsprite(116, 116)
+setpos(x+16, y)
+setcol(2, 1, 0)
+
+setsprite(117, 117)
+setpos(x+32, y)
+setcol(2, 1, 0)
+
+x = 64
+y = 64
+
+# TOP
+setsprite(115, 12)
+setpos(x, y)
+setcol(2, 1, 0)
+
+setsprite(116, 12)
+setpos(x+16, y)
+setcol(2, 1, 0)
+
+setsprite(117, 12)
+setpos(x+32, y)
+setcol(2, 1, 0)
+
+
+x = 128
+y = 64
+
+# TOP
+setsprite(115, 12)
+setpos(x, y)
+setcol(1, 1, 1)
+
+setsprite(116, 12)
+setpos(x+16, y)
+setcol(1, 1, 1)
+
+setsprite(117, 12)
+setpos(x+32, y)
+setcol(1, 1, 1)
+

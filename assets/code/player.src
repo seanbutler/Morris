@@ -1,5 +1,5 @@
-decl loop
-loop = 1
+decl lives
+lives = 3
 
 decl x
 x = 16
@@ -10,29 +10,29 @@ y = 16
 decl button
 button = 0
 
-setsprite(29, 8)
-setcol(0, 2, 0)
+setsprite(243, 12)
+setcol(2, 0, 2)
 
-while ( loop <= 999 ) {
+while ( lives > 0 ) {
 
     button = getinput(1)
     if ( button ) {
-        y = y - 1
+        y = y - 2
     }
 
     button = getinput(2)
     if ( button ) {
-        x = x + 1
+        x = x + 2
     }
 
     button = getinput(3)
     if ( button ) {
-        y = y + 1
+        y = y + 2
     }
 
     button = getinput(4)
     if ( button ) {
-        x = x - 1
+        x = x - 2
     }
 
     setpos( x, y )

@@ -31,8 +31,11 @@ namespace Engine {
             ,   h(H)
             ,   pixel_scale(PS)
             ,   window(sf::VideoMode(w, h),
-                       windowTitle.c_str(),
-                       sf::Style::Titlebar | sf::Style::Close )
+                       windowTitle.c_str()
+                       , sf::Style::Titlebar
+                        | sf::Style::Close
+//                      | sf::Style::Fullscreen
+                       )
     {
         window.setSize(sf::Vector2u(w*pixel_scale,h*pixel_scale));
         window.setFramerateLimit(FR);

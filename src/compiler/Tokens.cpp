@@ -4,6 +4,7 @@
 
 #include "Tokens.h"
 
+
 Token tokens[] = {
 
         Token(KWD_DECL,     "decl"      ),
@@ -25,7 +26,8 @@ Token tokens[] = {
         Token(KWD_SETCOL ,      "setcol"            ),
         Token(KWD_SETSPRITE ,   "setsprite"         ),
 
-        Token(KWD_GETINPUT,   "getinput"      ),
+        Token(KWD_GETINPUT,   "getinput"            ),
+        Token(KWD_SETATLAS,   "atlas"               ),
 
         Token(KWD_SPAWN ,   "spawn"    ),
 

@@ -1,6 +1,6 @@
 
 
-spawn("assets/code/tilemap.src")
+# spawn("assets/code/tilemap.src")
 
 spawn("assets/code/player.src")
 spawn("assets/code/flyer.src")

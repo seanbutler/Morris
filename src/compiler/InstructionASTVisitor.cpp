@@ -328,7 +328,7 @@ void InstructionASTVisitor::Visit(SetcolASTNode * A){
 void InstructionASTVisitor::Visit(SetspriteASTNode * A){
     std::cout << "Visit SetspriteASTNode" << std::endl;
     A->children[0]->Accept(this);
-    A->children[1]->Accept(this);
+//    A->children[1]->Accept(this);
     instructions.emplace_back(Location(INSTR::ASETSPRITE));
 }
 

@@ -13,7 +13,7 @@ dx = 2 / 3
 decl dy
 dy = 4 / 3
 
-setsprite(381, 1)
+setsprite(381)
 setcol(3, 0, 0)
 
 while ( alive > 0 ) {

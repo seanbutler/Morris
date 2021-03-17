@@ -1,20 +1,16 @@
 digraph G {
 node [shape = circle];
-node0 [ uuid = "3f7c2a3c-9b5e-45d8-8eee-a46a5f292312" shape = "record" label = "MDL " ];
-node1 [ uuid = "f5d55e02-423e-42ff-9e1c-3a429e14f6c8" shape = "record" label = "KWD spawn" ];
-node2 [ uuid = "c8865e34-55d5-4872-9c4c-8e0e85199983" shape = "record" label = "STR assets/code/tilemap.src" ];
+node0 [ uuid = "6e2e5a1c-61ec-4969-a877-13079bdab466" shape = "record" label = "MDL " ];
+node1 [ uuid = "37b9ebba-9120-4fd7-a5ff-aafd9963881d" shape = "record" label = "KWD spawn" ];
+node2 [ uuid = "39b13add-4d6a-4ad1-8543-5b7ab4b9c7cc" shape = "record" label = "STR assets/code/player.src" ];
 node1 -> node2;
 node0 -> node1;
-node3 [ uuid = "3450c39d-9bfc-4056-9a09-5d4a373578f0" shape = "record" label = "KWD spawn" ];
-node4 [ uuid = "80424cc6-be55-4a0f-8867-2728bdd2736e" shape = "record" label = "STR assets/code/player.src" ];
+node3 [ uuid = "2c9f8e1a-61e3-4154-b677-15380db2b8ef" shape = "record" label = "KWD spawn" ];
+node4 [ uuid = "f6bc5877-e43c-4d23-86ee-bd223ac29ee1" shape = "record" label = "STR assets/code/flyer.src" ];
 node3 -> node4;
 node0 -> node3;
-node5 [ uuid = "48ec11c5-0514-425f-ae59-4bc0f8d9e371" shape = "record" label = "KWD spawn" ];
-node6 [ uuid = "db9fff08-988a-4848-8b73-1d0cad3ccd4a" shape = "record" label = "STR assets/code/flyer.src" ];
+node5 [ uuid = "0b517fce-8ebb-416f-8dd3-f492fe902132" shape = "record" label = "KWD spawn" ];
+node6 [ uuid = "e38862f1-f490-498f-8ff0-3f4a70a247db" shape = "record" label = "STR assets/code/chicken.src" ];
 node5 -> node6;
 node0 -> node5;
-node7 [ uuid = "96286b42-be57-4639-8172-acfb0bd8bd10" shape = "record" label = "KWD spawn" ];
-node8 [ uuid = "809a1248-796d-490c-9230-f891ec9f853e" shape = "record" label = "STR assets/code/chicken.src" ];
-node7 -> node8;
-node0 -> node7;
 }

@@ -831,11 +831,11 @@ SetspriteASTNode * Parser::ParseSetsprite(ASTNode *P) {
             xExprNodeSP = ParseExpression();
             statementNodeSP->children.push_back(xExprNodeSP);
 
-            if (tokenItor->kind == TokenEnum::SYM_COMMA) {
+//            if (tokenItor->kind == TokenEnum::SYM_COMMA) {
 
-                tokenItor++;
-                yExprNodeSP = ParseExpression();
-                statementNodeSP->children.push_back(yExprNodeSP);
+//                tokenItor++;
+//                yExprNodeSP = ParseExpression();
+//                statementNodeSP->children.push_back(yExprNodeSP);
 
                 if (tokenItor->kind == TokenEnum::SYM_RPAREN) {
                     tokenItor++;
@@ -844,11 +844,11 @@ SetspriteASTNode * Parser::ParseSetsprite(ASTNode *P) {
                 {
                     std::cerr << "Parse Error : Setsprite Expected ) Right Parenthesis" << std::endl;
                 }
-            }
-            else
-            {
-                std::cerr << "Parse Error : Setsprite Expected , Comma" << std::endl;
-            }
+//            }
+//            else
+//            {
+//                std::cerr << "Parse Error : Setsprite Expected , Comma" << std::endl;
+//            }
         }
         else
         {

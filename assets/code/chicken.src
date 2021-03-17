@@ -22,7 +22,7 @@ MOVE_RIGHT = 2
 decl MOVE_UP
 MOVE_UP = 3
 
-setsprite(326, 7)
+setsprite(326)
 setcol(3, 3, 0)
 
 while ( state != 99 ) {

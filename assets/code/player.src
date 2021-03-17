@@ -10,7 +10,7 @@ y = 16
 decl button
 button = 0
 
-setsprite(243, 12)
+setsprite(243)
 setcol(2, 0, 2)
 
 while ( lives > 0 ) {

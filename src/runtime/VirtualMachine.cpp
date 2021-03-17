@@ -319,8 +319,8 @@ namespace Runtime {
                     case INSTR::ASETSPRITE : {
 //                      std::cout << "ASETSPRITE - 2 params, sets position of the quad to copy from the atlas" << std::endl;
 
-                        Location y = stack[stack.size() - 1];
-                        stack.pop_back();
+//                        Location y = stack[stack.size() - 1];
+//                        stack.pop_back();
 
                         Location x = stack[stack.size() - 1];
                         stack.pop_back();

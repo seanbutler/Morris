@@ -764,6 +764,10 @@ SetposASTNode * Parser::ParseSetpos(ASTNode *P) {
                 std::cerr << "Parse Error : Setpos Expected , Comma" << std::endl;
             }
         }
+        else
+        {
+            std::cerr << "Parse Error : Setpos Expected ( Left Parenthesis" << std::endl;
+        }
     }
 
     return statementNodeSP;
@@ -831,24 +835,13 @@ SetspriteASTNode * Parser::ParseSetsprite(ASTNode *P) {
             xExprNodeSP = ParseExpression();
             statementNodeSP->children.push_back(xExprNodeSP);
 
-//            if (tokenItor->kind == TokenEnum::SYM_COMMA) {
-
-//                tokenItor++;
-//                yExprNodeSP = ParseExpression();
-//                statementNodeSP->children.push_back(yExprNodeSP);
-
-                if (tokenItor->kind == TokenEnum::SYM_RPAREN) {
-                    tokenItor++;
-                }
-                else
-                {
-                    std::cerr << "Parse Error : Setsprite Expected ) Right Parenthesis" << std::endl;
-                }
-//            }
-//            else
-//            {
-//                std::cerr << "Parse Error : Setsprite Expected , Comma" << std::endl;
-//            }
+            if (tokenItor->kind == TokenEnum::SYM_RPAREN) {
+                tokenItor++;
+            }
+            else
+            {
+                std::cerr << "Parse Error : Setsprite Expected ) Right Parenthesis" << std::endl;
+            }
         }
         else
         {
@@ -944,77 +937,58 @@ GetInputASTNode * Parser::ParseGetInput(ASTNode *P) {
     return statementNodeSP;
 }
 
-
-// --------------------------------------------------------------------------------
-//
-//SetspriteASTNode * Parser::ParseSetAtlas(ASTNode *P) {
-//    SetspriteASTNode * statementNodeSP = nullptr;
-//    ASTNode * xExprNodeSP;
-//    ASTNode * yExprNodeSP;
-//
-//    if ( tokenItor->kind == TokenEnum::KWD_SETSPRITE ) {
-//        statementNodeSP = new SetspriteASTNode();
-//
-//        tokenItor++;
-//
-//        if ( tokenItor->kind == TokenEnum::SYM_LPAREN ) {
-//            tokenItor++;
-//            xExprNodeSP = ParseExpression();
-//            statementNodeSP->children.push_back(xExprNodeSP);
-//
-//            if (tokenItor->kind == TokenEnum::SYM_COMMA) {
-//
-//                tokenItor++;
-//                yExprNodeSP = ParseExpression();
-//                statementNodeSP->children.push_back(yExprNodeSP);
-//
-//                if (tokenItor->kind == TokenEnum::SYM_RPAREN) {
-//                    tokenItor++;
-//                }
-//                else
-//                {
-//                    std::cerr << "Parse Error : Setsprite Expected ) Right Parenthesis" << std::endl;
-//                }
-//            }
-//            else
-//            {
-//                std::cerr << "Parse Error : Setsprite Expected , Comma" << std::endl;
-//            }
-//        }
-//        else
-//        {
-//            std::cerr << "Parse Error : Setsprite Expected ( Left Parenthesis" << std::endl;
-//        }
-//    }
-//
-//    return statementNodeSP;
-//}
-
-
-
 // ----------------------------------------------------------------------
 
 SpawnASTNode * Parser::ParseSpawn(ASTNode *P) {
     SpawnASTNode * statementNodeSP = nullptr;
     ASTNode * stringNodeSP;
+    ASTNode * xExprNodeSP;
+    ASTNode * yExprNodeSP;
 
     if ( tokenItor->kind == TokenEnum::KWD_SPAWN ) {
         statementNodeSP = new SpawnASTNode();
 
         tokenItor++;
+
         if ( tokenItor->kind == TokenEnum::SYM_LPAREN ) {
 
             tokenItor++;
+
             stringNodeSP = ParseString();
             statementNodeSP->children.push_back(stringNodeSP);
 
             tokenItor++;
-            if (tokenItor->kind == TokenEnum::SYM_RPAREN) {
+
+            if (tokenItor->kind == TokenEnum::SYM_COMMA) {
+
                 tokenItor++;
+
+                xExprNodeSP = ParseExpression();
+                statementNodeSP->children.push_back(xExprNodeSP);
+
+                if (tokenItor->kind == TokenEnum::SYM_COMMA) {
+
+                    tokenItor++;
+
+                    yExprNodeSP = ParseExpression();
+                    statementNodeSP->children.push_back(yExprNodeSP);
+
+                    if (tokenItor->kind == TokenEnum::SYM_RPAREN) {
+                        tokenItor++;
+                    }
+                    else
+                    {
+                        std::cerr << "Parse Error : Spawn Expected ) Right Parenthesis" << std::endl;
+                    }
+                }
+                else
+                {
+                    std::cerr << "Parse Error : Spawn Expected , Comma" << std::endl;
+                }
             }
             else
             {
-                std::cerr << "Parse Error : Spawn Expected ) Right Parenthesis" << std::endl;
+                std::cerr << "Parse Error : Spawn Expected , Comma" << std::endl;
             }
         }
         else

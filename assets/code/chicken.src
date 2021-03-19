@@ -1,9 +1,3 @@
-decl x
-x = 22
-
-decl y
-y = 3
-
 decl state
 state = 0
 
@@ -25,26 +19,27 @@ MOVE_UP = 3
 setsprite(326)
 setcol(3, 3, 0)
 
+
 while ( state != 99 ) {
 
     if (state == MOVE_RIGHT)
     {
-        x = x + 1
+        setvel(1, 0)
     }
 
     if (state == MOVE_DOWN)
     {
-        y = y + 1
+        setvel(0, 1)
     }
 
     if (state == MOVE_LEFT)
     {
-        x = x - 1
+        setvel(0-1,0)
     }
 
     if (state == MOVE_UP)
     {
-        y = y - 1
+        setvel(0, 0-1)
     }
 
     if ( counter <= 0 )
@@ -61,7 +56,6 @@ while ( state != 99 ) {
     {
         counter = counter - 1
     }
-    
-    setpos ( x, y )
+
 }
 

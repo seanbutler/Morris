@@ -5,15 +5,15 @@ decl y
 x = 32
 y = 32
 
-setsprite(144, 0)
+setsprite(144)
 setpos(x, y)
 setcol(2, 1, 0)
 
-setsprite(145, 0)
+setsprite(145)
 setpos(x+16, y)
 setcol(2, 1, 0)
 
-setsprite(146, 0)
+setsprite(146)
 setpos(x+32, y)
 setcol(2, 1, 0)
 
@@ -22,15 +22,15 @@ y = 64
 
 # TOP
 
-setsprite(84, 0)
+setsprite(84)
 setpos(x, y)
 setcol(2, 1, 0)
 
-setsprite(85, 0)
+setsprite(85)
 setpos(x+16, y)
 setcol(2, 1, 0)
 
-setsprite(86, 0)
+setsprite(86)
 setpos(x+32, y)
 setcol(2, 1, 0)
 
@@ -39,15 +39,15 @@ y = 64
 
 # TOP
 
-setsprite(104, 0)
+setsprite(104)
 setpos(x, y)
 setcol(1, 1, 1)
 
-setsprite(105, 0)
+setsprite(105)
 setpos(x+16, y)
 setcol(1, 1, 1)
 
-setsprite(106, 0)
+setsprite(106)
 setpos(x+32, y)
 setcol(1, 1, 1)
 

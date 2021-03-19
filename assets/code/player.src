@@ -1,12 +1,6 @@
 decl lives
 lives = 3
 
-decl x
-x = 16
-
-decl y
-y = 16
-
 decl button
 button = 0
 
@@ -17,24 +11,23 @@ while ( lives > 0 ) {
 
     button = getinput(1)
     if ( button ) {
-        y = y - 2
+        setvel(0, 0-2)
     }
 
     button = getinput(2)
     if ( button ) {
-        x = x + 2
+        setvel(2, 0)
     }
 
     button = getinput(3)
     if ( button ) {
-        y = y + 2
+        setvel(0, 2)
     }
 
     button = getinput(4)
     if ( button ) {
-        x = x - 2
+        setvel(0-2, 0)
     }
 
-    setpos( x, y )
 }
 

@@ -293,7 +293,7 @@ namespace Runtime {
                         stack.pop_back();
 
                         if ( owner ) {
-//                            owner->SetVelocity(b.value, a.value);
+                            owner->SetVelocity(b.value, a.value);
                         }
                         break;
                     }
@@ -319,14 +319,10 @@ namespace Runtime {
                     case INSTR::ASETSPRITE : {
 //                      std::cout << "ASETSPRITE - 2 params, sets position of the quad to copy from the atlas" << std::endl;
 
-//                        Location y = stack[stack.size() - 1];
-//                        stack.pop_back();
-
                         Location x = stack[stack.size() - 1];
                         stack.pop_back();
 
                         if ( owner ) {
-//                            owner->SetSprite(x.value, y.value);
                             owner->SetSprite(x.value);
                         }
                         break;
@@ -353,13 +349,17 @@ namespace Runtime {
                     case INSTR::SPAWN : {
                         std::cout << "SPAWN - spawn " << std::endl;
 
+                        Location a = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location b = stack[stack.size() - 1];
+                        stack.pop_back();
+
                         Location strIndex = stack[stack.size() - 1];
                         stack.pop_back();
 
-                        std::cerr << strIndex << " " << stringTable[strIndex.address] << std::endl;
-
                         if ( owner ) {
-                            owner->Spawn(stringTable[strIndex.address]);
+                            owner->Spawn(stringTable[strIndex.address], b.value, a.value);
                         }
                         break;
                     }

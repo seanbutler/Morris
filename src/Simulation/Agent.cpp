@@ -3,14 +3,15 @@
 //
 
 #include "Agent.h"
-#include "../engine/Scheduler.h"
 
 // ----------------------------------------------------------------------
 
-void Agent::Spawn(std::string FN)
+void Agent::Spawn(std::string FN, unsigned int x, unsigned int y)
 {
     if ( scheduler ) {
-        scheduler->Spawn(new Agent(FN));
+        Agent * ag = new Agent(FN);
+        ag->SetPosition(x, y);
+        scheduler->Spawn(ag);
     }
 }
 

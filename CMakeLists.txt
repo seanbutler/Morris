@@ -17,7 +17,7 @@ set(SOURCE_FILES
         src/engine/Entity.h
         src/engine/Input.h
         src/engine/Scheduler.h
-        src/Simulation/Agent.cpp src/Simulation/Agent.h src/Simulation/XForm.cpp src/Simulation/XForm.h)
+        src/Simulation/Agent.cpp src/Simulation/Agent.h src/Simulation/XForm.cpp src/Simulation/XForm.h src/Simulation/CollisionManager.cpp src/Simulation/CollisionManager.h)
 
 add_executable(Morris ${SOURCE_FILES})
 

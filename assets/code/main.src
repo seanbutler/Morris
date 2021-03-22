@@ -1,13 +1,8 @@
 
-# spawn("assets/code/tilemap.src", 16, 8)
-spawn("assets/code/player.src", 8, 16)
+spawn("assets/code/player.src", 64, 64)
 
+spawn("assets/code/robot.src", 128, 32)
+spawn("assets/code/robot.src", 128, 96)
 
-
-spawn("assets/code/flyer.src", 128, 32)
-spawn("assets/code/flyer.src", 128, 64)
-spawn("assets/code/flyer.src", 128, 96)
-
-spawn("assets/code/chicken.src", 32, 32)
-spawn("assets/code/chicken.src", 32, 48)
-spawn("assets/code/chicken.src", 32, 64)
+spawn("assets/code/skeleton.src", 64, 32)
+spawn("assets/code/skeleton.src", 64, 64)

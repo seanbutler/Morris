@@ -4,40 +4,28 @@ state = 0
 decl counter
 counter = 0
 
-decl MOVE_LEFT
-MOVE_LEFT = 0
-
-decl MOVE_DOWN
-MOVE_DOWN = 1
-
-decl MOVE_RIGHT
-MOVE_RIGHT = 2
-
-decl MOVE_UP
-MOVE_UP = 3
-
-setsprite(326)
-setcol(3, 3, 0)
+setsprite(4*16)
+setcol(1, 1, 1)
 
 
 while ( state != 99 ) {
 
-    if (state == MOVE_RIGHT)
+    if (state == 0)
     {
         setvel(1, 0)
     }
 
-    if (state == MOVE_DOWN)
+    if (state == 1)
     {
         setvel(0, 1)
     }
 
-    if (state == MOVE_LEFT)
+    if (state == 2)
     {
         setvel(0-1,0)
     }
 
-    if (state == MOVE_UP)
+    if (state == 3)
     {
         setvel(0, 0-1)
     }

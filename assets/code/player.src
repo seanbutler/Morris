@@ -4,30 +4,53 @@ lives = 3
 decl button
 button = 0
 
-setsprite(243)
-setcol(2, 0, 2)
+decl counter
+counter = 0
+
+decl dx
+decl dy
+
+setsprite(25)
+setcol(3, 2, 0)
 
 while ( lives > 0 ) {
 
-    button = getinput(1)
-    if ( button ) {
-        setvel(0, 0-2)
+    if (counter>0) {
+        counter = counter - 1
     }
 
-    button = getinput(2)
-    if ( button ) {
-        setvel(2, 0)
+    if (counter==0){
+        dx=0
+        dy=0
+
+        button = getinput(1)
+        if ( button ) {
+            dx=0  dy=0-2 counter = 8
+        }
+
+        button = getinput(2)
+        if ( button ) {
+            dx=2
+            dy=0
+            counter = 8
+        }
+
+        button = getinput(3)
+        if ( button ) {
+            dx=0
+            dy=2
+            counter = 8
+        }
+
+        button = getinput(4)
+        if ( button ) {
+            dx=0-2
+            dy=0
+            counter = 8
+        }
+
     }
 
-    button = getinput(3)
-    if ( button ) {
-        setvel(0, 2)
-    }
-
-    button = getinput(4)
-    if ( button ) {
-        setvel(0-2, 0)
-    }
-
+    setvel(dx, dy)
 }
 

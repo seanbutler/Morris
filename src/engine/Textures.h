@@ -44,22 +44,13 @@ namespace Engine {
             }
         }
 
-//        virtual void SetSprite(unsigned int x, unsigned int y, sf::Sprite & sprite) {
-//            sprite.setTexture(texture);
-//            sprite.setTextureRect(sf::IntRect(x * sprite_size, y * sprite_size, sprite_size, sprite_size));
-//        }
 
         virtual void SetSprite(unsigned int n, sf::Sprite & sprite) {
-            sprite.setTexture(texture);
-
-            unsigned int a = n / dimx;
-            unsigned int b = n % dimx;
-
+            n = n % maxcap;
             unsigned int x = n % dimx;
             unsigned int y = n / dimx;
 
-            std::cout << "sprite xy = " << x << " " << y << std::endl;
-
+            sprite.setTexture(texture);
             sprite.setTextureRect(sf::IntRect(x * sprite_size, y * sprite_size, sprite_size, sprite_size));
         }
 
@@ -68,7 +59,6 @@ namespace Engine {
         unsigned int sprite_size;
         unsigned int dimx, dimy, maxcap;
     };
-
 };
 
 // ----------------------------------------------------------------------

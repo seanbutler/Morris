@@ -1,4 +1,3 @@
-
 decl x
 decl y
 
@@ -9,45 +8,27 @@ setsprite(144)
 setpos(x, y)
 setcol(2, 1, 0)
 
+x=x+16
 setsprite(145)
-setpos(x+16, y)
+setpos(x, y)
 setcol(2, 1, 0)
 
+x=x+16
 setsprite(146)
-setpos(x+32, y)
-setcol(2, 1, 0)
-
-x = 64
-y = 64
-
-# TOP
-
-setsprite(84)
 setpos(x, y)
 setcol(2, 1, 0)
 
-setsprite(85)
-setpos(x+16, y)
-setcol(2, 1, 0)
-
-setsprite(86)
-setpos(x+32, y)
-setcol(2, 1, 0)
-
-x = 128
-y = 64
-
-# TOP
-
-setsprite(104)
+y=y+48
 setpos(x, y)
-setcol(1, 1, 1)
+setsprite(144)
+setcol(2, 1, 0)
 
-setsprite(105)
-setpos(x+16, y)
-setcol(1, 1, 1)
+x=x+16
+setpos(x, y)
+setsprite(145)
+setcol(2, 1, 0)
 
-setsprite(106)
-setpos(x+32, y)
-setcol(1, 1, 1)
-
+x=x+16
+setpos(x, y)
+setsprite(146)
+setcol(2, 1, 0)

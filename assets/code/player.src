@@ -10,8 +10,8 @@ counter = 0
 decl dx
 decl dy
 
-setsprite(25)
-setcol(3, 2, 0)
+setsprite(192)
+setcol(3, 2, 2)
 
 while ( lives > 0 ) {
 
@@ -19,7 +19,7 @@ while ( lives > 0 ) {
         counter = counter - 1
     }
 
-    if (counter==0){
+    if (counter==0) {
         dx=0
         dy=0
 

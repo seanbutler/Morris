@@ -29,6 +29,7 @@ class ExpressionASTNode;
 class NumberASTNode;
 class StringASTNode;
 class SpawnASTNode;
+class SpawnAtASTNode;
 class LHSIdentifierASTNode;
 class RHSIdentifierASTNode;
 class OperatorASTNode;
@@ -60,6 +61,7 @@ public:
     void Visit(NumberASTNode * A);
     void Visit(StringASTNode * A);
     void Visit(SpawnASTNode * A);
+    void Visit(SpawnAtASTNode * A);
     void Visit(LHSIdentifierASTNode * A);
     void Visit(RHSIdentifierASTNode * A);
     void Visit(OperatorASTNode * A);

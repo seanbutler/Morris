@@ -10,7 +10,7 @@
 #include "VirtualMachine.h"
 #include "../compiler/Location.h"
 
-#include "../Simulation/Agent.h"
+#include "../engine/Agent.h"
 
 
 //#define VM_DEBUG_DUMP
@@ -348,6 +348,21 @@ namespace Runtime {
 
                     case INSTR::SPAWN : {
                         std::cout << "SPAWN - spawn " << std::endl;
+
+                        int x = owner->GetSprite()->getPosition().x;
+                        int y = owner->GetSprite()->getPosition().y;
+
+                        Location strIndex = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        if ( owner ) {
+                            owner->Spawn(stringTable[strIndex.address], x, y);
+                        }
+                        break;
+                    }
+
+                    case INSTR::SPAWNAT : {
+                        std::cout << "SPAWNAT - spawnat " << std::endl;
 
                         Location a = stack[stack.size() - 1];
                         stack.pop_back();

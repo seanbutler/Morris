@@ -65,7 +65,7 @@ bool Tokenizer::ScanToken() {
         --currentPosition;
 
         // TODO CHANGE THIS INTO MODERN c++ with proper lookup
-        for (unsigned int i = 0; i < 18; i++ ) {
+        for (unsigned int i = 0; i < 19; i++ ) {
             if ( tokenString == tokens[i].name )
             {
                 Token newTok(tokens[i]);                // copy!
@@ -82,6 +82,7 @@ bool Tokenizer::ScanToken() {
         outputTokens.push_back(newTok);
         return true;
     }
+
 
     //
     // parse and store strings in a table
@@ -350,8 +351,6 @@ void Tokenizer::Scan() {
     do {
         result = ScanToken();
     } while (result);
-
-
 }
 
 //----------------------------------------------------------------------

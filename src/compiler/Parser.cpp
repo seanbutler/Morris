@@ -131,6 +131,12 @@ ModuleASTNode * Parser::ParseModule() {
                 break;
             }
 
+            case TokenEnum::KWD_SPAWNAT: {
+                std::cout << "Parser::Parse() TokenEnum::KWD_SPAWNAT" << std::endl;
+                statementsNodePtr->children.push_back(ParseSpawnAt(statementsNodePtr));
+                break;
+            }
+
 //            default: {
 //                std::cout << "ERROR - Unknown Parse Error" << std::endl;
 //            }
@@ -939,14 +945,14 @@ GetInputASTNode * Parser::ParseGetInput(ASTNode *P) {
 
 // ----------------------------------------------------------------------
 
-SpawnASTNode * Parser::ParseSpawn(ASTNode *P) {
-    SpawnASTNode * statementNodeSP = nullptr;
+SpawnAtASTNode * Parser::ParseSpawnAt(ASTNode *P) {
+    SpawnAtASTNode * statementNodeSP = nullptr;
     ASTNode * stringNodeSP;
     ASTNode * xExprNodeSP;
     ASTNode * yExprNodeSP;
 
-    if ( tokenItor->kind == TokenEnum::KWD_SPAWN ) {
-        statementNodeSP = new SpawnASTNode();
+    if ( tokenItor->kind == TokenEnum::KWD_SPAWNAT ) {
+        statementNodeSP = new SpawnAtASTNode();
 
         tokenItor++;
 
@@ -990,6 +996,43 @@ SpawnASTNode * Parser::ParseSpawn(ASTNode *P) {
             {
                 std::cerr << "Parse Error : Spawn Expected , Comma" << std::endl;
             }
+        }
+        else
+        {
+            std::cerr << "Parse Error : Spawn Expected ( Left Parenthesis" << std::endl;
+        }
+    }
+
+    return statementNodeSP;
+}
+
+// ----------------------------------------------------------------------
+
+SpawnASTNode * Parser::ParseSpawn(ASTNode *P) {
+    SpawnASTNode * statementNodeSP = nullptr;
+    ASTNode * stringNodeSP;
+
+    if ( tokenItor->kind == TokenEnum::KWD_SPAWN ) {
+        statementNodeSP = new SpawnASTNode();
+
+        tokenItor++;
+
+        if ( tokenItor->kind == TokenEnum::SYM_LPAREN ) {
+
+            tokenItor++;
+
+            stringNodeSP = ParseString();
+            statementNodeSP->children.push_back(stringNodeSP);
+
+
+            if (tokenItor->kind == TokenEnum::SYM_RPAREN) {
+                tokenItor++;
+            }
+            else
+            {
+                std::cerr << "Parse Error : Spawn Expected ) Right Parenthesis" << std::endl;
+            }
+
         }
         else
         {

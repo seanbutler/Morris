@@ -53,6 +53,7 @@ public:
 
     StringASTNode * ParseString(ASTNode *P= nullptr);
     SpawnASTNode * ParseSpawn(ASTNode *P=nullptr);
+    SpawnAtASTNode * ParseSpawnAt(ASTNode *P=nullptr);
 
 
     SymbolTableStack symbolTable;

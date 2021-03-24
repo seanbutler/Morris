@@ -1,8 +1,11 @@
 
-spawn("assets/code/player.src", 64, 64)
+spawnat("assets/code/player.src", 64, 64)
 
-spawn("assets/code/robot.src", 128, 32)
-spawn("assets/code/robot.src", 128, 96)
+spawnat("assets/code/robot.src", 128, 32)
+spawnat("assets/code/robot.src", 128, 96)
 
-spawn("assets/code/skeleton.src", 64, 32)
-spawn("assets/code/skeleton.src", 64, 64)
+spawnat("assets/code/ghost.src", 196, 128)
+spawnat("assets/code/ghost.src", 196, 96)
+
+spawnat("assets/code/skeleton.src", 64, 32)
+spawnat("assets/code/skeleton.src", 64, 64)

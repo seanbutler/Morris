@@ -29,7 +29,8 @@ Token tokens[] = {
         Token(KWD_GETINPUT,   "getinput"            ),
         Token(KWD_SETATLAS,   "atlas"               ),
 
-        Token(KWD_SPAWN ,   "spawn"    ),
+        Token(KWD_SPAWN ,       "spawn"    ),
+        Token(KWD_SPAWNAT ,     "spawnat"    ),
 
 };
 

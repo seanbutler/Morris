@@ -155,6 +155,17 @@ void InstructionASTVisitor::Visit(SpawnASTNode * A){
     instructions.emplace_back(Location(INSTR::SPAWN));
 }
 
+void InstructionASTVisitor::Visit(SpawnAtASTNode * A){
+    std::cout << "InstructionASTVisitor SpawnAtASTNode" << std::endl;
+
+    for(auto child : A->children) {
+        child->Accept(this);
+    }
+
+    instructions.emplace_back(Location(INSTR::SPAWNAT));
+}
+
+
 // ----------------------------------------------------------------------
 
 void InstructionASTVisitor::Visit(LHSIdentifierASTNode * A){

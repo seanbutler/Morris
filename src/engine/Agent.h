@@ -8,12 +8,10 @@
 
 #include "../compiler/compiler.cpp"
 #include "../runtime/VirtualMachine.h"
-#include "../engine/Entity.h"
-#include "../engine/Scheduler.h"
-#include "../engine/Textures.h"
-#include "../engine/Input.h"
-
-#include "XForm.h"
+#include "Entity.h"
+#include "Scheduler.h"
+#include "Textures.h"
+#include "Input.h"
 
 // ----------------------------------------------------------------------
 
@@ -65,13 +63,11 @@ public:
         textures.SetSprite(N, tmpSprite);
         tmpSprite.setPosition(position.first, position.second);
         sprite = tmpSprite;
+    }
 
-//        std::cout << "Sprite Bounds (" << sprite.getGlobalBounds().top
-//                << ", " << sprite.getGlobalBounds().left
-//                << ", " << sprite.getGlobalBounds().height
-//                << ", " << sprite.getGlobalBounds().width
-//                << ")" << std::endl;
-
+    sf::Sprite* GetSprite()
+    {
+        return &sprite;
     }
 
     unsigned long int GetInput(unsigned int B) {
@@ -86,12 +82,18 @@ public:
         sprite.setColor(sf::Color((R << 24) | (G << 16) | (B << 8) | A));
     }
 
+    void OnCollision(Agent* other)
+    {
+        std::cout << "Collision" << std::endl;
+    }
+
 protected:
     Runtime::VM                             virtualMachine;
 
     std::pair<unsigned int, unsigned int>   velocity;
     std::pair<unsigned int, unsigned int>   position;
     sf::Sprite                              sprite;
+
 };
 
 // ----------------------------------------------------------------------

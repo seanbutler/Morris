@@ -5,7 +5,7 @@ decl counter
 counter = 0
 
 setsprite(4*16)
-setcol(1, 1, 1)
+setcol(3, 3, 3)
 
 
 while ( state != 99 ) {

@@ -388,9 +388,7 @@ public:
     }
 };
 
-
 // ----------------------------------------------------------------------
-
 
 class StringASTNode : public ASTNode {
 public:
@@ -415,6 +413,18 @@ public:
 
     void Accept(InstructionASTVisitor* generator) {
         generator->Visit((SpawnASTNode*)this);
+    }
+};
+
+class SpawnAtASTNode : public ASTNode {
+public:
+    SpawnAtASTNode(ASTNode * P = nullptr)
+            : ASTNode("KWD", "spawnat", P)
+    {
+    }
+
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((SpawnAtASTNode*)this);
     }
 };
 

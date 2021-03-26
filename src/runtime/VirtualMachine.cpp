@@ -24,7 +24,7 @@ namespace Runtime {
         DumpStrings();
 #endif
 
-        slice = 256;
+        slice = 128;
         if (state == RUNNING) {
             while (slice > 0) {
                 slice--;
@@ -45,6 +45,7 @@ namespace Runtime {
                     case INSTR::HALT: {
                         state = VM::HALTED;
                         slice = 0;
+                        owner->scheduler->Remove(owner);
                         break;
                     }
 
@@ -347,7 +348,7 @@ namespace Runtime {
                     }
 
                     case INSTR::SPAWN : {
-                        std::cout << "SPAWN - spawn " << std::endl;
+//                        std::cout << "SPAWN - spawn " << std::endl;
 
                         int x = owner->GetSprite()->getPosition().x;
                         int y = owner->GetSprite()->getPosition().y;
@@ -362,7 +363,7 @@ namespace Runtime {
                     }
 
                     case INSTR::SPAWNAT : {
-                        std::cout << "SPAWNAT - spawnat " << std::endl;
+//                        std::cout << "SPAWNAT - spawnat " << std::endl;
 
                         Location a = stack[stack.size() - 1];
                         stack.pop_back();

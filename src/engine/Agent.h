@@ -38,6 +38,7 @@ public:
     }
 
     virtual void Spawn(std::string FN = "dummy.src", unsigned int x=0, unsigned int y=0);
+    virtual void Die();
 
     virtual void Render(sf::RenderWindow *W) {
         W->draw(sprite);

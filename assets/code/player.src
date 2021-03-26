@@ -4,9 +4,6 @@ lives = 3
 decl button
 button = 0
 
-decl counter
-counter = 0
-
 decl dx
 decl dy
 
@@ -15,42 +12,17 @@ setcol(3, 2, 2)
 
 while ( lives > 0 ) {
 
-    if (counter>0) {
-        counter = counter - 1
-    }
+    dx=0 dy=0
 
-    if (counter==0) {
-        dx=0
-        dy=0
-
-        button = getinput(1)
-        if ( button ) {
-            dx=0  dy=0-2 counter = 8
-        }
-
-        button = getinput(2)
-        if ( button ) {
-            dx=2
-            dy=0
-            counter = 8
-        }
-
-        button = getinput(3)
-        if ( button ) {
-            dx=0
-            dy=2
-            counter = 8
-        }
-
-        button = getinput(4)
-        if ( button ) {
-            dx=0-2
-            dy=0
-            counter = 8
-        }
-
-    }
+    if ( getinput(1) ) { dy=0-2 }
+    if ( getinput(2) ) { dx=2 }
+    if ( getinput(3) ) { dy=2 }
+    if ( getinput(4) ) { dx=0-2 }
 
     setvel(dx, dy)
+
+    if ( getinput(5) ) {
+        spawn("assets/code/sparkle.src")
+    }
 }
 

@@ -1,0 +1,13 @@
+
+decl counter
+counter = 30
+
+setsprite(208)
+setcol(3, 3, 2)
+setvel(0, 0-3)
+
+while ( counter > 0 ) {
+    counter = counter - 1
+}
+
+setcol(0, 0, 3)

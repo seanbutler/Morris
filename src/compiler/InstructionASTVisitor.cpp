@@ -8,7 +8,7 @@
 // --------------------------------------------------
 
 void InstructionASTVisitor::Visit(ModuleASTNode * A){
-    std::cout << "InstructionASTVisitor ModuleASTNode" << std::endl;
+//    std::cout << "InstructionASTVisitor ModuleASTNode" << std::endl;
 
     for(auto child : A->children) {
         child->Accept(this);
@@ -18,7 +18,7 @@ void InstructionASTVisitor::Visit(ModuleASTNode * A){
 }
 
 void InstructionASTVisitor::Visit(DeclarationASTNode * A){
-    std::cout << "InstructionASTVisitor DeclarationASTNode" << std::endl;
+//    std::cout << "InstructionASTVisitor DeclarationASTNode" << std::endl;
 
     for(auto child : A->children) {
         child->Accept(this);
@@ -26,7 +26,7 @@ void InstructionASTVisitor::Visit(DeclarationASTNode * A){
 }
 
 void InstructionASTVisitor::Visit(IdentifierListASTNode * A){
-    std::cout << "InstructionASTVisitor IdentifierListASTNode " << A->value << " " << A->type << std::endl;
+//    std::cout << "InstructionASTVisitor IdentifierListASTNode " << A->value << " " << A->type << std::endl;
 
     for(auto child : A->children) {
 //        std::cout << " >>> DECLARE SYMBOL " << child->value << std::endl;
@@ -35,7 +35,7 @@ void InstructionASTVisitor::Visit(IdentifierListASTNode * A){
 }
 
 void InstructionASTVisitor::Visit(WhileASTNode * A){
-    std::cout << "InstructionASTVisitor WhileASTNode" << std::endl;
+//    std::cout << "InstructionASTVisitor WhileASTNode" << std::endl;
 
     // STORE THE ADDRESS BEFORE THE EXPRESSION, SO WE CAN DO IT AGAIN
 //    unsigned long int beforeConditionAddr = instructions.size();
@@ -65,7 +65,7 @@ void InstructionASTVisitor::Visit(WhileASTNode * A){
 }
 
 void InstructionASTVisitor::Visit(IfASTNode * A){
-    std::cout << "InstructionASTVisitor IfASTNode" << std::endl;
+//    std::cout << "InstructionASTVisitor IfASTNode" << std::endl;
 
     // GENERATE CODE FOR THE FIRST CHILD, THE EXPRESSION
     A->children[0]->Accept(this);
@@ -80,7 +80,7 @@ void InstructionASTVisitor::Visit(IfASTNode * A){
 }
 
 void InstructionASTVisitor::Visit(BlockASTNode * A){
-    std::cout << "InstructionASTVisitor BlockASTNode" << std::endl;
+//    std::cout << "InstructionASTVisitor BlockASTNode" << std::endl;
 
     symbolTable.IncreaseNestLevel();
 
@@ -92,7 +92,7 @@ void InstructionASTVisitor::Visit(BlockASTNode * A){
 }
 
 void InstructionASTVisitor::Visit(AssignmentASTNode * A){
-    std::cout << "InstructionASTVisitor AssignmentASTNode " << A->type << " " << A->value << std::endl;
+//    std::cout << "InstructionASTVisitor AssignmentASTNode " << A->type << " " << A->value << std::endl;
 
     // VISIT THE RHS
     for(auto rhs_child = A->children.begin() + 1; rhs_child != A->children.end(); rhs_child++) {
@@ -107,7 +107,7 @@ void InstructionASTVisitor::Visit(AssignmentASTNode * A){
 
 
 void InstructionASTVisitor::Visit(ExpressionASTNode * A){
-    std::cout << "ExpressionASTNode NumberASTNode" << std::endl;
+//    std::cout << "ExpressionASTNode NumberASTNode" << std::endl;
 
     instructions.emplace_back(Location(INSTR::PUSH));
     instructions.emplace_back(Location((double) std::stoi(A->value)));
@@ -119,7 +119,7 @@ void InstructionASTVisitor::Visit(ExpressionASTNode * A){
 
 
 void InstructionASTVisitor::Visit(NumberASTNode * A){
-    std::cout << "InstructionASTVisitor NumberASTNode" << std::endl;
+//    std::cout << "InstructionASTVisitor NumberASTNode" << std::endl;
 
     instructions.emplace_back(Location(INSTR::PUSH));
     instructions.emplace_back(Location((double) std::stoi(A->value)));
@@ -131,7 +131,7 @@ void InstructionASTVisitor::Visit(NumberASTNode * A){
 
 
 void InstructionASTVisitor::Visit(StringASTNode * A){
-    std::cout << "InstructionASTVisitor StringASTNode" << std::endl;
+//    std::cout << "InstructionASTVisitor StringASTNode" << std::endl;
 
     // add the string to the table
     strings.emplace_back(A->value);
@@ -146,7 +146,7 @@ void InstructionASTVisitor::Visit(StringASTNode * A){
 }
 
 void InstructionASTVisitor::Visit(SpawnASTNode * A){
-    std::cout << "InstructionASTVisitor SpawnASTNode" << std::endl;
+//    std::cout << "InstructionASTVisitor SpawnASTNode" << std::endl;
 
     for(auto child : A->children) {
         child->Accept(this);
@@ -156,7 +156,7 @@ void InstructionASTVisitor::Visit(SpawnASTNode * A){
 }
 
 void InstructionASTVisitor::Visit(SpawnAtASTNode * A){
-    std::cout << "InstructionASTVisitor SpawnAtASTNode" << std::endl;
+//    std::cout << "InstructionASTVisitor SpawnAtASTNode" << std::endl;
 
     for(auto child : A->children) {
         child->Accept(this);
@@ -169,7 +169,7 @@ void InstructionASTVisitor::Visit(SpawnAtASTNode * A){
 // ----------------------------------------------------------------------
 
 void InstructionASTVisitor::Visit(LHSIdentifierASTNode * A){
-    std::cout << "InstructionASTVisitor LHSIdentifierASTNode" << std::endl;
+//    std::cout << "InstructionASTVisitor LHSIdentifierASTNode" << std::endl;
 
     instructions.emplace_back(Location(INSTR::PUSH));
 
@@ -178,7 +178,7 @@ void InstructionASTVisitor::Visit(LHSIdentifierASTNode * A){
     //
 //    std::cout << " <<< RESOLVE " << A->value << " ";
     std::pair<int, int > stackTablePosition = symbolTable.Find(A->value);
-    std::cout << stackTablePosition.first << " " << stackTablePosition.second << std::endl;
+//    std::cout << stackTablePosition.first << " " << stackTablePosition.second << std::endl;
 
 //    instructions.emplace_back(Location( (unsigned long int) stackTablePosition.second));
     // TODO get this value from identifier/varname lookup
@@ -193,13 +193,13 @@ void InstructionASTVisitor::Visit(LHSIdentifierASTNode * A){
 
 
 void InstructionASTVisitor::Visit(RHSIdentifierASTNode * A){
-    std::cout << "InstructionASTVisitor RHSIdentifierASTNode" << std::endl;
+//    std::cout << "InstructionASTVisitor RHSIdentifierASTNode" << std::endl;
 
     instructions.emplace_back(Location(INSTR::PUSH));
 
 //    std::cout << " <<< RESOLVE " << A->value << " ";
     std::pair<int, int > stackTablePosition = symbolTable.Find(A->value);
-    std::cout << stackTablePosition.first << " " << stackTablePosition.second << std::endl;
+//    std::cout << stackTablePosition.first << " " << stackTablePosition.second << std::endl;
 
     instructions.emplace_back(Location( (unsigned long int) stackTablePosition.second));
     instructions.emplace_back(Location(INSTR::LOAD));
@@ -211,7 +211,7 @@ void InstructionASTVisitor::Visit(RHSIdentifierASTNode * A){
 
 
 void InstructionASTVisitor::Visit(OperatorASTNode * A){
-    std::cout << "Visit OperatorASTNode" << std::endl;
+//    std::cout << "Visit OperatorASTNode" << std::endl;
 
     A->children[0]->Accept(this);
     A->children[1]->Accept(this);
@@ -280,7 +280,7 @@ void InstructionASTVisitor::Visit(OperatorASTNode * A){
 // ----------------------------------------------------------------------
 
 void InstructionASTVisitor::Visit(ReturnASTNode * A){
-    std::cout << "Visit ReturnASTNode" << std::endl;
+//    std::cout << "Visit ReturnASTNode" << std::endl;
     for(auto child : A->children) {
         child->Accept(this);
     }
@@ -289,14 +289,14 @@ void InstructionASTVisitor::Visit(ReturnASTNode * A){
 
 
 void InstructionASTVisitor::Visit(FunctionASTNode * A){
-    std::cout << "Visit FunctionASTNode" << std::endl;
+//    std::cout << "Visit FunctionASTNode" << std::endl;
     for(auto child : A->children) {
         child->Accept(this);
     }
 }
 
 void InstructionASTVisitor::Visit(ProcedureASTNode * A){
-    std::cout << "Visit ProcedureASTNode" << std::endl;
+//    std::cout << "Visit ProcedureASTNode" << std::endl;
     for(auto child : A->children) {
         child->Accept(this);
     }
@@ -305,7 +305,7 @@ void InstructionASTVisitor::Visit(ProcedureASTNode * A){
 // --------------------------------------------------
 
 void InstructionASTVisitor::Visit(OutputASTNode * A){
-    std::cout << "Visit OutputASTNode" << std::endl;
+//    std::cout << "Visit OutputASTNode" << std::endl;
     for(auto child : A->children) {
         child->Accept(this);
     }
@@ -315,21 +315,21 @@ void InstructionASTVisitor::Visit(OutputASTNode * A){
 // --------------------------------------------------
 
 void InstructionASTVisitor::Visit(SetposASTNode * A){
-    std::cout << "Visit SetposASTNode" << std::endl;
+//    std::cout << "Visit SetposASTNode" << std::endl;
     A->children[0]->Accept(this);
     A->children[1]->Accept(this);
     instructions.emplace_back(Location(INSTR::ASETPOS));
 }
 
 void InstructionASTVisitor::Visit(SetvelASTNode * A){
-    std::cout << "Visit SetvelASTNode" << std::endl;
+//    std::cout << "Visit SetvelASTNode" << std::endl;
     A->children[0]->Accept(this);
     A->children[1]->Accept(this);
     instructions.emplace_back(Location(INSTR::ASETVEL));
 }
 
 void InstructionASTVisitor::Visit(SetcolASTNode * A){
-    std::cout << "Visit SetcolASTNode" << std::endl;
+//    std::cout << "Visit SetcolASTNode" << std::endl;
     A->children[0]->Accept(this);
     A->children[1]->Accept(this);
     A->children[2]->Accept(this);
@@ -337,14 +337,14 @@ void InstructionASTVisitor::Visit(SetcolASTNode * A){
 }
 
 void InstructionASTVisitor::Visit(SetspriteASTNode * A){
-    std::cout << "Visit SetspriteASTNode" << std::endl;
+//    std::cout << "Visit SetspriteASTNode" << std::endl;
     A->children[0]->Accept(this);
 //    A->children[1]->Accept(this);
     instructions.emplace_back(Location(INSTR::ASETSPRITE));
 }
 
 void InstructionASTVisitor::Visit(GetInputASTNode * A){
-    std::cout << "Visit GetInputASTNode" << std::endl;
+//    std::cout << "Visit GetInputASTNode" << std::endl;
     A->children[0]->Accept(this);
     instructions.emplace_back(Location(INSTR::AGETINPUT));
 }

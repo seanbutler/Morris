@@ -9,21 +9,10 @@ setcol(1, 1, 1)
 
 while ( alive > 0 ) {
 
-    if ( ctr < 60 )
-    {
-        setvel(0-1, 1)
-    }
-
-    if ( ctr > 60 )
-    {
-        setvel(1, 0-1)
-    }
-
     ctr = ctr + 1
 
-    if ( ctr > 120 )
-    {
-        ctr = 0
-    }
+    if ( ctr < 60 ) { setvel(0-1, 1) }
+    if ( ctr > 60 ) { setvel(1, 0-1) }
+    if ( ctr > 120 ) { ctr = 0 }
 }
 

@@ -40,7 +40,7 @@ namespace Engine {
             }
             else
             {
-                std::cout << "Texture Load Error" << std::endl;
+                std::cerr << "Texture Load Error" << std::endl;
             }
         }
 

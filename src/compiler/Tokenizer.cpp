@@ -335,12 +335,12 @@ bool Tokenizer::ScanToken() {
                 return true;
             }
 
-            std::cout << "ERROR : Unknown Token Expected !=" << std::endl;
+            std::cerr << "ERROR : Unknown Token Expected !=" << std::endl;
             return false;
         }
     }
 
-    std::cout << "ERROR : Unknown Token " << std::endl;
+    std::cerr << "ERROR : Unknown Token " << std::endl;
     return false;
 }
 

@@ -53,7 +53,7 @@ public:
             outStream << "node" << std::to_string(id) << " ["
                     << " uuid = \"" << boost::lexical_cast<std::string>(tag) << "\""
                     << " shape = \"record\""
-                    << " label = \"" << type << " ";
+                    << " label = \"" << type << "\n ";
 
             if (value == ">")  { outStream << "\\>"; }
             else if (value == "<")  { outStream << "\\<"; }

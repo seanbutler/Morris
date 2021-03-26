@@ -15,4 +15,13 @@ void Agent::Spawn(std::string FN, unsigned int x, unsigned int y)
     }
 }
 
+
+void Agent::Die()
+{
+    if ( scheduler ) {
+        std::remove(scheduler->entities.begin(),scheduler->entities.end(),this);
+    }
+}
+
+
 // ----------------------------------------------------------------------

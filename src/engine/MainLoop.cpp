@@ -9,11 +9,11 @@
 // ----------------------------------------------------------------------
 
 #include "MainLoop.h"
-#include<iostream>
+#include <iostream>
 
 #ifdef SCREENSHOTS
     #include<sstream>
-#include <iomanip>
+    #include <iomanip>
 #endif
 
 // ----------------------------------------------------------------------

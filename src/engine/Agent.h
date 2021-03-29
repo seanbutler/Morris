@@ -24,7 +24,7 @@ class Agent : public Engine::Entity {
 
 public:
 
-    Agent(Engine::Scheduler & S, std::string & F,
+    Agent(Engine::Scheduler * S, std::string & F,
           std::pair<unsigned int, unsigned int> POS = {0,0},
           std::pair<unsigned int, unsigned int> VEL = {0,0} )
         :   Engine::Entity(S)

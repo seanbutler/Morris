@@ -25,7 +25,7 @@ int main(int argc, char**argv) {
     textures.LoadAtlas("./assets/textures/sean/Untitled.png", 16);
 
 //    loop.entityScheduler.Spawn(std::unique_ptr<Engine::Entity>(new Agent("./assets/code/main.src")));
-    loop.entityScheduler.Spawn("./assets/code/main.src");
+    loop.entityScheduler.Spawn("./assets/code/main.src", std::pair<unsigned int, unsigned int>(0, 0));
     loop.Update();
 
     return 0;

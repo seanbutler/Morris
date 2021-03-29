@@ -27,9 +27,7 @@ namespace Engine {
         {
         }
 
-        virtual ~Textures()
-        {
-        }
+        virtual ~Textures() {}
 
         virtual void LoadAtlas(std::string FN, unsigned int S=16) {
             sprite_size=S;
@@ -43,7 +41,6 @@ namespace Engine {
                 std::cerr << "Texture Load Error" << std::endl;
             }
         }
-
 
         virtual void SetSprite(unsigned int n, sf::Sprite & sprite) {
             n = n % maxcap;

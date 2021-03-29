@@ -16,6 +16,7 @@ set(SOURCE_FILES
         src/engine/MainLoop.cpp src/engine/MainLoop.h
         src/engine/Entity.h
         src/engine/Input.h
+        src/engine/Scheduler.cpp
         src/engine/Scheduler.h
         src/engine/Agent.cpp src/engine/Agent.h
         src/engine/CollisionManager.cpp

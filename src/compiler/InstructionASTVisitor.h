@@ -77,9 +77,7 @@ public:
     void Visit(ProcedureASTNode * A);
 
     SymbolTableStack symbolTable;
-    std::shared_ptr<ASTNode> ast;
     std::vector<Location> instructions;
-    std::vector<Location> data;
     std::vector<std::string> strings;
 };
 

@@ -12,14 +12,23 @@ namespace Engine {
     class Scheduler;
 
     class Entity {
+
     public:
-        Entity() : scheduler(nullptr) {}
-        virtual ~Entity() {}
+
+        enum State {
+            EMBRYO, ALIVE, CORPSE
+        };
+
+        Entity(Scheduler & S) : scheduler(S), state(State::EMBRYO){}
+        virtual ~Entity() { std::cout << "~Entity" << std::endl; }
 
         virtual void Update(float deltaTime) = 0;
-        virtual void Render(sf::RenderWindow *W) = 0;
+        virtual void Render(sf::RenderWindow *W) =0;
 
-        Scheduler * scheduler;
+        bool IsAlive() {return state==ALIVE;}
+
+        Scheduler & scheduler;
+        State state;
     };
 };
 

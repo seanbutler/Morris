@@ -8,6 +8,7 @@
 
 #include "../compiler/compiler.cpp"
 #include "../runtime/VirtualMachine.h"
+
 #include "Entity.h"
 #include "Scheduler.h"
 #include "Textures.h"
@@ -22,8 +23,14 @@ extern Engine::Textures textures;
 class Agent : public Engine::Entity {
 
 public:
-    Agent(std::string F)
-    :   virtualMachine(Runtime::VM(Compiler::compile(F)))
+
+    Agent(Engine::Scheduler & S, std::string & F,
+          std::pair<unsigned int, unsigned int> POS = {0,0},
+          std::pair<unsigned int, unsigned int> VEL = {0,0} )
+        :   Engine::Entity(S)
+        ,   virtualMachine(Runtime::VM(Compiler::compile(F)))
+        ,   position(POS)
+        ,   velocity(VEL)
     {
         virtualMachine.SetOwner(this);
     }
@@ -37,12 +44,10 @@ public:
         sprite.setPosition( sf::Vector2f(position.first, position.second));
     }
 
-    virtual void Spawn(std::string FN = "dummy.src", unsigned int x=0, unsigned int y=0);
-    virtual void Die();
+    virtual void Spawn(std::string FN, unsigned int x=0, unsigned int y=0);     // SHOULDNT THIS BE IN THE SCHEDULER?
+    virtual void Render(sf::RenderWindow *W) { W->draw(sprite); }
 
-    virtual void Render(sf::RenderWindow *W) {
-        W->draw(sprite);
-    }
+    virtual void Die();
 
     void SetPosition(float X = 1.0, float Y = 1.0, unsigned int index = 0)
     {
@@ -90,11 +95,9 @@ public:
 
 protected:
     Runtime::VM                             virtualMachine;
-
-    std::pair<unsigned int, unsigned int>   velocity;
-    std::pair<unsigned int, unsigned int>   position;
     sf::Sprite                              sprite;
-
+    std::pair<unsigned int, unsigned int>   position;
+    std::pair<unsigned int, unsigned int>   velocity;
 };
 
 // ----------------------------------------------------------------------

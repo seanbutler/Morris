@@ -33,7 +33,6 @@ namespace Engine {
 
         float deltaTime;
         sf::Clock clock;
-        std::shared_ptr<sf::View> view;
 
         virtual void Update();
         Scheduler entityScheduler;

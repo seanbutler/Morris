@@ -45,7 +45,7 @@ namespace Runtime {
                     case INSTR::HALT: {
                         state = VM::HALTED;
                         slice = 0;
-                        owner->scheduler->Remove(owner);
+                        owner->Die();
                         break;
                     }
 

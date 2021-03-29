@@ -7,79 +7,71 @@
 // ----------------------------------------------------------------------
 #include <iostream>
 
-#include <vector>
+//#include <vector>
+#include <list>
 #include <memory>
+#include <algorithm>
 
 // ----------------------------------------------------------------------
 
 #include "Entity.h"
-
+#include "Agent.h"
 
 namespace Engine {
 
     class Scheduler {
 
     public:
-        Scheduler() {}
-        virtual ~Scheduler() {
-            for(auto E : entities) {
-                delete E;
-            }
-        }
+        Scheduler()             {std::cout << "Scheduler" << std::endl;}
+        virtual ~Scheduler()    {std::cout << "~Scheduler" << std::endl;}
 
-        virtual void Spawn(Engine::Entity * E) {
-            // TODO - this is probably super inefficient
-            E->scheduler = this;
-            embryos.push_back(E);
-        }
+        virtual void Spawn(std::string FN);
+        virtual void Spawn(std::shared_ptr<Engine::Entity> E);
 
-        virtual void Remove(Engine::Entity * E) {
-            corpses.push_back(E);
+        virtual void Remove(std::shared_ptr<Engine::Entity> E) {
+            E->state = Entity::CORPSE;
+            graveyard.push_back(E);
         }
 
         virtual void Update(float deltaTime)
         {
-            std::cout << "Entities = " << entities.size() << std::endl;
-            for (auto entity : entities)
-            {
-                entity->Update(deltaTime);
+            for(auto EMB : pending){
+                executing.push_back(EMB);
+            }
+            pending.clear();
+
+            std::cout << "Update Entities = " << executing.size() << std::endl;
+            for (auto ENT : executing) {
+                ENT->Update(deltaTime);
             }
 
-            if ( embryos.size() )
-            {
-                std::cout << "Embryos = " << embryos.size() << std::endl;
-                for(auto NE : embryos){
-                    entities.push_back(NE);
+            auto itor = executing.begin();
+            while (itor != executing.end()) {
+                if ((*itor)->state == Entity::CORPSE) {
+                    itor = executing.erase(itor);
                 }
-                embryos.clear();
-            }
-
-            if ( corpses.size() )
-            {
-                std::cout << "Corpses = " << corpses.size() << std::endl;
-
-                for(auto CE : corpses){
-//                    entities.erase(CE);
+                else {
+                    ++itor;
                 }
-
-                corpses.clear();
-            }
-
+           }
         }
 
         // TODO - this should be a part of a component not the entity
         virtual void Render(sf::RenderWindow *W)
         {
-            for (auto entity : entities)
+            std::cout << "Render Entities = " << executing.size() << std::endl;
+            for (auto ENT : executing)
             {
-                entity->Render(W);
+                if ( ENT->state != Entity::CORPSE)
+                    ENT->Render(W);
             }
         }
 
-        // TODO - this should be a map (or tree) so we can id and retrieve specific entities
-        std::vector<Engine::Entity*> entities;
-        std::vector<Engine::Entity*> embryos;
-        std::vector<Engine::Entity*> corpses;
+    private:
+        // TODO - this should be a map (or tree) so we can id and retrieve specific executing?
+        std::list<std::shared_ptr<Engine::Entity>> pending;
+        std::list<std::shared_ptr<Engine::Entity>> executing;
+        std::list<std::shared_ptr<Engine::Entity>> graveyard;
     };
 
 };

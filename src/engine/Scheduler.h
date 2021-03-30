@@ -50,6 +50,7 @@ namespace Engine {
             for (auto EXE : executing ) {
                 if (EXE->state == Entity::CORPSE) {
                     graveyard.push_back(EXE);
+                    delete(EXE);
                     std::erase(executing, EXE);
                 }
             }

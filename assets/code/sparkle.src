@@ -1,6 +1,6 @@
 
 decl counter
-counter = 30
+counter = 45
 
 setsprite(208)
 setcol(3, 3, 2)

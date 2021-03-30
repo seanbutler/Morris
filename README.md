@@ -1,14 +1,14 @@
 # Morris Programming Language
 
-Moris is a work in progress, very eary on. Expect things to break and change (for the better).
+Sometimes you just want to program a game and not worry about the associated technology. No CMake, windowing or opengl configuration and linking woes.
 
-Everything you need in one binary. Compiler and runtime integrated together. Forget dependencies. Distribute sources or packed compiled bytecode, both executable.
+Morris is a language with everything you need in one binary. Compiler and runtime integrated together. Forget dependencies. Distribute sources or compiled bytecode, both are executable.
 
-Morris is a programming language hand crafted for making games quickly and easily. Morris has a focus on ease of gameplay programming.
+Moris is a work in progress, very early on. Expect things to break and change (for the better).
 
 This distribution of Morris is closely integrated with SFML so the common parts of games: graphics, physics, window, input, sound, fonts, networking, etc. are all integrated, cross platform and ready to go because of that wonderful library.
 
-![gif anim of some sprites moving](./screenshots/anim.gif)
+![gif anim of some sprites moving](./screenshots/anim2.gif)
 
 Like with the above SFML integration, Morris is a system "with bells on" that is, we intend to include several widely used as closely coupled features from other common libraries e.g. zip archive and local only filesystem, integrated spreadsheet data import for table input.
 
@@ -16,7 +16,8 @@ Morris is influenced by [erlang](https://en.wikipedia.org/wiki/Erlang_(programmi
 but Morris programs look very familiar to anyone who has used c js c++ rust or swift. Right now, Morris programs look like this...
 
 ~~~
-setsprite(29, 8)
+
+setsprite(29)
 setcol(0, 2, 0)
 
 while ( loop <= 999 ) {
@@ -45,12 +46,12 @@ while ( loop <= 999 ) {
 }
 ~~~
 
-## Major Design Goals
+## Major ToDos / Goals
 
 ### Easy
 - [x] Easy for beginners to learn
-- [x] Familiar Syntax C like block structured syntax
 - [x] No semicolons
+- [x] Familiar Syntax C like block structured syntax
 - [x] Integrated with SFML or similar giving Windows, Sprites, Colors, Coords, IO and Networking Library
 
 ### With Bells On (currently via SFML)
@@ -60,10 +61,10 @@ while ( loop <= 999 ) {
 - [ ] Integrated Physics and Collision Libs
 - [ ] Networking Library (SFML)
 - [ ] Sound (SFML)
-- [ ] Filesystem Limited to Zip Internals   (PhysicsFS)
+- [ ] Filesystem Limited to Zip Internals   (via PhysicsFS or Similar)
 - [ ] Text Tables Database for Languages (CSV?)
 
-### Safe(er)
+### Safe(er/ish)
 - [x] Stack Based Locals, Heap Based Globals
 - [x] No pointers because no dynamic heap allocation
 - [x] No shared memory between Threads ([erlang](https://en.wikipedia.org/wiki/Erlang_(programming_language)))
@@ -90,8 +91,8 @@ Note: this may change to another lib in future depending
 
 ### spawn command
   - [x] filenames/strings for spawn
-  - [ ] inherit position
-  - [ ] set positions
+  - [x] inherit position
+  - [x] set positions
 
 ### thread hierarchy
   - [ ] access child (via return handle? or other method)
@@ -110,6 +111,8 @@ Note: this may change to another lib in future depending
 - [ ] procedure code generation
 
 ## Why?
+
+![gif anim of some sprites moving](./screenshots/anim.gif)
 
 Sometimes you just want to program a game and not worry about the associated technology. No CMake, windowing or opengl configuration and linking woes.
 

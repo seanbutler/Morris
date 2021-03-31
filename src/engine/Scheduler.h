@@ -22,8 +22,8 @@ namespace Engine {
     class Scheduler {
 
     public:
-        Scheduler()             { std::cout << "Scheduler" << std::endl;  }
-        virtual ~Scheduler()    { std::cout << "~Scheduler" << std::endl; }
+        Scheduler()             {}
+        virtual ~Scheduler()    {}
 
         virtual void Spawn(std::string FN, std::pair<unsigned int, unsigned int> POS);
 
@@ -33,20 +33,17 @@ namespace Engine {
 
         virtual void Update(float deltaTime)
         {
-            std::cout << "Update Entities = " << executing.size() << std::endl;
             for (auto EXE : executing ) {
                 if ( EXE->IsAlive() ) {
                     EXE->Update(deltaTime);
                 }
             }
 
-            std::cout << "Update Embryos = " << embryos.size() << std::endl;
             for (auto EMB : embryos ) {
                 executing.push_back(std::move(EMB));
             }
             embryos.clear();
 
-            std::cout << "Update Graveyard = " << embryos.size() << std::endl;
             for (auto EXE : executing ) {
                 if (EXE->state == Entity::CORPSE) {
                     graveyard.push_back(EXE);
@@ -60,7 +57,7 @@ namespace Engine {
         // TODO - this should be a part of a component not the entity
         virtual void Render(sf::RenderWindow *W)
         {
-            std::cout << "Render Entities = " << executing.size() << std::endl;
+//            std::cout << "Render Entities = " << executing.size() << std::endl;
 
             for (auto EXE : executing ) {
                 EXE->Render(W);

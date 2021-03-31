@@ -1,0 +1,65 @@
+digraph G {
+node [shape = circle];
+node674 [ uuid = "f296a7ac-007c-44a4-93a7-e62397397b6b" shape = "record" label = "MDL
+ " ];
+node675 [ uuid = "36ff1fd3-7496-4e89-af0b-054935f7b6d2" shape = "record" label = "KWD
+ decl" ];
+node676 [ uuid = "bde34a36-4714-4122-a979-9d969c4c46ff" shape = "record" label = "ID-LIST
+ " ];
+node677 [ uuid = "ce87d230-f773-42dd-b8e0-3b7a55235817" shape = "record" label = "ID-DECL
+ lives" ];
+node676 -> node677;
+node675 -> node676;
+node674 -> node675;
+node679 [ uuid = "81348a7b-5d30-4155-8d8c-87a7e2389d10" shape = "record" label = "ASGN
+ =" ];
+node678 [ uuid = "12401d62-61a4-4b26-abe8-cd58d97a349d" shape = "record" label = "ID-LHS
+ lives" ];
+node679 -> node678;
+node680 [ uuid = "befce557-034d-47fd-bbc7-2748ed5e72a8" shape = "record" label = "NUM
+ 64" ];
+node679 -> node680;
+node674 -> node679;
+node681 [ uuid = "d1442a87-63ac-403f-b800-8cc161087ef7" shape = "record" label = "KWD
+ setcol" ];
+node682 [ uuid = "276ba6b7-4ea3-4a86-ade6-740f3a53a166" shape = "record" label = "NUM
+ 3" ];
+node681 -> node682;
+node683 [ uuid = "7874844b-1cec-4a65-af18-c8e203a25783" shape = "record" label = "NUM
+ 3" ];
+node681 -> node683;
+node684 [ uuid = "0800c075-ddaf-48d5-b031-447c6d53551b" shape = "record" label = "NUM
+ 3" ];
+node681 -> node684;
+node674 -> node681;
+node685 [ uuid = "e25afa63-77f0-413e-a149-45b5c1b2e124" shape = "record" label = "KWD
+ settext" ];
+node686 [ uuid = "e47fadd0-5a2a-4936-9cdb-673554aa6641" shape = "record" label = "STR
+ Health: 3" ];
+node685 -> node686;
+node674 -> node685;
+node687 [ uuid = "3f574291-2ec7-4ff5-8e5d-0e2e15957980" shape = "record" label = "KWD
+ while" ];
+node689 [ uuid = "a53094f5-63cc-473a-b2ad-579b981d7237" shape = "record" label = "OP
+ \>" ];
+node688 [ uuid = "5f3c16ec-9e71-4ce3-8d73-fc3611334301" shape = "record" label = "ID-RHS
+ lives" ];
+node689 -> node688;
+node690 [ uuid = "7d674112-9df2-4370-a16e-365a521cfd35" shape = "record" label = "NUM
+ 0" ];
+node689 -> node690;
+node687 -> node689;
+node691 [ uuid = "72415850-f800-4a1f-b03d-3d21b220b02a" shape = "record" label = "Block
+ " ];
+node692 [ uuid = "13ab03c2-14e2-4878-bb07-b038cc9412e1" shape = "record" label = "KWD
+ setpos" ];
+node693 [ uuid = "a7bafb39-5ba8-41d9-a3c7-5e506ab272b7" shape = "record" label = "NUM
+ 2" ];
+node692 -> node693;
+node694 [ uuid = "aea2fe55-7d42-4cdc-a530-e030fc4cbd63" shape = "record" label = "NUM
+ 2" ];
+node692 -> node694;
+node691 -> node692;
+node687 -> node691;
+node674 -> node687;
+}

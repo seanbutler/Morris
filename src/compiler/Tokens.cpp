@@ -25,6 +25,7 @@ Token tokens[] = {
         Token(KWD_SETVEL ,      "setvel"            ),
         Token(KWD_SETCOL ,      "setcol"            ),
         Token(KWD_SETSPRITE ,   "setsprite"         ),
+        Token(KWD_SETTEXT ,   "settext"         ),
 
         Token(KWD_GETINPUT,   "getinput"            ),
         Token(KWD_SETATLAS,   "atlas"               ),

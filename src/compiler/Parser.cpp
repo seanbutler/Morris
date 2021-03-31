@@ -137,6 +137,13 @@ ModuleASTNode * Parser::ParseModule() {
                 break;
             }
 
+            // SETTEXT
+            case TokenEnum::KWD_SETTEXT: {
+                std::cout << "Parser::Parse() TokenEnum::KWD_SETTEXT" << std::endl;
+                statementsNodePtr->children.push_back(ParseSetText(statementsNodePtr));
+                break;
+            }
+
 //            default: {
 //                std::cout << "ERROR - Unknown Parse Error" << std::endl;
 //            }
@@ -1053,6 +1060,44 @@ SpawnASTNode * Parser::ParseSpawn(ASTNode *P) {
         else
         {
             std::cerr << "Parse Error : Spawn Expected ( Left Parenthesis" << std::endl;
+        }
+    }
+
+    return statementNodeSP;
+}
+
+// ----------------------------------------------------------------------
+
+SetTextASTNode * Parser::ParseSetText(ASTNode *P) {
+    SetTextASTNode * statementNodeSP = nullptr;
+    ASTNode * stringNodeSP;
+
+    if ( tokenItor->kind == TokenEnum::KWD_SETTEXT ) {
+        statementNodeSP = new SetTextASTNode();
+
+        tokenItor++;
+
+        if ( tokenItor->kind == TokenEnum::SYM_LPAREN ) {
+
+            tokenItor++;
+
+            stringNodeSP = ParseString();
+            statementNodeSP->children.push_back(stringNodeSP);
+
+            tokenItor++;
+
+            if (tokenItor->kind == TokenEnum::SYM_RPAREN) {
+                tokenItor++;
+            }
+            else
+            {
+                std::cerr << "Parse Error : SetText Expected ) Right Parenthesis" << std::endl;
+            }
+
+        }
+        else
+        {
+            std::cerr << "Parse Error : SetText Expected ( Left Parenthesis" << std::endl;
         }
     }
 

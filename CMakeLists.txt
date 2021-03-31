@@ -20,7 +20,8 @@ set(SOURCE_FILES
         src/engine/Scheduler.h
         src/engine/Agent.cpp src/engine/Agent.h
         src/engine/CollisionManager.cpp
-        src/engine/CollisionManager.h)
+        src/engine/CollisionManager.h
+        src/engine/Font.cpp src/engine/Font.h)
 
 add_executable(Morris ${SOURCE_FILES})
 

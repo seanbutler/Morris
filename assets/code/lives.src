@@ -1,0 +1,9 @@
+decl lives
+lives = 64
+
+setcol(3, 3, 3)
+settext("Health: 3" )
+
+while ( lives > 0 ) {
+    setpos(2, 2)
+}

@@ -2,8 +2,8 @@
 decl counter
 counter = 45
 
-setsprite(208)
-setcol(3, 3, 2)
+setsprite(212)
+setcol(3, 0, 0)
 setvel(0, 0-3)
 
 while ( counter > 0 ) {

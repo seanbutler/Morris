@@ -65,7 +65,7 @@ bool Tokenizer::ScanToken() {
         --currentPosition;
 
         // TODO CHANGE THIS INTO MODERN c++ with proper lookup
-        for (unsigned int i = 0; i < 19; i++ ) {
+        for (unsigned int i = 0; i < 20; i++ ) {
             if ( tokenString == tokens[i].name )
             {
                 Token newTok(tokens[i]);                // copy!
@@ -99,7 +99,7 @@ bool Tokenizer::ScanToken() {
             currentChar = inputString[currentPosition++];
         } while ( ( currentChar != '\n') && (currentChar != '\"') && (currentChar != '\'') );
 
-        std::cerr << "STRING DEBUG " <<  stringString << std::endl;
+//        std::cerr << "STRING DEBUG " <<  stringString << std::endl;
 
         Token newTok(TokenEnum::TOK_STRING, stringString);
         newTok.file = currentFile;

@@ -5,6 +5,7 @@
 
 #include "src/engine/MainLoop.h"
 #include "src/engine/Textures.h"
+#include "src/engine/Font.h"
 #include "src/engine/CollisionManager.h"
 #include "src/engine/Agent.h"
 
@@ -13,6 +14,9 @@
 Engine::MainLoop loop(256, 192, 2, 30, "Morris");
 
 Engine::Textures textures;
+
+Engine::Fonts font_manager("./assets/fonts/Computerfont.ttf");
+//Engine::Fonts font_manager("./assets/fonts/VCR_OSD_MONO_1.001.ttf");
 Engine::CollisionManager collision_manager;
 
 // ---------------------------------------------------------------------------

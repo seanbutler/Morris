@@ -1,0 +1,35 @@
+decl frames
+frames = 64
+
+setcol(3, 3, 3)
+frames = 0
+
+frames = 0
+settext("Three" )
+while ( frames < 32 ) {
+    setpos(100, 64)
+    frames = frames + 1
+}
+
+frames = 0
+settext("Two" )
+while ( frames < 32 ) {
+    setpos(100, 64)
+    frames = frames + 1
+}
+
+frames = 0
+settext("One" )
+while ( frames < 32 ) {
+    setpos(100, 64)
+    frames = frames + 1
+}
+
+setcol(3, 3, 3)
+settext("Wave Go!" )
+frames = 0
+
+while ( frames < 64 ) {
+    setpos(100, 64 - frames)
+    frames = frames + 1
+}

@@ -8,7 +8,7 @@ Moris is a work in progress, very early on. Expect things to break and change (f
 
 This distribution of Morris is closely integrated with SFML so the common parts of games: graphics, physics, window, input, sound, fonts, networking, etc. are all integrated, cross platform and ready to go because of that wonderful library.
 
-![gif anim of some sprites moving](./screenshots/anim2.gif)
+![gif anim of some sprites moving](./screenshots/anim3.gif)
 
 Like with the above SFML integration, Morris is a system "with bells on" that is, we intend to include several widely used as closely coupled features from other common libraries e.g. zip archive and local only filesystem, integrated spreadsheet data import for table input.
 
@@ -58,6 +58,7 @@ while ( loop <= 999 ) {
 - [X] Window or Fullscreen (SFML)
 - [X] Sprites, Colors, Coords etc (SFML)
 - [X] Keyboard IO (SFML)
+- [X] Text and Fonts (SFML)
 - [ ] Integrated Physics and Collision Libs
 - [ ] Networking Library (SFML)
 - [ ] Sound (SFML)
@@ -78,14 +79,21 @@ while ( loop <= 999 ) {
 - [x] Threads are lightweight userspace objects 
 - [x] No Shared Memory, Eliminates Race Conditions and Other Problems
 - [ ] Message Passing and Broadcast Between Threads
-- [ ] ? Threads are also first class objects
-- [ ] ? Maybe Direct/Independent Control of Cores and CPUs
+- [ ] ? Control of Cores and CPUs
 
 Note: this may change to another lib in future depending 
 
 ### Finite State Machines
 - [ ] Syntactic Sugar Makes State and FSMs Easier
 - [ ] Machines and States are first class objects
+
+### Simplified Types
+- [ ] Once we specialise its arguable how extensive types we really need
+- [ ] Genetic Programming search space is significantly reduced with more limited types
+- [X] Numbers
+- [ ] Text
+- [ ] Associative Arrays => Pairs, Tuples & Arrays 
+
 
 ## Other Minor Dev Todos
 
@@ -103,16 +111,14 @@ Note: this may change to another lib in future depending
   - [ ] expose window controls to language
   - [ ] separate window and scheduler loop
   - [ ] set movement sprite_size
-  - [ ] expose spritesheet and dimensions
 
-- [ ] separate graphics loop and logic loops to run independantly
-
-- [ ] function code generation
-- [ ] procedure code generation
+- [ ] function parsing and code generation
+- [ ] procedure parsing and code generation
 
 ## Why?
 
 ![gif anim of some sprites moving](./screenshots/anim.gif)
+![gif anim of some sprites moving](./screenshots/anim2.gif)
 
 Sometimes you just want to program a game and not worry about the associated technology. No CMake, windowing or opengl configuration and linking woes.
 

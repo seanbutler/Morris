@@ -19,8 +19,12 @@ namespace Engine {
             EMBRYO, ALIVE, CORPSE
         };
 
-        Entity(Scheduler * S) : scheduler(S), state(State::ALIVE){}
-        virtual ~Entity() { std::cout << "~Entity" << std::endl; }
+        Entity(Scheduler * S) : scheduler(S), state(State::ALIVE){
+//            std::cout << "Entity" << std::endl;
+        }
+        virtual ~Entity() {
+//            std::cout << "~Entity" << std::endl;
+        }
 
         virtual void Update(float deltaTime) = 0;
         virtual void Render(sf::RenderWindow *W) = 0;

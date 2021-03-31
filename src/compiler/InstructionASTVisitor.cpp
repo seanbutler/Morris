@@ -165,6 +165,17 @@ void InstructionASTVisitor::Visit(SpawnAtASTNode * A){
     instructions.emplace_back(Location(INSTR::SPAWNAT));
 }
 
+// ----------------------------------------------------------------------
+
+void InstructionASTVisitor::Visit(SetTextASTNode * A){
+//    std::cout << "InstructionASTVisitor SetTextASTNode" << std::endl;
+
+    for(auto child : A->children) {
+        child->Accept(this);
+    }
+
+    instructions.emplace_back(Location(INSTR::ASETTEXT));
+}
 
 // ----------------------------------------------------------------------
 

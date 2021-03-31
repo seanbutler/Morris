@@ -1,3 +1,4 @@
+spawnat("assets/code/hud.src", 64, 64)
 
 spawnat("assets/code/player.src", 64, 64)
 

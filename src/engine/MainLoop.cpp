@@ -4,7 +4,7 @@
 
 // ----------------------------------------------------------------------
 
-//#define SCREENSHOTS
+#define SCREENSHOTS
 
 // ----------------------------------------------------------------------
 
@@ -34,7 +34,6 @@ namespace Engine {
                        windowTitle.c_str()
                        , sf::Style::Titlebar
                         | sf::Style::Close
-//                      | sf::Style::Fullscreen
                        )
     {
         window.setSize(sf::Vector2u(w*pixel_scale,h*pixel_scale));
@@ -58,6 +57,7 @@ namespace Engine {
             entityScheduler.Update(deltaTime);
             window.clear(clearColour);
             entityScheduler.Render(&window);
+
             window.display();
 
 #ifdef SCREENSHOTS

@@ -12,11 +12,13 @@
 #include "Entity.h"
 #include "Scheduler.h"
 #include "Textures.h"
+#include "Font.h"
 #include "Input.h"
 
 // ----------------------------------------------------------------------
 
 extern Engine::Textures textures;
+extern Engine::Fonts font_manager;
 
 // ----------------------------------------------------------------------
 
@@ -33,6 +35,7 @@ public:
         ,   velocity(VEL)
     {
         virtualMachine.SetOwner(this);
+//        SetText("TEXT");
     }
 
     virtual void Update(float deltaTime)
@@ -42,10 +45,11 @@ public:
         position.first += velocity.first;
         position.second += velocity.second;
         sprite.setPosition( sf::Vector2f(position.first, position.second));
+        text.setPosition( sf::Vector2f(position.first, position.second));
     }
 
     virtual void Spawn(std::string FN, unsigned int x=0, unsigned int y=0);     // SHOULDNT THIS BE IN THE SCHEDULER?
-    virtual void Render(sf::RenderWindow *W) { W->draw(sprite); }
+    virtual void Render(sf::RenderWindow *W) { W->draw(text); W->draw(sprite); }
 
     virtual void Die();
 
@@ -54,6 +58,7 @@ public:
         position.first = X;
         position.second = Y;
         sprite.setPosition( sf::Vector2f(position.first, position.second));
+        text.setPosition(sf::Vector2f(position.first, position.second));
     }
 
     void SetVelocity(float X = 1.0, float Y = 1.0)
@@ -61,6 +66,7 @@ public:
         velocity.first = X;
         velocity.second = Y;
         sprite.setPosition( sf::Vector2f(position.first, position.second));
+        text.setPosition(sf::Vector2f(position.first, position.second));
     }
 
     void SetSprite(unsigned int N)
@@ -69,7 +75,25 @@ public:
         textures.SetSprite(N, tmpSprite);
         tmpSprite.setPosition(position.first, position.second);
         sprite = tmpSprite;
+        text.setPosition(sf::Vector2f(position.first, position.second));
     }
+
+    void SetText(std::string message, unsigned int SZ = 32, sf::Color COL = sf::Color::White)
+    {
+        const_cast<sf::Texture&>(font_manager.font.getTexture(SZ)).setSmooth(false);
+
+        text.setFont(font_manager.font);                        // font is a sf::Font
+        text.setString(message);
+        text.setCharacterSize(SZ);
+        text.setScale(1, 1);                      // in pixels, not points!
+        text.setPosition(sf::Vector2f(position.first, position.second));
+
+        text.setFillColor(COL);
+        text.setPosition(sf::Vector2f(16, 16));
+//        text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+    }
+
+
 
     sf::Sprite* GetSprite()
     {
@@ -96,6 +120,7 @@ public:
 protected:
     Runtime::VM                             virtualMachine;
     sf::Sprite                              sprite;
+    sf::Text                                text;
     std::pair<unsigned int, unsigned int>   position;
     std::pair<unsigned int, unsigned int>   velocity;
 };

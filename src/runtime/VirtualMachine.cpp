@@ -329,6 +329,18 @@ namespace Runtime {
                         break;
                     }
 
+                    case INSTR::ASETTEXT : {
+                        std::cout << "ASETTEXT - spawn " << std::endl;
+
+                        Location strIndex = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        if ( owner ) {
+                            owner->SetText(stringTable[strIndex.address], 16);
+                        }
+                        break;
+                    }
+
                     case INSTR::AGETINPUT : {
 //                      std::cout << "AGETINPUT - 1 params, gets status of keyboard button or direction" << std::endl;
 

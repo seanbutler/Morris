@@ -10,8 +10,7 @@ setcol(3, 3, 3)
 
 while ( state != 99 ) {
 
-    if (state == 0)
-    {
+    if (state == 0) {
         setvel(1, 0)
     }
 

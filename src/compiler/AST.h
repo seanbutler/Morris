@@ -104,7 +104,6 @@ public:
         generator->Visit((ModuleASTNode*)this);
     }
 
-
 };
 
 // ----------------------------------------------------------------------
@@ -427,6 +426,23 @@ public:
         generator->Visit((SpawnAtASTNode*)this);
     }
 };
+
+
+
+// ----------------------------------------------------------------------
+
+class SetTextASTNode : public ASTNode {
+public:
+    SetTextASTNode(ASTNode * P = nullptr)
+            : ASTNode("KWD", "settext", P)
+    {
+    }
+
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((SetTextASTNode*)this);
+    }
+};
+
 
 // ----------------------------------------------------------------------
 

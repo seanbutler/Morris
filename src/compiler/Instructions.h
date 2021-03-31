@@ -49,6 +49,7 @@ enum INSTR {
     ASETVEL,
     ASETCOL,
     ASETSPRITE,
+    ASETTEXT,
 
     AGETINPUT,
 

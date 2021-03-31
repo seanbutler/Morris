@@ -17,34 +17,49 @@ but Morris programs look very familiar to anyone who has used c js c++ rust or s
 
 ~~~
 
-setsprite(29)
-setcol(0, 2, 0)
+decl lives
+lives = 3
 
-while ( loop <= 999 ) {
+decl button
+button = 0
+decl delay
 
-    button = getinput(1)
-    if ( button ) {
-        y = y - 1
+decl dx
+decl dy
+
+setsprite(192)
+setcol(3, 2, 2)
+
+while ( lives > 0 ) {
+
+    dx=0 dy=0
+
+    if ( getinput(1) ) { dy=0-2 }
+    if ( getinput(2) ) { dx=2 }
+    if ( getinput(3) ) { dy=2 }
+    if ( getinput(4) ) { dx=0-2 }
+
+    setvel(dx, dy)
+
+    if ( delay > 0 ) {
+        delay = delay - 1
     }
 
-    button = getinput(2)
-    if ( button ) {
-        x = x + 1
+    if ( delay == 0 ) {
+        if ( getinput(5) ) {
+            delay = 4
+            spawn("assets/code/sparkle.src")
+        }
     }
-
-    button = getinput(3)
-    if ( button ) {
-        y = y + 1
-    }
-
-    button = getinput(4)
-    if ( button ) {
-        x = x - 1
-    }
-
-    setpos( x, y )
 }
+
 ~~~
+
+Which is compiled via an tree like this
+
+![really wide tree diagram](./ast.png)
+
+
 
 ## Major ToDos / Goals
 
@@ -75,11 +90,12 @@ while ( loop <= 999 ) {
 - [ ] Safe File system access constrained to reading and writing local sub dirs only, this is good for indie game distro
 
 ### Parallel First
-- [x] Parallel execution is trivial and straightforward (via VM)
+- [x] Parallel execution is trivial and straightforward (via VMs)
 - [x] Threads are lightweight userspace objects 
 - [x] No Shared Memory, Eliminates Race Conditions and Other Problems
 - [ ] Message Passing and Broadcast Between Threads
-- [ ] ? Control of Cores and CPUs
+- [ ] Makes use of underlying parallel hardware where possible
+- [ ] Control of Cores and CPUs
 
 Note: this may change to another lib in future depending 
 
@@ -88,10 +104,9 @@ Note: this may change to another lib in future depending
 - [ ] Machines and States are first class objects
 
 ### Simplified Types
-- [ ] Once we specialise its arguable how extensive types we really need
-- [ ] Genetic Programming search space is significantly reduced with more limited types
+Once we specialise its arguable how extensive types we really need. Search based automatic programming is significantly helped with more limited types
 - [X] Numbers
-- [ ] Text
+- [X] Text
 - [ ] Associative Arrays => Pairs, Tuples & Arrays 
 
 
@@ -107,11 +122,10 @@ Note: this may change to another lib in future depending
   - [ ] access parent
   - [ ] dependencies
 
-### sprites and topology controls in language
-  - [ ] expose window controls to language
-  - [ ] separate window and scheduler loop
-  - [ ] set movement sprite_size
-
+### extend language
+- [ ] expose window controls to language
+- [ ] separate window and scheduler loop
+- [ ] set movement sprite_size
 - [ ] function parsing and code generation
 - [ ] procedure parsing and code generation
 

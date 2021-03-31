@@ -1,23 +1,35 @@
 digraph G {
 node [shape = circle];
-node41 [ uuid = "a013df1f-4655-4861-8705-b39a3931764a" shape = "record" label = "MDL
+node64 [ uuid = "e03814bb-de70-4952-b530-a0aa4ddc15bc" shape = "record" label = "MDL
  " ];
-node42 [ uuid = "f96ea775-509f-495a-b771-1e3851ec06dd" shape = "record" label = "KWD
+node65 [ uuid = "e3f78276-4bc3-45d9-9133-8b68205e1b9b" shape = "record" label = "KWD
  spawn" ];
-node43 [ uuid = "7084870c-1d09-4641-a36e-ea03c6865a24" shape = "record" label = "STR
+node66 [ uuid = "5a12c9d6-b8c5-432e-8da3-fe23e0daa6ad" shape = "record" label = "STR
  assets/code/lives.src" ];
-node42 -> node43;
-node41 -> node42;
-node44 [ uuid = "de3f5ab0-9167-4958-98b9-be7b3ddacfdc" shape = "record" label = "KWD
+node65 -> node66;
+node64 -> node65;
+node67 [ uuid = "e6be67c5-c349-4a29-96cf-3070471c36a0" shape = "record" label = "KWD
  spawn" ];
-node45 [ uuid = "8ddcfdaa-f44a-4e20-ae74-ed4ccb6d5feb" shape = "record" label = "STR
+node68 [ uuid = "5593e5dc-b14a-4c74-8c70-9fcb31d76905" shape = "record" label = "STR
  assets/code/score.src" ];
-node44 -> node45;
-node41 -> node44;
-node46 [ uuid = "f841c556-546e-4b94-9bd2-fd93c58e053d" shape = "record" label = "KWD
+node67 -> node68;
+node64 -> node67;
+node69 [ uuid = "85c2d58f-c533-4c30-9b27-3407899eb5fa" shape = "record" label = "KWD
  spawn" ];
-node47 [ uuid = "3ea3d71c-9f09-44e8-894d-e1c43fb0a040" shape = "record" label = "STR
+node70 [ uuid = "4d928d42-a345-4df7-a39e-f199589aad88" shape = "record" label = "STR
  assets/code/wave.src" ];
-node46 -> node47;
-node41 -> node46;
+node69 -> node70;
+node64 -> node69;
+node71 [ uuid = "a2db1c91-6136-4440-b872-44b39b1dd097" shape = "record" label = "KWD
+ spawnat" ];
+node72 [ uuid = "6f2cce15-9915-4864-9e28-c60f5ff8dad0" shape = "record" label = "STR
+ assets/code/player.src" ];
+node71 -> node72;
+node73 [ uuid = "6ad6ac55-8653-4bf4-8f3e-257a8f14a41e" shape = "record" label = "NUM
+ 128" ];
+node71 -> node73;
+node74 [ uuid = "75b1f368-3588-4ea4-861d-f370bfdd7ddb" shape = "record" label = "NUM
+ 172" ];
+node71 -> node74;
+node64 -> node71;
 }

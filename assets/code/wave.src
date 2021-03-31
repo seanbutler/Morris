@@ -33,3 +33,4 @@ while ( frames < 64 ) {
     setpos(100, 64 - frames)
     frames = frames + 1
 }
+

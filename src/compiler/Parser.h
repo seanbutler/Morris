@@ -50,6 +50,7 @@ public:
     SetspriteASTNode * ParseSetsprite(ASTNode *P= nullptr);
     SetTextASTNode * ParseSetText(ASTNode *P= nullptr);
     GetInputASTNode * ParseGetInput(ASTNode *P= nullptr);
+    GetCollisionASTNode * ParseGetCollision(ASTNode *P= nullptr);
 
     StringASTNode * ParseString(ASTNode *P= nullptr);
     SpawnASTNode * ParseSpawn(ASTNode *P=nullptr);

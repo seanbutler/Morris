@@ -1,34 +1,34 @@
 digraph G {
 node [shape = circle];
-node64 [ uuid = "e03814bb-de70-4952-b530-a0aa4ddc15bc" shape = "record" label = "MDL
+node64 [ uuid = "a00e8e02-ff5c-47d4-aacd-e3d0766d64aa" shape = "record" label = "MDL
  " ];
-node65 [ uuid = "e3f78276-4bc3-45d9-9133-8b68205e1b9b" shape = "record" label = "KWD
+node65 [ uuid = "6134668e-8635-4f14-88dc-f63c2c555184" shape = "record" label = "KWD
  spawn" ];
-node66 [ uuid = "5a12c9d6-b8c5-432e-8da3-fe23e0daa6ad" shape = "record" label = "STR
+node66 [ uuid = "f43881a5-9aeb-4ca4-991f-ce7f94c09644" shape = "record" label = "STR
  assets/code/lives.src" ];
 node65 -> node66;
 node64 -> node65;
-node67 [ uuid = "e6be67c5-c349-4a29-96cf-3070471c36a0" shape = "record" label = "KWD
+node67 [ uuid = "b05c5899-9e92-401c-9966-e9130eaaa41b" shape = "record" label = "KWD
  spawn" ];
-node68 [ uuid = "5593e5dc-b14a-4c74-8c70-9fcb31d76905" shape = "record" label = "STR
+node68 [ uuid = "67c73e41-8d1a-48cc-8bf7-5a464ee89e2d" shape = "record" label = "STR
  assets/code/score.src" ];
 node67 -> node68;
 node64 -> node67;
-node69 [ uuid = "85c2d58f-c533-4c30-9b27-3407899eb5fa" shape = "record" label = "KWD
+node69 [ uuid = "94f11655-1b87-4309-b95c-a06053058bee" shape = "record" label = "KWD
  spawn" ];
-node70 [ uuid = "4d928d42-a345-4df7-a39e-f199589aad88" shape = "record" label = "STR
+node70 [ uuid = "c9dfb8d9-561b-4bee-a174-724d02f14f65" shape = "record" label = "STR
  assets/code/wave.src" ];
 node69 -> node70;
 node64 -> node69;
-node71 [ uuid = "a2db1c91-6136-4440-b872-44b39b1dd097" shape = "record" label = "KWD
+node71 [ uuid = "707e4551-6566-4f1d-94ab-7e9e5a1e8437" shape = "record" label = "KWD
  spawnat" ];
-node72 [ uuid = "6f2cce15-9915-4864-9e28-c60f5ff8dad0" shape = "record" label = "STR
+node72 [ uuid = "522b21cd-6f0c-4367-b0d6-76f74e1e1c26" shape = "record" label = "STR
  assets/code/player.src" ];
 node71 -> node72;
-node73 [ uuid = "6ad6ac55-8653-4bf4-8f3e-257a8f14a41e" shape = "record" label = "NUM
+node73 [ uuid = "b9b7558e-e944-4567-b668-bb13b6e4c537" shape = "record" label = "NUM
  128" ];
 node71 -> node73;
-node74 [ uuid = "75b1f368-3588-4ea4-861d-f370bfdd7ddb" shape = "record" label = "NUM
+node74 [ uuid = "43c2f179-0a6e-43b7-9b8b-ebda04e25c6d" shape = "record" label = "NUM
  172" ];
 node71 -> node74;
 node64 -> node71;

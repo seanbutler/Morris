@@ -55,9 +55,11 @@ namespace Engine {
             }
 
             entityScheduler.Update(deltaTime);
+
+            collisionManager.Update();
+
             window.clear(clearColour);
             entityScheduler.Render(&window);
-
             window.display();
 
 #ifdef SCREENSHOTS

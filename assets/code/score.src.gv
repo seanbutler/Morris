@@ -1,64 +1,64 @@
 digraph G {
 node [shape = circle];
-node624 [ uuid = "a08b6448-fd0f-420d-94d2-bf558ea5275e" shape = "record" label = "MDL
+node624 [ uuid = "f4083949-eaf2-47b8-ab9a-dc90b492821a" shape = "record" label = "MDL
  " ];
-node625 [ uuid = "16d5338c-830d-4b47-a0f3-dfee215d42a3" shape = "record" label = "KWD
+node625 [ uuid = "629ad6f8-fecd-4a34-b279-28adca26c87f" shape = "record" label = "KWD
  decl" ];
-node626 [ uuid = "80efe475-ec8a-4f45-832d-3ccfb6b39dc8" shape = "record" label = "ID-LIST
+node626 [ uuid = "88d9071f-9a9e-4666-8fc3-23beb3218adb" shape = "record" label = "ID-LIST
  " ];
-node627 [ uuid = "5f1f10ce-c0f5-4f53-b77c-694645b984c0" shape = "record" label = "ID-DECL
+node627 [ uuid = "907241b9-ea36-4886-94ff-564b173e781f" shape = "record" label = "ID-DECL
  lives" ];
 node626 -> node627;
 node625 -> node626;
 node624 -> node625;
-node629 [ uuid = "3aaf3f7f-a09a-4825-b706-2ea0ea0a04cf" shape = "record" label = "ASGN
+node629 [ uuid = "911b0fa7-d6a7-4e96-abb4-7872251aeb91" shape = "record" label = "ASGN
  =" ];
-node628 [ uuid = "64a3b2de-bf97-4b62-89aa-c25369255093" shape = "record" label = "ID-LHS
+node628 [ uuid = "8a0d8920-57a6-4dd1-a3b8-b3d2d95cf999" shape = "record" label = "ID-LHS
  lives" ];
 node629 -> node628;
-node630 [ uuid = "3a46d0d4-6ae7-4e65-859e-cae75ba83b9e" shape = "record" label = "NUM
+node630 [ uuid = "d3f8668b-c119-437f-a3a3-83e845096461" shape = "record" label = "NUM
  64" ];
 node629 -> node630;
 node624 -> node629;
-node631 [ uuid = "a18ad074-dacf-40a2-b486-6f046957c372" shape = "record" label = "KWD
+node631 [ uuid = "9cc5cd40-5888-4069-bb85-5f64bae52482" shape = "record" label = "KWD
  setcol" ];
-node632 [ uuid = "51351737-b49c-4f84-8668-c5b3bb356e0f" shape = "record" label = "NUM
+node632 [ uuid = "eb151bac-4861-482a-80f6-b70ba189467e" shape = "record" label = "NUM
  3" ];
 node631 -> node632;
-node633 [ uuid = "e22bf928-2a65-4e5a-ae07-ff53c790a6e2" shape = "record" label = "NUM
+node633 [ uuid = "445a917a-8825-4951-a7f4-14a848fce567" shape = "record" label = "NUM
  3" ];
 node631 -> node633;
-node634 [ uuid = "4a755cf1-6bda-4f48-b99a-dd42821d8aca" shape = "record" label = "NUM
+node634 [ uuid = "090fd771-b1d9-4b78-b68f-7b2a8092ccbf" shape = "record" label = "NUM
  3" ];
 node631 -> node634;
 node624 -> node631;
-node635 [ uuid = "4bbb68ae-3940-4fdd-af7b-bf010de8bc99" shape = "record" label = "KWD
+node635 [ uuid = "e459faf5-81c5-4f9d-bd42-87d8d2fe433f" shape = "record" label = "KWD
  setpos" ];
-node636 [ uuid = "871f4fed-d09a-4d24-b7f8-26179f32f26f" shape = "record" label = "NUM
+node636 [ uuid = "bb944897-a228-4123-8e56-dd243f88ed31" shape = "record" label = "NUM
  128" ];
 node635 -> node636;
-node637 [ uuid = "464f22c2-616a-47c6-b73b-f5fef02e6310" shape = "record" label = "NUM
+node637 [ uuid = "8b54702a-78fe-4396-8828-f74bb90ae8d8" shape = "record" label = "NUM
  2" ];
 node635 -> node637;
 node624 -> node635;
-node638 [ uuid = "c00aa762-b626-41a3-a9eb-61aae2a434f0" shape = "record" label = "KWD
+node638 [ uuid = "226c1d19-22eb-4e30-b302-2d68198bd94c" shape = "record" label = "KWD
  settext" ];
-node639 [ uuid = "3b971124-5104-4473-aa91-bcd4629cbd10" shape = "record" label = "STR
- Score: 000000" ];
+node639 [ uuid = "17083d73-0212-400a-ba74-b87f3c65ce6f" shape = "record" label = "STR
+ score: 000000" ];
 node638 -> node639;
 node624 -> node638;
-node640 [ uuid = "d053f040-af02-4492-ab0e-b5d5ebf8c2da" shape = "record" label = "KWD
+node640 [ uuid = "53769f73-502d-4897-9e33-709db76da0e1" shape = "record" label = "KWD
  while" ];
-node642 [ uuid = "bc61825d-eb19-4bc8-aec0-89adbe19a6d6" shape = "record" label = "OP
+node642 [ uuid = "a7b98080-ffdf-49d4-ae65-4788a08f0d24" shape = "record" label = "OP
  \>" ];
-node641 [ uuid = "4e837f2d-dc8d-42a4-b08c-0a8fa36291a6" shape = "record" label = "ID-RHS
+node641 [ uuid = "6df62b5e-581e-4f0e-b5aa-211fab401ffa" shape = "record" label = "ID-RHS
  lives" ];
 node642 -> node641;
-node643 [ uuid = "1f9d0202-bd51-40e0-b106-619aba59f99c" shape = "record" label = "NUM
+node643 [ uuid = "3cb9f5cd-98e5-444d-a73d-09bf79cdac00" shape = "record" label = "NUM
  0" ];
 node642 -> node643;
 node640 -> node642;
-node644 [ uuid = "217246da-1566-40c5-9bd6-64882f210ca5" shape = "record" label = "Block
+node644 [ uuid = "f6532164-1ab9-4888-8f84-9aedf7b927c7" shape = "record" label = "Block
  " ];
 node640 -> node644;
 node624 -> node640;

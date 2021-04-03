@@ -40,7 +40,6 @@ enum TokenEnum : int {
     SYM_COMMA,
     SYM_QUOTES,
 
-
     OP_GT,
     OP_GTE,
     OP_LT,
@@ -71,10 +70,12 @@ enum TokenEnum : int {
     KWD_SETTEXT,
 
     KWD_GETINPUT,
+    KWD_GETCOLLISION,
     KWD_SETATLAS,
 
     KWD_SPAWNAT,
     KWD_SPAWN,
+    KWD_SETALIEN,
 
     TOK_END_OF_FILE = 666,
     TOK_ERROR = 667

@@ -2,9 +2,9 @@
 // Created by sean on 01/01/2021.
 //
 
-#ifndef MORRIS_VIRTUALMACHINE_H
-#define MORRIS_VIRTUALMACHINE_H
+#pragma once
 
+#include <map>
 #include <vector>
 #include <stack>
 #include <iostream>
@@ -110,20 +110,20 @@ namespace Runtime {
         void InstructionsPush(double V) { instructions.push_back(V); }
 
         State state;
+
         unsigned int slice;
+        static const unsigned int SLICE = 64;
 
         unsigned long int instructionPointer;
         std::vector<Location> instructions;
+
         std::vector<Location> stack;
         std::vector<Location> data;
         std::vector<std::string> stringTable;
 
         Agent* owner;              // NO! some kind of flexible interface or sublcassing
-
     };
 
 };
 
 // ---------------------------------------------------------------------------
-
-#endif //MORRIS_VIRTUALMACHINE_H

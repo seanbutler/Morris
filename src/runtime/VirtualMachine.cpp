@@ -2,7 +2,6 @@
 // Created by sean on 01/01/2021.
 //
 
-#define NDEBUG
 #include <assert.h>     /* assert */
 
 #include <math.h>
@@ -24,7 +23,7 @@ namespace Runtime {
         DumpStrings();
 #endif
 
-        slice = 128;
+        slice = SLICE;
         if (state == RUNNING) {
             while (slice > 0) {
                 slice--;
@@ -330,7 +329,7 @@ namespace Runtime {
                     }
 
                     case INSTR::ASETTEXT : {
-                        std::cout << "ASETTEXT - spawn " << std::endl;
+//                        std::cout << "ASETTEXT - settext " << std::endl;
 
                         Location strIndex = stack[stack.size() - 1];
                         stack.pop_back();
@@ -340,6 +339,7 @@ namespace Runtime {
                         }
                         break;
                     }
+
 
                     case INSTR::AGETINPUT : {
 //                      std::cout << "AGETINPUT - 1 params, gets status of keyboard button or direction" << std::endl;
@@ -359,8 +359,29 @@ namespace Runtime {
                         break;
                     }
 
+                    case INSTR::AGETCOLLISION : {
+//                      std::cout << "AGETCOLLISION - 1 params, gets status of collision this frame" << std::endl;
+
+                        Location v = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location res;
+                        if ( owner ) {
+//                            res.value = owner->GetInput(v.value);
+//                            res.value = owner->GetCollision(v.value);
+                        }
+                        else
+                        {
+                            res.value = 0;
+                        }
+                        stack.push_back(res);
+                        break;
+                    }
+
+
+
                     case INSTR::SPAWN : {
-//                        std::cout << "SPAWN - spawn " << std::endl;
+//                        std::cout << "SPAWN " << std::endl;
 
                         int x = owner->GetSprite()->getPosition().x;
                         int y = owner->GetSprite()->getPosition().y;
@@ -375,7 +396,7 @@ namespace Runtime {
                     }
 
                     case INSTR::SPAWNAT : {
-//                        std::cout << "SPAWNAT - spawnat " << std::endl;
+//                        std::cout << "SPAWNAT " << std::endl;
 
                         Location a = stack[stack.size() - 1];
                         stack.pop_back();
@@ -391,6 +412,23 @@ namespace Runtime {
                         }
                         break;
                     }
+
+                    case INSTR::ASETVAR : {
+                        std::cout << "ASETVAR - set alien flags " << std::endl;
+
+                        Location a = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location strIndex = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        if ( owner ) {
+                            owner->SetAlienVar(stringTable[strIndex.address],  a.value);
+                        }
+                        break;
+                    }
+
+
 
 //                    case INSTR::ACALL : {
 //                        std::cout << "ACALL - alien call, an interface to the engine" << std::endl;

@@ -7,7 +7,6 @@ counter = 0
 setsprite(4*16)
 setcol(3, 3, 3)
 
-
 while ( state != 99 ) {
 
     if (state == 0) {

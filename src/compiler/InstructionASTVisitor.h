@@ -41,6 +41,7 @@ class SetcolASTNode;
 class SetspriteASTNode;
 class SetTextASTNode;
 class GetInputASTNode;
+class GetCollisionASTNode;
 class FunctionASTNode;
 class ProcedureASTNode;
 
@@ -74,6 +75,7 @@ public:
     void Visit(SetspriteASTNode * A);
     void Visit(SetTextASTNode * A);
     void Visit(GetInputASTNode * A);
+    void Visit(GetCollisionASTNode * A);
 
     void Visit(FunctionASTNode * A);
     void Visit(ProcedureASTNode * A);

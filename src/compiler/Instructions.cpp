@@ -41,6 +41,8 @@ char* instructionNames[] = {
         "ASETVEL",      // this one is a special hack while we work it out
         "ASETCOL",      // this one is a special hack while we work it out ( TODO - make them an AFUNC or similar )
         "ASETSPRITE",
+        "ASETTEXT",
+        "ASETVAR",
 
         "AGETINPUT",
 

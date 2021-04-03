@@ -220,7 +220,6 @@ void InstructionASTVisitor::Visit(RHSIdentifierASTNode * A){
     }
 }
 
-
 void InstructionASTVisitor::Visit(OperatorASTNode * A){
 //    std::cout << "Visit OperatorASTNode" << std::endl;
 
@@ -359,5 +358,12 @@ void InstructionASTVisitor::Visit(GetInputASTNode * A){
     A->children[0]->Accept(this);
     instructions.emplace_back(Location(INSTR::AGETINPUT));
 }
+
+void InstructionASTVisitor::Visit(GetCollisionASTNode * A){
+//    std::cout << "Visit GetCollisionASTNode" << std::endl;
+    A->children[0]->Accept(this);
+    instructions.emplace_back(Location(INSTR::AGETCOLLISION));
+}
+
 
 // --------------------------------------------------

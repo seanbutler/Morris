@@ -14,7 +14,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Scheduler.h"
-#include "CollisionManager.h"
+#include "Collision.h"
 
 // ----------------------------------------------------------------------
 
@@ -36,12 +36,11 @@ namespace Engine {
         sf::Clock clock;
 
         virtual void Update();
-        Scheduler entityScheduler;
         CollisionManager collisionManager;
+        Scheduler entityScheduler;
 
         sf::Color clearColour = sf::Color::Black;
     };
-
 };
 
 // ----------------------------------------------------------------------

@@ -373,6 +373,19 @@ public:
     }
 };
 
+
+class SetcollisionASTNode : public ASTNode {
+public:
+    SetcollisionASTNode(ASTNode * P=nullptr)
+            : ASTNode("KWD", "setcollision", P)
+    {
+    }
+
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((SetcollisionASTNode*)this);
+    }
+};
+
 // ----------------------------------------------------------------------
 
 class GetInputASTNode : public ASTNode {

@@ -8,34 +8,32 @@
 Token tokens[] = {
 
         Token(KWD_DECL,     "decl"      ),
-        Token(KWD_CONST,    "const"     ),
 
         Token(KWD_IF,       "if"        ),
-        Token(KWD_ELSE,     "else"      ),
+        Token(KWD_ELSE,     "else"      ),  // todo
         Token(KWD_WHILE,    "while"     ),
 
-        Token(KWD_FUNC,     "func"      ),
-        Token(KWD_RETURN,   "return"    ),
-        Token(KWD_PROC,     "proc"      ),
-        Token(KWD_THREAD,   "thread"    ),
-        Token(KWD_PROC,     "exit"      ),
-        Token(KWD_OUTPUT,   "output"    ),
+        Token(KWD_FUNC,     "func"      ),  // todo
+        Token(KWD_RETURN,   "return"    ),  // todo
+        Token(KWD_PROC,     "proc"      ),  // todo
+        Token(KWD_THREAD,   "thread"    ),  // todo - remove
+        Token(KWD_PROC,     "exit"      ),  // todo - remove
+        Token(KWD_OUTPUT,   "output"    ),  // todo - remove
 
         Token(KWD_SETPOS ,      "setpos"            ),
         Token(KWD_SETVEL ,      "setvel"            ),
         Token(KWD_SETCOL ,      "setcol"            ),
-        Token(KWD_SETSPRITE ,   "setsprite"         ),
-        Token(KWD_SETTEXT ,   "settext"             ),
+        Token(KWD_SETSPRITE,    "setsprite"         ),
+        Token(KWD_SETTEXT,      "settext"           ),
 
-        Token(KWD_GETINPUT,   "getinput"            ),
-        Token(KWD_GETCOLLISION,   "getcollision"    ),
-//        Token(KWD_SETATLAS,   "atlas"               ),
+        Token(KWD_GETINPUT,     "getinput"          ),
+        Token(KWD_SETCOLLISION, "setcollision"      ),
+        Token(KWD_GETCOLLISION, "getcollision"      ),
 
-        Token(KWD_SPAWN ,       "spawn"    ),
-        Token(KWD_SPAWNAT,     "spawnat"    ),
+        Token(KWD_SPAWN ,       "spawn"             ),
+        Token(KWD_SPAWNAT,      "spawnat"           ),
 
-        Token(KWD_SETALIEN,     "setalien" ),
-
+        Token(KWD_SETALIEN,     "setalien"          ),
 };
 
 Token symbols[] = {
@@ -69,7 +67,7 @@ Token symbols[] = {
         Token(OP_MOD,        "%"     ),
         Token(OP_POW,        "^"     ),
 
-        Token(OP_AND,       "and"     ),
-        Token(OP_OR,        "or"     ),
-        Token(OP_NE,       "!="     )
+        Token(OP_AND,       "and"       ),
+        Token(OP_OR,        "or"        ),
+        Token(OP_NE,        "!="        )
 };

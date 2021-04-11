@@ -1,35 +1,5 @@
 digraph G {
 node [shape = circle];
-node64 [ uuid = "a00e8e02-ff5c-47d4-aacd-e3d0766d64aa" shape = "record" label = "MDL
+node711 [ uuid = "b3eae60c-af55-42f7-a5c2-d46747370384" shape = "record" label = "MDL
  " ];
-node65 [ uuid = "6134668e-8635-4f14-88dc-f63c2c555184" shape = "record" label = "KWD
- spawn" ];
-node66 [ uuid = "f43881a5-9aeb-4ca4-991f-ce7f94c09644" shape = "record" label = "STR
- assets/code/lives.src" ];
-node65 -> node66;
-node64 -> node65;
-node67 [ uuid = "b05c5899-9e92-401c-9966-e9130eaaa41b" shape = "record" label = "KWD
- spawn" ];
-node68 [ uuid = "67c73e41-8d1a-48cc-8bf7-5a464ee89e2d" shape = "record" label = "STR
- assets/code/score.src" ];
-node67 -> node68;
-node64 -> node67;
-node69 [ uuid = "94f11655-1b87-4309-b95c-a06053058bee" shape = "record" label = "KWD
- spawn" ];
-node70 [ uuid = "c9dfb8d9-561b-4bee-a174-724d02f14f65" shape = "record" label = "STR
- assets/code/wave.src" ];
-node69 -> node70;
-node64 -> node69;
-node71 [ uuid = "707e4551-6566-4f1d-94ab-7e9e5a1e8437" shape = "record" label = "KWD
- spawnat" ];
-node72 [ uuid = "522b21cd-6f0c-4367-b0d6-76f74e1e1c26" shape = "record" label = "STR
- assets/code/player.src" ];
-node71 -> node72;
-node73 [ uuid = "b9b7558e-e944-4567-b668-bb13b6e4c537" shape = "record" label = "NUM
- 128" ];
-node71 -> node73;
-node74 [ uuid = "43c2f179-0a6e-43b7-9b8b-ebda04e25c6d" shape = "record" label = "NUM
- 172" ];
-node71 -> node74;
-node64 -> node71;
 }

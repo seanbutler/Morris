@@ -5,69 +5,47 @@
 #pragma once
 
 // ----------------------------------------------------------------------
-#include <iostream>
 
-//#include <vector>
 #include <list>
 #include <memory>
 #include <algorithm>
+#include <iostream>
+
+#include <SFML/Graphics.hpp>
+#include "Collision.h"
 
 // ----------------------------------------------------------------------
 
-#include "Entity.h"
-#include "Agent.h"
-
 namespace Engine {
+
+    class Agent;
 
     class Scheduler {
 
     public:
-        Scheduler()             {}
-        virtual ~Scheduler()    {}
+        Scheduler(CollisionManager & CM)
+        : collisionManager(CM){}
 
-        virtual void Spawn(std::string FN, std::pair<unsigned int, unsigned int> POS);
-
-        virtual void Remove(Engine::Entity*E) {
-            E->state = Entity::CORPSE;
+        virtual ~Scheduler()        {
+            for(auto E : executing){
+                delete E;
+            }
+            executing.clear();
         }
 
-        virtual void Update(float deltaTime)
-        {
-            for (auto EXE : executing ) {
-                if ( EXE->IsAlive() ) {
-                    EXE->Update(deltaTime);
-                }
-            }
+        void Spawn(std::string FN, std::pair<unsigned int, unsigned int> POS = {0.0, 0.0});
 
-            for (auto EMB : embryos ) {
-                executing.push_back(std::move(EMB));
-            }
-            embryos.clear();
+        virtual void Remove(Agent* E);
+        virtual void Update(float deltaTime);
 
-            for (auto EXE : executing ) {
-                if (EXE->state == Entity::CORPSE) {
-                    graveyard.push_back(EXE);
-                    delete(EXE);
-                    std::erase(executing, EXE);
-                }
-            }
-            graveyard.clear();
-        }
-
-        // TODO - this should be a part of a component not the entity
-        virtual void Render(sf::RenderWindow *W)
-        {
-//            std::cout << "Render Entities = " << executing.size() << std::endl;
-
-            for (auto EXE : executing ) {
-                EXE->Render(W);
-            }
-        }
+        virtual void Render(sf::RenderWindow *W);
+        virtual void Collide();
 
     private:
         // TODO - this should be a map (or tree) so we can id and retrieve specific executing?
-        std::vector <Engine::Entity*> embryos, executing, graveyard;
+        std::vector <Agent*> embryos, executing, graveyard;
 
+        CollisionManager& collisionManager;
     };
 
 };

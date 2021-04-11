@@ -10,27 +10,22 @@
 #include <vector>
 #include <memory>
 
-// ----------------------------------------------------------------------
 
-#include "Entity.h"
+#include <SFML/Graphics.hpp>
+
+// ----------------------------------------------------------------------
 
 namespace Engine {
 
     class Textures {
 
     public:
-        Textures()
+        Textures(std::string FN, unsigned int S=16)
         : texture()
-        , sprite_size(16)
+        , sprite_size(S)
         , dimx(0)
         , dimy(0)
         {
-        }
-
-        virtual ~Textures() {}
-
-        virtual void LoadAtlas(std::string FN, unsigned int S=16) {
-            sprite_size=S;
             if (texture.loadFromFile(FN)) {
                 dimx = texture.getSize().x / sprite_size;
                 dimy = texture.getSize().y / sprite_size;
@@ -41,6 +36,21 @@ namespace Engine {
                 std::cerr << "Texture Load Error" << std::endl;
             }
         }
+
+        virtual ~Textures() {}
+
+//        virtual void LoadAtlas(std::string FN, unsigned int S=16) {
+//            sprite_size=S;
+//            if (texture.loadFromFile(FN)) {
+//                dimx = texture.getSize().x / sprite_size;
+//                dimy = texture.getSize().y / sprite_size;
+//                maxcap = dimx * dimy;
+//            }
+//            else
+//            {
+//                std::cerr << "Texture Load Error" << std::endl;
+//            }
+//        }
 
         virtual void SetSprite(unsigned int n, sf::Sprite & sprite) {
             n = n % maxcap;

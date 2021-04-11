@@ -14,7 +14,6 @@ enum TokenTypeEnum : int {
 enum TokenEnum : int {
     KWD_DECL,
     KWD_CONST,
-//    KWD_MUTABLE,
 
     KWD_IF,
     KWD_ELSE,
@@ -70,8 +69,8 @@ enum TokenEnum : int {
     KWD_SETTEXT,
 
     KWD_GETINPUT,
+    KWD_SETCOLLISION,
     KWD_GETCOLLISION,
-    KWD_SETATLAS,
 
     KWD_SPAWNAT,
     KWD_SPAWN,

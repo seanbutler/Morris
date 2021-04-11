@@ -22,18 +22,6 @@ namespace Engine {
         };
 
         sf::Font font;
-
-        std::string strings[9] = {
-                "Press X To Start",
-                "WASD to Move",
-                "Game Over",
-                "Play Again",
-                "Lives",
-                "Level",
-                "Wave",
-                "Health",
-                "Score"
-        };
     };
 
 }

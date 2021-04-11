@@ -1,3 +1,4 @@
+setcollision(3)
 
 decl counter
 counter = 60

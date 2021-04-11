@@ -346,6 +346,8 @@ void InstructionASTVisitor::Visit(SetcolASTNode * A){
     instructions.emplace_back(Location(INSTR::ASETCOL));
 }
 
+// --------------------------------------------------
+
 void InstructionASTVisitor::Visit(SetspriteASTNode * A){
 //    std::cout << "Visit SetspriteASTNode" << std::endl;
     A->children[0]->Accept(this);
@@ -359,11 +361,18 @@ void InstructionASTVisitor::Visit(GetInputASTNode * A){
     instructions.emplace_back(Location(INSTR::AGETINPUT));
 }
 
+// --------------------------------------------------
+
 void InstructionASTVisitor::Visit(GetCollisionASTNode * A){
 //    std::cout << "Visit GetCollisionASTNode" << std::endl;
     A->children[0]->Accept(this);
     instructions.emplace_back(Location(INSTR::AGETCOLLISION));
 }
 
+void InstructionASTVisitor::Visit(SetcollisionASTNode * A){
+//    std::cout << "Visit SetcollisionASTNode" << std::endl;
+    A->children[0]->Accept(this);
+    instructions.emplace_back(Location(INSTR::ASETCOLLISION));
+}
 
 // --------------------------------------------------

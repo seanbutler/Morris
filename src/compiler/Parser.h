@@ -42,15 +42,15 @@ public:
     FunctionASTNode * ParseFunction(ASTNode *P= nullptr);
     ReturnASTNode * ParseReturn(ASTNode *P= nullptr);
 
-    OutputASTNode * ParseOutput(ASTNode *P= nullptr);
-    SetposASTNode * ParseSetpos(ASTNode *P= nullptr);
-//    SetposASTNode * ParseMove(ASTNode *P= nullptr);
-    SetvelASTNode * ParseSetvel(ASTNode *P= nullptr);
-    SetcolASTNode * ParseSetcol(ASTNode *P= nullptr);
-    SetspriteASTNode * ParseSetsprite(ASTNode *P= nullptr);
-    SetTextASTNode * ParseSetText(ASTNode *P= nullptr);
-    GetInputASTNode * ParseGetInput(ASTNode *P= nullptr);
-    GetCollisionASTNode * ParseGetCollision(ASTNode *P= nullptr);
+    OutputASTNode * ParseOutput(ASTNode *P = nullptr);
+    SetposASTNode * ParseSetpos(ASTNode *P = nullptr);
+    SetvelASTNode * ParseSetvel(ASTNode *P = nullptr);
+    SetcolASTNode * ParseSetcol(ASTNode *P = nullptr);
+    SetspriteASTNode * ParseSetsprite(ASTNode *P = nullptr);
+    SetTextASTNode * ParseSetText(ASTNode *P = nullptr);
+    GetInputASTNode * ParseGetInput(ASTNode *P = nullptr);
+    GetCollisionASTNode * ParseGetCollision(ASTNode *P = nullptr);
+    SetcollisionASTNode * ParseSetcollision(ASTNode *P = nullptr);
 
     StringASTNode * ParseString(ASTNode *P= nullptr);
     SpawnASTNode * ParseSpawn(ASTNode *P=nullptr);

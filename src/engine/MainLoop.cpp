@@ -35,6 +35,8 @@ namespace Engine {
                        , sf::Style::Titlebar
                         | sf::Style::Close
                        )
+           ,    collisionManager()
+           ,    entityScheduler(collisionManager)
     {
         window.setSize(sf::Vector2u(w*pixel_scale,h*pixel_scale));
         window.setFramerateLimit(FR);
@@ -55,8 +57,8 @@ namespace Engine {
             }
 
             entityScheduler.Update(deltaTime);
+            entityScheduler.Collide();
 
-            collisionManager.Update();
 
             window.clear(clearColour);
             entityScheduler.Render(&window);

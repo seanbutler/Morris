@@ -9,13 +9,13 @@
 #include <stack>
 #include <iostream>
 
-//#include "../Simulation/Agent.h"
-
 #include "../compiler/Instructions.h"
 #include "../compiler/Location.h"
 
 // ---------------------------------------------------------------------------
-class Agent;
+namespace Engine {
+    class Agent;
+};
 
 namespace Runtime {
 
@@ -95,7 +95,7 @@ namespace Runtime {
             }
         }
 
-        void SetOwner(Agent* O) {owner = O;}
+        void SetOwner(Engine::Agent* O) {owner = O;}
 
         void Execute();
 
@@ -121,7 +121,7 @@ namespace Runtime {
         std::vector<Location> data;
         std::vector<std::string> stringTable;
 
-        Agent* owner;              // NO! some kind of flexible interface or sublcassing
+        Engine::Agent* owner;                   // NO! some kind of flexible interface or sublcassing
     };
 
 };

@@ -13,14 +13,11 @@ set(SOURCE_FILES
         src/runtime/VirtualMachine.cpp src/runtime/VirtualMachine.h
         src/compiler/Instructions.cpp src/compiler/Instructions.h
         src/compiler/compiler.cpp src/compiler/compiler.h
-        src/engine/MainLoop.cpp src/engine/MainLoop.h
-        src/engine/Entity.h
+        src/engine/Collision.cpp src/engine/Collision.h
         src/engine/Input.h
-        src/engine/Scheduler.cpp
-        src/engine/Scheduler.h
+        src/engine/MainLoop.cpp src/engine/MainLoop.h
+        src/engine/Scheduler.cpp src/engine/Scheduler.h
         src/engine/Agent.cpp src/engine/Agent.h
-        src/engine/CollisionManager.cpp
-        src/engine/CollisionManager.h
         src/engine/Font.cpp src/engine/Font.h)
 
 add_executable(Morris ${SOURCE_FILES})

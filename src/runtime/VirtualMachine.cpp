@@ -2,15 +2,10 @@
 // Created by sean on 01/01/2021.
 //
 
-#include <assert.h>     /* assert */
-
-#include <math.h>
-
-#include "VirtualMachine.h"
-#include "../compiler/Location.h"
 
 #include "../engine/Agent.h"
-
+#include "../compiler/Location.h"
+#include "VirtualMachine.h"
 
 //#define VM_DEBUG_DUMP
 
@@ -44,7 +39,7 @@ namespace Runtime {
                     case INSTR::HALT: {
                         state = VM::HALTED;
                         slice = 0;
-                        owner->Die();
+//                        owner->Die();
                         break;
                     }
 
@@ -360,21 +355,33 @@ namespace Runtime {
                     }
 
                     case INSTR::AGETCOLLISION : {
-//                      std::cout << "AGETCOLLISION - 1 params, gets status of collision this frame" << std::endl;
+//                        std::cout << "AGETCOLLISION - 1 params, gets status of collision this frame" << std::endl;
 
                         Location v = stack[stack.size() - 1];
                         stack.pop_back();
 
                         Location res;
+                        res.value = 0;
                         if ( owner ) {
-//                            res.value = owner->GetInput(v.value);
-//                            res.value = owner->GetCollision(v.value);
+                            if ( owner->CheckCollided(v.value) ) {
+                                res.value = 1;
+                            }
                         }
-                        else
-                        {
-                            res.value = 0;
-                        }
+
                         stack.push_back(res);
+                        break;
+                    }
+
+
+                    case INSTR::ASETCOLLISION : {
+                      std::cout << "ASETCOLLISION - 1 params, sets layer for collision system" << std::endl;
+
+                        Location v = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        if ( owner ) {
+                            owner->SetCollisionLayer(v.value);
+                        }
                         break;
                     }
 

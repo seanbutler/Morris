@@ -1,25 +1,17 @@
-decl counter
-counter = 64
 
-setcol(3, 3, 3)
-settext("Fentlewoodlewix")
 
-while (counter > 0) {
-    setpos(80, counter * 2)
-    counter = counter - 1
-}
+spawnat("assets/code/robot.src", 128, 32)
 
-# spawnat("assets/code/hud.src", 64, 64)
+spawnat("assets/code/robot.src", 128, 96)
+spawnat("assets/code/robot.src", 96, 32)
+spawnat("assets/code/robot.src", 64, 96)
 
-#spawnat("assets/code/robot.src", 128, 32)
-#spawnat("assets/code/robot.src", 128, 96)
-#spawnat("assets/code/robot.src", 96, 32)
-#spawnat("assets/code/robot.src", 64, 96)
+spawnat("assets/code/ghost.src", 196, 128)
+spawnat("assets/code/ghost.src", 196, 96)
 
-#spawnat("assets/code/ghost.src", 196, 128)
-#spawnat("assets/code/ghost.src", 196, 96)
-
-#spawnat("assets/code/skeleton.src", 64, 32)
+spawnat("assets/code/skeleton.src", 64, 32)
 spawnat("assets/code/skeleton.src", 64, 64)
 
 spawnat("assets/code/player.src", 128, 172)
+
+spawnat("assets/code/hud.src", 64, 64)

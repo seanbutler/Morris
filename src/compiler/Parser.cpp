@@ -110,17 +110,22 @@ ModuleASTNode * Parser::ParseModule() {
                 break;
             }
 
+            case TokenEnum::KWD_GETCOLLISION:{
+//                std::cout << "Parser::Parse() TokenEnum::KWD_GETCOLLISION" << std::endl;
+                statementsNodePtr->children.push_back(ParseGetCollision(statementsNodePtr));
+                break;
+            }
+
+            case TokenEnum::KWD_SETCOLLISION:{
+//                std::cout << "Parser::Parse() TokenEnum::KWD_SETSPRITE" << std::endl;
+                statementsNodePtr->children.push_back(ParseSetcollision(statementsNodePtr));
+                break;
+            }
+
             // GETINPUT
 //            case TokenEnum::KWD_GETINPUT:{
 //                std::cout << "Parser::Parse() TokenEnum::KWD_GETINPUT" << std::endl;
 //                statementsNodePtr->children.push_back(ParseSetsprite(statementsNodePtr));
-//                break;
-//            }
-
-            // SETATLAS
-//            case TokenEnum::KWD_GETINPUT:{
-//                std::cout << "Parser::Parse() TokenEnum::KWD_SETATLAS" << std::endl;
-//                statementsNodePtr->children.push_back(ParseSetAtlas(statementsNodePtr));
 //                break;
 //            }
 
@@ -462,6 +467,13 @@ BlockASTNode * Parser::ParseBlock(ASTNode *P, bool returnable) {
                 break;
             }
 
+            // SETCOLLISION
+            case TokenEnum::KWD_SETCOLLISION:{
+//                std::cout << "Parser::Parse() TokenEnum::KWD_SETCOLLISION" << std::endl;
+                statementsNodeSP->children.push_back(ParseSetcollision(statementsNodeSP));
+                break;
+            }
+
             // GETCOLLISION
             case TokenEnum::KWD_GETCOLLISION:{
 //                std::cout << "Parser::Parse() TokenEnum::KWD_GETCOLLISION" << std::endl;
@@ -508,6 +520,9 @@ ASTNode * Parser::ParseExpression(ASTNode *P, bool returnable) {
     }
     else if ( tokenItor->kind == TokenEnum::KWD_GETINPUT) {
         lhsNodeSP = ParseGetInput();
+    }
+    else if ( tokenItor->kind == TokenEnum::KWD_GETCOLLISION) {
+        lhsNodeSP = ParseGetCollision();
     }
     else {
         return nullptr;
@@ -858,7 +873,6 @@ SetvelASTNode * Parser::ParseSetvel(ASTNode *P) {
 SetspriteASTNode * Parser::ParseSetsprite(ASTNode *P) {
     SetspriteASTNode * statementNodeSP = nullptr;
     ASTNode * xExprNodeSP;
-    ASTNode * yExprNodeSP;
 
     if ( tokenItor->kind == TokenEnum::KWD_SETSPRITE ) {
         statementNodeSP = new SetspriteASTNode();
@@ -887,6 +901,38 @@ SetspriteASTNode * Parser::ParseSetsprite(ASTNode *P) {
     return statementNodeSP;
 }
 
+// ----------------------------------------------------------------------
+
+SetcollisionASTNode * Parser::ParseSetcollision(ASTNode *P) {
+    SetcollisionASTNode * statementNodeSP = nullptr;
+    ASTNode * xExprNodeSP;
+
+    if ( tokenItor->kind == TokenEnum::KWD_SETCOLLISION ) {
+        statementNodeSP = new SetcollisionASTNode();
+
+        tokenItor++;
+
+        if ( tokenItor->kind == TokenEnum::SYM_LPAREN ) {
+            tokenItor++;
+            xExprNodeSP = ParseExpression();
+            statementNodeSP->children.push_back(xExprNodeSP);
+
+            if (tokenItor->kind == TokenEnum::SYM_RPAREN) {
+                tokenItor++;
+            }
+            else
+            {
+                std::cerr << "Parse Error : Setcollision Expected ) Right Parenthesis" << std::endl;
+            }
+        }
+        else
+        {
+            std::cerr << "Parse Error : Setcollision Expected ( Left Parenthesis" << std::endl;
+        }
+    }
+
+    return statementNodeSP;
+}
 
 // ----------------------------------------------------------------------
 

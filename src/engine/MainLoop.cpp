@@ -57,7 +57,7 @@ namespace Engine {
             }
 
             entityScheduler.Update(deltaTime);
-            entityScheduler.Collide();
+            collisionManager.Update();
 
 
             window.clear(clearColour);

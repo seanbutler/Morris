@@ -34,17 +34,13 @@ namespace Engine {
         }
 
         void Spawn(std::string FN, std::pair<unsigned int, unsigned int> POS = {0.0, 0.0});
-
         virtual void Remove(Agent* E);
         virtual void Update(float deltaTime);
-
         virtual void Render(sf::RenderWindow *W);
-        virtual void Collide();
 
     private:
         // TODO - this should be a map (or tree) so we can id and retrieve specific executing?
         std::vector <Agent*> embryos, executing, graveyard;
-
         CollisionManager& collisionManager;
     };
 

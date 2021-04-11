@@ -1,125 +1,41 @@
 digraph G {
 node [shape = circle];
-node0 [ uuid = "a8feefbd-ffbb-46a0-8ee9-5ec9d424cdba" shape = "record" label = "MDL
+node0 [ uuid = "dcd3183e-8a6d-424b-a5ac-bd521a2c7e07" shape = "record" label = "MDL
  " ];
-node1 [ uuid = "a32a042f-f193-450a-b55e-65a205ad5c60" shape = "record" label = "KWD
+node1 [ uuid = "a7c9ce0a-ecea-49d4-a094-57b088939092" shape = "record" label = "KWD
  spawnat" ];
-node2 [ uuid = "6f086fec-0d34-4aad-843d-950237b73a99" shape = "record" label = "STR
+node2 [ uuid = "a11344de-3681-45e8-bc51-806c8d5c6aa2" shape = "record" label = "STR
  assets/code/robot.src" ];
 node1 -> node2;
-node3 [ uuid = "0e5bf030-5b37-4486-ab66-5724163d55cb" shape = "record" label = "NUM
+node3 [ uuid = "ebda2dda-1458-41ef-89da-828377f9be54" shape = "record" label = "NUM
  128" ];
 node1 -> node3;
-node4 [ uuid = "b8b88120-7830-4583-b447-9c6ea41d242d" shape = "record" label = "NUM
+node4 [ uuid = "9cd52015-18a8-406c-b8c7-440831c4d04c" shape = "record" label = "NUM
  32" ];
 node1 -> node4;
 node0 -> node1;
-node5 [ uuid = "f38ce6d8-88cd-4ff4-8c7e-c74ed55bbf1f" shape = "record" label = "KWD
+node5 [ uuid = "83a96086-b3db-4d33-a31c-409e0b27ffe1" shape = "record" label = "KWD
  spawnat" ];
-node6 [ uuid = "4217e560-6e91-48d5-a64a-63592f3c667c" shape = "record" label = "STR
- assets/code/robot.src" ];
+node6 [ uuid = "4b6df102-42b9-4d8c-babc-62fcf8dc15a4" shape = "record" label = "STR
+ assets/code/player.src" ];
 node5 -> node6;
-node7 [ uuid = "841d5a83-1e52-4375-9438-2b21d777785a" shape = "record" label = "NUM
+node7 [ uuid = "d8d74c34-cae4-40ec-814e-694c6f305f09" shape = "record" label = "NUM
  128" ];
 node5 -> node7;
-node8 [ uuid = "d3d31d99-d0e6-41f9-9435-f2a3ddb593ca" shape = "record" label = "NUM
- 96" ];
+node8 [ uuid = "92da7b28-0046-4497-b860-c43cf9299ba6" shape = "record" label = "NUM
+ 172" ];
 node5 -> node8;
 node0 -> node5;
-node9 [ uuid = "f88c35d0-9ac2-41e3-b7d9-8f7b67011efb" shape = "record" label = "KWD
+node9 [ uuid = "7b9c6b2c-c8da-4917-b8dd-9ab71c4b782a" shape = "record" label = "KWD
  spawnat" ];
-node10 [ uuid = "e77c0760-cec2-4e11-b7b8-924f0eb3a588" shape = "record" label = "STR
- assets/code/robot.src" ];
+node10 [ uuid = "374a745d-c509-4f74-9629-0b9079badb33" shape = "record" label = "STR
+ assets/code/hud.src" ];
 node9 -> node10;
-node11 [ uuid = "c15c7efb-4187-42d0-99ea-426d5de4f5de" shape = "record" label = "NUM
- 96" ];
+node11 [ uuid = "64ac756a-dd32-4cac-bd4f-81597f3bdafe" shape = "record" label = "NUM
+ 64" ];
 node9 -> node11;
-node12 [ uuid = "e53f9154-d9ba-4910-9f4b-5b533c696100" shape = "record" label = "NUM
- 32" ];
+node12 [ uuid = "3c43155b-60fc-45d3-a1b7-37cb187bd2f1" shape = "record" label = "NUM
+ 64" ];
 node9 -> node12;
 node0 -> node9;
-node13 [ uuid = "5544d8d4-5ba5-4119-aedc-b776e73e3123" shape = "record" label = "KWD
- spawnat" ];
-node14 [ uuid = "cd9ccbae-093d-49e5-aaee-f4a05ee21c85" shape = "record" label = "STR
- assets/code/robot.src" ];
-node13 -> node14;
-node15 [ uuid = "58f48f7d-c920-46e3-9f02-c3ad3ff41261" shape = "record" label = "NUM
- 64" ];
-node13 -> node15;
-node16 [ uuid = "c7c54fc9-9526-42eb-a075-537c2a2160d8" shape = "record" label = "NUM
- 96" ];
-node13 -> node16;
-node0 -> node13;
-node17 [ uuid = "241c86fd-e91d-4f7f-bf29-a207ca35e05b" shape = "record" label = "KWD
- spawnat" ];
-node18 [ uuid = "5d5e3779-e847-41b2-bea2-45f9c8960408" shape = "record" label = "STR
- assets/code/ghost.src" ];
-node17 -> node18;
-node19 [ uuid = "8792c432-7a78-4d5c-8955-2cf777d438ad" shape = "record" label = "NUM
- 196" ];
-node17 -> node19;
-node20 [ uuid = "7c8c4e1a-a4cb-4c3c-b91b-2b35eb8292a8" shape = "record" label = "NUM
- 128" ];
-node17 -> node20;
-node0 -> node17;
-node21 [ uuid = "4d1f78d6-7e7c-469b-9fb8-7b7ca8ccb4fe" shape = "record" label = "KWD
- spawnat" ];
-node22 [ uuid = "300e2feb-95f8-4e49-b331-bb372d31c799" shape = "record" label = "STR
- assets/code/ghost.src" ];
-node21 -> node22;
-node23 [ uuid = "8d36e1d1-7628-421e-b7c9-37eea5d104d6" shape = "record" label = "NUM
- 196" ];
-node21 -> node23;
-node24 [ uuid = "495bd1c7-122e-44f9-9da9-61f3ae09abad" shape = "record" label = "NUM
- 96" ];
-node21 -> node24;
-node0 -> node21;
-node25 [ uuid = "0225495f-da5d-4ca4-8fce-5cae3c452124" shape = "record" label = "KWD
- spawnat" ];
-node26 [ uuid = "1021c868-1690-406b-984c-61cc583be1fd" shape = "record" label = "STR
- assets/code/skeleton.src" ];
-node25 -> node26;
-node27 [ uuid = "f3623438-da52-4f61-b948-5159ccdcbcca" shape = "record" label = "NUM
- 64" ];
-node25 -> node27;
-node28 [ uuid = "ce3ff69d-d352-4877-b6bf-5c416ac0d069" shape = "record" label = "NUM
- 32" ];
-node25 -> node28;
-node0 -> node25;
-node29 [ uuid = "a9bb540d-7081-4261-b9cb-d4bbce2f725f" shape = "record" label = "KWD
- spawnat" ];
-node30 [ uuid = "e7a38e47-7bc8-4469-a895-d2c33260d005" shape = "record" label = "STR
- assets/code/skeleton.src" ];
-node29 -> node30;
-node31 [ uuid = "06321b0b-c1fa-47e9-ba08-5c1c1d4b1c1e" shape = "record" label = "NUM
- 64" ];
-node29 -> node31;
-node32 [ uuid = "5231979f-83e2-4440-85b4-6b79d4a7e34e" shape = "record" label = "NUM
- 64" ];
-node29 -> node32;
-node0 -> node29;
-node33 [ uuid = "f0a7abf0-5613-4937-839d-adf1785d09a2" shape = "record" label = "KWD
- spawnat" ];
-node34 [ uuid = "75682103-7589-4ed9-9fe9-4f534a3196bb" shape = "record" label = "STR
- assets/code/player.src" ];
-node33 -> node34;
-node35 [ uuid = "591467e5-b8e2-4fb5-a440-540c890f4db0" shape = "record" label = "NUM
- 128" ];
-node33 -> node35;
-node36 [ uuid = "6f4f5d84-ab23-48ed-bcfe-749a6878bce9" shape = "record" label = "NUM
- 172" ];
-node33 -> node36;
-node0 -> node33;
-node37 [ uuid = "1cd8ab70-26da-4a40-9b99-ea3a6f2b6f61" shape = "record" label = "KWD
- spawnat" ];
-node38 [ uuid = "4d5b7d14-aded-4aa3-bb3c-0b9084185db9" shape = "record" label = "STR
- assets/code/hud.src" ];
-node37 -> node38;
-node39 [ uuid = "ba285d9b-15da-4d40-8e22-800025f74e13" shape = "record" label = "NUM
- 64" ];
-node37 -> node39;
-node40 [ uuid = "51e8c57c-fcf3-4bc4-9a7c-9b4aac627678" shape = "record" label = "NUM
- 64" ];
-node37 -> node40;
-node0 -> node37;
 }

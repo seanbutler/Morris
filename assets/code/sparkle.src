@@ -1,7 +1,7 @@
 setcollision(3)
 
 decl counter
-counter = 60
+counter = 30
 
 setsprite(212)
 setcol(3, 0, 0)
@@ -11,4 +11,16 @@ while ( counter > 0 ) {
     counter = counter - 1
 }
 
-setcol(0, 0, 3)
+setsprite(213)
+setcol(2, 0, 0)
+setvel(0, 0-1)
+
+counter = 8
+while ( counter > 0 ) {
+    counter = counter - 1
+}
+
+setsprite(214)
+setcol(1, 0, 0)
+setvel(0, 0)
+

@@ -355,7 +355,7 @@ namespace Runtime {
                     }
 
                     case INSTR::AGETCOLLISION : {
-//                        std::cout << "AGETCOLLISION - 1 params, gets status of collision this frame" << std::endl;
+                        std::cout << "AGETCOLLISION - 1 params, gets collision status ";
 
                         Location v = stack[stack.size() - 1];
                         stack.pop_back();
@@ -364,7 +364,12 @@ namespace Runtime {
                         res.value = 0;
                         if ( owner ) {
                             if ( owner->CheckCollided(v.value) ) {
+                                std::cout << "TRUE this frame" << std::endl;
                                 res.value = 1;
+                            }
+                            else
+                            {
+                                std::cout << "FALSE this frame" << std::endl;
                             }
                         }
 

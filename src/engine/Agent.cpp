@@ -111,7 +111,8 @@ namespace Engine{
     }
 
     bool Agent::CheckCollided(unsigned int B) {
-        return false;
+        // WORKING HERE
+        return collider->GetCollided(B);
     }
 
     void Agent::SetColour(unsigned char R, unsigned char G, unsigned char B, unsigned char A) {

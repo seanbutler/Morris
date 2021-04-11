@@ -14,6 +14,20 @@ Engine::Collider * Engine::CollisionManager::GetNewCollider(sf::Sprite& SPR, uns
     return tmpCollider;
 }
 
+void Engine::CollisionManager::Update() {
+    for(auto C1 : colliders){
+        for(auto C2 : colliders) {
+            if (C1->GetLayer() != C2->GetLayer()) {
+                if (C1->GetRect().intersects(C2->GetRect())) {
+                    C2->SetCollided(C1->GetLayer());
+                    C1->SetCollided(C2->GetLayer());
+                }
+            }
+        }
+    }
+}
+
+
 // --------------------------------------------------------------------------------
 
 

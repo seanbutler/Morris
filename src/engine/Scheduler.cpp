@@ -49,22 +49,7 @@ namespace Engine {
         }
     }
 
-    // TODO - this should be a part of a component not the entity
-    void Scheduler::Collide()
-    {
-//            std::cout << "Collide Entities = " << executing.size() << std::endl;
 
-//        for(auto E1 : executing) {
-//            for(auto E2 : executing) {
-//                if ( E1->layer != E2->layer) {
-//                    if ( E1->sprite.getGlobalBounds().intersects( E2->sprite.getGlobalBounds() ) ) {
-//                        E1->collidedWith.push_back(E2->layer);
-//                        E2->collidedWith.push_back(E1->layer);
-//                    }
-//                }
-//            }
-//        }
-    }
 
 
 };

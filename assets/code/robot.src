@@ -19,8 +19,12 @@ while ( alive > 0 ) {
 
     if ( getcollision(3)  )
     {
+        setcol(3, 0, 0)
         alive = alive - 1
     }
 
 }
+
+setvel(0-6, 0)
+setcol(3, 3, 3)
 

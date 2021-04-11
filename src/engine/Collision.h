@@ -20,6 +20,9 @@ namespace Engine {
         CollisionManager();
         virtual ~CollisionManager() {}
         Collider* GetNewCollider(sf::Sprite& SPR, unsigned int L=0);
+
+        void Update();
+
         std::vector<Collider*> colliders;
     };
 
@@ -61,7 +64,7 @@ namespace Engine {
             return false;
         }
 
-        void Update() {
+//        void Update() {
 //            collidedWithThisFrame.clear();
 //
 //            for(auto C : GetColliders()){
@@ -72,7 +75,7 @@ namespace Engine {
 //                    }
 //                }
 //            }
-        }
+//        }
 
 //        static std::vector<Collider*> & GetColliders(){
 //            static std::vector<Collider*> colliders;

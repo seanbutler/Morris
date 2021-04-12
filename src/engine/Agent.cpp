@@ -31,6 +31,7 @@ namespace Engine{
             position(POS),
             velocity(VEL),
             sprite(),
+//            text(),
             collider(nullptr)
     {
         virtualMachine.SetOwner(this);
@@ -45,12 +46,13 @@ namespace Engine{
         position.first += velocity.first;
         position.second += velocity.second;
         sprite.setPosition( sf::Vector2f(position.first, position.second) );
-        text.setPosition( sf::Vector2f(position.first, position.second) );
+//        text.setPosition( sf::Vector2f(position.first, position.second) );
     }
 
     void Agent::Render(sf::RenderWindow *W)
     {
-        W->draw(text); W->draw(sprite);
+//        W->draw(text);
+        W->draw(sprite);
     }
 
     void Agent::SetPosition(float X, float Y, unsigned int index)
@@ -58,7 +60,7 @@ namespace Engine{
         position.first = X;
         position.second = Y;
         sprite.setPosition( sf::Vector2f(position.first, position.second));
-        text.setPosition(sf::Vector2f(position.first, position.second));
+//        text.setPosition(sf::Vector2f(position.first, position.second));
     }
 
     void Agent::SetVelocity(float X, float Y)
@@ -66,7 +68,7 @@ namespace Engine{
         velocity.first = X;
         velocity.second = Y;
         sprite.setPosition( sf::Vector2f(position.first, position.second));
-        text.setPosition(sf::Vector2f(position.first, position.second));
+//        text.setPosition(sf::Vector2f(position.first, position.second));
     }
 
     void Agent::SetSprite(unsigned int N)
@@ -75,22 +77,22 @@ namespace Engine{
         textures.SetSprite(N, tmpSprite);
         tmpSprite.setPosition(position.first, position.second);
         sprite = tmpSprite;
-        text.setPosition(sf::Vector2f(position.first, position.second));
+//        text.setPosition(sf::Vector2f(position.first, position.second));
     }
 
     void Agent::SetText(std::string message, unsigned int SZ, sf::Color COL)
     {
-        const_cast<sf::Texture&>(font_manager.font.getTexture(SZ)).setSmooth(false);
+//        const_cast<sf::Texture&>(font_manager.font.getTexture(SZ)).setSmooth(false);
 
-        text.setFont(font_manager.font);
-        text.setString(message);
-        text.setCharacterSize(SZ);
-        text.setScale(1, 1);
-        text.setPosition(sf::Vector2f(position.first, position.second));
+//        text.setFont(font_manager.font);
+//        text.setString(message);
+//        text.setCharacterSize(SZ);
+//        text.setScale(1, 1);
+//        text.setPosition(sf::Vector2f(position.first, position.second));
+//        text.setFillColor(COL);
+//        text.setPosition(sf::Vector2f(position.first, position.second));
 
-        text.setFillColor(COL);
-        text.setPosition(sf::Vector2f(position.first, position.second));
-    //        text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+
     }
 
     sf::Sprite* Agent::GetSprite()
@@ -123,24 +125,24 @@ namespace Engine{
         sprite.setColor(sf::Color((R << 24) | (G << 16) | (B << 8) | A));
     }
 
-    void Agent::SetAlienVar(std::string index, unsigned int value)
-    {
-        alienVarTable[index] = value;
-    }
+//    void Agent::SetAlienVar(std::string index, unsigned int value)
+//    {
+//        alienVarTable[index] = value;
+//    }
 
-    unsigned int Agent::GetAlienVar(std::string index)
-    {
-        return alienVarTable[index];
-    }
+//    unsigned int Agent::GetAlienVar(std::string index)
+//    {
+//        return alienVarTable[index];
+//    }
 
-    void Agent::ClearAlienVars()
-    {
-        alienVarTable.clear();
-    }
+//    void Agent::ClearAlienVars()
+//    {
+//        alienVarTable.clear();
+//    }
 
-    sf::Rect<float> Agent::GetGlobalBounds() {
-        return sprite.getGlobalBounds();
-    }
+//    sf::Rect<float> Agent::GetGlobalBounds() {
+//        return sprite.getGlobalBounds();
+//    }
 
     void Agent::Spawn(std::string FN, unsigned int x, unsigned int y)
     {

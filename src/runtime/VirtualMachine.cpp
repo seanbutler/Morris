@@ -39,7 +39,7 @@ namespace Runtime {
                     case INSTR::HALT: {
                         state = VM::HALTED;
                         slice = 0;
-//                        owner->Die();
+                        owner->Die();
                         break;
                     }
 
@@ -355,7 +355,7 @@ namespace Runtime {
                     }
 
                     case INSTR::AGETCOLLISION : {
-                        std::cout << "AGETCOLLISION - 1 params, gets collision status ";
+//                        std::cout << "AGETCOLLISION - 1 params, gets collision status ";
 
                         Location v = stack[stack.size() - 1];
                         stack.pop_back();
@@ -364,12 +364,12 @@ namespace Runtime {
                         res.value = 0;
                         if ( owner ) {
                             if ( owner->CheckCollided(v.value) ) {
-                                std::cout << "TRUE this frame" << std::endl;
+  //                              std::cout << "TRUE this frame" << std::endl;
                                 res.value = 1;
                             }
                             else
                             {
-                                std::cout << "FALSE this frame" << std::endl;
+    //                            std::cout << "FALSE this frame" << std::endl;
                             }
                         }
 
@@ -379,7 +379,7 @@ namespace Runtime {
 
 
                     case INSTR::ASETCOLLISION : {
-                      std::cout << "ASETCOLLISION - 1 params, sets layer for collision system" << std::endl;
+//                      std::cout << "ASETCOLLISION - 1 params, sets layer for collision system" << std::endl;
 
                         Location v = stack[stack.size() - 1];
                         stack.pop_back();
@@ -435,7 +435,7 @@ namespace Runtime {
                         stack.pop_back();
 
                         if ( owner ) {
-                            owner->SetAlienVar(stringTable[strIndex.address],  a.value);
+//                            owner->SetAlienVar(stringTable[strIndex.address],  a.value);
                         }
                         break;
                     }

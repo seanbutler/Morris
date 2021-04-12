@@ -1,5 +1,0 @@
-digraph G {
-node [shape = circle];
-node192 [ uuid = "5827beee-0ecb-460e-a478-95f08e36cabe" shape = "record" label = "MDL
- " ];
-}

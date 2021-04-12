@@ -4,7 +4,7 @@
 
 // ----------------------------------------------------------------------
 
-//#define SCREENSHOTS
+// #define SCREENSHOTS
 
 // ----------------------------------------------------------------------
 
@@ -58,7 +58,6 @@ namespace Engine {
 
             entityScheduler.Update(deltaTime);
             collisionManager.Update();
-
 
             window.clear(clearColour);
             entityScheduler.Render(&window);

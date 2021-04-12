@@ -17,8 +17,8 @@ namespace Engine {
     class CollisionManager {
 
     public:
-        CollisionManager();
-        virtual ~CollisionManager() {}
+        CollisionManager(unsigned int n=32);
+        virtual ~CollisionManager();
         Collider* GetNewCollider(sf::Sprite& SPR, unsigned int L=0);
 
         void Update();
@@ -38,20 +38,17 @@ namespace Engine {
         {
         }
 
-        void Init(sf::Sprite& SPR, unsigned int L = 0){
+        void Init(sf::Sprite& SPR, unsigned int L = 0) {
             sprite = SPR;
             layer = L;
             collidedWithThisFrame.clear();
         }
 
-        virtual ~Collider()
-        {
-        }
+//        virtual ~Collider() {
+//
+//        }
 
-        sf::Rect<float> GetRect() {
-            return sprite.getGlobalBounds();
-        }
-
+        sf::Rect<float> GetRect()                   { return sprite.getGlobalBounds();      }
         void SetCollided(unsigned int L)            { collidedWithThisFrame.push_back(L);   }
         void ClearCollided()                        { collidedWithThisFrame.clear();        }
         void SetLayer(unsigned int L)               { layer = L; }
@@ -63,24 +60,6 @@ namespace Engine {
 
             return false;
         }
-
-//        void Update() {
-//            collidedWithThisFrame.clear();
-//
-//            for(auto C : GetColliders()){
-//                if (this->layer != C->layer ) {
-//                    if ( GetRect().intersects(C->GetRect()) )
-//                    {
-//                        collidedWithThisFrame.push_back(C->layer);
-//                    }
-//                }
-//            }
-//        }
-
-//        static std::vector<Collider*> & GetColliders(){
-//            static std::vector<Collider*> colliders;
-//            return colliders;
-//        }
 
     private:
         sf::Sprite&                 sprite;

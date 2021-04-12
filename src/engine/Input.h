@@ -70,7 +70,6 @@ namespace Engine {
                     break;
                 }
 
-
             }
 
             return ( sf::Keyboard::isKeyPressed(key)  || sf::Keyboard::isKeyPressed(altKey) );

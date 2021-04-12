@@ -6,7 +6,6 @@
 
 // ----------------------------------------------------------------------
 
-//#include "../compiler/compiler.cpp"
 #include "../runtime/VirtualMachine.h"
 
 // ----------------------------------------------------------------------
@@ -15,12 +14,11 @@
 #include "Font.h"
 #include "Input.h"
 #include "Collision.h"
-//#include "Scheduler.h"
 
 // ----------------------------------------------------------------------
 
 extern Engine::Textures textures;
-extern Engine::Fonts font_manager;
+//extern Engine::Fonts font_manager;
 
 // ----------------------------------------------------------------------
 namespace Engine {
@@ -38,7 +36,7 @@ namespace Engine {
               unsigned int collisionLayer = 0);
 
         enum State {
-            EMBRYO, ALIVE, CORPSE
+            ALIVE, CORPSE
         };
 
         bool IsAlive();
@@ -55,10 +53,10 @@ namespace Engine {
         bool CheckCollided(unsigned int B);
         void SetColour(unsigned char R, unsigned char G, unsigned char B, unsigned char A=3);
 
-        void SetAlienVar(std::string index, unsigned int value);
-        unsigned int GetAlienVar(std::string index);
-        void ClearAlienVars();
-        sf::Rect<float> GetGlobalBounds();
+//        void SetAlienVar(std::string index, unsigned int value);
+//        unsigned int GetAlienVar(std::string index);
+//        void ClearAlienVars();
+//        sf::Rect<float> GetGlobalBounds();
 
         void Spawn(std::string FN, unsigned int x, unsigned int y);
         void Die();
@@ -70,13 +68,13 @@ namespace Engine {
         Runtime::VM                             virtualMachine;
         sf::Sprite                              sprite;
         Engine::Collider*                       collider;
-        sf::Text                                text;
+//        sf::Text                                text;
         std::pair<unsigned int, unsigned int>   position;
         std::pair<unsigned int, unsigned int>   velocity;
 
     public:
-        unsigned int                layer;
-        std::vector<unsigned int>   collidedWithThisFrame;
+//        unsigned int                layer;
+//        std::vector<unsigned int>   collidedWithThisFrame;
 
     private:
         std::map<std::string, unsigned int> alienVarTable;

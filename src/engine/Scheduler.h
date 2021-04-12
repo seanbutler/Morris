@@ -24,13 +24,26 @@ namespace Engine {
 
     public:
         Scheduler(CollisionManager & CM)
-        : collisionManager(CM){}
+        : collisionManager(CM){
 
-        virtual ~Scheduler()        {
+        }
+
+        virtual ~Scheduler() {
+
+            for(auto E : embryos){
+                delete E;
+            }
+            embryos.clear();
+
             for(auto E : executing){
                 delete E;
             }
             executing.clear();
+
+            for(auto E : graveyard){
+                delete E;
+            }
+            graveyard.clear();
         }
 
         void Spawn(std::string FN, std::pair<unsigned int, unsigned int> POS = {0.0, 0.0});

@@ -12,8 +12,8 @@ This distribution of Morris is closely integrated with SFML so the common parts 
 
 Like with the above SFML integration, Morris is a system "with bells on" that is, we intend to include several widely used as closely coupled features from other common libraries e.g. zip archive and local only filesystem, integrated spreadsheet data import for table input.
 
-Morris is influenced by [erlang](https://en.wikipedia.org/wiki/Erlang_(programming_language))
-but Morris programs look very familiar to anyone who has used c js c++ rust or swift. Right now, Morris programs look like this...
+Morris is influenced by some of the ideas behind [erlang](https://en.wikipedia.org/wiki/Erlang_(programming_language)) and Pascal but Morris programs look very familiar to anyone who has used c js c++ rust or swift. Right now, Morris programs look like this...
+
 
 ~~~
 
@@ -133,6 +133,7 @@ Once we specialise its arguable how extensive types we really need. Search based
 
 ![gif anim of some sprites moving](./screenshots/anim.gif)
 ![gif anim of some sprites moving](./screenshots/anim2.gif)
+![gif anim of some sprites moving](./screenshots/anim3.gif)
 
 Sometimes you just want to program a game and not worry about the associated technology. No CMake, windowing or opengl configuration and linking woes.
 

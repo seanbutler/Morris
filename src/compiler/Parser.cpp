@@ -144,7 +144,7 @@ ModuleASTNode * Parser::ParseModule() {
 
             // SETTEXT
             case TokenEnum::KWD_SETTEXT: {
-                std::cout << "Parser::Parse() TokenEnum::KWD_SETTEXT" << std::endl;
+//                std::cout << "Parser::Parse() TokenEnum::KWD_SETTEXT" << std::endl;
                 statementsNodePtr->children.push_back(ParseSetText(statementsNodePtr));
                 break;
             }

@@ -1,7 +1,7 @@
 setcollision(2)
 
 decl alive
-alive=3
+alive=1
 
 decl ctr
 ctr = 0
@@ -11,11 +11,13 @@ setcol(3, 3, 0)
 
 while ( alive > 0 ) {
 
-    ctr = ctr + 1
+    if ( ctr == 0 )   { setvel(1, 0) }
+    if ( ctr == 100 ) { setvel(0, 1) }
+    if ( ctr == 110 ) { setvel(0-1, 0) }
+    if ( ctr == 210 ) { setvel(0, 0-1) }
+    if ( ctr == 220 ) { ctr = 0-1 }
 
-    if ( ctr < 60 ) { setvel(0-1, 1) }
-    if ( ctr > 60 ) { setvel(1, 0-1) }
-    if ( ctr > 120 ) { ctr = 0 }
+    ctr = ctr + 1
 
     if ( getcollision(3)  )
     {

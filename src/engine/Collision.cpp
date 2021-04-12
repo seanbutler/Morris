@@ -4,8 +4,12 @@
 
 #include "Collision.h"
 
-Engine::CollisionManager::CollisionManager() {
+Engine::CollisionManager::CollisionManager(unsigned int n) {
+    colliders.reserve(n);
+}
 
+Engine::CollisionManager::~CollisionManager() {
+    colliders.clear();
 }
 
 Engine::Collider * Engine::CollisionManager::GetNewCollider(sf::Sprite& SPR, unsigned int L) {

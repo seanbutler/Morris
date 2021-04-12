@@ -1,26 +1,35 @@
 setcollision(3)
 
+decl alive
+alive = 2
+
 decl counter
-counter = 30
+counter = 0
 
 setsprite(212)
 setcol(3, 0, 0)
 setvel(0, 0-3)
 
-while ( counter > 0 ) {
-    counter = counter - 1
+while ( alive > 1 ) {
+
+    counter = counter + 1
+
+    if ( counter > 45 )
+    {
+        alive = 0
+    }
+
+    if ( getcollision(2) )
+    {
+        alive = 0
+    }
 }
 
 setsprite(213)
-setcol(2, 0, 0)
-setvel(0, 0-1)
-
-counter = 8
-while ( counter > 0 ) {
-    counter = counter - 1
-}
-
-setsprite(214)
-setcol(1, 0, 0)
+setcol(3, 3, 3)
 setvel(0, 0)
 
+counter = 0
+while ( counter < 8 ) {
+    counter = counter + 1
+}

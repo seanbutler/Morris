@@ -37,6 +37,15 @@ namespace Runtime {
         }
 
         ~VM() {
+//            for ( auto element : instructions){
+//                delete element;
+//            }
+//            instructions.clear();
+
+//            for ( auto element : stringTable){
+//                delete element;
+//            }
+//            stringTable.clear();
         }
 
         enum State {
@@ -114,14 +123,12 @@ namespace Runtime {
         unsigned int slice;
         static const unsigned int SLICE = 64;
 
-        unsigned long int instructionPointer;
-        std::vector<Location> instructions;
-
-        std::vector<Location> stack;
-        std::vector<Location> data;
-        std::vector<std::string> stringTable;
-
-        Engine::Agent* owner;                   // NO! some kind of flexible interface or sublcassing
+        unsigned long int           instructionPointer;
+        std::vector<Location>       instructions;
+        std::vector<Location>       stack;
+        std::vector<Location>       data;
+        std::vector<std::string>    stringTable;
+        Engine::Agent*              owner;                   // NO! some kind of flexible interface or sublcassing
     };
 
 };

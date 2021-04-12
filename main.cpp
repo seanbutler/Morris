@@ -14,7 +14,6 @@
 Engine::Textures textures("./assets/textures/sean/Untitled.png", 16);
 Engine::Fonts font_manager("./assets/fonts/Computerfont.ttf");
 Engine::CollisionManager collisionManager();
-
 Engine::MainLoop loop(256, 192, 4, 30, "Morris");
 
 // ---------------------------------------------------------------------------

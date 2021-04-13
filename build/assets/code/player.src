@@ -28,7 +28,7 @@ while ( lives > 0 ) {
 
     if ( delay == 0 ) {
         if ( getinput(5) ) {
-            delay = 8
+            delay = 4
             spawn("assets/code/sparkle.src")
         }
     }

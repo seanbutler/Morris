@@ -36,6 +36,7 @@ namespace Engine {
                         | sf::Style::Close
                        )
            ,    entityScheduler()
+           ,    deltaTime(0)
     {
         window.setSize(sf::Vector2u(w*pixel_scale,h*pixel_scale));
         window.setFramerateLimit(FR);

@@ -32,7 +32,7 @@ namespace Engine {
 
         sf::RenderWindow window;
 
-        float deltaTime;
+        float deltaTime{};
         sf::Clock clock;
 
         virtual void Update();

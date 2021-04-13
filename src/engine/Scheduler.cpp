@@ -44,14 +44,13 @@ namespace Engine {
         }
 
         for (auto EMB : embryos ) {
-            executing.push_back(std::move(EMB));
+            executing.push_back(EMB);
         }
         embryos.clear();
 
         for (auto EXE : executing ) {
             if (EXE->state == Agent::CORPSE) {
-                graveyard.push_back(EXE);
-                delete(EXE);
+                graveyard.push_back(std::move(EXE));
                 std::erase(executing, EXE);
             }
         }

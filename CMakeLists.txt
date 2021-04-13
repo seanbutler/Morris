@@ -29,8 +29,6 @@ find_package(SFML REQUIRED COMPONENTS system graphics window network audio)
 
 set(SFML_LIBRARIES "-lsfml-graphics -lsfml-window -lsfml-system")
 
-#TARGET_LINK_LIBRARIES(Glynth pthread)
-
 if(SFML_FOUND)
     include_directories(${SFML_INCLUDE_DIR})
     target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES})

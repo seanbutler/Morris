@@ -89,7 +89,7 @@ public:
           std::string N,
           std::string C = "no comment",
           unsigned int L = 0,
-          std::string F = "source filename")
+          std::string F = "source filename" )
     : kind(K)
     , name(N)
     , line(L)

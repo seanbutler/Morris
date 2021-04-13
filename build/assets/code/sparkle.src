@@ -1,6 +1,6 @@
 
 decl alive
-alive = 1
+alive = 2
 
 decl counter
 counter = 0
@@ -24,16 +24,3 @@ while ( alive > 0 ) {
         alive = 0
     }
 }
-
-
-setsprite(213)
-setcol(3, 3, 3)
-setvel(0, 0)
-setcollision(0)
-
-alive = 8
-while ( alive > 0 ) {
-    alive = alive - 1
-}
-
-

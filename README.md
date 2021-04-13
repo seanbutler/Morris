@@ -1,10 +1,10 @@
 # Morris Programming Language
 
-Sometimes you just want to program a game and not worry about the associated technology. No CMake, windowing or opengl configuration and linking woes.
+Sometimes you just want to program a game and not worry about the associated technology. No CMake, windowing or opengl configuration no linking woes.
 
 Morris is a language with everything you need in one binary. Compiler and runtime integrated together. Forget dependencies. Distribute sources or compiled bytecode, both are executable.
 
-Moris is a work in progress, very early on. Expect things to break and change (for the better).
+Morris is a work in progress, its still very early stages. Its likely some things will break and change (for the better).
 
 This distribution of Morris is closely integrated with SFML so the common parts of games: graphics, physics, window, input, sound, fonts, networking, etc. are all integrated, cross platform and ready to go because of that wonderful library.
 
@@ -13,7 +13,6 @@ This distribution of Morris is closely integrated with SFML so the common parts 
 Like with the above SFML integration, Morris is a system "with bells on" that is, we intend to include several widely used as closely coupled features from other common libraries e.g. zip archive and local only filesystem, integrated spreadsheet data import for table input.
 
 Morris is influenced by some of the ideas behind [erlang](https://en.wikipedia.org/wiki/Erlang_(programming_language)) and Pascal but Morris programs look very familiar to anyone who has used c js c++ rust or swift. Right now, Morris programs look like this...
-
 
 ~~~
 
@@ -202,6 +201,3 @@ https://en.wikipedia.org/wiki/William_Morris
 "Morris dancing is a form of English folk dance usually accompanied by music. It is based on rhythmic stepping and the execution of choreographed figures by a group of dancers, usually wearing bell pads on their shins."
 
 https://en.wikipedia.org/wiki/Morris_dance
-
-
-

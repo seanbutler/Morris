@@ -1,0 +1,9 @@
+decl lives
+lives = 64
+
+setcol(3, 3, 3)
+setpos(128, 2)
+settext("score: 000000")
+
+while ( lives > 0 ) {
+}

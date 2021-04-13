@@ -24,8 +24,6 @@ class Collider : public Core::Object{
                 layer(0),
                 rect(sf::Rect<float>(0.0, 0.0, 0.0, 0.0))
         {
-            // add me to the static colliers list
-//            AllColliders().emplace_back(this);
         }
 
         Collider(sf::Rect<float> RCT, unsigned int L = 0)
@@ -33,26 +31,10 @@ class Collider : public Core::Object{
                 layer(L),
                 rect(RCT)
         {
-            // add me to the static colliers list
-//            AllColliders().emplace_back(this);
         }
 
         virtual ~Collider() {
-            // find and remove me from the static colliders list
-
-//            std::cout << "id = " << id << " " << " sz1 = " << AllColliders().size() << std::endl;
-//
-//            std::remove_if(AllColliders().begin(), AllColliders().end(),
-//                      [this] (Collider* C) -> bool {
-//                            if ( C->id == id ){
-//                                return true;
-//                            }
-//                            return false;
-//                      });
-//
-//            std::cout << "sz2 = " << AllColliders().size() << std::endl;
-
-        }
+         }
 
         void SetRect(sf::Rect<float> R)             { rect = R;                             }
         sf::Rect<float> & GetRect()                 { return rect;                          }
@@ -72,10 +54,6 @@ class Collider : public Core::Object{
 
         void HandleCollisions(Engine::Scheduler & S);
 
-//        std::vector<Collider*>&  AllColliders(){
-//            static std::vector<Collider*> colliders;
-//            return colliders;
-//        }
 
     private:
         sf::Rect<float>             rect;   // set me manually whenever agent moves

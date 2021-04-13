@@ -4,7 +4,6 @@
 
 
 #include "../engine/Agent.h"
-#include "../compiler/Location.h"
 #include "VirtualMachine.h"
 
 //#define VM_DEBUG_DUMP
@@ -335,7 +334,6 @@ namespace Runtime {
                         break;
                     }
 
-
                     case INSTR::AGETINPUT : {
 //                      std::cout << "AGETINPUT - 1 params, gets status of keyboard button or direction" << std::endl;
 
@@ -363,7 +361,7 @@ namespace Runtime {
                         res.value = 0;
                         if ( ownerAgent ) {
                             if ( ownerAgent->CheckCollided(v.value) ) {
-                                std::cout << "TRUE this frame" << std::endl;
+//                                std::cout << "TRUE this frame" << std::endl;
                                 res.value = 1;
                             }
                             else
@@ -376,7 +374,6 @@ namespace Runtime {
                         break;
                     }
 
-
                     case INSTR::ASETCOLLISION : {
 //                      std::cout << "ASETCOLLISION - 1 params, sets layer for collision system" << std::endl;
 
@@ -388,8 +385,6 @@ namespace Runtime {
                         }
                         break;
                     }
-
-
 
                     case INSTR::SPAWN : {
 //                        std::cout << "SPAWN " << std::endl;
@@ -438,8 +433,6 @@ namespace Runtime {
                         }
                         break;
                     }
-
-
 
 //                    case INSTR::ACALL : {
 //                        std::cout << "ACALL - alien call, an interface to the engine" << std::endl;

@@ -1,0 +1,29 @@
+decl alive
+alive=1
+
+decl ctr
+ctr = 0
+
+setsprite(177)
+setcol(2, 2, 2)
+
+while ( alive > 0 ) {
+
+    if ( ctr < 60 )
+    {
+        setvel(0-1, 0-1)
+    }
+
+    if ( ctr > 60 )
+    {
+        setvel(1, 1)
+    }
+
+    ctr = ctr + 1
+
+    if ( ctr > 120 )
+    {
+        ctr = 0
+    }
+}
+

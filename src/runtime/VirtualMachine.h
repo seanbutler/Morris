@@ -22,10 +22,12 @@ namespace Runtime {
     class VM {
 
     public:
-        VM(std::pair<std::vector<Location>, std::vector<std::string>> P, unsigned int D = 16)
-        :   owner(nullptr)
-        ,   instructions(P.first)
-        ,   stringTable(P.second)
+        VM(Engine::Agent* O,
+           std::pair<std::vector<Location>, std::vector<std::string>> P,
+           unsigned int D = 16)
+        : ownerAgent(O)
+        , instructions(P.first)
+        , stringTable(P.second)
         {
             data = std::vector<Location>();
             for (int n = 0; n < D; n++) {
@@ -33,7 +35,6 @@ namespace Runtime {
             }
             state = RUNNING;
             instructionPointer = 0LL;
-            owner = 0l;
         }
 
         ~VM() {
@@ -104,7 +105,7 @@ namespace Runtime {
             }
         }
 
-        void SetOwner(Engine::Agent* O) {owner = O;}
+        void SetOwner(Engine::Agent* O) { ownerAgent = O;}
 
         void Execute();
 
@@ -118,17 +119,17 @@ namespace Runtime {
         void InstructionsPush(unsigned long int V) { instructions.emplace(instructions.end(), Location(V)); }
         void InstructionsPush(double V) { instructions.push_back(V); }
 
+        Engine::Agent*              ownerAgent;                   // NO! some kind of flexible interface or sublcassing
+
         State state;
-
         unsigned int slice;
-        static const unsigned int SLICE = 64;
 
+        static const unsigned int SLICE = 64;
         unsigned long int           instructionPointer;
         std::vector<Location>       instructions;
         std::vector<Location>       stack;
         std::vector<Location>       data;
         std::vector<std::string>    stringTable;
-        Engine::Agent*              owner;                   // NO! some kind of flexible interface or sublcassing
     };
 
 };

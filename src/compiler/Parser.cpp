@@ -306,6 +306,7 @@ IfASTNode * Parser::ParseIf(ASTNode *P, bool returnable) {
             std::cerr << "Parse Error : If Expected ( Left Parenthesis" << std::endl;
         }
     }
+    return nullptr;
 }
 
 // ----------------------------------------------------------------------
@@ -345,6 +346,7 @@ WhileASTNode * Parser::ParseWhile(ASTNode *P, bool returnable) {
             }
         }
     }
+    return nullptr;
 }
 
 // ----------------------------------------------------------------------
@@ -694,6 +696,7 @@ ProcedureASTNode * Parser::ParseProcedure(ASTNode *P) {
             }
         }
     }
+    return nullptr;
 }
 
 // ----------------------------------------------------------------------
@@ -744,6 +747,7 @@ FunctionASTNode * Parser::ParseFunction(ASTNode *P) {
             }
         }
     }
+    return nullptr;
 }
 
 // ----------------------------------------------------------------------

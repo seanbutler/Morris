@@ -23,38 +23,21 @@ namespace Engine {
     class Scheduler {
 
     public:
-        Scheduler(CollisionManager & CM)
-        : collisionManager(CM){
-
-        }
-
-        virtual ~Scheduler() {
-
-            for(auto E : embryos){
-                delete E;
-            }
-            embryos.clear();
-
-            for(auto E : executing){
-                delete E;
-            }
-            executing.clear();
-
-            for(auto E : graveyard){
-                delete E;
-            }
-            graveyard.clear();
-        }
+        Scheduler(){ }
+        virtual ~Scheduler();
 
         void Spawn(std::string FN, std::pair<unsigned int, unsigned int> POS = {0.0, 0.0});
         virtual void Remove(Agent* E);
         virtual void Update(float deltaTime);
         virtual void Render(sf::RenderWindow *W);
 
+        std::vector<Agent*> & GetExecutingAgents(){
+            return executing;
+        }
+
     private:
         // TODO - this should be a map (or tree) so we can id and retrieve specific executing?
         std::vector <Agent*> embryos, executing, graveyard;
-        CollisionManager& collisionManager;
     };
 
 };

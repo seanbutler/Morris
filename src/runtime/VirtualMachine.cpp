@@ -39,7 +39,7 @@ namespace Runtime {
                     case INSTR::HALT: {
                         state = VM::HALTED;
                         slice = 0;
-                        owner->Die();
+                        ownerAgent->Die();
                         break;
                     }
 
@@ -272,14 +272,14 @@ namespace Runtime {
                         Location b = stack[stack.size() - 1];
                         stack.pop_back();
 
-                        if ( owner ) {
-                            owner->SetPosition(b.value, a.value);
+                        if ( ownerAgent ) {
+                            ownerAgent->SetPosition(b.value, a.value);
                         }
                         break;
                     }
 
                     case INSTR::ASETVEL : {
-//                        std::cout << "ASETVEL - 2 params, sets position of a sprite in the agen" << std::endl;
+//                        std::cout << "ASETVEL - 2 params, sets position of a sprite in the agent" << std::endl;
 
                         Location a = stack[stack.size() - 1];
                         stack.pop_back();
@@ -287,8 +287,8 @@ namespace Runtime {
                         Location b = stack[stack.size() - 1];
                         stack.pop_back();
 
-                        if ( owner ) {
-                            owner->SetVelocity(b.value, a.value);
+                        if ( ownerAgent ) {
+                            ownerAgent->SetVelocity(b.value, a.value);
                         }
                         break;
                     }
@@ -305,8 +305,8 @@ namespace Runtime {
                         Location c = stack[stack.size() - 1];
                         stack.pop_back();
 
-                        if ( owner ) {
-                            owner->SetColour(c.value, b.value, a.value);
+                        if ( ownerAgent ) {
+                            ownerAgent->SetColour(c.value, b.value, a.value);
                         }
                         break;
                     }
@@ -317,8 +317,8 @@ namespace Runtime {
                         Location x = stack[stack.size() - 1];
                         stack.pop_back();
 
-                        if ( owner ) {
-                            owner->SetSprite(x.value);
+                        if ( ownerAgent ) {
+                            ownerAgent->SetSprite(x.value);
                         }
                         break;
                     }
@@ -329,8 +329,8 @@ namespace Runtime {
                         Location strIndex = stack[stack.size() - 1];
                         stack.pop_back();
 
-                        if ( owner ) {
-                            owner->SetText(stringTable[strIndex.address], 16);
+                        if ( ownerAgent ) {
+//                            ownerAgent->SetText(stringTable[strIndex.address], 16);
                         }
                         break;
                     }
@@ -343,11 +343,10 @@ namespace Runtime {
                         stack.pop_back();
 
                         Location res;
-                        if ( owner ) {
-                            res.value = owner->GetInput(v.value);
+                        if ( ownerAgent ) {
+                            res.value = ownerAgent->GetInput(v.value);
                         }
-                        else
-                        {
+                        else {
                             res.value = 0;
                         }
                         stack.push_back(res);
@@ -362,14 +361,14 @@ namespace Runtime {
 
                         Location res;
                         res.value = 0;
-                        if ( owner ) {
-                            if ( owner->CheckCollided(v.value) ) {
-  //                              std::cout << "TRUE this frame" << std::endl;
+                        if ( ownerAgent ) {
+                            if ( ownerAgent->CheckCollided(v.value) ) {
+                                std::cout << "TRUE this frame" << std::endl;
                                 res.value = 1;
                             }
                             else
                             {
-    //                            std::cout << "FALSE this frame" << std::endl;
+//                                std::cout << "FALSE this frame" << std::endl;
                             }
                         }
 
@@ -384,8 +383,8 @@ namespace Runtime {
                         Location v = stack[stack.size() - 1];
                         stack.pop_back();
 
-                        if ( owner ) {
-                            owner->SetCollisionLayer(v.value);
+                        if ( ownerAgent ) {
+                            ownerAgent->SetCollisionLayer(v.value);
                         }
                         break;
                     }
@@ -395,14 +394,14 @@ namespace Runtime {
                     case INSTR::SPAWN : {
 //                        std::cout << "SPAWN " << std::endl;
 
-                        int x = owner->GetSprite()->getPosition().x;
-                        int y = owner->GetSprite()->getPosition().y;
-
                         Location strIndex = stack[stack.size() - 1];
                         stack.pop_back();
 
-                        if ( owner ) {
-                            owner->Spawn(stringTable[strIndex.address], x, y);
+                        if ( ownerAgent ) {
+                            int x = ownerAgent->GetSprite()->getPosition().x;
+                            int y = ownerAgent->GetSprite()->getPosition().y;
+
+                            ownerAgent->Spawn(stringTable[strIndex.address], x, y);
                         }
                         break;
                     }
@@ -419,8 +418,8 @@ namespace Runtime {
                         Location strIndex = stack[stack.size() - 1];
                         stack.pop_back();
 
-                        if ( owner ) {
-                            owner->Spawn(stringTable[strIndex.address], b.value, a.value);
+                        if ( ownerAgent ) {
+                            ownerAgent->Spawn(stringTable[strIndex.address], b.value, a.value);
                         }
                         break;
                     }
@@ -434,8 +433,8 @@ namespace Runtime {
                         Location strIndex = stack[stack.size() - 1];
                         stack.pop_back();
 
-                        if ( owner ) {
-//                            owner->SetAlienVar(stringTable[strIndex.address],  a.value);
+                        if ( ownerAgent ) {
+//                            ownerAgent->SetAlienVar(stringTable[strIndex.address],  a.value);
                         }
                         break;
                     }

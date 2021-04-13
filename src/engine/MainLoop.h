@@ -36,9 +36,7 @@ namespace Engine {
         sf::Clock clock;
 
         virtual void Update();
-        CollisionManager collisionManager;
         Scheduler entityScheduler;
-
         sf::Color clearColour = sf::Color::Black;
     };
 };

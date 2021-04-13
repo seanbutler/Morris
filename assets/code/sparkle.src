@@ -1,4 +1,3 @@
-setcollision(3)
 
 decl alive
 alive = 2
@@ -9,6 +8,7 @@ counter = 0
 setsprite(212)
 setcol(3, 0, 0)
 setvel(0, 0-3)
+setcollision(3)
 
 while ( alive > 1 ) {
 

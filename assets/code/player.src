@@ -1,5 +1,3 @@
-# setcollision(1)
-
 decl lives
 lives = 3
 

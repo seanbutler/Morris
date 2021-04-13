@@ -39,26 +39,17 @@ namespace Engine {
 
         virtual ~Textures() {}
 
-//        virtual void LoadAtlas(std::string FN, unsigned int S=16) {
-//            sprite_size=S;
-//            if (texture.loadFromFile(FN)) {
-//                dimx = texture.getSize().x / sprite_size;
-//                dimy = texture.getSize().y / sprite_size;
-//                maxcap = dimx * dimy;
-//            }
-//            else
-//            {
-//                std::cerr << "Texture Load Error" << std::endl;
-//            }
-//        }
 
-        virtual void SetSprite(unsigned int n, sf::Sprite & sprite) {
+        virtual void SetSprite(unsigned int n, sf::Sprite * sprite) {
+
+            if (!sprite) sprite = new sf::Sprite();
+
             n = n % maxcap;
             unsigned int x = n % dimx;
             unsigned int y = n / dimx;
 
-            sprite.setTexture(texture);
-            sprite.setTextureRect(sf::IntRect(x * sprite_size, y * sprite_size, sprite_size, sprite_size));
+            sprite->setTexture(texture);
+            sprite->setTextureRect(sf::IntRect(x * sprite_size, y * sprite_size, sprite_size, sprite_size));
         }
 
     private:

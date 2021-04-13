@@ -1,5 +1,8 @@
 
-char* instructionNames[] = {
+#include <string>
+
+//char* instructionNames[] = {
+std::string instructionNames[] = {
         "NOP",
         "HALT",
         "YIELD",

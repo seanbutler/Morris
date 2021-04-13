@@ -8,8 +8,27 @@
 
 namespace Engine {
 
+
+    Scheduler::~Scheduler() {
+
+        for(Agent * E : embryos){
+            delete E;
+        }
+        embryos.clear();
+
+        for(auto E : executing){
+            delete E;
+        }
+        executing.clear();
+
+        for(auto E : graveyard){
+            delete E;
+        }
+        graveyard.clear();
+    }
+
     void Scheduler::Spawn(std::string FN, std::pair<unsigned int, unsigned int> POS) {
-        embryos.push_back(new Agent(*this, collisionManager, FN, POS));
+        embryos.push_back(new Agent(*this, FN, POS));
     }
 
     void Scheduler::Remove(Agent* E) {

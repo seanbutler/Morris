@@ -2,6 +2,8 @@
 // Created by sean on 10/02/2021.
 //
 
+#include "../core/Object.h"
+
 
 #include "../compiler/compiler.cpp"
 #include "../runtime/VirtualMachine.h"
@@ -15,26 +17,27 @@
 #include "Agent.h"
 #include "Scheduler.h"
 
+extern Engine::Textures textures;
+
 // ----------------------------------------------------------------------
 namespace Engine{
 
     Agent::Agent( Scheduler & S,
-                  CollisionManager & CM,
                   std::string & F,
                   std::pair<unsigned int, unsigned int> POS,
                   std::pair<unsigned int, unsigned int> VEL,
-                  unsigned int collisionLayer) :
+                  unsigned int collisionLayer):
+            Core::Object("Agent"),
             scheduler(S),
-            collisionManager(CM),
             state(State::ALIVE),
-            virtualMachine(Runtime::VM(Compiler::compile(F))),
+            virtualMachine(Runtime::VM(this, Compiler::compile(F))),
             position(POS),
             velocity(VEL),
-            sprite(),
-//            text(),
-            collider(nullptr)
+            collider()
     {
         virtualMachine.SetOwner(this);
+//        textures.SetSprite(0, sprite);
+//        sprite.setPosition( sf::Vector2f(position.first, position.second));
     }
 
     bool Agent::IsAlive() {return state==ALIVE;}
@@ -46,12 +49,13 @@ namespace Engine{
         position.first += velocity.first;
         position.second += velocity.second;
         sprite.setPosition( sf::Vector2f(position.first, position.second) );
-//        text.setPosition( sf::Vector2f(position.first, position.second) );
+        collider.SetRect(sprite.getGlobalBounds());
+
+        collider.HandleCollisions(scheduler);
     }
 
     void Agent::Render(sf::RenderWindow *W)
     {
-//        W->draw(text);
         W->draw(sprite);
     }
 
@@ -60,7 +64,7 @@ namespace Engine{
         position.first = X;
         position.second = Y;
         sprite.setPosition( sf::Vector2f(position.first, position.second));
-//        text.setPosition(sf::Vector2f(position.first, position.second));
+        collider.SetRect(sprite.getGlobalBounds());
     }
 
     void Agent::SetVelocity(float X, float Y)
@@ -68,31 +72,13 @@ namespace Engine{
         velocity.first = X;
         velocity.second = Y;
         sprite.setPosition( sf::Vector2f(position.first, position.second));
-//        text.setPosition(sf::Vector2f(position.first, position.second));
+        collider.SetRect(sprite.getGlobalBounds());
     }
 
     void Agent::SetSprite(unsigned int N)
     {
-        sf::Sprite tmpSprite;
-        textures.SetSprite(N, tmpSprite);
-        tmpSprite.setPosition(position.first, position.second);
-        sprite = tmpSprite;
-//        text.setPosition(sf::Vector2f(position.first, position.second));
-    }
-
-    void Agent::SetText(std::string message, unsigned int SZ, sf::Color COL)
-    {
-//        const_cast<sf::Texture&>(font_manager.font.getTexture(SZ)).setSmooth(false);
-
-//        text.setFont(font_manager.font);
-//        text.setString(message);
-//        text.setCharacterSize(SZ);
-//        text.setScale(1, 1);
-//        text.setPosition(sf::Vector2f(position.first, position.second));
-//        text.setFillColor(COL);
-//        text.setPosition(sf::Vector2f(position.first, position.second));
-
-
+        textures.SetSprite(N, &sprite);
+        sprite.setPosition(position.first, position.second);
     }
 
     sf::Sprite* Agent::GetSprite()
@@ -105,16 +91,11 @@ namespace Engine{
     }
 
     void Agent::SetCollisionLayer(unsigned int B){
-        if ( collider == nullptr )
-        {
-            collider = collisionManager.GetNewCollider(sprite);
-        }
-        collider->SetLayer(B);
+        collider.SetLayer(B);
     }
 
     bool Agent::CheckCollided(unsigned int B) {
-        // WORKING HERE
-        return collider->GetCollided(B);
+        return collider.GetCollided(B);
     }
 
     void Agent::SetColour(unsigned char R, unsigned char G, unsigned char B, unsigned char A) {
@@ -124,25 +105,6 @@ namespace Engine{
         A = (A * 85);
         sprite.setColor(sf::Color((R << 24) | (G << 16) | (B << 8) | A));
     }
-
-//    void Agent::SetAlienVar(std::string index, unsigned int value)
-//    {
-//        alienVarTable[index] = value;
-//    }
-
-//    unsigned int Agent::GetAlienVar(std::string index)
-//    {
-//        return alienVarTable[index];
-//    }
-
-//    void Agent::ClearAlienVars()
-//    {
-//        alienVarTable.clear();
-//    }
-
-//    sf::Rect<float> Agent::GetGlobalBounds() {
-//        return sprite.getGlobalBounds();
-//    }
 
     void Agent::Spawn(std::string FN, unsigned int x, unsigned int y)
     {

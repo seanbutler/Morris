@@ -5,7 +5,7 @@
 #ifndef MORRIS_INSTRUCTIONS_H
 #define MORRIS_INSTRUCTIONS_H
 
-extern char* instructionNames[];
+extern std::string instructionNames[];
 
 enum INSTR {
     NOP = 0,

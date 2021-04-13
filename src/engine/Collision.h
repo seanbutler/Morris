@@ -7,64 +7,81 @@
 // ----------------------------------------------------------------------
 
 #include <SFML/Graphics.hpp>
+#include "../core/Object.h"
+#include "../engine/Scheduler.h"
 
 // ----------------------------------------------------------------------
 
 namespace Engine {
 
-    class Collider;
+class Scheduler;
 
-    class CollisionManager {
-
-    public:
-        CollisionManager(unsigned int n=32);
-        virtual ~CollisionManager();
-        Collider* GetNewCollider(sf::Sprite& SPR, unsigned int L=0);
-
-        void Update();
-
-        std::vector<Collider*> colliders;
-    };
-
-    // --------------------------------------------------
-
-    class Collider {
+class Collider : public Core::Object{
 
     public:
-        Collider(sf::Sprite& SPR, unsigned int L = 0)
-                : layer(L)
-                , sprite(SPR)
-                , collidedWithThisFrame()
+        Collider()
+                : Core::Object("Collider"),
+                layer(0),
+                rect(sf::Rect<float>(0.0, 0.0, 0.0, 0.0))
         {
+            // add me to the static colliers list
+//            AllColliders().emplace_back(this);
         }
 
-        void Init(sf::Sprite& SPR, unsigned int L = 0) {
-            sprite = SPR;
-            layer = L;
-            collidedWithThisFrame.clear();
+        Collider(sf::Rect<float> RCT, unsigned int L = 0)
+                : Core::Object("Collider"),
+                layer(L),
+                rect(RCT)
+        {
+            // add me to the static colliers list
+//            AllColliders().emplace_back(this);
         }
 
-//        virtual ~Collider() {
+        virtual ~Collider() {
+            // find and remove me from the static colliders list
+
+//            std::cout << "id = " << id << " " << " sz1 = " << AllColliders().size() << std::endl;
 //
-//        }
+//            std::remove_if(AllColliders().begin(), AllColliders().end(),
+//                      [this] (Collider* C) -> bool {
+//                            if ( C->id == id ){
+//                                return true;
+//                            }
+//                            return false;
+//                      });
+//
+//            std::cout << "sz2 = " << AllColliders().size() << std::endl;
 
-        sf::Rect<float> GetRect()                   { return sprite.getGlobalBounds();      }
+        }
+
+        void SetRect(sf::Rect<float> R)             { rect = R;                             }
+        sf::Rect<float> & GetRect()                 { return rect;                          }
+
         void SetCollided(unsigned int L)            { collidedWithThisFrame.push_back(L);   }
         void ClearCollided()                        { collidedWithThisFrame.clear();        }
+
         void SetLayer(unsigned int L)               { layer = L; }
         unsigned int GetLayer()                     { return layer; }
 
         bool GetCollided(unsigned int L) {
-            for ( auto C : collidedWithThisFrame )
+            for ( unsigned int C : collidedWithThisFrame )
                 if ( C == L ) return true;
 
             return false;
         }
 
+        void HandleCollisions(Engine::Scheduler & S);
+
+//        std::vector<Collider*>&  AllColliders(){
+//            static std::vector<Collider*> colliders;
+//            return colliders;
+//        }
+
     private:
-        sf::Sprite&                 sprite;
+        sf::Rect<float>             rect;   // set me manually whenever agent moves
         unsigned int                layer;
         std::vector<unsigned int>   collidedWithThisFrame;
+
     };
 
 }

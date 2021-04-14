@@ -1,8 +1,8 @@
 decl lives
-lives = 64
+lives = 1
 
 setcol(3, 3, 3)
-setpos(128, 2)
+setpos(128+32, 2)
 settext("score: 000000")
 
 while ( lives > 0 ) {

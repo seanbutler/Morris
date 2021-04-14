@@ -19,6 +19,12 @@ namespace Engine {
                 std::cerr << "ERROR Font::Font() could not find file " << filename << std::endl;
             }
 
+            ((sf::Texture&)font.getTexture(12)).setSmooth(false);
+            ((sf::Texture&)font.getTexture(16)).setSmooth(false);
+            ((sf::Texture&)font.getTexture(24)).setSmooth(false);
+            ((sf::Texture&)font.getTexture(32)).setSmooth(false);
+            ((sf::Texture&)font.getTexture(48)).setSmooth(false);
+            ((sf::Texture&)font.getTexture(64)).setSmooth(false);
         };
 
         sf::Font font;

@@ -1,29 +1,57 @@
 
-decl y
-y = 0
 
-decl x
-x = 0
+decl coins
+coins = 3
 
-while ( x < 7 ) {
+decl state
+state = 0
 
-    y = 4
+decl counter
+counter = 0
 
-    spawnat("assets/code/robot.src", x * 20, 10 + y * 20)
-    y = y - 1
+spawnat("assets/code/hud.src", 64, 64)
 
-    spawnat("assets/code/robot.src", x * 20, 10 + y * 20)
-    y = y - 1
+while(coins>0){
 
-    spawnat("assets/code/robot.src", x * 20, 10 + y * 20)
-    y = y - 1
+    counter = 90
+    spawnat("assets/code/wave.src", 64, 64)
+    while(state == 0){
+        counter = counter -1
+        if (counter <= 0){
+            state = 1
+        }
+    }
 
-    spawnat("assets/code/robot.src", x * 20, 10 + y * 20)
-    y = y - 1
+    while(state == 1) {
 
-    x = x + 1
+        decl y
+        y = 0
+
+        decl x
+        x = 0
+
+        while ( x < 7 ) {
+
+            y = 4
+
+            spawnat("assets/code/robot.src", x * 20, 10 + y * 20)
+            y = y - 1
+
+            spawnat("assets/code/robot.src", x * 20, 10 + y * 20)
+            y = y - 1
+
+            spawnat("assets/code/robot.src", x * 20, 10 + y * 20)
+            y = y - 1
+
+            spawnat("assets/code/robot.src", x * 20, 10 + y * 20)
+            y = y - 1
+
+            x = x + 1
+        }
+
+        spawnat("assets/code/player.src", 128, 172)
+        state = 2
+    }
+
+
 }
-
-# spawnat("assets/code/hud.src", 64, 64)
-
-spawnat("assets/code/player.src", 128, 172)

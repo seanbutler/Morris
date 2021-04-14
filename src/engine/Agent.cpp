@@ -18,6 +18,7 @@
 #include "Scheduler.h"
 
 extern Engine::Textures textures;
+extern Engine::Fonts font_manager;
 
 // ----------------------------------------------------------------------
 namespace Engine{
@@ -38,6 +39,9 @@ namespace Engine{
         virtualMachine.SetOwner(this);
 //        textures.SetSprite(0, sprite);
 //        sprite.setPosition( sf::Vector2f(position.first, position.second));
+        text.setFont(font_manager.font); // font is a sf::Font
+        text.setCharacterSize(16);
+        text.scale(1.0f, 1.0f);
     }
 
     bool Agent::IsAlive() {return state==ALIVE;}
@@ -57,6 +61,7 @@ namespace Engine{
     void Agent::Render(sf::RenderWindow *W)
     {
         W->draw(sprite);
+        W->draw(text);
     }
 
     void Agent::SetPosition(float X, float Y, unsigned int index)
@@ -64,6 +69,7 @@ namespace Engine{
         position.first = X;
         position.second = Y;
         sprite.setPosition( sf::Vector2f(position.first, position.second));
+        text.setPosition( sf::Vector2f(position.first, position.second));
         collider.SetRect(sprite.getGlobalBounds());
     }
 
@@ -71,8 +77,6 @@ namespace Engine{
     {
         velocity.first = X;
         velocity.second = Y;
-        sprite.setPosition( sf::Vector2f(position.first, position.second));
-        collider.SetRect(sprite.getGlobalBounds());
     }
 
     void Agent::SetSprite(unsigned int N)
@@ -84,6 +88,16 @@ namespace Engine{
     sf::Sprite* Agent::GetSprite()
     {
         return &sprite;
+    }
+
+    void Agent::SetText(std::string T = "Placeholder Text Here")
+    {
+        text.setString(T);
+    }
+
+    sf::Text* Agent::GetText()
+    {
+        return &text;
     }
 
     unsigned long int Agent::GetInput(unsigned int B) {

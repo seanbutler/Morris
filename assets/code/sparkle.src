@@ -6,8 +6,8 @@ decl counter
 counter = 0
 
 setsprite(212)
-setcol(3, 0, 0)
-setvel(0, 0-3)
+setcol(3, 3, 3)
+setvel(0, 0-2)
 setcollision(3)
 
 while ( alive > 0 ) {
@@ -25,11 +25,18 @@ while ( alive > 0 ) {
     }
 }
 
-
 setsprite(213)
-setcol(3, 3, 3)
+setcol(2, 2, 2)
 setvel(0, 0)
 setcollision(0)
+
+alive = 8
+while ( alive > 0 ) {
+    alive = alive - 1
+}
+
+setsprite(214)
+setcol(1, 1, 1)
 
 alive = 8
 while ( alive > 0 ) {

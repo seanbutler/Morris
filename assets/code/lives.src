@@ -3,6 +3,7 @@ lives = 64
 
 setcol(3, 3, 3)
 settext("health: 3" )
+setpos(20, 20)
 
 while ( lives > 0 ) {
     setpos(2, 2)

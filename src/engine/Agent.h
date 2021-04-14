@@ -45,15 +45,23 @@ class Agent : public Core::Object {
         bool IsAlive();
         virtual void Update(float deltaTime);
         virtual void Render(sf::RenderWindow *W);
+
         void SetPosition(float X = 1.0, float Y = 1.0, unsigned int index = 0);
         void SetVelocity(float X = 1.0, float Y = 1.0);
         void SetSprite(unsigned int N);
-
         sf::Sprite* GetSprite();
+
+        void SetText(std::string T);
+        sf::Text* GetText();
+
         unsigned long int GetInput(unsigned int B);
+
         void SetCollisionLayer(unsigned int B);
         bool CheckCollided(unsigned int B);
         void SetColour(unsigned char R, unsigned char G, unsigned char B, unsigned char A=3);
+
+
+
 
         void Spawn(std::string FN, unsigned int x, unsigned int y);
         void Die();
@@ -68,6 +76,7 @@ class Agent : public Core::Object {
         std::pair<unsigned int, unsigned int>   velocity;
 
         sf::Sprite                              sprite;
+        sf::Text                                text;
 
         //
         // references to external objects, useful parts of engine

@@ -329,7 +329,7 @@ namespace Runtime {
                         stack.pop_back();
 
                         if ( ownerAgent ) {
-//                            ownerAgent->SetText(stringTable[strIndex.address], 16);
+                            ownerAgent->SetText(stringTable[strIndex.address]);
                         }
                         break;
                     }

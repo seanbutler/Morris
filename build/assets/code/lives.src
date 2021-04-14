@@ -1,9 +1,0 @@
-decl lives
-lives = 64
-
-setcol(3, 3, 3)
-settext("health: 3" )
-
-while ( lives > 0 ) {
-    setpos(2, 2)
-}

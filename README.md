@@ -99,33 +99,17 @@ Which is compiled via an tree like this
 
 
 ## Future
-
 - [ ] Safe File system access constrained to reading and writing local sub dirs only, this is good for indie game distro
-
-- [ ] Makes use of underlying parallel hardware where possible
-- [ ] Control of Cores and CPUs
-
+- [ ] Filesystem Limited to Zip Internals   (via PhysicsFS or Similar)
 - [ ] Integrated Physics and Collision Libs
 - [ ] Networking Library (SFML)
 - [ ] Sound (SFML)
-- [ ] Filesystem Limited to Zip Internals   (via PhysicsFS or Similar)
+- [ ] Makes use of underlying parallel hardware where possible. Control of Cores and CPUs
 - [ ] Text Tables Database for Languages (CSV?)
-
-Note: this may change to another lib in future depending 
-
-### Finite State Machines
-- [ ] Syntactic Sugar Makes State and FSMs Easier
-- [ ] Machines and States are first class objects
-
-### Aggregate Type
+- [ ] Syntactic Sugar To Make State and FSMs Easier
+- [ ] FSMs and States are first class objects
 - [ ] Associative Arrays => Pairs, Tuples & Arrays 
- 
-### thread hierarchy
-  - [ ] access child (via return handle? or other method)
-  - [ ] access parent
-  - [ ] dependencies
-
-### extend language
+- [ ] access child thread (via return handle? or other method) parent access?
 - [ ] expose window controls to language
 - [ ] separate window and scheduler loop
 - [ ] set movement sprite_size

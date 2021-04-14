@@ -1,16 +1,26 @@
 # Morris Programming Language
 
-Sometimes you just want to program a game and not worry about the associated technology. No CMake, windowing or opengl configuration no linking woes.
+_Morris_ is a simple programming language for making games. Wherever possible if we could do without it then it has been left out. 
 
-Morris is a language with everything you need in one binary. Compiler and runtime integrated together. Forget dependencies. Distribute sources or compiled bytecode, both are executable.
 
-Morris is a work in progress, its still very early stages. Its likely some things will break and change (for the better).
+![gif anim of some sprites moving](./screenshots/anim6.gif)
 
-This distribution of Morris is closely integrated with SFML so the common parts of games: graphics, physics, window, input, sound, fonts, networking, etc. are all integrated, cross platform and ready to go because of that wonderful library.
+
+Once we specialise in games, its arguable how extensive a feature set we really need. Also, search based automatic and generative programming is significantly helped by having a more limited set of types.
+
+Currently there are is only two types, __integers__ and __threads__. In addition, there are no functions, no procedures, no classes etc. Instead we have threads which each run in their own little virtual machine. All data inside a thread is private. Communication between the threads is done via a kind of message passing. All messages are broadcast to all threads and disappear immediately, they carry no data except themselves so in a sense they are like semaphores. 
+
+While all this may sound restrictive it turns out to be focussing, because games are highly parallel systems with lots of interacting agents and as developers we want to quash bugs due to shared or stale data and avoid race conditions and other snafoos.
+
+Currently _Morris_ is a language with everything you need in one binary. Compiler and runtime integrated together. Forget dependencies. Distribute sources or compiled bytecode, both are executable. Sometimes you just want to program a game and not worry about the associated technology. No CMake, windowing or opengl configuration no linking woes.
+
+Every thread may have a sprite or some text and also a position and velocity.
 
 ![gif anim of some sprites moving](./screenshots/anim3.gif)
 
 Like with the above SFML integration, Morris is a system "with bells on" that is, we intend to include several widely used as closely coupled features from other common libraries e.g. zip archive and local only filesystem, integrated spreadsheet data import for table input.
+
+Morris is a work in progress, its still very early stages. Its likely some things will break and change (for the better).
 
 Morris is influenced by some of the ideas behind [erlang](https://en.wikipedia.org/wiki/Erlang_(programming_language)) and Pascal but Morris programs look very familiar to anyone who has used c js c++ rust or swift. Right now, Morris programs look like this...
 
@@ -62,7 +72,6 @@ Which is compiled via an tree like this
 
 ## Major ToDos / Goals
 
-### Easy
 - [x] Easy for beginners to learn
 - [x] No semicolons
 - [x] Familiar Syntax C like block structured syntax
@@ -73,28 +82,34 @@ Which is compiled via an tree like this
 - [X] Sprites, Colors, Coords etc (SFML)
 - [X] Keyboard IO (SFML)
 - [X] Text and Fonts (SFML)
-- [ ] Integrated Physics and Collision Libs
-- [ ] Networking Library (SFML)
-- [ ] Sound (SFML)
-- [ ] Filesystem Limited to Zip Internals   (via PhysicsFS or Similar)
-- [ ] Text Tables Database for Languages (CSV?)
+
 
 ### Safe(er/ish)
 - [x] Stack Based Locals, Heap Based Globals
 - [x] No pointers because no dynamic heap allocation
 - [x] No shared memory between Threads ([erlang](https://en.wikipedia.org/wiki/Erlang_(programming_language)))
 - [x] When a Thread exits all the memory associated is released ([erlang](https://en.wikipedia.org/wiki/Erlang_(programming_language)))
-- [ ] Broadcast and Narrow cast Messages between Threads ([erlang](https://en.wikipedia.org/wiki/Erlang_(programming_language)))
-- [ ] Pure Functions, No Side Effects (https://en.wikipedia.org/wiki/Pure_function)
-- [ ] Safe File system access constrained to reading and writing local sub dirs only, this is good for indie game distro
+
 
 ### Parallel First
 - [x] Parallel execution is trivial and straightforward (via VMs)
 - [x] Threads are lightweight userspace objects 
 - [x] No Shared Memory, Eliminates Race Conditions and Other Problems
-- [ ] Message Passing and Broadcast Between Threads
+- [ ] Broadcast and Narrow cast Messages between Threads ([erlang](https://en.wikipedia.org/wiki/Erlang_(programming_language)))
+
+
+## Future
+
+- [ ] Safe File system access constrained to reading and writing local sub dirs only, this is good for indie game distro
+
 - [ ] Makes use of underlying parallel hardware where possible
 - [ ] Control of Cores and CPUs
+
+- [ ] Integrated Physics and Collision Libs
+- [ ] Networking Library (SFML)
+- [ ] Sound (SFML)
+- [ ] Filesystem Limited to Zip Internals   (via PhysicsFS or Similar)
+- [ ] Text Tables Database for Languages (CSV?)
 
 Note: this may change to another lib in future depending 
 
@@ -102,20 +117,9 @@ Note: this may change to another lib in future depending
 - [ ] Syntactic Sugar Makes State and FSMs Easier
 - [ ] Machines and States are first class objects
 
-### Simplified Types
-Once we specialise its arguable how extensive types we really need. Search based automatic programming is significantly helped with more limited types
-- [X] Numbers
-- [X] Text
+### Aggregate Type
 - [ ] Associative Arrays => Pairs, Tuples & Arrays 
-
-
-## Other Minor Dev Todos
-
-### spawn command
-  - [x] filenames/strings for spawn
-  - [x] inherit position
-  - [x] set positions
-
+ 
 ### thread hierarchy
   - [ ] access child (via return handle? or other method)
   - [ ] access parent
@@ -129,6 +133,8 @@ Once we specialise its arguable how extensive types we really need. Search based
 - [ ] procedure parsing and code generation
 
 ## Why?
+
+Games dont seem to be object orientated games are more thread orientated. Lets make a system with parallelism at the heart of it and see how that works out.
 
 ![gif anim of some sprites moving](./screenshots/anim.gif)
 ![gif anim of some sprites moving](./screenshots/anim2.gif)

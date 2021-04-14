@@ -3,6 +3,7 @@ lives = 3
 
 decl button
 button = 0
+
 decl delay
 
 decl dx
@@ -13,7 +14,8 @@ setcol(3, 2, 2)
 
 while ( lives > 0 ) {
 
-    dx=0 dy=0
+    dx=0
+    dy=0
 
     if ( getinput(1) ) { dy=0-2 }
     if ( getinput(2) ) { dx=2 }
@@ -28,8 +30,8 @@ while ( lives > 0 ) {
 
     if ( delay == 0 ) {
         if ( getinput(5) ) {
-            delay = 8
             spawn("assets/code/sparkle.src")
+            delay = 12
         }
     }
 }

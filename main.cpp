@@ -13,7 +13,7 @@
 
 Engine::Textures textures("./assets/textures/sean/Untitled.png", 16);
 Engine::Fonts font_manager("./assets/fonts/Computerfont.ttf");
-Engine::MainLoop loop(256, 192, 4, 30, "Morris");
+Engine::MainLoop loop(256, 192, 2, 30, "Morris");
 
 // ---------------------------------------------------------------------------
 

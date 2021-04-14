@@ -9,20 +9,31 @@ state = 0
 decl counter
 counter = 0
 
-spawnat("assets/code/hud.src", 64, 64)
+settext("Unicorn Versus Robots" )
+setpos(48, 100)
 
 while(coins>0){
 
     counter = 90
-    spawnat("assets/code/wave.src", 64, 64)
-    while(state == 0){
+    while(state == 0) {
         counter = counter -1
         if (counter <= 0){
             state = 1
         }
     }
 
-    while(state == 1) {
+    counter = 90
+    spawnat("assets/code/wave.src", 64, 64)
+    while(state == 1){
+        counter = counter -1
+        if (counter <= 0){
+            state = 2
+        }
+    }
+
+    spawnat("assets/code/hud.src", 64, 64)
+
+    while(state == 2) {
 
         decl y
         y = 0
@@ -50,8 +61,7 @@ while(coins>0){
         }
 
         spawnat("assets/code/player.src", 128, 172)
-        state = 2
+        state = 3
     }
-
 
 }

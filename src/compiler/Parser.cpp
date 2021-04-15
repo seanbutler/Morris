@@ -64,19 +64,19 @@ ModuleASTNode * Parser::ParseModule() {
                 break;
             }
 
-            // PROCEDURE DECLARATION
-            case TokenEnum::KWD_PROC: {
-//                std::cout << "Parser::Parse() TokenEnum::KWD_PROC" << std::endl;
-                statementsNodePtr->children.push_back(ParseProcedure(statementsNodePtr));
-                break;
-            }
+//            // PROCEDURE DECLARATION
+//            case TokenEnum::KWD_PROC: {
+////                std::cout << "Parser::Parse() TokenEnum::KWD_PROC" << std::endl;
+//                statementsNodePtr->children.push_back(ParseProcedure(statementsNodePtr));
+//                break;
+//            }
 
-            // FUNCTION DECLARATION
-            case TokenEnum::KWD_FUNC: {
-//                std::cout << "Parser::Parse() TokenEnum::KWD_FUNC" << std::endl;
-                statementsNodePtr->children.push_back(ParseFunction(statementsNodePtr));
-                break;
-            }
+//            // FUNCTION DECLARATION
+//            case TokenEnum::KWD_FUNC: {
+////                std::cout << "Parser::Parse() TokenEnum::KWD_FUNC" << std::endl;
+//                statementsNodePtr->children.push_back(ParseFunction(statementsNodePtr));
+//                break;
+//            }
 
             // OUTPUT
             case TokenEnum::KWD_OUTPUT: {
@@ -119,6 +119,19 @@ ModuleASTNode * Parser::ParseModule() {
             case TokenEnum::KWD_SETCOLLISION:{
 //                std::cout << "Parser::Parse() TokenEnum::KWD_SETSPRITE" << std::endl;
                 statementsNodePtr->children.push_back(ParseSetcollision(statementsNodePtr));
+                break;
+            }
+
+
+            case TokenEnum::KWD_TRANSMIT:{
+//                std::cout << "Parser::Parse() TokenEnum::KWD_TRANSMIT" << std::endl;
+                statementsNodePtr->children.push_back(ParseTransmit(statementsNodePtr));
+                break;
+            }
+
+            case TokenEnum::KWD_RECEIVE:{
+//                std::cout << "Parser::Parse() TokenEnum::KWD_RECEIVE" << std::endl;
+                statementsNodePtr->children.push_back(ParseReceive(statementsNodePtr));
                 break;
             }
 
@@ -1185,6 +1198,69 @@ SetTextASTNode * Parser::ParseSetText(ASTNode *P) {
         else
         {
             std::cerr << "Parse Error : SetText Expected ( Left Parenthesis" << std::endl;
+        }
+    }
+
+    return statementNodeSP;
+}
+
+// ----------------------------------------------------------------------
+
+ASTNode * Parser::ParseTransmit(ASTNode *P) {
+    ASTNode * statementNodeSP = nullptr;
+    ASTNode * vExprNodeSP;
+
+    if ( tokenItor->kind == TokenEnum::KWD_TRANSMIT ) {
+        statementNodeSP = new GetCollisionASTNode();
+
+        tokenItor++;
+        if ( tokenItor->kind == TokenEnum::SYM_LPAREN ) {
+
+            tokenItor++;
+            vExprNodeSP = ParseExpression();
+            statementNodeSP->children.push_back(vExprNodeSP);
+
+            if (tokenItor->kind != TokenEnum::SYM_RPAREN) {
+                std::cerr << "Parse Error : Transmit Expected ) Right Parenthesis" << std::endl;
+            }
+        }
+        else
+        {
+            std::cerr << "Parse Error : Transmit Expected ( Left Parenthesis" << std::endl;
+        }
+    }
+
+    return statementNodeSP;
+}
+
+
+// ----------------------------------------------------------------------
+
+ASTNode * Parser::ParseReceive(ASTNode *P) {
+    ASTNode * statementNodeSP = nullptr;
+    ASTNode * xExprNodeSP;
+
+    if ( tokenItor->kind == TokenEnum::KWD_RECEIVE ) {
+        statementNodeSP = new SetcollisionASTNode();
+
+        tokenItor++;
+
+        if ( tokenItor->kind == TokenEnum::SYM_LPAREN ) {
+            tokenItor++;
+            xExprNodeSP = ParseExpression();
+            statementNodeSP->children.push_back(xExprNodeSP);
+
+            if (tokenItor->kind == TokenEnum::SYM_RPAREN) {
+                tokenItor++;
+            }
+            else
+            {
+                std::cerr << "Parse Error : Receive Expected ) Right Parenthesis" << std::endl;
+            }
+        }
+        else
+        {
+            std::cerr << "Parse Error : Receive Expected ( Left Parenthesis" << std::endl;
         }
     }
 

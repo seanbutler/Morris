@@ -4,7 +4,7 @@
 
 // ----------------------------------------------------------------------
 
- #define SCREENSHOTS
+#define SCREENSHOTS
 
 // ----------------------------------------------------------------------
 
@@ -44,6 +44,8 @@ namespace Engine {
 
     void MainLoop::Update()
     {
+        sf::Keyboard::Key key;
+
         while (window.isOpen())
         {
             deltaTime = clock.getElapsedTime().asSeconds();
@@ -58,22 +60,24 @@ namespace Engine {
 
             entityScheduler.Update(deltaTime);
 
-
             window.clear(clearColour);
             entityScheduler.Render(&window);
             window.display();
 
 #ifdef SCREENSHOTS
-            sf::Vector2u windowSize = window.getSize();
-            sf::Texture texture;
-            texture.create(windowSize.x, windowSize.y);
-            texture.update(window);
-            sf::Image screenshot = texture.copyToImage();
+            if ( sf::Keyboard::isKeyPressed(sf::Keyboard::F12))
+            {
+                sf::Vector2u windowSize = window.getSize();
+                sf::Texture texture;
+                texture.create(windowSize.x, windowSize.y);
+                texture.update(window);
+                sf::Image screenshot = texture.copyToImage();
 
-            std::stringstream filename;
-            filename << "screenshots/screenshot_" << std::setw(5) << std::setfill('0') << screenshot_num << ".png";
-            screenshot.saveToFile( filename.str() );
-            screenshot_num++;
+                std::stringstream filename;
+                filename << "screenshots/screenshot_" << std::setw(5) << std::setfill('0') << screenshot_num << ".png";
+                screenshot.saveToFile( filename.str() );
+                screenshot_num++;
+            }
 #endif
         }
     }

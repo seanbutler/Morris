@@ -34,6 +34,10 @@ Token tokens[] = {
         Token(KWD_SPAWNAT,      "spawnat"           ),
 
         Token(KWD_SETALIEN,     "setalien"          ),
+
+        Token(KWD_TRANSMIT, "transmit"  ),
+        Token(KWD_RECEIVE, "receive"    ),
+
 };
 
 Token symbols[] = {

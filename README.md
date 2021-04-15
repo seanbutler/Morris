@@ -2,7 +2,6 @@
 
 _Morris_ is a simple programming language for making games. Wherever possible if we could do without it then it has been left out. 
 
-
 ![gif anim of some sprites moving](./screenshots/anim6.gif)
 
 

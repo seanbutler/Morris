@@ -72,9 +72,13 @@ enum TokenEnum : int {
     KWD_SETCOLLISION,
     KWD_GETCOLLISION,
 
+
     KWD_SPAWNAT,
     KWD_SPAWN,
     KWD_SETALIEN,
+
+    KWD_TRANSMIT,
+    KWD_RECEIVE,
 
     TOK_END_OF_FILE = 666,
     TOK_ERROR = 667

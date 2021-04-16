@@ -22,6 +22,7 @@ while ( alive > 0 ) {
     if ( getcollision(3)  )
     {
         alive = 0
+        transmit(10)
     }
 }
 

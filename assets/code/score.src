@@ -1,9 +1,31 @@
-decl lives
-lives = 1
-
 setcol(3, 3, 3)
-setpos(128+32, 2)
+setpos(128+16, 2)
+
 settext("score: 000000")
 
-while ( lives > 0 ) {
+
+while ( receive(10) == 0 ) {
 }
+
+settext("score: 000010")
+
+while ( receive(10) == 0 ) {
+}
+
+settext("score: 000020")
+
+
+while ( receive(10) == 0 ) {
+}
+
+settext("score: 000030")
+
+while ( receive(10) == 0 ) {
+}
+
+settext("score: 000040")
+
+while ( receive(10) == 0 ) {
+}
+
+settext("score: 000050")

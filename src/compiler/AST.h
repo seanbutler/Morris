@@ -98,7 +98,6 @@ public:
     virtual ~ModuleASTNode(){
     }
 
-
     void Accept(InstructionASTVisitor* generator) {
         // NOW GENERATE CODE FOR ALL THE STATEMENTS
         generator->Visit((ModuleASTNode*)this);
@@ -475,3 +474,30 @@ public:
 
 // ----------------------------------------------------------------------
 
+class TransmitASTNode : public ASTNode {
+public:
+    TransmitASTNode(ASTNode * P=nullptr)
+            : ASTNode("KWD", "transmit", P)
+    {
+    }
+
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((TransmitASTNode*)this);
+    }
+};
+
+
+class ReceiveASTNode : public ASTNode {
+public:
+    ReceiveASTNode(ASTNode * P=nullptr)
+            : ASTNode("KWD", "receive", P)
+    {
+    }
+
+    void Accept(InstructionASTVisitor* generator) {
+        generator->Visit((ReceiveASTNode*)this);
+    }
+};
+
+
+// ----------------------------------------------------------------------

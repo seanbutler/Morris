@@ -45,6 +45,9 @@ class GetInputASTNode;
 class GetCollisionASTNode;
 class FunctionASTNode;
 class ProcedureASTNode;
+class TransmitASTNode;
+class ReceiveASTNode;
+
 
 // ---------------------------------------------------------------------------
 
@@ -70,17 +73,22 @@ public:
     void Visit(OperatorASTNode * A);
     void Visit(ReturnASTNode * A);
     void Visit(OutputASTNode * A);
+
     void Visit(SetposASTNode * A);
     void Visit(SetvelASTNode * A);
     void Visit(SetcolASTNode * A);
+
     void Visit(SetspriteASTNode * A);
-    void Visit(SetcollisionASTNode * A);
     void Visit(SetTextASTNode * A);
     void Visit(GetInputASTNode * A);
+    void Visit(SetcollisionASTNode * A);
     void Visit(GetCollisionASTNode * A);
 
     void Visit(FunctionASTNode * A);
     void Visit(ProcedureASTNode * A);
+
+    void Visit(TransmitASTNode * A);
+    void Visit(ReceiveASTNode * A);
 
     SymbolTableStack symbolTable;
     std::vector<Location> instructions;

@@ -59,6 +59,9 @@ enum INSTR {
     SPAWNAT,
     SPAWN,
 
+    TRANSMIT,
+    RECEIVE,
+
     AGET,
     STRING,
 

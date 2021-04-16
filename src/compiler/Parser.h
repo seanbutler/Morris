@@ -57,11 +57,8 @@ public:
     SpawnASTNode * ParseSpawn(ASTNode *P=nullptr);
     SpawnAtASTNode * ParseSpawnAt(ASTNode *P=nullptr);
 
-//    TransmitASTNode * ParseTransmit(ASTNode *P = nullptr);
-//    ReceiveASTNode * ParseReceive(ASTNode *P = nullptr);
-
-    ASTNode * ParseTransmit(ASTNode *P = nullptr);
-    ASTNode * ParseReceive(ASTNode *P = nullptr);
+    TransmitASTNode * ParseTransmit(ASTNode *P = nullptr);
+    ReceiveASTNode * ParseReceive(ASTNode *P = nullptr);
 
     SymbolTableStack symbolTable;
 

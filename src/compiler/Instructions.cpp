@@ -48,8 +48,14 @@ std::string instructionNames[] = {
         "ASETVAR",
 
         "AGETINPUT",
+        "ASETCOLLISION",
+        "AGETCOLLISION",
 
+        "SPAWNAT",
         "SPAWN",
+
+        "TRANSMIT",
+        "RECEIVE",
 
         "AGET",
         "STRING",

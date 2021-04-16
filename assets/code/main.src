@@ -1,67 +1,62 @@
-
-
-decl coins
-coins = 3
-
-decl state
-state = 0
-
-decl counter
-counter = 0
-
+spawnat("assets/code/hud.src", 64, 64)
 settext("Unicorn Versus Robots" )
 setpos(48, 100)
 
-while(coins>0){
+decl counter
+counter = 10
 
-    counter = 90
-    while(state == 0) {
-        counter = counter -1
-        if (counter <= 0){
-            state = 1
-        }
+decl flasher
+flasher = 10
+
+while(counter > 0) {
+    counter = counter - 1
+
+    flasher = 10
+    while ( flasher > 0 )
+    {
+        flasher = flasher - 1
+        settext("Robots Versus Unicorn" )
+        setpos(48, 80)
     }
 
-    counter = 90
-    spawnat("assets/code/wave.src", 64, 64)
-    while(state == 1){
-        counter = counter -1
-        if (counter <= 0){
-            state = 2
-        }
+    flasher = 10
+    while ( flasher > 0 )
+    {
+        flasher = flasher - 1
+        settext(" ")
+        setpos(48, 80)
     }
-
-    spawnat("assets/code/hud.src", 64, 64)
-
-    while(state == 2) {
-
-        decl y
-        y = 0
-
-        decl x
-        x = 0
-
-        while ( x < 7 ) {
-
-            y = 4
-
-            spawnat("assets/code/robot.src", x * 20, 10 + y * 20)
-            y = y - 1
-
-            spawnat("assets/code/robot.src", x * 20, 10 + y * 20)
-            y = y - 1
-
-            spawnat("assets/code/robot.src", x * 20, 10 + y * 20)
-            y = y - 1
-
-            spawnat("assets/code/robot.src", x * 20, 10 + y * 20)
-            y = y - 1
-
-            x = x + 1
-        }
-
-        spawnat("assets/code/player.src", 128, 172)
-        state = 3
-    }
-
 }
+
+counter = 90
+spawnat("assets/code/wave.src", 64, 64)
+
+while(counter > 0){
+   counter = counter - 1
+}
+
+decl y
+y = 0
+
+decl x
+x = 0
+
+while ( x < 7 ) {
+    y = 4
+
+    spawnat("assets/code/robot.src", x * 20, 10 + y * 20)
+    y = y - 1
+
+    spawnat("assets/code/robot.src", x * 20, 10 + y * 20)
+    y = y - 1
+
+    spawnat("assets/code/robot.src", x * 20, 10 + y * 20)
+    y = y - 1
+
+    spawnat("assets/code/robot.src", x * 20, 10 + y * 20)
+    y = y - 1
+
+    x = x + 1
+}
+
+spawnat("assets/code/player.src", 128, 172)

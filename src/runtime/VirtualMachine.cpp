@@ -434,26 +434,40 @@ namespace Runtime {
                         break;
                     }
 
-//                    case INSTR::ACALL : {
-//                        std::cout << "ACALL - alien call, an interface to the engine" << std::endl;
-//
-//                        Location lib = stack[stack.size() - 1];
-//                        stack.pop_back();
-//
-//                        Location func = stack[stack.size() - 1];
-//                        stack.pop_back();
-//
-//                        Location numparams = stack[stack.size() - 1];
-//                        stack.pop_back();
-//
-//                        std::vector<Location> params;
-//                        for (int n=0;n<(int)numparams.value; n++){
-//                            params.push_back( stack[stack.size() - 1] );
-//                            stack.pop_back();
-//                        }
-//
-//                        break;
-//                    }
+                    case INSTR::RECEIVE : {
+//                        std::cout << "RECEIVE - 1 params, gets collision status ";
+
+                        Location v = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        Location res;
+                        res.value = 0;
+                        if ( ownerAgent ) {
+                            if ( ownerAgent->Receive(v.value) ) {
+//                                std::cout << "TRUE this frame" << std::endl;
+                                res.value = 1;
+                            }
+                            else
+                            {
+//                                std::cout << "FALSE this frame" << std::endl;
+                            }
+                        }
+
+                        stack.push_back(res);
+                        break;
+                    }
+
+                    case INSTR::TRANSMIT : {
+//                      std::cout << "TRANSMIT - 1 params, sets layer for collision system" << std::endl;
+
+                        Location v = stack[stack.size() - 1];
+                        stack.pop_back();
+
+                        if ( ownerAgent ) {
+                            ownerAgent->Transmit(v.value);
+                        }
+                        break;
+                    }
 
                 }
 

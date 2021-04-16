@@ -20,8 +20,6 @@
 #include "Collision.h"
 
 // ----------------------------------------------------------------------
-
-// ----------------------------------------------------------------------
 namespace Engine {
 
 class Scheduler;    // i manage agents
@@ -60,8 +58,19 @@ class Agent : public Core::Object {
         bool CheckCollided(unsigned int B);
         void SetColour(unsigned char R, unsigned char G, unsigned char B, unsigned char A=3);
 
+        void Transmit(unsigned int B) {
+            Agent::signals[B]++;
+        }
 
+        bool Receive(unsigned int B)
+        {
+            if ( Agent::signals[B] > 0 ){
+                Agent::signals[B]--;
+                return true;
+            }
 
+            return false;
+        }
 
         void Spawn(std::string FN, unsigned int x, unsigned int y);
         void Die();
@@ -71,6 +80,8 @@ class Agent : public Core::Object {
         Engine::Collider                        collider;
 
     private:
+        static unsigned int signals[1024];
+
         Runtime::VM                             virtualMachine;
         std::pair<unsigned int, unsigned int>   position;
         std::pair<unsigned int, unsigned int>   velocity;
@@ -86,3 +97,4 @@ class Agent : public Core::Object {
 }
 
 // ----------------------------------------------------------------------
+

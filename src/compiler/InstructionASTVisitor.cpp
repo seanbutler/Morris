@@ -375,3 +375,17 @@ void InstructionASTVisitor::Visit(SetcollisionASTNode * A){
 }
 
 // --------------------------------------------------
+
+void InstructionASTVisitor::Visit(TransmitASTNode * A){
+//    std::cout << "Visit TransmitASTNode" << std::endl;
+    A->children[0]->Accept(this);
+    instructions.emplace_back(Location(INSTR::TRANSMIT));
+}
+
+void InstructionASTVisitor::Visit(ReceiveASTNode * A){
+//    std::cout << "Visit ReceiveASTNode" << std::endl;
+    A->children[0]->Accept(this);
+    instructions.emplace_back(Location(INSTR::RECEIVE));
+}
+
+// --------------------------------------------------

@@ -38,12 +38,12 @@ public:
         parser.SetInput(tokens);
         ModuleASTNode * ast = parser.ParseModule();
 
-//        std::ofstream diagramFile(filename + ".gv");
-//        diagramFile << "digraph G {" <<  std::endl;
-//        diagramFile << "node [shape = circle];" << std::endl;
-//        ast->Diagram(diagramFile);
-//        diagramFile << "}" << std::endl;
-//        diagramFile.close();
+        std::ofstream diagramFile(filename + ".gv");
+        diagramFile << "digraph G {" <<  std::endl;
+        diagramFile << "node [shape = circle];" << std::endl;
+        ast->Diagram(diagramFile);
+        diagramFile << "}" << std::endl;
+        diagramFile.close();
 
         InstructionASTVisitor generator;
         generator.Visit(ast);

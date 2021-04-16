@@ -20,6 +20,10 @@
 extern Engine::Textures textures;
 extern Engine::Fonts font_manager;
 
+
+unsigned int Engine::Agent::signals[] = {0};
+
+
 // ----------------------------------------------------------------------
 namespace Engine{
 
@@ -56,6 +60,7 @@ namespace Engine{
         collider.SetRect(sprite.getGlobalBounds());
 
         collider.HandleCollisions(scheduler);
+
     }
 
     void Agent::Render(sf::RenderWindow *W)

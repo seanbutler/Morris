@@ -1,0 +1,17 @@
+digraph G {
+node [shape = circle];
+node174 [ uuid = "43ea792c-c6ba-47c8-b5d4-a29f898bd026" shape = "record" label = "MDL
+ " ];
+node175 [ uuid = "7b837ac5-972c-4de5-ba78-d0de02880a8d" shape = "record" label = "KWD
+ spawn" ];
+node176 [ uuid = "1100811f-8620-4828-bd69-a5d5336ec909" shape = "record" label = "STR
+ assets/code/lives.src" ];
+node175 -> node176;
+node174 -> node175;
+node177 [ uuid = "a4808767-6d5a-42f1-97aa-89561c5ad8c5" shape = "record" label = "KWD
+ spawn" ];
+node178 [ uuid = "e80ddc43-17d6-429c-b4ac-6dd498aaf4a8" shape = "record" label = "STR
+ assets/code/score.src" ];
+node177 -> node178;
+node174 -> node177;
+}

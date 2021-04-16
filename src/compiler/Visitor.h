@@ -45,8 +45,7 @@ public:
     virtual void Visit(ReturnASTNode * A)=0;
     virtual void Visit(FunctionASTNode * A)=0;
     virtual void Visit(ProcedureASTNode * A)=0;
-//    virtual void Visit(SpawnASTNode * A)=0;
-//    virtual void Visit(SpawnAtASTNode * A)=0;
+
 };
 
 // ---------------------------------------------------------------------------

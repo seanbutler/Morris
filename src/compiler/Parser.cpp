@@ -110,11 +110,11 @@ ModuleASTNode * Parser::ParseModule() {
                 break;
             }
 
-            case TokenEnum::KWD_GETCOLLISION:{
-//                std::cout << "Parser::Parse() TokenEnum::KWD_GETCOLLISION" << std::endl;
-                statementsNodePtr->children.push_back(ParseGetCollision(statementsNodePtr));
-                break;
-            }
+//            case TokenEnum::KWD_GETCOLLISION:{
+////                std::cout << "Parser::Parse() TokenEnum::KWD_GETCOLLISION" << std::endl;
+//                statementsNodePtr->children.push_back(ParseGetCollision(statementsNodePtr));
+//                break;
+//            }
 
             case TokenEnum::KWD_SETCOLLISION:{
 //                std::cout << "Parser::Parse() TokenEnum::KWD_SETSPRITE" << std::endl;
@@ -129,11 +129,11 @@ ModuleASTNode * Parser::ParseModule() {
                 break;
             }
 
-            case TokenEnum::KWD_RECEIVE:{
-//                std::cout << "Parser::Parse() TokenEnum::KWD_RECEIVE" << std::endl;
-                statementsNodePtr->children.push_back(ParseReceive(statementsNodePtr));
-                break;
-            }
+//            case TokenEnum::KWD_RECEIVE:{
+////                std::cout << "Parser::Parse() TokenEnum::KWD_RECEIVE" << std::endl;
+//                statementsNodePtr->children.push_back(ParseReceive(statementsNodePtr));
+//                break;
+//            }
 
             // GETINPUT
 //            case TokenEnum::KWD_GETINPUT:{
@@ -230,7 +230,6 @@ IdentifierListASTNode * Parser::ParseIdentList(ASTNode *P) {
     else
     {
         std::cerr << "ERROR - Parse Identifier List, Expected Identifier Found " << tokenItor->kind << " " << tokenItor->name << std::endl;
-
     }
 
     return listNodeSP;
@@ -379,7 +378,7 @@ BlockASTNode * Parser::ParseBlock(ASTNode *P, bool returnable) {
             // BLOCK
             case TokenEnum::SYM_LBRACES: {
                 tokenItor++;
-//                std::cout << "Parser::Parse() TokenEnum::SYM_LBRACES" << std::endl;
+//                std::cout << "Parser::ParseBlock() TokenEnum::SYM_LBRACES" << std::endl;
                 statementsNodeSP->children.push_back(ParseBlock(P, returnable));
                 tokenItor++;
                 break;
@@ -387,28 +386,28 @@ BlockASTNode * Parser::ParseBlock(ASTNode *P, bool returnable) {
 
             // DECLARATION
             case TokenEnum::KWD_DECL: {
-//                std::cout << "Parser::Parse() TokenEnum::KWD_DECL" << std::endl;
+//                std::cout << "Parser::ParseBlock() TokenEnum::KWD_DECL" << std::endl;
                 statementsNodeSP->children.push_back(ParseDeclaration(P));
                 break;
             }
 
             // TOK_IDENTIFIER therefore ASSIGNMENT
             case TokenEnum::TOK_IDENTIFIER: {
-//                std::cout << "Parser::Parse() TokenEnum::TOK_IDENTIFIER" << std::endl;
+//                std::cout << "Parser::ParseBlock() TokenEnum::TOK_IDENTIFIER" << std::endl;
                 statementsNodeSP->children.push_back(ParseAssignment(P, returnable));
                 break;
             }
 
             // WHILE Statement
             case TokenEnum::KWD_WHILE:{
-//                std::cout << "Parser::Parse() TokenEnum::KWD_WHILE" << std::endl;
+//                std::cout << "Parser::ParseBlock() TokenEnum::KWD_WHILE" << std::endl;
                 statementsNodeSP->children.push_back(ParseWhile(P, returnable));
                 break;
             }
 
             // IF Statement
             case TokenEnum::KWD_IF:{
-//                std::cout << "Parser::Parse() TokenEnum::KWD_IF" << std::endl;
+//                std::cout << "Parser::ParseBlock() TokenEnum::KWD_IF" << std::endl;
                 statementsNodeSP->children.push_back(ParseIf(P, returnable));
                 break;
             }
@@ -416,35 +415,35 @@ BlockASTNode * Parser::ParseBlock(ASTNode *P, bool returnable) {
             // RETURN Statement
             case TokenEnum::KWD_RETURN:{
                 if ( returnable ){
-//                    std::cout << "Parser::ParseFunctionBlock() TokenEnum::KWD_RETURN" << std::endl;
+//                    std::cout << "Parser::ParseBlock() TokenEnum::KWD_RETURN" << std::endl;
                     statementsNodeSP->children.push_back(ParseReturn(P));
                     break;
                 }
             }
 
-            // PROCEDURE
-            case TokenEnum::KWD_PROC: {
-                if ( !returnable ) {
-                    // NOT RETURNABLE THEREFORE TOPLEVEL?
-                    std::cout << "Parser::Parse() TokenEnum::KWD_PROC" << std::endl;
-                    statementsNodeSP->children.push_back(ParseProcedure());
-                    break;
-                }
-            }
-
-            // FUNCTION
-            case TokenEnum::KWD_FUNC:{
-                if ( !returnable ) {
-                    // NOT RETURNABLE THEREFORE TOPLEVEL?
-//                    std::cout << "Parser::Parse() TokenEnum::KWD_FUNC" << std::endl;
-                    statementsNodeSP->children.push_back(ParseFunction());
-                    break;
-                }
-            }
+//            // PROCEDURE
+//            case TokenEnum::KWD_PROC: {
+//                if ( !returnable ) {
+//                    // NOT RETURNABLE THEREFORE TOPLEVEL?
+//                    std::cout << "Parser::Parse() TokenEnum::KWD_PROC" << std::endl;
+//                    statementsNodeSP->children.push_back(ParseProcedure());
+//                    break;
+//                }
+//            }
+//
+//            // FUNCTION
+//            case TokenEnum::KWD_FUNC:{
+//                if ( !returnable ) {
+//                    // NOT RETURNABLE THEREFORE TOPLEVEL?
+////                    std::cout << "Parser::Parse() TokenEnum::KWD_FUNC" << std::endl;
+//                    statementsNodeSP->children.push_back(ParseFunction());
+//                    break;
+//                }
+//            }
 
             // OUTPUT
             case TokenEnum::KWD_OUTPUT:{
-//                std::cout << "Parser::Parse() TokenEnum::KWD_OUTPUT" << std::endl;
+//                std::cout << "Parser::ParseBlock() TokenEnum::KWD_OUTPUT" << std::endl;
                 statementsNodeSP->children.push_back(ParseOutput(statementsNodeSP));
                 break;
             }
@@ -452,64 +451,82 @@ BlockASTNode * Parser::ParseBlock(ASTNode *P, bool returnable) {
 
             // SETPOS
             case TokenEnum::KWD_SETPOS:{
-//                std::cout << "Parser::Parse() TokenEnum::KWD_SETPOS" << std::endl;
+//                std::cout << "Parser::ParseBlock() TokenEnum::KWD_SETPOS" << std::endl;
                 statementsNodeSP->children.push_back(ParseSetpos(statementsNodeSP));
                 break;
             }
 
             case TokenEnum::KWD_SETVEL:{
-//                std::cout << "Parser::Parse() TokenEnum::KWD_SETVEL" << std::endl;
+//                std::cout << "Parser::ParseBlock() TokenEnum::KWD_SETVEL" << std::endl;
                 statementsNodeSP->children.push_back(ParseSetvel(statementsNodeSP));
                 break;
             }
 
             case TokenEnum::KWD_SETCOL:{
-//                std::cout << "Parser::Parse() TokenEnum::KWD_SETCOL" << std::endl;
+//                std::cout << "Parser::ParseBlock() TokenEnum::KWD_SETCOL" << std::endl;
                 statementsNodeSP->children.push_back(ParseSetcol(statementsNodeSP));
                 break;
             }
 
             case TokenEnum::KWD_SETSPRITE:{
-//                std::cout << "Parser::Parse() TokenEnum::KWD_SETSPRITE" << std::endl;
+//                std::cout << "Parser::ParseBlock() TokenEnum::KWD_SETSPRITE" << std::endl;
                 statementsNodeSP->children.push_back(ParseSetsprite(statementsNodeSP));
+                break;
+            }
+
+
+                // SETTEXT
+            case TokenEnum::KWD_SETTEXT: {
+//                std::cout << "Parser::ParseBlock() TokenEnum::KWD_SETTEXT" << std::endl;
+                statementsNodeSP->children.push_back(ParseSetText(statementsNodeSP));
                 break;
             }
 
             // GETINPUT
             case TokenEnum::KWD_GETINPUT:{
-//                std::cout << "Parser::Parse() TokenEnum::KWD_GETINPUT" << std::endl;
+//                std::cout << "Parser::ParseBlock() TokenEnum::KWD_GETINPUT" << std::endl;
                 statementsNodeSP->children.push_back(ParseGetInput(statementsNodeSP));
                 break;
             }
 
             // SETCOLLISION
             case TokenEnum::KWD_SETCOLLISION:{
-//                std::cout << "Parser::Parse() TokenEnum::KWD_SETCOLLISION" << std::endl;
+//                std::cout << "Parser::ParseBlock() TokenEnum::KWD_SETCOLLISION" << std::endl;
                 statementsNodeSP->children.push_back(ParseSetcollision(statementsNodeSP));
                 break;
             }
 
-            // GETCOLLISION
-            case TokenEnum::KWD_GETCOLLISION:{
-//                std::cout << "Parser::Parse() TokenEnum::KWD_GETCOLLISION" << std::endl;
-                statementsNodeSP->children.push_back(ParseGetCollision(statementsNodeSP));
-                break;
-            }
+//            // GETCOLLISION
+//            case TokenEnum::KWD_GETCOLLISION:{
+////                std::cout << "Parser::ParseBlock() TokenEnum::KWD_GETCOLLISION" << std::endl;
+//                statementsNodeSP->children.push_back(ParseGetCollision(statementsNodeSP));
+//                break;
+//            }
 
             // SPAWN
             case TokenEnum::KWD_SPAWN: {
-//                std::cout << "Parser::Parse() TokenEnum::KWD_SPAWN" << std::endl;
+//                std::cout << "Parser::ParseBlock() TokenEnum::KWD_SPAWN" << std::endl;
                 statementsNodeSP->children.push_back(ParseSpawn(statementsNodeSP));
                 break;
             }
 
             case TokenEnum::KWD_SPAWNAT: {
-//                std::cout << "Parser::Parse() TokenEnum::KWD_SPAWNAT" << std::endl;
+//                std::cout << "Parser::ParseBlock() TokenEnum::KWD_SPAWNAT" << std::endl;
                 statementsNodeSP->children.push_back(ParseSpawnAt(statementsNodeSP));
                 break;
             }
 
+            case TokenEnum::KWD_TRANSMIT:{
+//                std::cout << "Parser::ParseBlock() TokenEnum::KWD_TRANSMIT" << std::endl;
+                statementsNodeSP->children.push_back(ParseTransmit(statementsNodeSP));
+                break;
+            }
 
+//            case TokenEnum::KWD_RECEIVE:{
+////                std::cout << "Parser::ParseBlock() TokenEnum::KWD_RECEIVE" << std::endl;
+//                statementsNodeSP->children.push_back(ParseReceive(statementsNodeSP));
+//                break;
+//            }
 
         }
     }
@@ -538,6 +555,9 @@ ASTNode * Parser::ParseExpression(ASTNode *P, bool returnable) {
     }
     else if ( tokenItor->kind == TokenEnum::KWD_GETCOLLISION) {
         lhsNodeSP = ParseGetCollision();
+    }
+    else if ( tokenItor->kind == TokenEnum::KWD_RECEIVE) {
+        lhsNodeSP = ParseReceive();
     }
     else {
         return nullptr;
@@ -1064,7 +1084,6 @@ GetCollisionASTNode * Parser::ParseGetCollision(ASTNode *P) {
     return statementNodeSP;
 }
 
-
 // ----------------------------------------------------------------------
 
 SpawnAtASTNode * Parser::ParseSpawnAt(ASTNode *P) {
@@ -1193,7 +1212,6 @@ SetTextASTNode * Parser::ParseSetText(ASTNode *P) {
             {
                 std::cerr << "Parse Error : SetText Expected ) Right Parenthesis" << std::endl;
             }
-
         }
         else
         {
@@ -1206,42 +1224,14 @@ SetTextASTNode * Parser::ParseSetText(ASTNode *P) {
 
 // ----------------------------------------------------------------------
 
-ASTNode * Parser::ParseTransmit(ASTNode *P) {
-    ASTNode * statementNodeSP = nullptr;
-    ASTNode * vExprNodeSP;
-
-    if ( tokenItor->kind == TokenEnum::KWD_TRANSMIT ) {
-        statementNodeSP = new GetCollisionASTNode();
-
-        tokenItor++;
-        if ( tokenItor->kind == TokenEnum::SYM_LPAREN ) {
-
-            tokenItor++;
-            vExprNodeSP = ParseExpression();
-            statementNodeSP->children.push_back(vExprNodeSP);
-
-            if (tokenItor->kind != TokenEnum::SYM_RPAREN) {
-                std::cerr << "Parse Error : Transmit Expected ) Right Parenthesis" << std::endl;
-            }
-        }
-        else
-        {
-            std::cerr << "Parse Error : Transmit Expected ( Left Parenthesis" << std::endl;
-        }
-    }
-
-    return statementNodeSP;
-}
 
 
-// ----------------------------------------------------------------------
-
-ASTNode * Parser::ParseReceive(ASTNode *P) {
-    ASTNode * statementNodeSP = nullptr;
+TransmitASTNode * Parser::ParseTransmit(ASTNode *P) {
+    TransmitASTNode * statementNodeSP = nullptr;
     ASTNode * xExprNodeSP;
 
-    if ( tokenItor->kind == TokenEnum::KWD_RECEIVE ) {
-        statementNodeSP = new SetcollisionASTNode();
+    if ( tokenItor->kind == TokenEnum::KWD_TRANSMIT ) {
+        statementNodeSP = new TransmitASTNode();
 
         tokenItor++;
 
@@ -1255,6 +1245,35 @@ ASTNode * Parser::ParseReceive(ASTNode *P) {
             }
             else
             {
+                std::cerr << "Parse Error : Transmit Expected ) Right Parenthesis" << std::endl;
+            }
+        }
+        else
+        {
+            std::cerr << "Parse Error : Transmit Expected ( Left Parenthesis" << std::endl;
+        }
+    }
+
+    return statementNodeSP;
+}
+
+// ----------------------------------------------------------------------
+
+ReceiveASTNode * Parser::ParseReceive(ASTNode *P) {
+    ReceiveASTNode * statementNodeSP = nullptr;
+    ASTNode * vExprNodeSP;
+
+    if ( tokenItor->kind == TokenEnum::KWD_RECEIVE ) {
+        statementNodeSP = new ReceiveASTNode();
+
+        tokenItor++;
+        if ( tokenItor->kind == TokenEnum::SYM_LPAREN ) {
+
+            tokenItor++;
+            vExprNodeSP = ParseExpression();
+            statementNodeSP->children.push_back(vExprNodeSP);
+
+            if (tokenItor->kind != TokenEnum::SYM_RPAREN) {
                 std::cerr << "Parse Error : Receive Expected ) Right Parenthesis" << std::endl;
             }
         }
@@ -1266,5 +1285,6 @@ ASTNode * Parser::ParseReceive(ASTNode *P) {
 
     return statementNodeSP;
 }
+
 
 // ----------------------------------------------------------------------

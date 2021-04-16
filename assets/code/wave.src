@@ -4,24 +4,23 @@ counter = 64
 setcol(3, 3, 3)
 counter = 0
 
-counter = 0
 settext("Three" )
-while ( counter < 32 ) {
-    setpos(100, 64)
+setpos(100, 64)
+
+counter = 0
+while ( counter < 30 ) {
     counter = counter + 1
 }
 
 counter = 0
 settext("Two" )
 while ( counter < 32 ) {
-    setpos(100, 64)
     counter = counter + 1
 }
 
 counter = 0
 settext("One" )
 while ( counter < 32 ) {
-    setpos(100, 64)
     counter = counter + 1
 }
 

@@ -57,7 +57,7 @@ namespace Engine {
         graveyard.clear();
     }
 
-    // TODO - this should be a part of a component not the entity
+    // TODO - this should be a part of a service or system not the scheduler
     void Scheduler::Render(sf::RenderWindow *W)
     {
 //            std::cout << "Render Entities = " << executing.size() << std::endl;

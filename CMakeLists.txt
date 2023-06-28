@@ -1,7 +1,31 @@
-cmake_minimum_required(VERSION 3.17)
-project(Morris)
-
+cmake_minimum_required(VERSION 3.0.0)
+project(Morris VERSION 0.1.0 LANGUAGES C CXX)
+set(PROJECT_NAME Morris)
 set(CMAKE_CXX_STANDARD 20)
+
+
+#
+#  We Use Fetch Content To Pull External Lib Sources and Make Them
+#
+include(FetchContent)
+set(FETCHCONTENT_QUIET FALSE)
+
+#
+# stduuid - open source stduuid
+#
+FetchContent_Declare(
+	stduuid
+	GIT_REPOSITORY https://github.com/mariusbancila/stduuid
+	GIT_PROGRESS TRUE
+)
+
+set ( UUID_INCLUDE_DIRS 
+	${CMAKE_CURRENT_SOURCE_DIR}/build/_deps/stduuid-src/include/
+)        
+
+FetchContent_MakeAvailable(
+    stduuid
+)
 
 set(SOURCE_FILES
         main.cpp
@@ -20,22 +44,29 @@ set(SOURCE_FILES
         src/engine/Agent.cpp src/engine/Agent.h
         src/engine/Font.cpp src/engine/Font.h src/core/Object.cpp src/core/Object.h)
 
+
+
+
+
+
+include(CTest)
+enable_testing()
+
 add_executable(Morris ${SOURCE_FILES})
 
-
-
-
-find_package(SFML REQUIRED COMPONENTS system graphics window network audio)
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)
 
 set(SFML_LIBRARIES "-lsfml-graphics -lsfml-window -lsfml-system")
 
-if(SFML_FOUND)
-    include_directories(${SFML_INCLUDE_DIR})
-    target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES})
-endif()
+target_include_directories(${PROJECT_NAME} PUBLIC 
+    ${UUID_INCLUDE_DIRS}
+    ${SFML_INCLUDE_DIR}
+)
 
-target_include_directories(Morris PUBLIC ${UUID_INCLUDE_DIRS})
-target_link_libraries(Morris ${UUID_LIBRARIES})
+
+target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES})
 
 
 

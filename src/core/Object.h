@@ -12,11 +12,11 @@ namespace Core{
 
     public:
         Object(std::string N) : id(GetGlobalID()), name(N) {
-            std::cout << "Object::Object " << id << " " << name << std::endl;
+            // std::cout << "Object::Object " << id << " " << name << std::endl;
         }
 
         virtual ~Object()  {
-            std::cout << "Object::~Object " << id << " " << name << std::endl;
+            // std::cout << "Object::~Object " << id << " " << name << std::endl;
         }
 
 

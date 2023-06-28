@@ -12,10 +12,7 @@
 #include <iostream>
 #include <fstream>
 
-#include <boost/uuid/uuid.hpp>
-#include <boost/uuid/uuid_generators.hpp>
-#include <boost/uuid/uuid_io.hpp>
-#include <boost/lexical_cast.hpp>
+#include "uuid.h"
 
 #include "SymbolTable.h"
 #include "Location.h"
@@ -27,6 +24,9 @@ static unsigned int ASTGID = 0;
 
 // ----------------------------------------------------------------------
 
+
+
+
 class ASTNode {
 
 public:
@@ -36,7 +36,17 @@ public:
     , value(V)
     , parent(P)
     {
-        tag = boost::uuids::random_generator()();
+        std::random_device rd;
+        auto seed_data = std::array<int, std::mt19937::state_size> {};
+        std::generate(std::begin(seed_data), std::end(seed_data), std::ref(rd));
+        std::seed_seq seq(std::begin(seed_data), std::end(seed_data));
+        std::mt19937 generator(seq);
+        uuids::uuid_random_generator gen{generator};
+
+        uuids::uuid const id = gen();
+
+
+
     }
 
     virtual ~ASTNode(){
@@ -51,7 +61,7 @@ public:
         if ( outStream )
         {
             outStream << "node" << std::to_string(id) << " ["
-                    << " uuid = \"" << boost::lexical_cast<std::string>(tag) << "\""
+                    << " uuid = \"" << tag << "\""
                     << " shape = \"record\""
                     << " label = \"" << type << "\n ";
 
@@ -80,7 +90,7 @@ public:
 //    std::string context;
     ASTNode * parent;
 
-    boost::uuids::uuid tag;
+    uuids::uuid tag;
 
     std::vector<ASTNode*>children;
     SymbolTable symbolTable;

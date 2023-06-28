@@ -72,7 +72,7 @@ namespace Engine {
 
             }
 
-            return ( sf::Keyboard::isKeyPressed(key)  || sf::Keyboard::isKeyPressed(altKey) );
+            return ( sf::Keyboard::isKeyPressed(key) || sf::Keyboard::isKeyPressed(altKey) );
         }
 
     private:

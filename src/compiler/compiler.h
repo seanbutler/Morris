@@ -18,19 +18,26 @@
 
 //--------------------------------------------------------------------------------
 
+#include "FileCache.h"
+
+static SimpleFileCache file_cache;
+
+
 class Compiler {
 public:
     static std::pair<std::vector<Location>, std::vector<std::string>> compile(std::string filename){
 
-        std::ifstream t(filename);
-        std::string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
+        // std::ifstream t(filename);
+        // std::string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
+
+        std::string str = file_cache.Get(filename);
 
         Tokenizer tokenizer;
         tokenizer.SetInputString(str);
         tokenizer.SetFilename(filename);
         tokenizer.Scan();
 
-        t.close();
+        // t.close();
 
         std::vector<Token> tokens = tokenizer.GetOutputTokens();
 

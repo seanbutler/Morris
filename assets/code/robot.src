@@ -6,7 +6,7 @@ decl ctr
 ctr = 0
 
 setsprite(160)
-setcol(3, 3, 0)
+setcol(4, 3, 0)
 setcollision(2)
 
 while ( alive > 0 ) {
